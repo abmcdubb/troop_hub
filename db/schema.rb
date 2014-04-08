@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408150522) do
+ActiveRecord::Schema.define(version: 20140408182947) do
+
+  create_table "adults", force: true do |t|
+    t.integer  "troop_id"
+    t.string   "adult_role"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "profile_photo"
+    t.string   "special_skills"
+    t.string   "admin_privileges"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "troops", force: true do |t|
     t.string   "name"
