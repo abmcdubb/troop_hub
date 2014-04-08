@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  get 'scouts/index' => 'scouts#index'
+
+  get 'scouts/new' => 'scouts#new'
+
+  post '/scouts' => 'scouts#create'
+
+  get 'scouts/:id' => 'scouts#show'
+
+  get 'scouts/edit/:id' => 'scouts#edit'
+
+  patch 'scouts/update/:id' => 'scouts#update'
+
+  delete 'scouts/destroy' => 'scouts#destroy'
+
+
   get '/troops' => 'troops#index'
 
   get 'troops/new' => 'troops#new'
