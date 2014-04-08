@@ -7,7 +7,6 @@ class CreateAdults < ActiveRecord::Migration
       t.string :email
       t.string :phone_number
       t.string :profile_photo
-      t.string :special_skills
       t.string :admin_privileges #can create and add content once logged in
 
       t.timestamps
