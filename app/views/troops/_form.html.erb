@@ -5,11 +5,13 @@
   <%= f.label :number %>
   <%= f.text_field :number %><br/>
     <br/>
-Troop Type:
-<%= radio_button_tag(:troop_type, "Daisies") %>
-<%= label_tag(:troop_type, "Daisies") %>
-<%= radio_button_tag(:troop_type, "Brownies") %>
-<%= label_tag(:troop_type, "Brownies") %><br/>
+
+  <%= f.label :troop_type %>:
+  <%= f.label :troop_type, "Daisies", :value => "Daisies"  %>
+  <%= f.radio_button :troop_type, "Daisies" %>
+  <%= f.label :troop_type, "Brownies", :value => "Brownies" %>
+  <%= f.radio_button :troop_type, "Brownies" %>
+
 <br/>
   <%= f.label :city %>
   <%= f.text_field :city %><br/>
