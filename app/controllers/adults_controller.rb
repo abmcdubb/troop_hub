@@ -1,5 +1,5 @@
 class AdultsController < ApplicationController
-  before_action :set_troop, only: [:show, :edit, :update, :destroy]
+  before_action :set_adult, only: [:show, :edit, :update, :destroy]
 
   def show
   end
