@@ -16,7 +16,7 @@ class TroopsController < ApplicationController
     @troop = Troop.create(troop_params)
     respond_to do |format|
       if @troop.save
-        format.html { redirect_to @troop, notice: 'Troop was successfully created.' }
+        format.html { redirect_to troops_path, notice: 'Troop was successfully created.' }
       else
         format.html { render action: 'new' }
       end
