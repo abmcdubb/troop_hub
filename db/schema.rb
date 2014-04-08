@@ -11,7 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408150522) do
+ActiveRecord::Schema.define(version: 20140408190120) do
+
+  create_table "badges", force: true do |t|
+    t.string   "name"
+    t.string   "troop_type"
+    t.string   "category"
+    t.string   "logo"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.string   "grades"
+    t.string   "genre"
+    t.text     "description"
+    t.string   "season"
+    t.string   "one_time"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "troop_event_badges", force: true do |t|
+    t.integer  "troop_event_id"
+    t.integer  "badge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "troop_events", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "troop_id"
+    t.datetime "date"
+    t.string   "location"
+    t.text     "detail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "troops", force: true do |t|
     t.string   "name"
