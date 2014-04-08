@@ -13,6 +13,19 @@ Rails.application.routes.draw do
 
   delete 'troops/destroy' => 'troops#destroy'
 
+
+  get 'adults/new' => 'adults#new'
+
+  post '/adults' => 'adults#create'
+
+  get 'adults/edit/:id' => 'adults#edit'
+
+  get 'adults/:id' => 'adults#show'
+
+  patch 'adults/update/:id' => 'adults#update'
+
+  delete 'adults/destroy' => 'adults#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

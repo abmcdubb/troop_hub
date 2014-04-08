@@ -1,0 +1,27 @@
+<%= form_for(@adult) do |f| %>
+  <%= f.label "Music" %>
+  <%= f.check_box :special_skills, :value => "Music" %><br/>
+  <%= f.label "Folk Dance & Games" %>
+  <%= f.check_box :special_skills, :value => "Folk Dance & Games" %><br/>
+  <%= f.label "Arts & Crafts" %>
+  <%= f.check_box :special_skills, :value => "Arts & Crafts" %><br/>
+  <%= f.label "Sewing, Needle Arts" %>
+  <%= f.check_box :special_skills, :value => "Sewing, Needle Arts" %><br/>
+  <%= f.label "Health & Safety" %>
+  <%= f.check_box :special_skills, :value => "Health & Safety" %><br/>
+  <%= f.label "Cooking" %>
+  <%= f.check_box :special_skills, :value => "Cooking" %><br/>
+  <%= f.label "Outdoor Skills" %>
+  <%= f.check_box :special_skills, :value => "Outdoor Skills" %><br/>
+  <%= f.label "Nature, Ecology" %>
+  <%= f.check_box :special_skills, :value => "Nature, Ecology" %><br/>
+  <%= f.label "Photography" %>
+  <%= f.check_box :special_skills, :value => "Photography" %><br/>
+  <%= f.label "Math & Science" %>
+  <%= f.check_box :special_skills, :value => "Math & Science" %><br/>
+  <%= f.label "Computers" %>
+  <%= f.check_box :special_skills, :value => "Computers" %><br/>
+   <%= f.label "Other" %>
+  <%= f.text_field :special_skills %><br/>
+    <br/>
+  <%= f.submit %>
