@@ -39,7 +39,4 @@ Link to your blog, twitter, etc!
 ## License
 
 My Spiffy App is MIT Licensed. See LICENSE for details.
-=======
-troop_hub
-=========
->>>>>>> 8554027e3a04e1f9acd9e296eecdde7cb2a4bfe3
+
