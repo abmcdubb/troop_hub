@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'troops/new'
+
+  get 'troops/create'
+
+  get 'troops/edit'
+
+  get 'troops/update'
+
+  get 'troops/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

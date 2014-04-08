@@ -3,7 +3,7 @@ class CreateTroops < ActiveRecord::Migration
     create_table :troops do |t|
       t.string :name
       t.string :number
-      t.string :type
+      t.string :troop_type
       t.string :city
       t.string :state
       t.string :zip_code
