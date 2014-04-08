@@ -1,0 +1,26 @@
+<%= form_for(@troop) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br/>
+  <br/>
+  <%= f.label :number %>
+  <%= f.text_field :number %><br/>
+    <br/>
+  <%= f.label :city %>
+  <%= f.text_field :city %><br/>
+    <br/>
+  <%= f.label :state %>
+  <%= f.text_field :state %><br/>
+    <br/>
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code %><br/>
+    <br/>
+  <%= f.label :meetup_location %>
+  <%= f.text_field :meetup_location %><br/>
+  <br/>
+  <p class="formfield">
+  <%= f.label :about_us %>
+  <%= f.text_area :about_us %>
+</p>
+    <br/>
+  <%= f.submit %>
+<% end %>

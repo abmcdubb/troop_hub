@@ -1,7 +1,11 @@
 class TroopsController < ApplicationController
+  before_action :set_troop, only: [:show, :edit, :update, :destroy]
 
   def index
     @troops = Troop.all
+  end
+
+  def show
   end
 
   def new
