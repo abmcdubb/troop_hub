@@ -3,7 +3,7 @@ class TroopEventsController < ApplicationController
   before_action :set_troop_events, only: [:show, :edit, :update, :destroy]
 
   def index
-    @troop_events = TroopEvents.all
+    @troop_events = TroopEvent.all
   end
 
   def show
