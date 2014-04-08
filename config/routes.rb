@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'scouts/new' => 'scouts#new'
 
+  get '/scouts' => 'scouts#create'
+
   post '/scouts' => 'scouts#create'
 
   get 'scouts/:id' => 'scouts#show'

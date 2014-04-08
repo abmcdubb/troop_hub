@@ -1,2 +1,9 @@
-<h1>Scouts#index</h1>
-<p>Find me in app/views/scouts/index.html.erb</p>
+<center><h1>Troop Members</h1>
+<% @scouts.each do |scout| %>
+
+<br><a href = '/scouts/<%=scout.id%>'><%=scout.name%></a>
+</br>
+<%end%>
+<br/>
+<br/>
+<%= link_to 'Add A Scout!', scouts_new_path %>
