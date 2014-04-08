@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20140408190120) do
     t.datetime "updated_at"
   end
 
+  create_table "event_badges", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "badge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", force: true do |t|
     t.string   "name"
     t.string   "grades"
@@ -31,13 +38,6 @@ ActiveRecord::Schema.define(version: 20140408190120) do
     t.string   "season"
     t.string   "one_time"
     t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "troop_event_badges", force: true do |t|
-    t.integer  "troop_event_id"
-    t.integer  "badge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

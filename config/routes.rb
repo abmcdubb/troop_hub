@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'events_controller/index'
+  get 'events/index' => 'events#index'
 
-  get 'events_controller/new'
+  get 'events/new'
 
-  get 'events_controller/edit'
+  get 'events/edit'
 
-  get 'events_controller/show'
+  get 'events/show'
 
   get '/troops' => 'troops#index'
 

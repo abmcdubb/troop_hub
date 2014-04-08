@@ -15,5 +15,5 @@ troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, date: Time.now, loca
 badge_1 = Badge.create(name: "Respect Myself and Others", troop_type: "Daisy")
 badge_2 = Badge.create(name: "Painting", troop_type: "Brownie")
 
-troop_event_badge_1 = TroopEventBadge.create(troop_event_id: 3, badge_id: 1)
-troop_event_badge_2 = TroopEventBadge.create(troop_event_id: 4, badge_id: 2)
+troop_event_badge_1 = EventBadge.create(event_id: 2, badge_id: 1)
+troop_event_badge_2 = EventBadge.create(event_id: 3, badge_id: 2)
