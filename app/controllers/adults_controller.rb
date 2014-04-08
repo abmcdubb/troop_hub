@@ -1,6 +1,10 @@
 class AdultsController < ApplicationController
   before_action :set_adult, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @adult = Adult.all
+  end
+
   def show
   end
 
