@@ -11,12 +11,16 @@ Location: <%= event.location %><br/>
  <% event.badges.each do |i| %>
 Possible Badges: <%= i.name %>
 <%end%>
-<%= form_tag ("/troops_events/new") do %>
+<%#=# form_tag ("/troops_events/new") do %>
 
+<form action="/troop_events/new" method="get">
+  
+  <input type="submit" value="Add Event to Calendar">
+  <input type = "hidden" name = "event_id" value="<%=event.id%>">
+</form>
 
-
-<%= submit_tag 'Add Event to Calendar' %>
-<%end%>
+<%#= submit_tag 'Add Event to Calendar' %>
+<%#end%>
 <br/>
 <br/>
 

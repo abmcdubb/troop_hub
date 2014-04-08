@@ -1,27 +1,22 @@
 Rails.application.routes.draw do
   get 'events/index' => 'events#index'
-
   get 'events/new'
-
   get 'events/edit'
-
   get 'events/show'
-
   post 'events' => 'events#create', :as => 'events'
 
   get '/troops' => 'troops#index'
-
   get 'troops/new' => 'troops#new'
-
   post '/troops' => 'troops#create'
-
   get 'troops/edit/:id' => 'troops#edit'
-
   get 'troops/:id' => 'troops#show'
-
   patch 'troops/update/:id' => 'troops#update'
-
   delete 'troops/destroy' => 'troops#destroy'
+
+  get 'troop_events' => 'troop_events#index'
+  get 'troop_events/new' => 'troop_events#new'
+  post 'troop_events' => 'troop_events#create'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

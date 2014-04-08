@@ -1,0 +1,3 @@
+<%= form_for(@troop_events) do |f| %>
+<%= f.collection_radio_buttons(:event_id, @events, :id, :name)%>
+<%end%>
