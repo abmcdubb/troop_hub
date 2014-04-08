@@ -35,6 +35,6 @@ private
   end
 
   def adult_params
-    params.require(:adult).permit(:troop_id, :name, :number, :email, :phone_number, :profile_photo, :special_skills, :admin_privileges)
+    params.require(:adult).permit(:troop_id, :name, :number, :email, :phone_number, :profile_photo, :admin_privileges)
   end
 end
