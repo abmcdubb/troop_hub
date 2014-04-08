@@ -6,13 +6,15 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @badges=Badge.all
   end
 
   def create
     @event = Event.create(event_params)
+    @badges = Badge.all
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_path, notice: 'Troop was successfully created.' }
+        format.html { redirect_to events_index_path, notice: 'Troop was successfully created.' }
       else
         format.html { render action: 'new' }
       end

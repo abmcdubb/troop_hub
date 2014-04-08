@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'events/show'
 
+  post 'events' => 'events#create', :as => 'events'
+
   get '/troops' => 'troops#index'
 
   get 'troops/new' => 'troops#new'
