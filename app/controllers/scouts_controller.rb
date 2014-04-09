@@ -16,7 +16,7 @@ class ScoutsController < ApplicationController
     #binding.pry
     respond_to do |format|
       if @scout.save
-        format.html { redirect_to scouts_path, notice: 'Scout was successfully created.' }
+        format.html { redirect_to scouts_index_path, notice: 'Scout was successfully created.' }
       else
         format.html { render action: 'new' }
       end

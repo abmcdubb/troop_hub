@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'scouts/new' => 'scouts#new'
 
-  get '/scouts' => 'scouts#create'
+  # get '/scouts'
 
   post '/scouts' => 'scouts#create'
 
