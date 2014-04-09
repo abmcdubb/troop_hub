@@ -1,10 +1,5 @@
 <center><h1><%= @adult.name %></h1>
-<!-- <h6>Troop Number: <%#= @adult.number %></h6>
-<h6>Troop Type: <%#= @troop.troop_type %> </h6></center>
-</br>
-
-<p><b>About Us:</b> <%#=@troop.about_us %></p>
-</br>
-</br>
-<%#= link_to 'Back', troops_path %> -->
+            <% @adult.skills.each do |skill| %>
+            <%= skill.name %> - <%= skill.description %><br>
+            <% end %>  
 

@@ -7,16 +7,22 @@ Rails.application.routes.draw do
   patch 'troops/update/:id' => 'troops#update'
   delete 'troops/destroy' => 'troops#destroy'
 
-get "/users/:user_id/contacts/:id/sms" => 'contacts#sms', as: 'contact_sms'
-
-  get '/troops/:troop_id/adults/new' => 'adults#new'
-  get '/troops/:troop_id/adults' => 'adults#index'
+  get '/troops/:troop_id/adults/new' => 'adults#new', as: 'adults_new'
+  get '/troops/:troop_id/adults' => 'adults#index', as: 'adults'
   post '/troops/:troop_id/adults' => 'adults#create'
   get '/troops/:troop_id/adults/:id' => 'adults#show'
   get '/troops/:troop_id/adults/edit/:id' => 'adults#edit'
   get '/troops/:troop_id/adults/:id' => 'adults#show'
   patch '/troops/:troop_id/adults/update/:id' => 'adults#update'
-  delete '/tropps/:troop_id/adults/destroy' => 'adults#destroy'
+  delete '/troops/:troop_id/adults/destroy' => 'adults#destroy'
+
+  get '/troops/:troop_id/adults/:adult_id/skills/new' => 'skills#new', as: 'skills_new'
+  post '/troops/:troop_id/adults/:adult_id/skills' => 'skills#create'
+  # get '/troops/:troop_id/adults' => 'adults#index', as: 'adults'
+  get '/troops/:troop_id/adults/:adult_id/skills' => 'skills#index', as: 'skills'
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

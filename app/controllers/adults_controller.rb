@@ -6,10 +6,12 @@ class AdultsController < ApplicationController
   end
 
   def show
+
   end
 
   def new
     @adult = Adult.new
+    @skills = Skill.all
   end
 
   def create
