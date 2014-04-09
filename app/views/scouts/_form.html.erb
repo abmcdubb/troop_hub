@@ -3,12 +3,18 @@
   <%= f.text_field :name %><br/>
   <br/>
   <%= f.label :grade %>
-  <%= select_tag :grade, options_for_select(grade_level) %>
+  <%= f.select(:grade, options_for_select(grade_level)) %>
+  <%#= select_tag :grade, options_for_select(grade_level) %>
   <%#= f.text_field :grade %><br/>
     <br/>
 
+<%#= f.date_select(:birthday, :start_year => 1910) %>
+
 <%= f.label :birthday %>:
-<%= date_select  :birthday, "Birthday", :start_year => 1910 %>
+<%= f.date_select :birthday %>
+<%#= date_select 'Birthday', :order => [:month, :day, :year], :include_blank => 'true', :default => 'nil' %>
+
+<%#= f.date_select  :birthday, "Birthday", :start_year => 1910 %>
 
 <br/>
   <%= f.label :email %>
