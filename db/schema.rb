@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140409171907) do
   create_table "troop_events", force: true do |t|
     t.integer  "event_id"
     t.integer  "troop_id"
-    t.datetime "date"
+    t.datetime "start_time"
     t.string   "location"
     t.text     "detail"
     t.datetime "created_at"

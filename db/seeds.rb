@@ -6,10 +6,10 @@ event_1 = Event.create(name: 'Yoga', genre: 'Health and Fitness', description: "
 event_2 = Event.create(name: 'Respect Myself and Others', genre: 'Self Improvment', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
 event_3 = Event.create(name: 'Painting', genre: 'Art', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
 
-troop_event_1 = TroopEvent.create(event_id: 1, troop_id: 1, date: Time.now, location: "The long Island Center for Yoga", detail: "The daisys will be doing yoga today! We'll be leaving from Little Ones at 11, and going to the Long Island Yoga Center for 4 hours of yoga. Get excited!")
-troop_event_2 = TroopEvent.create(event_id: 1, troop_id: 2, date: Time.now, location: "The long Island Center for Yoga", detail: "The brownies will be doing yoga today! We'll be leaving from St. Mary\'s at 12:30, and going to the Long Island Yoga Center for 4 hours of yoga. Get excited!")
-troop_event_3 = TroopEvent.create(event_id: 2, troop_id: 1, date: Time.now, location: "Little Ones", detail: "We'll talk about how Gloria respected herself. Bring your own picnic lunch.")
-troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, date: Time.now, location: "Some painting place in Long Island", detail: "Some Details.")
+troop_event_1 = TroopEvent.create(event_id: 1, troop_id: 1, start_time: DateTime.now, location: "The long Island Center for Yoga", detail: "The daisys will be doing yoga today! We'll be leaving from Little Ones at 11, and going to the Long Island Yoga Center for 4 hours of yoga. Get excited!")
+troop_event_2 = TroopEvent.create(event_id: 1, troop_id: 2, start_time: DateTime.now, location: "The long Island Center for Yoga", detail: "The brownies will be doing yoga today! We'll be leaving from St. Mary\'s at 12:30, and going to the Long Island Yoga Center for 4 hours of yoga. Get excited!")
+troop_event_3 = TroopEvent.create(event_id: 2, troop_id: 1, start_time: DateTime.now, location: "Little Ones", detail: "We'll talk about how Gloria respected herself. Bring your own picnic lunch.")
+troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, start_time: DateTime.now, location: "Some painting place in Long Island", detail: "Some Details.")
 
 
 badge_1 = Badge.create(name: "Respect Myself and Others", troop_type: "Daisy")

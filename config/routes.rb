@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'troops#home'
 
   get 'events/index' => 'events#index'
@@ -27,6 +26,16 @@ get "/users/:user_id/contacts/:id/sms" => 'contacts#sms', as: 'contact_sms'
   get '/troops/:troop_id/adults/:id' => 'adults#show'
   patch '/troops/:troop_id/adults/update/:id' => 'adults#update'
   delete '/tropps/:troop_id/adults/destroy' => 'adults#destroy'
+
+  get 'troop_events' => 'troop_events#index'
+  get 'troop_events/new' => 'troop_events#new'
+  post 'troop_events' => 'troop_events#create'
+    get 'troop_events/:id' => 'troop_events#show'
+
+
+
+
+>>>>>>> events
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

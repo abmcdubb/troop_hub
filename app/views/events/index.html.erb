@@ -19,14 +19,21 @@
         <%= i.name %>, 
     <%end%>
     <!-- kill the last comma here. also above with troops -->
-    <%= form_tag ("/troops_events/new") do %>
 
 
-
-        <%= submit_tag 'Add Event to Calendar' %>
+<form action="/troop_events/new" method="get">
+  
+  <input type="submit" value="Add Event to Calendar">
+  <input type = "hidden" name = "event_id" value="<%=event.id%>">
+</form>
     <%end%>
+
+<%#= submit_tag 'Add Event to Calendar' %>
+<%#end%>
 <br/>
 <br/>
 
 
 <%end%>
+<br/>
+<%= link_to 'Troops Index', troops_path %>

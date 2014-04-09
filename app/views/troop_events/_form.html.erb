@@ -1,0 +1,24 @@
+<%= form_for(@troop_event) do |f| %>
+<%= f.collection_radio_buttons(:event_id, @events, :id, :name) do |r|%>
+<%= r.radio_button %> <%=r.label%>
+<%end%>
+<br/>
+<br/>
+<%= f.collection_radio_buttons(:troop_id, @troops, :id, :name) do |r|%>
+<%= r.radio_button %> <%=r.label%>
+<%end%>
+<br/>
+<%= f.label :start_time, "When:" %>
+<%= f.datetime_select(:start_time, options = {ampm: true, prompt: true}) %><br/>
+<br/>
+<%=f.label :location, "Where:" %>
+<%= f.text_field :location %>
+<br/>
+<br/>
+
+<p class = "formfield"> <%= f.label :detail, "Details:" %>
+<%= f.text_area :detail %></p><br/>
+
+ <%= f.submit %>
+
+<%end%>

@@ -3,7 +3,7 @@ class CreateTroopEvents < ActiveRecord::Migration
     create_table :troop_events do |t|
         t.integer :event_id
         t.integer :troop_id
-        t.datetime :date
+        t.datetime :start_time
         t.string :location
         t.text :detail
 

@@ -48,6 +48,5 @@ private
   def event_params
     params.require(:event).permit(:name, :genre, :description, :season, :location, :age_level_ids => [], :badge_ids => [])
   end
-  
 
 end
