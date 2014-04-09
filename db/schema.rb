@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140409171907) do
 
   create_table "events", force: true do |t|
     t.string   "name"
+    t.string   "grades"
     t.string   "genre"
     t.text     "description"
     t.string   "season"

@@ -1,5 +1,5 @@
 <center><h2>Join Us For <%= @troop_event.event.name %></h2>
-   <h2><%= @troop_event.start_time.strftime("%A %B %e")%> at <%= @troop_event.start_time.strftime("%I:%M %p") %></h2>
+   <h2>On <%= @troop_event.start_time.strftime("%A %B %e")%> at <%= @troop_event.start_time.strftime("%I:%M %p") %></h2><h2>At <%= @troop_event.location%></h2>
 
 
 <p><%= @troop_event.detail %></p>
