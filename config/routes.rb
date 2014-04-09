@@ -33,10 +33,6 @@ get "/users/:user_id/contacts/:id/sms" => 'contacts#sms', as: 'contact_sms'
     get 'troop_events/:id' => 'troop_events#show'
 
 
-
-
->>>>>>> events
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
