@@ -11,7 +11,8 @@
 <%#= f.date_select(:birthday, :start_year => 1910) %>
 
 <%= f.label :birthday %>:
-<%= f.date_select :birthday %>
+<%= f.date_field :birthday, :value => Time.now.strftime("%Y-%m-%d")  %>
+<%#= f.date_select :birthday, :default =>  %>
 <%#= date_select 'Birthday', :order => [:month, :day, :year], :include_blank => 'true', :default => 'nil' %>
 
 <%#= f.date_select  :birthday, "Birthday", :start_year => 1910 %>
