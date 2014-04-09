@@ -1,0 +1,26 @@
+<%= form_for @event do |f| %>
+    <%= f.label :event_Name %>
+    <%= f.text_field :name %>
+    </br>
+<!--     <%#= f.label :appropriate_Ages %>
+    <%#= f.text_field :grades %> -->
+<%=f.collection_check_boxes(:age_level_ids, @age_levels, :id, :name)%>
+<%#= f.select(:grades, [['K', 'K'],['1st', '1st'], ['2nd', '2nd'], ['3rd', '3rd'], ['4th', '4th'], ['5th', '5th'], ['6th', '6th'], ['7th', '7th'], ['8th', '8th'], ['9th', '9th'], ['10th', '10th'], ['11th', '11th'], ['12th', '12th']]) %>
+
+    </br>
+    <%= f.label :Type_of_Event %>
+    <%= f.text_field :genre %>
+    </br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    </br>
+    <%= f.label :season %>   
+    <%= f.text_field :season %>
+    </br>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    </br>
+    <%=f.collection_check_boxes(:badge_ids, @badges, :id, :name)%>
+    </br>
+  <%= f.submit %>
+<% end %>

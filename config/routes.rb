@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
+
+  root 'troops#home'
+
   get 'events/index' => 'events#index'
-
   get 'events/new'
-
   get 'events/edit'
-
-  get 'events/show'
-
   post 'events' => 'events#create', :as => 'events'
+  get 'events/search' => 'events#search_results'
+  get 'events/advanced_search' => 'events#advanced_search'
 
   get '/troops' => 'troops#index'
   get 'troops/new' => 'troops#new'
@@ -32,7 +32,6 @@ get "/users/:user_id/contacts/:id/sms" => 'contacts#sms', as: 'contact_sms'
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

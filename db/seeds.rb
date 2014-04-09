@@ -2,9 +2,9 @@ troop_1 = Troop.create(name: 'Gantry Girl Scouts', number: '4730', troop_type: '
 troop_2 = Troop.create(name: 'Gantry Girl Scouts', number: '4731', troop_type: 'Brownie', city: 'Long Island City', state: 'New York', zip_code: '11109', meetup_location: 'St. Mary\'s Church', about_us: " We are the proud Upper East Side Girl Scouts at St. Joseph's of Yorkville. We are part of the Girl Scout Council of Greater New York. Our scouts enjoy many activities at our meeting place in New York City and on field trips and campouts. Our activities encompass many topics, reflecting the different interests and styles of our leaders and our Girl Scouts. Scouts establish goals with their leaders and work to complete these goals while earning petals and patches along the way. Our girls take on leadership roles, learn First Aid skills and safety procedures for various situations. Each Scout will perform one community service project per year. Girl Scouts is a great way to meet new friends, develop life-skills and mature in a positive way.")
 troop_3 = Troop.create(name: 'Flatiron Girls', number: '0101', troop_type: 'Ambassadors', city: 'New York', state: 'New York', zip_code: '10004', meetup_location: 'Flatiron School', about_us: "We code and stuff. Give us cookies.")
 
-event_1 = Event.create(name: 'Yoga', grades: 'Daisy, Brownie, Junior, Cadette, Senior, Ambassador', genre: 'Health and Fitness', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
-event_2 = Event.create(name: 'Respect Myself and Others', grades: 'Daisy', genre: 'Self Improvment', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
-event_3 = Event.create(name: 'Painting', grades: 'Daisy, Brownie, Junior, Cadette, Senior, Ambassador', genre: 'Art', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
+event_1 = Event.create(name: 'Yoga', genre: 'Health and Fitness', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
+event_2 = Event.create(name: 'Respect Myself and Others', genre: 'Self Improvment', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
+event_3 = Event.create(name: 'Painting', genre: 'Art', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
 
 troop_event_1 = TroopEvent.create(event_id: 1, troop_id: 1, date: Time.now, location: "The long Island Center for Yoga", detail: "The daisys will be doing yoga today! We'll be leaving from Little Ones at 11, and going to the Long Island Yoga Center for 4 hours of yoga. Get excited!")
 troop_event_2 = TroopEvent.create(event_id: 1, troop_id: 2, date: Time.now, location: "The long Island Center for Yoga", detail: "The brownies will be doing yoga today! We'll be leaving from St. Mary\'s at 12:30, and going to the Long Island Yoga Center for 4 hours of yoga. Get excited!")
@@ -34,3 +34,25 @@ skill8 = Skill.create(adult_id: '2', name: 'Math & Science', description: 'Calcu
 skill9 = Skill.create(adult_id: '2', name: 'Computers', description: "Why would anyone need a computer when they have a wand? Siri isn't magic.  I am", badge_related_skill: true)
 skill10 = Skill.create(adult_id: '3', name: 'Folk Dance & Games', description: 'Riverdance, Modern Dance, Hip Hop', badge_related_skill: true)
 skill11 = Skill.create(adult_id: '3', name: 'Sewing, Needle Arts', description: 'Crochet', badge_related_skill: true)
+
+
+age_level_1 = AgeLevel.create(name: "Daisy", grades: "K-1")
+age_level_2 = AgeLevel.create(name: "Brownie", grades: "2-3")
+age_level_3 = AgeLevel.create(name: "Junior", grades: "4-5")
+age_level_4 = AgeLevel.create(name: "Cadette", grades: "6-8")
+age_level_5 = AgeLevel.create(name: "Senior", grades: "9-10")
+age_level_6 = AgeLevel.create(name: "Ambassador", grades: "11-12")
+
+event_age_level_1 = EventAgeLevel.create(event_id: 1, age_level_id: 1)
+event_age_level_2 = EventAgeLevel.create(event_id: 1, age_level_id: 2)
+event_age_level_3 = EventAgeLevel.create(event_id: 1, age_level_id: 3)
+event_age_level_4 = EventAgeLevel.create(event_id: 1, age_level_id: 4)
+event_age_level_5 = EventAgeLevel.create(event_id: 1, age_level_id: 5)
+event_age_level_6 = EventAgeLevel.create(event_id: 1, age_level_id: 6)
+event_age_level_7 = EventAgeLevel.create(event_id: 2, age_level_id: 1)
+event_age_level_8 = EventAgeLevel.create(event_id: 3, age_level_id: 1)
+event_age_level_9 = EventAgeLevel.create(event_id: 3, age_level_id: 2)
+event_age_level_10 = EventAgeLevel.create(event_id: 3, age_level_id: 3)
+event_age_level_11 = EventAgeLevel.create(event_id: 3, age_level_id: 4)
+event_age_level_12 = EventAgeLevel.create(event_id: 3, age_level_id: 5)
+event_age_level_13 = EventAgeLevel.create(event_id: 3, age_level_id: 6)

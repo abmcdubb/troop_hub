@@ -32,6 +32,9 @@ class TroopsController < ApplicationController
   def destroy
   end
 
+  def home
+  end
+
 private
   def set_troop
     @troop = Troop.find(params[:id])

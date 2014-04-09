@@ -1,0 +1,5 @@
+<%= form_tag("/events/search", method: "get") do %>
+  <%= label_tag(:'event[name]', "Event name:") %>
+  <%= text_field_tag(:'event[name]') %>
+  <%= submit_tag("Search") %>
+<% end %><%=link_to("Advanced Search", events_advanced_search_path)%>

@@ -1,8 +1,3 @@
-<%= render '/layouts/navbar' %>
-<%= render 'search' %>
-<h1>Events</h1>
-<button type = "button"><%=link_to "Add Event", events_new_path%></button><br/>
-<br/>
 <% @events.each do |event| %>
     Name: <%= event.name %><br/>
     Grades: 
@@ -25,8 +20,4 @@
 
         <%= submit_tag 'Add Event to Calendar' %>
     <%end%>
-<br/>
-<br/>
-
-
 <%end%>

@@ -1,0 +1,22 @@
+<%= form_tag("/events/search", method: "get") do %>
+  <%= label_tag(:'event[name]', "Event name:") %>
+  <%= text_field_tag(:'event[name]') %></br>
+  <%= label_tag(:'event[genre]', "Event genre:") %>
+  <%= text_field_tag(:'event[genre]') %></br>
+  
+  <h4>Age Level</h4>
+  <% @age_levels.each do |age_level| %>
+    <%= check_box_tag 'age_level_ids[]', age_level.id%>
+    <%= age_level.name%></br>
+  <% end %>
+  
+  <h4>Badges</h4>
+  <% @badges.each do |badge| %>
+    <%= check_box_tag 'badge_ids[]', badge.id%>
+    <%= badge.name%></br>
+  <% end %>
+
+ <%= submit_tag("Search") %>
+ <%end%>
+
+ <!-- Right now age level searches as "or" while other things search as "and" -->

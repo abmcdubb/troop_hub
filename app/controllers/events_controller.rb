@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @badges=Badge.all
+    @age_levels = AgeLevel.all
   end
 
   def create
@@ -30,15 +31,23 @@ class EventsController < ApplicationController
   def show
   end
 
+  def advanced_search#eventually make this something that pops out in origional form and not it's own page. Use javascript.
+    @age_levels = AgeLevel.all
+    @badges = Badge.all
+  end
+
+  def search_results
+    @events = Event.find_by_search_results(params[:event], params[:age_level_ids], params[:badge_ids])
+  end
+
 private
   def set_event
     @event = Event.find(params[:id])
   end
 
   def event_params
-    params.require(:event).permit(:name, :number, :troop_type, :city, :state, :zip_code, :meetup_location, :about_us)
+    params.require(:event).permit(:name, :genre, :description, :season, :location, :age_level_ids => [], :badge_ids => [])
   end
-
   
 
 end

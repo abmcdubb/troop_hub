@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408214238) do
+ActiveRecord::Schema.define(version: 20140409171907) do
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20140408214238) do
     t.string   "phone_number"
     t.string   "profile_photo"
     t.string   "admin_privileges"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "age_levels", force: true do |t|
+    t.string   "name"
+    t.string   "grades"
+    t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,6 +43,13 @@ ActiveRecord::Schema.define(version: 20140408214238) do
     t.datetime "updated_at"
   end
 
+  create_table "event_age_levels", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "age_level_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "event_badges", force: true do |t|
     t.integer  "event_id"
     t.integer  "badge_id"
@@ -44,12 +59,20 @@ ActiveRecord::Schema.define(version: 20140408214238) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.string   "grades"
     t.string   "genre"
     t.text     "description"
     t.string   "season"
     t.string   "one_time"
     t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", force: true do |t|
+    t.integer  "adult_id"
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "badge_related_skill", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
