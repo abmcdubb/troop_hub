@@ -10,18 +10,23 @@ Rails.application.routes.draw do
   post 'events' => 'events#create', :as => 'events'
 
   get '/troops' => 'troops#index'
-
   get 'troops/new' => 'troops#new'
-
   post '/troops' => 'troops#create'
-
   get 'troops/edit/:id' => 'troops#edit'
-
   get 'troops/:id' => 'troops#show'
-
   patch 'troops/update/:id' => 'troops#update'
-
   delete 'troops/destroy' => 'troops#destroy'
+
+get "/users/:user_id/contacts/:id/sms" => 'contacts#sms', as: 'contact_sms'
+
+  get '/troops/:troop_id/adults/new' => 'adults#new'
+  get '/troops/:troop_id/adults' => 'adults#index'
+  post '/troops/:troop_id/adults' => 'adults#create'
+  get '/troops/:troop_id/adults/:id' => 'adults#show'
+  get '/troops/:troop_id/adults/edit/:id' => 'adults#edit'
+  get '/troops/:troop_id/adults/:id' => 'adults#show'
+  patch '/troops/:troop_id/adults/update/:id' => 'adults#update'
+  delete '/tropps/:troop_id/adults/destroy' => 'adults#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
