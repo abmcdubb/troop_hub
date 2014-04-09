@@ -3,6 +3,7 @@ class SkillsController < ApplicationController
 
   def new
     @skill = Skill.new
+    @skills = Skills.all
 
   end
 

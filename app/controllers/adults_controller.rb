@@ -2,7 +2,8 @@ class AdultsController < ApplicationController
   before_action :set_adult, only: [:show, :edit, :update, :destroy]
 
   def index
-    @adult = Adult.all
+    @adults = Adult.all
+    @troop = Troop.find(params[:troop_id])
   end
 
   def show
@@ -15,6 +16,7 @@ class AdultsController < ApplicationController
   end
 
   def create
+    binding.pry
     @adult = Adult.create(adult_params)
     respond_to do |format|
       if @adult.save
@@ -41,6 +43,7 @@ private
   end
 
   def adult_params
-    params.require(:adult).permit(:troop_id, :name, :number, :email, :phone_number, :profile_photo, :admin_privileges)
+    binding.pry
+    params.require(:adult).permit(:troop_id, :name, :number, :email, :adult_role, :phone_number, :profile_photo, :admin_privileges, :skill_ids => [])
   end
 end

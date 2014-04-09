@@ -28,19 +28,5 @@
     <br/>
 
 
-    <%= form_for([@user, contact], :html => {:class => 'form-inline'}, :data => {:user_id => @user.id}) do |f| %>
-                  <div class="contact-edit-form">
-                    <%= f.label "First Name:" %> 
-                    <%= f.text_field :first_name, :class => "form-control"%>
-                      <%= f.label "Last Name:" %>
-                      <%= f.text_field :last_name, :class => "form-control" %>
-                      <%= f.label "Nick Name:" %>
-                      <%= f.text_field :nick_name, :class => "form-control" %>
-                      <%= f.label "Phone Number:" %>
-                      <%= f.phone_field :phone_number, :class => "form-control" %>  
-                      <br> 
-                      <%= f.label "Birthday:" %>
-                      <%= f.date_field :birthday, :class => "form-control" %>
-                      <%= f.submit "Update Record" %>
-                  </div>  
+    
   

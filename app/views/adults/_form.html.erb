@@ -1,4 +1,11 @@
 <%= form_for(@adult) do |f| %>
+  <% @skills.each do |skill| %>
+    <%= label_tag "skills_#{skill.id}", skill.name %>
+    <%= check_box_tag "adult[skill_ids][]", skill.id, false, id: "skill_#{skill.id}"%> 
+    <br>
+  <% end %>
+
+
 
   <%= f.label :adult_role, "Leader", :value => "Leader"  %>
   <%= f.radio_button :adult_role, "Leader" %>

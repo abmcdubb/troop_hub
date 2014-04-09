@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   patch 'troops/update/:id' => 'troops#update'
   delete 'troops/destroy' => 'troops#destroy'
 
-  get '/troops/:troop_id/adults/new' => 'adults#new', as: 'adults_new'
+  get '/troops/:troop_id/adults/new' => 'adults#new', as: 'adult_new'
   get '/troops/:troop_id/adults' => 'adults#index', as: 'adults'
   post '/troops/:troop_id/adults' => 'adults#create'
-  get '/troops/:troop_id/adults/:id' => 'adults#show'
+  get '/troops/:troop_id/adults/:id' => 'adults#show', as: 'adult_show'
   get '/troops/:troop_id/adults/edit/:id' => 'adults#edit'
   get '/troops/:troop_id/adults/:id' => 'adults#show'
   patch '/troops/:troop_id/adults/update/:id' => 'adults#update'
