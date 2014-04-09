@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'scouts/index' => 'scouts#index'
 
   get 'scouts/new' => 'scouts#new'
@@ -14,6 +15,22 @@ Rails.application.routes.draw do
   patch 'scouts/update/:id' => 'scouts#update'
 
   delete 'scouts/destroy' => 'scouts#destroy'
+  
+  # get '/troops/:troop_id/scouts' => 'scouts#index'
+
+  # get '/troops/:troop_id/scouts/new' => 'scouts#new'
+
+  # # get '/scouts'
+
+  # post '/troops/:troop_id/scouts' => 'scouts#create'
+
+  # get 'troops/:troop_id/scouts/:id' => 'scouts#show'
+
+  # get '/troops/:troop_id/scouts/edit/:id' => 'scouts#edit'
+
+  # patch 'troops/:troop_id/scouts/update/:id' => 'scouts#update'
+
+  # delete '/troops/:troop_id/scouts/destroy' => 'scouts#destroy'
 
 
   get '/troops' => 'troops#index'

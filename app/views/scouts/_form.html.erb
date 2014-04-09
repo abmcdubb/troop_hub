@@ -3,11 +3,12 @@
   <%= f.text_field :name %><br/>
   <br/>
   <%= f.label :grade %>
-  <%= f.text_field :grade %><br/>
+  <%= select_tag :grade, options_for_select(grade_level) %>
+  <%#= f.text_field :grade %><br/>
     <br/>
 
 <%= f.label :birthday %>:
-<%= date_select :birthday, "Birthday" %>
+<%= date_select  :birthday, "Birthday", :start_year => 1910 %>
 
 <br/>
   <%= f.label :email %>

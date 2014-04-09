@@ -1,5 +1,6 @@
 Rails.application.configure do
   config.assets.raise_production_errors = true
+  config.action_controller.include_all_helpers = true
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
