@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'events/new'
   get 'events/edit'
   get 'events/show'
-  post 'events' => 'events#create', :as => 'events'
+  post '/events' => 'events#create', :as => 'events'
 
   get '/troops' => 'troops#index'
   get 'troops/new' => 'troops#new'
@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get 'troop_events' => 'troop_events#index'
   get 'troop_events/new' => 'troop_events#new'
   post 'troop_events' => 'troop_events#create'
+    get 'troop_events/:id' => 'troop_events#show'
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,18 +1,19 @@
 class TroopEventsController < ApplicationController
 
-  before_action :set_troop_events, only: [:show, :edit, :update, :destroy]
+  before_action :set_troop_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @troop_events = TroopEvent.all
+
   end
 
   def show
   end
 
   def new
-    @troop_events = TroopEvent.new
+    @troop_event = TroopEvent.new
     if params[:event_id]
-      @troop_events.event_id = params[:event_id]
+      @troop_event.event_id = params[:event_id]
     end
     @events = Event.all
   end
@@ -43,7 +44,7 @@ private
   end
 
   def troop_event_params
-    params.require(:troop_event).permit(:date, :location, :detail)
+    params.require(:troop_event).permit(:start_time, :location, :detail, :event_id)
   end
 
 end

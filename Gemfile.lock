@@ -154,6 +154,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
+    simple_calendar (0.1.10)
+      rails (>= 3.0)
     simplecov (0.8.2)
       docile (~> 1.1.0)
       multi_json
@@ -214,6 +216,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.2)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  simple_calendar
   simplecov
   spring
   sprockets_better_errors

@@ -1,0 +1,3 @@
+<%= calendar @troop_events do |e| %>
+  <div><a href ="/troop_events/<%=e.id%>"><%= e.event.name %></a></div>
+<% end %>
