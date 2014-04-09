@@ -16,7 +16,7 @@ class AdultsController < ApplicationController
   end
 
   def create
-    binding.pry
+    #binding.pry
     @adult = Adult.create(adult_params)
     respond_to do |format|
       if @adult.save
