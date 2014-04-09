@@ -4,6 +4,10 @@
 <%end%>
 <br/>
 <br/>
+<%= f.collection_radio_buttons(:troop_id, @troops, :id, :name) do |r|%>
+<%= r.radio_button %> <%=r.label%>
+<%end%>
+<br/>
 <%= f.label :start_time, "When:" %>
 <%= f.datetime_select(:start_time, options = {ampm: true, prompt: true}) %><br/>
 <br/>

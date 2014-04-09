@@ -6,6 +6,7 @@ class TroopsController < ApplicationController
   end
 
   def show
+    @troop_events = TroopEvent.all
   end
 
   def new
