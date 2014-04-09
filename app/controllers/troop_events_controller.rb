@@ -4,7 +4,6 @@ class TroopEventsController < ApplicationController
 
   def index
     @troop_events = TroopEvent.all
-
   end
 
   def show
