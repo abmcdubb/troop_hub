@@ -1,10 +1,12 @@
 class Event < ActiveRecord::Base
    has_many :troop_events
    has_many :troops, through: :troop_events
-   has_many :event_badges
-   has_many :badges, through: :event_badges
-   has_many :event_age_levels
-   has_many :age_levels, through: :event_age_levels
+
+   has_many :event_badges, dependent: :destroy
+   has_many :badges, through: :event_badges, dependent: :destroy
+
+   has_many :event_age_levels, dependent: :destroy
+   has_many :age_levels, through: :event_age_levels, dependent: :destroy
 
     def self.find_by_search_results(results_hash, age_level_ids, badge_ids)
         query_hash = results_hash.reject{|k,v|v.empty?}

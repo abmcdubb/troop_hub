@@ -15,7 +15,7 @@ class EventsController < ApplicationController
     @badges = Badge.all
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_index_path, notice: 'Troop was successfully created.' }
+        format.html { redirect_to events_index_path, notice: 'Event was successfully created.' }
       else
         format.html { render action: 'new' }
       end
@@ -23,12 +23,25 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
+    @badges=Badge.all
+    @age_levels = AgeLevel.all
   end
 
   def update
+    @event = Event.find(params[:id])
+    @event.update_attributes(event_params)
+    if @event.save
+        redirect_to events_index_path, notice: 'Event updated.'
+      else
+        format.html { render action: 'edit' }
+      end
   end
 
-  def show
+  def delete
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_index_path
   end
 
   def advanced_search#eventually make this something that pops out in origional form and not it's own page. Use javascript.

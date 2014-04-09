@@ -20,6 +20,13 @@
     <%end%>
     <!-- kill the last comma here. also above with troops -->
 
+    <%= form_tag("/events/#{event.id}/edit", method: "get") do %>
+        <%= submit_tag 'Edit' %> <!--Or use link_to here instead-->
+    <%end%>
+    
+    <%= form_tag("/events/#{event.id}/delete", method: "delete") do %>
+        <%= submit_tag 'Delete' %>
+    <%end%>
 
 <form action="/troop_events/new" method="get">
   
@@ -27,9 +34,6 @@
   <input type = "hidden" name = "event_id" value="<%=event.id%>">
 </form>
 
-
-<%#= submit_tag 'Add Event to Calendar' %>
-<%#end%>
 <br/>
 <br/>
 
