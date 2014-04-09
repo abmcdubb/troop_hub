@@ -38,7 +38,10 @@ class EventsController < ApplicationController
       end
   end
 
-  def show
+  def delete
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_index_path
   end
 
   def advanced_search#eventually make this something that pops out in origional form and not it's own page. Use javascript.

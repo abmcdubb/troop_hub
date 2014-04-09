@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'events/:id/edit' => 'events#edit'
   patch 'events/:id/update' => 'events#update', :as => 'event'
   post 'events' => 'events#create', :as => 'events'
+  delete 'events/:id/delete' => 'events#delete'
   get 'events/search' => 'events#search_results'
   get 'events/advanced_search' => 'events#advanced_search'
 
