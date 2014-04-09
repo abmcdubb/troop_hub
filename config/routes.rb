@@ -1,20 +1,23 @@
 Rails.application.routes.draw do
 
-  get 'scouts/index' => 'scouts#index'
+# resources :troops do
+#   resources :scouts, :only => [:new, :create, :show, :update]
 
-  get 'scouts/new' => 'scouts#new'
+  get '/troops/:troop_id/scouts' => 'scouts#index', :as => :troop_scouts
+
+  get '/troops/:troop_id/scouts/new' => 'scouts#new', :as => :new_troop_scout
 
   # get '/scouts'
 
-  post '/scouts' => 'scouts#create'
+  post '/troops/:troop_id/scouts' => 'scouts#create'
 
-  get 'scouts/:id' => 'scouts#show'
+  get '/troops/:troop_id/scouts/:id' => 'scouts#show'
 
-  get 'scouts/edit/:id' => 'scouts#edit'
+  get '/troops/:troop_id/scouts/edit/:id' => 'scouts#edit'
 
-  patch 'scouts/update/:id' => 'scouts#update'
+  patch '/troops/:troop_id/scouts/update/:id' => 'scouts#update'
 
-  delete 'scouts/destroy' => 'scouts#destroy'
+  delete '/troops/:troop_id/scouts/destroy' => 'scouts#destroy'
   
   # get '/troops/:troop_id/scouts' => 'scouts#index'
 

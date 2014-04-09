@@ -1,4 +1,4 @@
-<%= form_for(@scout) do |f| %>
+<%= form_for [@troop, @scout], url: troop_scouts_path do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br/>
   <br/>

@@ -6,17 +6,20 @@ class ScoutsController < ApplicationController
   end
 
   def new
+    #binding.pry
+    @troop = Troop.find(params[:troop_id])
     @scout = Scout.new
   end
 
   def create
     #raise params.inspect
     #binding.pry
-    @scout = Scout.create(scout_params)
+    @troop = Troop.find(params[:troop_id])
+    @scout = @troop.scouts.new(scout_params) #associates scout with that troop
     #binding.pry
     respond_to do |format|
       if @scout.save
-        format.html { redirect_to scouts_index_path, notice: 'Scout was successfully created.' }
+        format.html { redirect_to troops_path, notice: 'Scout was successfully created.' }
       else
         format.html { render action: 'new' }
       end
