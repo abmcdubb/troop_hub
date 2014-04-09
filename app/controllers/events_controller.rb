@@ -15,7 +15,7 @@ class EventsController < ApplicationController
     @badges = Badge.all
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_index_path, notice: 'Troop was successfully created.' }
+        format.html { redirect_to events_index_path, notice: 'Event was successfully created.' }
       else
         format.html { render action: 'new' }
       end
@@ -23,9 +23,19 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
+    @badges=Badge.all
+    @age_levels = AgeLevel.all
   end
 
   def update
+    @event = Event.find(params[:id])
+    @event.update_attributes(event_params)
+    if @event.save
+        redirect_to events_index_path, notice: 'Event updated.'
+      else
+        format.html { render action: 'edit' }
+      end
   end
 
   def show
