@@ -36,9 +36,8 @@ private
   end
 
   def event_params
-    params.require(:event).permit(:name, :number, :troop_type, :city, :state, :zip_code, :meetup_location, :about_us)
+    params.require(:event).permit(:name, :grades, :genre, :description, :season, :one_time, :location)
   end
 
-  
 
 end
