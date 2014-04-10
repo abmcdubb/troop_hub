@@ -16,6 +16,11 @@ class PhotosController < ApplicationController
     end
   end
 
+  def individual_troop
+    @troop = Troop.find(params[:troop_id])
+    @photos = @troop.photos
+  end
+
     private
     
     def photo_params

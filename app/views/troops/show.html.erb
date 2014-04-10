@@ -23,6 +23,9 @@
 <br/>
 
 <center><h2>Photos</h2></center>
+
+<%=link_to("Photos", troop_photos_path(@troop))%>
+
 <%@photos.each do |photo| %>
     <p>
         <%=image_tag photo.pic_url%>
