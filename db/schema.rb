@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409184301) do
+ActiveRecord::Schema.define(version: 20140410145725) do
 
   create_table "adult_skills", force: true do |t|
     t.integer  "adult_id"
@@ -25,13 +25,25 @@ ActiveRecord::Schema.define(version: 20140409184301) do
     t.integer  "troop_id"
     t.string   "adult_role"
     t.string   "name"
-    t.string   "email"
     t.string   "phone_number"
     t.string   "profile_photo"
     t.string   "admin_privileges"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "adults", ["email"], name: "index_adults_on_email", unique: true
+  add_index "adults", ["reset_password_token"], name: "index_adults_on_reset_password_token", unique: true
 
   create_table "age_levels", force: true do |t|
     t.string   "name"
@@ -67,7 +79,6 @@ ActiveRecord::Schema.define(version: 20140409184301) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.string   "grades"
     t.string   "genre"
     t.text     "description"
     t.string   "season"
@@ -75,6 +86,20 @@ ActiveRecord::Schema.define(version: 20140409184301) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "scouts", force: true do |t|
+    t.string   "name"
+    t.integer  "troop_id"
+    t.string   "grade"
+    t.date     "birthday"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "admin_privileges"
+    t.integer  "dues"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "profile_photo"
   end
 
   create_table "skills", force: true do |t|
@@ -90,21 +115,6 @@ ActiveRecord::Schema.define(version: 20140409184301) do
     t.datetime "start_time"
     t.string   "location"
     t.text     "detail"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-
-ActiveRecord::Schema.define(version: 20140408210508) do
-
-  create_table "scouts", force: true do |t|
-    t.string   "name"
-    t.integer  "troop_id"
-    t.string   "grade"
-    t.date     "birthday"
-    t.string   "email"
-    t.string   "phone_number"
-    t.string   "admin_privileges"
-    t.integer  "dues"
-    t.string   "profile_photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

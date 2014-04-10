@@ -1,6 +1,6 @@
 class AdultsController < ApplicationController
   include AdultsHelper
-
+  before_filter :authenticate_adult!, except: [:new]
   before_action :set_adult, only: [:show, :edit, :update, :destroy]
 
   def index

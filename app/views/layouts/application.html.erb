@@ -8,6 +8,24 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
+
+ <div class="">
+    <%# if notice %>
+      <%#= notice %>
+    <%# end %>
+
+    <%# if alert %>
+        <%#= alert %>
+    <%# end %>
+
+    <% if adult_signed_in? %>
+      Signed in as <%= current_adult.email %>. Not you?
+      <%= link_to "Sign out", destroy_adult_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_adult_registration_path %> OR <%= link_to "Sign in", new_adult_session_path %></br></br>
+    <% end %>
+  </div>
+
 <% if flash[:notice] %>
 <div id=”notice”><%= flash[:notice] %></div>
 <% end %>
