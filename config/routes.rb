@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'agenda/index'
+
+  get 'agenda/new'
+
+  get 'agenda/create'
+
+  get 'agenda/show'
+
+  get 'agenda/edit'
+
+  get 'agenda/update'
+
+  get 'agenda/destroy'
+
   root 'troops#home'
 
   get '/troops/:troop_id/scouts' => 'scouts#index', :as => :troop_scouts

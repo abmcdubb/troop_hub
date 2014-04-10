@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409184301) do
+ActiveRecord::Schema.define(version: 20140410143745) do
 
   create_table "adult_skills", force: true do |t|
     t.integer  "adult_id"
@@ -37,6 +37,31 @@ ActiveRecord::Schema.define(version: 20140409184301) do
     t.string   "name"
     t.string   "grades"
     t.string   "logo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "agendas", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.date     "meeting_date"
+    t.string   "location"
+    t.text     "activity_1"
+    t.text     "activity_2"
+    t.text     "activity_3"
+    t.text     "activity_4"
+    t.text     "activity_5"
+    t.text     "activity_6"
+    t.text     "activity_7"
+    t.text     "activity_8"
+    t.string   "patches"
+    t.string   "snack"
+    t.text     "jobs"
+    t.text     "supplies"
+    t.text     "correspondence"
+    t.text     "troop_info"
+    t.text     "parent_info"
+    t.text     "decisions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,7 +92,6 @@ ActiveRecord::Schema.define(version: 20140409184301) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.string   "grades"
     t.string   "genre"
     t.text     "description"
     t.string   "season"
@@ -75,6 +99,20 @@ ActiveRecord::Schema.define(version: 20140409184301) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "scouts", force: true do |t|
+    t.string   "name"
+    t.integer  "troop_id"
+    t.string   "grade"
+    t.date     "birthday"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "admin_privileges"
+    t.integer  "dues"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "profile_photo"
   end
 
   create_table "skills", force: true do |t|
@@ -90,21 +128,6 @@ ActiveRecord::Schema.define(version: 20140409184301) do
     t.datetime "start_time"
     t.string   "location"
     t.text     "detail"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-
-ActiveRecord::Schema.define(version: 20140408210508) do
-
-  create_table "scouts", force: true do |t|
-    t.string   "name"
-    t.integer  "troop_id"
-    t.string   "grade"
-    t.date     "birthday"
-    t.string   "email"
-    t.string   "phone_number"
-    t.string   "admin_privileges"
-    t.integer  "dues"
-    t.string   "profile_photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

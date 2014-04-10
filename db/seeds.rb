@@ -80,3 +80,4 @@ scout_2 = Scout.create(troop_id: '2', name: 'Lavender', grade: '2nd', birthday: 
 scout_3 = Scout.create(troop_id: '3', name: 'Parvati', grade: '11th', birthday: '', email: 'PPatil@hogwarts.com', phone_number: '212-994-4925', admin_privileges: '', dues: '', profile_photo: '')
 scout_4 = Scout.create(troop_id: '3', name: 'Cho', grade: '12th', birthday: '', email: 'cchang@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: '')
 
+#agenda_1 = Agenda.create()
