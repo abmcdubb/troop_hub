@@ -1,1 +1,10 @@
-<center><h2>Upload Photos</h2></center>
+<!-- dear self, you MUST change @troop.id to partial -->
+
+<%= form_tag "/photos/#{@troop.id}/troop", multipart: true do %>
+  <label for="photo"><h2>Upload Photo</h2></label> <%= file_field_tag "photo" %>
+  <%= submit_tag %>
+<% end %>
+
+<%@troop.photos.each do |photo| %>
+    <%=image_tag photo.pic_url%>
+    <%end%>
