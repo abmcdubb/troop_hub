@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   get 'troop_events/:id' => 'troop_events#show'
 
   post 'photos/:photoable_id/:photoable_type' => 'photos#create'
+  delete 'photos/:photoable_id/:photoable_type/:photo_id' => 'photos#delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

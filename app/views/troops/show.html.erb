@@ -26,6 +26,9 @@
 <%@photos.each do |photo| %>
     <p>
         <%=image_tag photo.pic_url%>
+        <%= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
+            <%= submit_tag 'Delete' %>
+        <%end%>
     </p>
 <%end%>
 
