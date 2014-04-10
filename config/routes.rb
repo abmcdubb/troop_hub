@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/troops/:troop_id/scouts' => 'scouts#index', :as => :troop_scouts
   get '/troops/:troop_id/scouts/new' => 'scouts#new', :as => :new_troop_scout
   post '/troops/:troop_id/scouts' => 'scouts#create'
-  get '/troops/:troop_id/scouts/:id' => 'scouts#show'
+  get '/troops/:troop_id/scouts/:id' => 'scouts#show', :as => :scout_show
   get '/troops/:troop_id/scouts/edit/:id' => 'scouts#edit'
   patch '/troops/:troop_id/scouts/update/:id' => 'scouts#update'
   delete '/troops/:troop_id/scouts/destroy' => 'scouts#destroy'

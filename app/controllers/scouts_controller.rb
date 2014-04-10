@@ -2,12 +2,13 @@ class ScoutsController < ApplicationController
   before_action :set_scout, only: [:show, :edit, :update, :destroy]
   
   def index
-    @scouts = Scout.all
+    @troop = Troop.find(params[:troop_id])
+    @scouts = @troop.scouts
   end
 
   def new
     #binding.pry
-    @troop = Troop.find(params[:troop_id])
+    #@troop = Troop.find_by(params[:troop_id])
     @scout = Scout.new
   end
 
@@ -44,6 +45,6 @@ class ScoutsController < ApplicationController
   end
 
   def scout_params
-    params.require(:scout).permit(:name, :troop_id, :grade, :birthday, :email, :phone_number, :admin_privileges, :dues, :profile_photo)
+    params.require(:scout).permit(:name, :troop_id, :grade, :birthday, :email, :phone_number, :admin_privileges, :dues, :profile_photo, :patches)
   end
 end

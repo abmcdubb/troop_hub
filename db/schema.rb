@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410143745) do
+ActiveRecord::Schema.define(version: 20140410161115) do
 
   create_table "adult_skills", force: true do |t|
     t.integer  "adult_id"
@@ -110,9 +110,10 @@ ActiveRecord::Schema.define(version: 20140410143745) do
     t.string   "phone_number"
     t.string   "admin_privileges"
     t.integer  "dues"
+    t.string   "profile_photo"
+    t.text     "patches"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "profile_photo"
   end
 
   create_table "skills", force: true do |t|

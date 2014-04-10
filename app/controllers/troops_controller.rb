@@ -3,6 +3,7 @@ class TroopsController < ApplicationController
 
   def index
     @troops = Troop.all
+    @scouts = Scouts.find(params[:troop_id]) 
   end
 
   def show

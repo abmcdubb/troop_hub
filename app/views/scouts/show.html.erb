@@ -1,10 +1,10 @@
 <center><h1><%= @scout.name %></h1>
 <h6>Grade: <%= @scout.grade %></h6>
 <h6>Birthday: <%= @scout.birthday.strftime("%B %e, %Y") %> </h6>
-<h6>Photo: <%= @scout.profile_photo %></h6></center>
-<%= image_tag(@scout.profile_photo, :width => 600) if @scout.profile_photo.present? %>
+<h6>Photo: <%= @scout.profile_photo %></h6>
+<h6>Patches earned: <%= @scout.patches %></h6>
+<%= image_tag(@scout.profile_photo, :width => 600) if @scout.profile_photo.present? %></center>
 </br>
-
 </br>
 </br>
 <%#= link_to 'Back to Troop', scouts_index_path %>
