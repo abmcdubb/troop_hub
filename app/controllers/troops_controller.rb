@@ -2,11 +2,13 @@ class TroopsController < ApplicationController
   before_action :set_troop, only: [:show, :edit, :update, :destroy]
 
   def index
-    @troops = Troop.all
-    @scouts = Scouts.find(params[:troop_id]) 
+    @troops = Troop.all 
   end
 
   def show
+    params.inspect
+    # @troops = Troop.where(params[:troop_id])
+    @scouts = Scout.where(params[:id])
     @troop_events = TroopEvent.all
   end
 

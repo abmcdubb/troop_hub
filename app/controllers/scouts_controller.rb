@@ -8,8 +8,10 @@ class ScoutsController < ApplicationController
 
   def new
     #binding.pry
-    #@troop = Troop.find_by(params[:troop_id])
+    # @troop = Troop.find_by(params[:troop_id])
     @scout = Scout.new
+    @scouts = Scout.find(params[:troop_id])
+
   end
 
   def create
