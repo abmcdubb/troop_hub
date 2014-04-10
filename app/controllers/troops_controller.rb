@@ -7,6 +7,7 @@ class TroopsController < ApplicationController
 
   def show
     @troop_events = TroopEvent.all
+    @photos = @troop.on_page_photos
   end
 
   def new

@@ -6,4 +6,7 @@ class Troop < ActiveRecord::Base
 
    has_many :photos, as: :photoable
 
+    def on_page_photos
+        photos.where("on_page = \"true\" ")
+    end
 end
