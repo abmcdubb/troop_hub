@@ -1,0 +1,284 @@
+<body><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table">
+<tbody><tr>
+<td align="center" bgcolor="#ececec">
+<table class="w640" style="margin:0 10px;" width="640" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w640" width="640" height="20"></td></tr>
+
+<tr>
+<td class="w640" width="640">
+<table id="top-bar" class="w640" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#107b00">
+<tbody><tr>
+<td class="w15" width="15"></td>
+<td class="w325" width="350" valign="middle" align="left">
+<table class="w325" width="350" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w325" width="350" height="8"></td></tr>
+</tbody></table>
+
+<table class="w325" width="350" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w325" width="350" height="8"></td></tr>
+</tbody></table>
+</td>
+<td class="w30" width="30"></td>
+<td class="w255" width="255" valign="middle" align="right">
+<table class="w255" width="255" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w255" width="255" height="8"></td></tr>
+</tbody></table>
+<table cellpadding="0" cellspacing="0" border="0">
+<tbody><tr>
+
+
+
+</tr>
+</tbody></table>
+<table class="w255" width="255" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w255" width="255" height="8"></td></tr>
+</tbody></table>
+</td>
+<td class="w15" width="15"></td>
+</tr>
+</tbody></table>
+
+</td>
+</tr>
+<tr>
+<td id="header" class="w640" width="640" align="center" bgcolor="#107b00">
+
+<table class="w640" width="640" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w30" width="30"></td><td class="w580" width="580" height="30"></td><td class="w30" width="30"></td></tr>
+<tr>
+<td class="w30" width="30"></td>
+<td class="w580" width="580">
+
+<div align="center" id="headline">
+<p>
+<h><strong><singleline label="Title"><%=@newsletter.troop_name%> </singleline></strong></h2>
+</p>
+</div>
+</td>
+<td class="w30" width="30"></td>
+</tr>
+</tbody></table>
+
+
+</td>
+</tr>
+
+<tr id="complex-content-row"><td class="w640" width="640"><table class="w640" width="640" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr>
+<td class="w15" width="15" bgcolor="#ffffff"></td>
+<td id="left-sidebar" class="w140" width="140" bgcolor="#ffffff" valign="top" align="left">
+
+
+<table class="w140" width="140" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w140" width="140" height="15"></td></tr>
+<tr>
+<td class="w140" width="140">
+<div align="left" class="left-column-heading">
+<center><img width = "50%" height = "50%" src = "http://girlscoutsnv.org/images/logos/girl%20scouts%20of%20southern%20nevada/profiles.jpg"></center>
+
+<h4>RECENT NEWS</h4></div>
+</td>
+</tr>
+</tbody></table>
+
+<repeater>
+<layout label="Text only">
+<table class="w140" width="140" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w140" width="140" height="15"></td></tr>
+<tr>
+<td class="w140" width="140">
+<p align="left" class="left-column-subhead"><singleline label="Title"><%=@newsletter.news1_title%></singleline></p>
+<div align="left" class="left-column-content"><multiline label="Description"><%=@newsletter.news1_desc%></multiline></div>
+</td>
+</tr>
+</tbody></table>
+</layout>
+<layout label="Text with image">
+<table class="w140" width="140" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w140" width="140" height="15"></td></tr>
+<tr>
+<td class="w140" width="140"><p align="left" class="left-column-subhead"><singleline label="Title"><%=@newsletter.news2_title%></singleline></p></td>
+</tr>
+<tr>
+<td class="w140" width="140"><img editable="true" label="Image" width="140" class="w140" border="0"></td>
+</tr>
+<tr><td class="w140" width="140" height="15"></td></tr>
+<tr>
+<td class="w140" width="140"><div align="left" class="left-column-content"><multiline label="Description"><%=@newsletter.news2_desc%></multiline></div></td>
+</tr>
+</tbody></table>
+</layout>
+</repeater>
+
+</td>
+<td class="w15" width="15" bgcolor="#ffffff"></td>
+<td class="w300" width="300" bgcolor="#e7f5e9" valign="top">
+<table class="w300" width="300" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w300" width="300" height="30"></td></tr>
+</tbody></table>
+<table align="left" class="w300" width="300" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr>
+<td class="w30" width="30"></td>
+<td class="w240" width="240">
+<repeater>
+
+
+<layout label="Text only">
+<table class="w240" width="240" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr>
+<td class="w240" width="240">
+<p align="left" class="article-title"><singleline repeatertitle="true" label="Article Title">Add a title</singleline></p>
+<div align="left" class="article-content"><multiline label="Description">Enter your description</multiline></div>
+</td>
+</tr>
+<tr><td class="w240" width="240" height="10"></td></tr>
+</tbody></table>
+</layout>
+
+
+<layout label="Text with full-width image">
+<table class="w240" width="240" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr>
+<td class="w240" width="240">
+<p align="left" class="article-title"><singleline repeatertitle="true" label="Article Title">Add a title</singleline></p>
+</td>
+</tr>
+<tr>
+<td class="w240" width="240"><img editable="true" label="Image" class="w240" width="240" border="0"></td>
+</tr>
+<tr><td class="w240" width="240" height="15"></td></tr>
+<tr>
+<td class="w240" width="240">
+<div align="left" class="article-content"><multiline label="Description">Enter your description</multiline></div>
+</td>
+</tr>
+<tr><td class="w240" width="240" height="10"></td></tr>
+</tbody></table>
+</layout>
+
+
+<layout label="Text with right-aligned image">
+<table class="w240" width="240" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr>
+<td class="w240" width="240">
+<p align="left" class="article-title"><singleline repeatertitle="true" label="Article Title">Add a title</singleline></p>
+<table cellpadding="0" cellspacing="0" border="0" align="right">
+<tbody><tr>
+<td class="w0" width="15"></td>
+<td><img editable="true" label="Image" class="w125" width="125" border="0"></td>
+</tr>
+<tr><td class="w0" width="15" height="5"></td><td></td></tr>
+</tbody></table>
+<div align="left" class="article-content"><multiline label="Description">Enter your description</multiline></div>
+</td>
+</tr>
+<tr><td class="w240" width="240" height="10"></td></tr>
+</tbody></table>
+</layout>
+
+
+<layout label="Text with left-aligned image">
+<table class="w240" width="240" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr>
+<td class="w240" width="240">
+<p align="left" class="article-title"><singleline repeatertitle="true" label="Article Title">Add a title</singleline></p>
+<table cellpadding="0" cellspacing="0" border="0" align="left">
+<tbody><tr>
+<td><img editable="true" label="Image" class="w125" width="125" border="0"></td>
+<td class="w0" width="15"></td>
+</tr>
+<tr><td></td><td class="w0" width="15" height="5"></td></tr>
+</tbody></table>
+<div align="left" class="article-content"><multiline label="Description">Enter your description</multiline></div>
+</td>
+</tr>
+<tr><td class="w240" width="240" height="10"></td></tr>
+</tbody></table>
+</layout>
+</repeater>
+</td>
+<td class="w30" width="30"></td>
+</tr>
+</tbody></table>
+</td>
+<td class="w15" width="15" bgcolor="#ffffff"></td>
+<td id="right-sidebar" class="w140" width="140" bgcolor="#ffffff" valign="top" align="left">
+
+
+<table class="w140" width="140" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w140" width="140" height="25"></td></tr>
+<tr>
+<td class="w140" width="140">
+<div align="left" class="left-column-heading"><singleline label="Title">UPCOMING EVENTS</singleline></div>
+</td>
+</tr>
+</tbody></table>
+<repeater>
+<layout label="Text only">
+<table class="w140" width="140" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w140" width="140" height="15"></td></tr>
+<tr>
+<td class="w140" width="140">
+<p align="left" class="left-column-subhead"><singleline label="Title">Add a title</singleline></p>
+<div align="left" class="left-column-content"><multiline label="Description">Enter your description</multiline></div>
+</td>
+</tr>
+</tbody></table>
+</layout>
+<layout label="Text with image">
+<table class="w140" width="140" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr><td class="w140" width="140" height="15"></td></tr>
+<tr>
+<td class="w140" width="140"><p align="left" class="left-column-subhead"><singleline label="Title">Add a title</singleline></p></td>
+</tr>
+<tr>
+<td class="w140" width="140"><img editable="true" label="Image" width="140" class="w140" border="0"></td>
+</tr>
+<tr><td class="w140" width="140" height="15"></td></tr>
+<tr>
+<td class="w140" width="140"><div align="left" class="left-column-content"><multiline label="Description">Enter your description</multiline></div></td>
+</tr>
+</tbody></table>
+</layout>
+</repeater>
+
+</td>
+<td class="w15" width="15" bgcolor="#ffffff"></td>
+</tr>
+</tbody></table>
+</td></tr>
+<tr>
+<td class="w640" width="640"><table class="w640" width="640" cellpadding="0" cellspacing="0" border="0">
+<tbody><tr>
+<td class="w170" width="170" bgcolor="#ffffff" height="15"></td>
+<td class="w300" width="300" bgcolor="#e7f5e9" height="15"></td>
+<td class="w170" width="170" bgcolor="#ffffff" height="15"></td>
+</tr>
+</tbody></table></td>
+</tr>
+
+<tr>
+<td class="w640" width="640">
+<table id="footer" class="w640" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#107B00">
+<tbody><tr><td class="w30" width="30"></td><td class="w580 h0" width="360" height="30"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
+<tr>
+<td class="w30" width="30"></td>
+<td class="w580" width="360" valign="top">
+<span class="hide"><p id="permission-reminder" align="left" class="footer-content-left"></p></span>
+<p align="left" class="footer-content-left"><preferences lang="en">Edit your subscription</preferences> | <unsubscribe>Unsubscribe</unsubscribe></p>
+</td>
+<td class="hide w0" width="60"></td>
+<td class="hide w0" width="160" valign="top">
+<p id="street-address" align="right" class="footer-content-right"></p>
+</td>
+<td class="w30" width="30"></td>
+</tr>
+<tr><td class="w30" width="30"></td><td class="w580 h0" width="360" height="15"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
+</tbody></table>
+</td>
+</tr>
+<tr><td class="w640" width="640" height="60"></td></tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table></body></html>
