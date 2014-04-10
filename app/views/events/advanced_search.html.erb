@@ -16,6 +16,29 @@
     <%= badge.name%></br>
   <% end %>
 
+  <%= select_tag(:season, options_for_select([['Any', 1],
+    ['Spring', 2],
+    ['Summer', 3],
+    ['Fall', 5],
+    ['Winter', 7],
+    ['January', 49],#winter
+    ['Febuary', 77],#winter
+    ['March', 14],#spring and winter
+    ['April', 4],#spring
+    ['May', 22],#spring
+    ['June', 6],#spring and summer
+    ['July', 9],#summer
+    ['August', 33],#summer
+    ['September', 15],#summer and fall
+    ['October', 25],#fall
+    ['November', 55],#fall
+    ['December', 35],#winter and fall
+    ['New Years', 245],#january and december
+    ['Independence Day', 117]], 1))%> <!--july-->
+    <!-- This system is probably not sustainable. But it was fun to write -->
+  </br>
+
+
  <%= submit_tag("Search") %>
  <%end%>
 

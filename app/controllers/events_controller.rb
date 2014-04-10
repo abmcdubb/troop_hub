@@ -50,7 +50,7 @@ class EventsController < ApplicationController
   end
 
   def search_results
-    @events = Event.find_by_search_results(params[:event], params[:age_level_ids], params[:badge_ids])
+    @events = Event.find_by_search_results(params[:event], params[:age_level_ids], params[:badge_ids], params[:season])
   end
 
 private
