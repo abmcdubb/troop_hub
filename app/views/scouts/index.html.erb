@@ -1,0 +1,9 @@
+<center><h1>Troop Members</h1>
+<% @scouts.each do |scout| %>
+
+<br><a href = '/scouts/<%=scout.id%>'><%=scout.name%></a>
+</br>
+<%end%>
+<br/>
+<br/>
+<%= link_to 'Add A Scout!', troop_scouts_path %>

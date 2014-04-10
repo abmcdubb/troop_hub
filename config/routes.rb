@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
+
   root 'troops#home'
+
+  get '/troops/:troop_id/scouts' => 'scouts#index', :as => :troop_scouts
+  get '/troops/:troop_id/scouts/new' => 'scouts#new', :as => :new_troop_scout
+  post '/troops/:troop_id/scouts' => 'scouts#create'
+  get '/troops/:troop_id/scouts/:id' => 'scouts#show'
+  get '/troops/:troop_id/scouts/edit/:id' => 'scouts#edit'
+  patch '/troops/:troop_id/scouts/update/:id' => 'scouts#update'
+  delete '/troops/:troop_id/scouts/destroy' => 'scouts#destroy'
+  
+  get '/troops' => 'troops#index'
 
   get 'events/index' => 'events#index'
   get 'events/new'
@@ -18,21 +29,24 @@ Rails.application.routes.draw do
   patch 'troops/update/:id' => 'troops#update'
   delete 'troops/destroy' => 'troops#destroy'
 
-get "/users/:user_id/contacts/:id/sms" => 'contacts#sms', as: 'contact_sms'
-
-  get '/troops/:troop_id/adults/new' => 'adults#new'
-  get '/troops/:troop_id/adults' => 'adults#index'
+  get '/troops/:troop_id/adults/new' => 'adults#new', as: 'adult_new'
+  get '/troops/:troop_id/adults' => 'adults#index', as: 'adults'
   post '/troops/:troop_id/adults' => 'adults#create'
-  get '/troops/:troop_id/adults/:id' => 'adults#show'
+  get '/troops/:troop_id/adults/:id' => 'adults#show', as: 'adult_show'
   get '/troops/:troop_id/adults/edit/:id' => 'adults#edit'
   get '/troops/:troop_id/adults/:id' => 'adults#show'
   patch '/troops/:troop_id/adults/update/:id' => 'adults#update'
-  delete '/tropps/:troop_id/adults/destroy' => 'adults#destroy'
+  delete '/troops/:troop_id/adults/destroy' => 'adults#destroy'
+
+  get '/troops/:troop_id/adults/:adult_id/skills/new' => 'skills#new', as: 'skills_new'
+  post '/troops/:troop_id/adults/:adult_id/skills' => 'skills#create'
+  # get '/troops/:troop_id/adults' => 'adults#index', as: 'adults'
+  get '/troops/:troop_id/adults/:adult_id/skills' => 'skills#index', as: 'skills'
 
   get 'troop_events' => 'troop_events#index'
   get 'troop_events/new' => 'troop_events#new'
   post 'troop_events' => 'troop_events#create'
-    get 'troop_events/:id' => 'troop_events#show'
+  get 'troop_events/:id' => 'troop_events#show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409171907) do
+ActiveRecord::Schema.define(version: 20140409184301) do
+
+  create_table "adult_skills", force: true do |t|
+    t.integer  "adult_id"
+    t.integer  "skill_id"
+    t.string   "skill_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -69,9 +77,7 @@ ActiveRecord::Schema.define(version: 20140409171907) do
   end
 
   create_table "skills", force: true do |t|
-    t.integer  "adult_id"
     t.string   "name"
-    t.string   "description"
     t.boolean  "badge_related_skill", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -83,6 +89,21 @@ ActiveRecord::Schema.define(version: 20140409171907) do
     t.datetime "start_time"
     t.string   "location"
     t.text     "detail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+
+ActiveRecord::Schema.define(version: 20140408210508) do
+
+  create_table "scouts", force: true do |t|
+    t.string   "name"
+    t.integer  "troop_id"
+    t.string   "grade"
+    t.date     "birthday"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "admin_privileges"
+    t.integer  "dues"
+    t.string   "profile_photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
