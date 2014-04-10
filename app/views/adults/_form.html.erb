@@ -1,12 +1,4 @@
 <%= form_for(@adult) do |f| %>
-  <% @skills.each do |skill| %>
-    <%= label_tag "skills_#{skill.id}", skill.name %>
-    <%= check_box_tag "adult[skill_ids][]", skill.id, false, id: "skill_#{skill.id}"%> 
-    <br>
-  <% end %>
-
-
-
   <%= f.label :adult_role, "Leader", :value => "Leader"  %>
   <%= f.radio_button :adult_role, "Leader" %>
   <%= f.label :adult_role, "Volunteer", :value => "Volunteer"  %>
@@ -22,15 +14,19 @@
     <br/>
   <%= f.label :phone_number %>
   <%= f.text_field :phone_number %><br/>
-  <%# @skills.each do |skill| %>
-   <%#= skill %>
 
-  <%# end %>
-  <%= f.submit %>
+  
+  <% @skills.each do |skill| %>
+    <%= label_tag "skills_#{skill.id}", skill.name %>
+    <%= check_box_tag "adult[skill_ids][]", skill.id, false, id: "skill_#{skill.id}"%> 
+    <%= text_field_tag "adult[descriptions][]" %> 
+    <br>
+  <% end %>
   
     <br/>
 
-
+<%= f.submit %>
     <br/>
 <% end %>
+
 
