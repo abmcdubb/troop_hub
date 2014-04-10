@@ -11,7 +11,6 @@ troop_event_2 = TroopEvent.create(event_id: 1, troop_id: 2, start_time: DateTime
 troop_event_3 = TroopEvent.create(event_id: 2, troop_id: 1, start_time: DateTime.now, location: "Little Ones", detail: "We'll talk about how Gloria respected herself. Bring your own picnic lunch.")
 troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, start_time: DateTime.now, location: "Some painting place in Long Island", detail: "Some Details.")
 
-
 badge_1 = Badge.create(name: "Respect Myself and Others", troop_type: "Daisy")
 badge_2 = Badge.create(name: "Painting", troop_type: "Brownie")
 
@@ -56,3 +55,36 @@ event_age_level_10 = EventAgeLevel.create(event_id: 3, age_level_id: 3)
 event_age_level_11 = EventAgeLevel.create(event_id: 3, age_level_id: 4)
 event_age_level_12 = EventAgeLevel.create(event_id: 3, age_level_id: 5)
 event_age_level_13 = EventAgeLevel.create(event_id: 3, age_level_id: 6)
+
+skill1 = Skill.create(name: 'Music', badge_related_skill: true)
+skill2 = Skill.create(name: 'Health & Safety', badge_related_skill: true)
+skill3 = Skill.create(name: 'Cooking', badge_related_skill: true)
+skill4 = Skill.create(name: 'Outdoor Skills', badge_related_skill: true)
+skill5 = Skill.create(name: 'Nature, Ecology', badge_related_skill: true)
+skill6 = Skill.create(name: 'Photography', badge_related_skill: true)
+skill7 = Skill.create(name: 'Arts & Crafts', badge_related_skill: true)
+skill8 = Skill.create(name: 'Math', badge_related_skill: true)
+skill9 = Skill.create(name: 'Computers', badge_related_skill: true)
+skill10 = Skill.create(name: 'Folk Dance & Games', badge_related_skill: true)
+skill11 = Skill.create(name: 'Sewing, Needle Arts', badge_related_skill: true)
+skill12 = Skill.create(name: 'Other', badge_related_skill: true)
+
+adult_skill_1 = AdultSkill.create(skill_id: 1, adult_id: 1, skill_description: "Violin, Viola, Cello")
+adult_skill_2 = AdultSkill.create(skill_id: 2, adult_id: 1, skill_description: "Nursing, Bandaging Wounds")
+adult_skill_3 = AdultSkill.create(skill_id: 3, adult_id: 1, skill_description: "Baking")
+
+adult_skill_4 = AdultSkill.create(skill_id: 2, adult_id: 2, skill_description: "Bloodletting")
+adult_skill_5 = AdultSkill.create(skill_id: 3, adult_id: 2, skill_description: "Hor D'Oervres")
+adult_skill_6 = AdultSkill.create(skill_id: 9, adult_id: 2, skill_description: "Creating Programming, Hacking")
+adult_skill_7 = AdultSkill.create(skill_id: 11, adult_id: 2, skill_description: "Crocheting")
+
+adult_skill_8 =  AdultSkill.create(skill_id: 8, adult_id: 3, skill_description: "Calculus")
+adult_skill_9 =  AdultSkill.create(skill_id: 9, adult_id: 3, skill_description: "HTML, Node.js")
+adult_skill_10 = AdultSkill.create(skill_id: 10, adult_id: 3, skill_description: "Ballet, Riverdance")
+
+adult_skill_11 = AdultSkill.create(skill_id: 6, adult_id: 4, skill_description: "Black and White, Dark Room")
+adult_skill_12 = AdultSkill.create(skill_id: 7, adult_id: 4, skill_description: "Popsicle Architecture")
+adult_skill_13 = AdultSkill.create(skill_id: 11, adult_id: 4, skill_description: "Knitting, Crosstitch")
+adult_skill_14 = AdultSkill.create(skill_id: 4, adult_id: 4, skill_description: "Firestarter, Hiking")
+adult_skill_15 = AdultSkill.create(skill_id: 5, adult_id: 4, skill_description: "Bird Watching, Frog Hopping")
+

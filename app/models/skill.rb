@@ -1,3 +1,4 @@
 class Skill < ActiveRecord::Base
-  belongs_to :adult
+   has_many :adult_skills
+   has_many :adults, through: :adult_skills
 end
