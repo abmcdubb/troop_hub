@@ -3,15 +3,17 @@ class AdultsController < ApplicationController
 
 # before_filter :authenticate_user!, except: [:index, :show]
 
-  before_filter do
+  before_filter :login_required, :except => [:show,:index] 
+
+  before_action :set_adult, only: [:show, :edit, :update, :destroy]
+
+  def login_required
     if current_adult != nil
-     authenticate_adult!        
+     authenticate_adult!    
     else
      authenticate_scout!
     end
   end
-
-  before_action :set_adult, only: [:show, :edit, :update, :destroy]
 
   def index
     @adults = Adult.all
