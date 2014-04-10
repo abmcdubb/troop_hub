@@ -1,5 +1,15 @@
 class ScoutsController < ApplicationController
+  before_filter :login_required
+
   before_action :set_scout, only: [:show, :edit, :update, :destroy]
+
+  def login_required
+    if current_adult != nil
+     authenticate_adult!    
+    else
+     authenticate_scout!
+    end
+  end
   
   def index
     @scouts = Scout.all
