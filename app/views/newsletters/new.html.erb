@@ -1,0 +1,35 @@
+
+<%=form_for(@newsletter) do |f|%>
+
+ <%= f.label :item1_title %>
+  <%= f.text_field :item1_title %><br/>
+  <br/>
+  <%= f.label :item1_desc %>
+  <%= f.text_field :item1_desc %><br/>
+
+  <%= f.label :item2_title %>
+  <%= f.text_field :item2_title %><br/>
+  <br/>
+  <%= f.label :item2_desc %>
+  <%= f.text_field :item2_desc %><br/>
+
+  <%= f.label :item3_title %>
+  <%= f.text_field :item3_title %><br/>
+  <br/>
+  <%= f.label :item3_desc %>
+  <%= f.text_field :item3_desc %><br/>
+
+  <%= f.label :note_from_leader %>
+  <%= f.text_field :note_from_leader %><br/>
+
+  <%= f.label :leader %>
+  <%= f.text_field :leader %><br/>
+
+    <%= f.label :troop_name %>
+  <%= f.text_field :troop_name %><br/>
+
+  <%= f.label :troop_type %>
+  <%= f.text_field :troop_type %><br/>
+  <%= f.submit %>
+  <%end%>
+
