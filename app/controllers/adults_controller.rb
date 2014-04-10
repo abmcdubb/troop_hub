@@ -19,7 +19,6 @@ class AdultsController < ApplicationController
 
   def create
     @adult = Adult.create(adult_params)
-    binding.pry
 
     add_skills_to_adults(@adult.id, skills_params[:skill_ids], skills_params[:descriptions])
 

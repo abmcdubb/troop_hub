@@ -22,19 +22,6 @@ adult_2 = Adult.create(troop_id: '2', adult_role: 'Leader', name: 'Minerva McGon
 adult_3 = Adult.create(troop_id: '3', adult_role: 'Volunteer', name: 'Helena', email: 'volunteer@imdeadbutistillhelpoutfromtimetotime.com', phone_number: '917-555-5555', profile_photo: '', admin_privileges: '')
 adult_4 = Adult.create(troop_id: '4', adult_role: 'Parent', name: 'Vernon Dursley', email: 'vdud@whatthehellamidoinghere.com', phone_number: '646-555-5555', profile_photo: '', admin_privileges: '')
 
-skill1 = Skill.create(adult_id: '1', name: 'Music', description: 'Violin, Cello', badge_related_skill: true)
-skill2 = Skill.create(adult_id: '1', name: 'Health & Safety', description: 'Dental', badge_related_skill: true)
-skill3 = Skill.create(adult_id: '1', name: 'Cooking', description: 'Baking', badge_related_skill: true)
-skill4 = Skill.create(adult_id: '1', name: 'Outdoor Skills', description: 'Fire building, by Wand', badge_related_skill: true)
-skill5 = Skill.create(adult_id: '2', name: 'Nature, Ecology', description: 'Leaf foraging, Herbology', badge_related_skill: true)
-skill6 = Skill.create(adult_id: '2', name: 'Photography', description: 'Black and White, Still Life', badge_related_skill: true)
-skill7 = Skill.create(adult_id: '2', name: 'Arts & Crafts', description: 'Popsicle stick architecture', badge_related_skill: true)
-skill8 = Skill.create(adult_id: '2', name: 'Math & Science', description: 'Calculus', badge_related_skill: true)
-skill9 = Skill.create(adult_id: '2', name: 'Computers', description: "Why would anyone need a computer when they have a wand? Siri isn't magic.  I am", badge_related_skill: true)
-skill10 = Skill.create(adult_id: '3', name: 'Folk Dance & Games', description: 'Riverdance, Modern Dance, Hip Hop', badge_related_skill: true)
-skill11 = Skill.create(adult_id: '3', name: 'Sewing, Needle Arts', description: 'Crochet', badge_related_skill: true)
-
-
 age_level_1 = AgeLevel.create(name: "Daisy", grades: "K-1")
 age_level_2 = AgeLevel.create(name: "Brownie", grades: "2-3")
 age_level_3 = AgeLevel.create(name: "Junior", grades: "4-5")
