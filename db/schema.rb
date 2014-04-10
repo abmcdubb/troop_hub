@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409184301) do
+ActiveRecord::Schema.define(version: 20140410163855) do
 
   create_table "adult_skills", force: true do |t|
     t.integer  "adult_id"
@@ -77,6 +77,35 @@ ActiveRecord::Schema.define(version: 20140409184301) do
     t.datetime "updated_at"
   end
 
+  create_table "newsletters", force: true do |t|
+    t.string   "item1_title"
+    t.text     "item1_desc"
+    t.string   "item2_title"
+    t.text     "item2_desc"
+    t.string   "item3_title"
+    t.text     "item3_desc"
+    t.text     "note_from_leader"
+    t.string   "leader"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "troop_type"
+    t.string   "troop_name"
+  end
+
+  create_table "scouts", force: true do |t|
+    t.string   "name"
+    t.integer  "troop_id"
+    t.string   "grade"
+    t.date     "birthday"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "admin_privileges"
+    t.integer  "dues"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "profile_photo"
+  end
+
   create_table "skills", force: true do |t|
     t.string   "name"
     t.boolean  "badge_related_skill", default: false
@@ -90,21 +119,6 @@ ActiveRecord::Schema.define(version: 20140409184301) do
     t.datetime "start_time"
     t.string   "location"
     t.text     "detail"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-
-ActiveRecord::Schema.define(version: 20140408210508) do
-
-  create_table "scouts", force: true do |t|
-    t.string   "name"
-    t.integer  "troop_id"
-    t.string   "grade"
-    t.date     "birthday"
-    t.string   "email"
-    t.string   "phone_number"
-    t.string   "admin_privileges"
-    t.integer  "dues"
-    t.string   "profile_photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

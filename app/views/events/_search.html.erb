@@ -2,4 +2,42 @@
   <%= label_tag(:'event[name]', "Event name:") %>
   <%= text_field_tag(:'event[name]') %>
   <%= submit_tag("Search") %>
-<% end %><%=link_to("Advanced Search", events_advanced_search_path)%>
+
+<% end %>
+
+<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#advancedSearch">
+  Advanced Search
+</button>
+
+<div class="modal fade" id="advancedSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Advanced Search</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag("/events/search", method: "get") do %>
+  <%= label_tag(:'event[name]', "Event name:") %>
+  <%= text_field_tag(:'event[name]') %></br>
+  <%= label_tag(:'event[genre]', "Event genre:") %>
+  <%= text_field_tag(:'event[genre]') %></br>
+  
+  <h4>Age Level</h4>
+  <% @age_levels.each do |age_level| %>
+    <%= check_box_tag 'age_level_ids[]', age_level.id%>
+    <%= age_level.name%></br>
+  <% end %>
+  
+  <h4>Badges</h4>
+  <% @badges.each do |badge| %>
+    <%= check_box_tag 'badge_ids[]', badge.id%>
+    <%= badge.name%></br>
+  <% end %>
+
+ <%= submit_tag("Search") %>
+ <%end%>      </div>
+  
+    </div>
+  </div>
+</div>

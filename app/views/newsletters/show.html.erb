@@ -1,0 +1,6 @@
+<% if @newsletter.troop_type == 'Daisy' %>
+  <%= stylesheet_link_tag 'daisy' %>
+  <% elsif @newsletter.troop_type == 'Brownie' %>
+   <%= stylesheet_link_tag 'brownie' %>
+   <%end%>
+<%= render 'form' %>

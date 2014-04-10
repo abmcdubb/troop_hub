@@ -2,6 +2,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+     @badges=Badge.all
+    @age_levels = AgeLevel.all
   end
 
   def new

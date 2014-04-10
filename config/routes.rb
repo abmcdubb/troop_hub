@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'newsletters/new' => 'newsletters#new'
+
+  post 'newsletters' => 'newsletters#create'
+  get 'newsletters/:id' => 'newsletters#show'
+  get 'newsletters' => 'newsletters#index'
+  
   root 'troops#home'
 
   get '/troops/:troop_id/scouts' => 'scouts#index', :as => :troop_scouts
