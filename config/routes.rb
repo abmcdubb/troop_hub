@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :scouts
   devise_for :adults
   # to change sign in and sign out pages routes
-  # devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  # devise_for :adults, path_names: {sign_in: "login", sign_out: "logout"}
   root 'troops#home'
 
   get '/troops/:troop_id/scouts' => 'scouts#index', :as => :troop_scouts
