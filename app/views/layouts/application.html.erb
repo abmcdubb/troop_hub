@@ -19,7 +19,7 @@
     <% end %>
 
     <% if adult_signed_in? || scout_signed_in? %>
-      <% if adult_signed_in %>
+      <% if adult_signed_in? %>
       Signed in as <%= current_adult.email %>. Not you?
       <%= link_to "Sign out", destroy_adult_session_path, :method => :delete %>
       <% else %>
