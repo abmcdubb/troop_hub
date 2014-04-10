@@ -92,6 +92,21 @@ ActiveRecord::Schema.define(version: 20140409184301) do
     t.text     "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
+
+ActiveRecord::Schema.define(version: 20140408210508) do
+
+  create_table "scouts", force: true do |t|
+    t.string   "name"
+    t.integer  "troop_id"
+    t.string   "grade"
+    t.date     "birthday"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "admin_privileges"
+    t.integer  "dues"
+    t.string   "profile_photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "troops", force: true do |t|
