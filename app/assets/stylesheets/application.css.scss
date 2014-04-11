@@ -12,20 +12,27 @@
  *
 
  *= require font-awesome.min
- *= require ie-style.css
  *= require settings.css
  *= require style.css
  *= require less-style.css
  *= require font-awesome.min.css
  *= require prettyPhoto.css
  *= require flexslider.css
-//= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
+ //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
- *= require_self
+ //= depend_on_asset "flexslider-icon.eot"
+ //= depend_on_asset "flexslider-icon.woff"
+ //= depend_on_asset "flexslider-icon.ttf"
+ //= depend_on_asset "flexslider-icon.svg"
+ //= depend_on_asset "fontawesome-webfont.eot"
+ //= depend_on_asset "fontawesome-webfont.woff"
+ //= depend_on_asset "fontawesome-webfont.ttf"
+ //= depend_on_asset "fontawesome-webfont.svg"
+ //= depend_on_asset "FontAwesome.otf"
  *= require_tree .
-
+ *= require_self
 
  */
  @import "bootstrap";
