@@ -1,7 +1,10 @@
-<%= render '/layouts/navbar' %>
-<%= render 'search' %>
-<h1>Events</h1>
-<button type = "button"><%=link_to "Add Event", events_new_path%></button><br/>
+<br/>
+<br/>
+<body>
+<center><h1>Events</h1></center>
+<%= render 'search'%><br/>
+<button class = "btn btn-default btn-xs"><%=link_to "Add Event", events_new_path%></button><br/>
+
 <br/>
 <% @events.each do |event| %>
     Name: <%= event.name %><br/>
@@ -41,3 +44,4 @@
 <%end%>
 <br/>
 <%= link_to 'Troops Index', troops_path %>
+</body>

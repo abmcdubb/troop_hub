@@ -6,31 +6,16 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
+
 </head>
+<header>
+    <%= render '/layouts/navbar' %>
+</header>
+
 <body>
 
- <div class="">
-    <%# if notice %>
-      <%#= notice %>
-    <%# end %>
 
-    <% if alert %>
-        <%= alert %>
-    <% end %>
 
-    <% if adult_signed_in? || scout_signed_in? %>
-      <% if adult_signed_in? %>
-      Signed in as <%= current_adult.email %>. Not you?
-      <%= link_to "Sign out", destroy_adult_session_path, :method => :delete %>
-      <% else %>
-      Signed in as <%= current_scout.email %>. Not you?
-      <%= link_to "Sign out", destroy_scout_session_path, :method => :delete %>
-      <% end %>
-    <% else %>
-      <%= link_to "Sign up as a Volunteer or Parent", new_adult_registration_path %> OR <%= link_to "Sign in as a Volunteer or Parent", new_adult_session_path %></br></br>
-      <%= link_to "Sign up as a Scout", new_scout_registration_path %> OR <%= link_to "Sign in as a Scout", new_scout_session_path %></br></br>
-    <% end %>
-  </div>
 
 <% if flash[:notice] %>
 <div id=”notice”><%= flash[:notice] %></div>

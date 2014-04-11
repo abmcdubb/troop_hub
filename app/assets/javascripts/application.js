@@ -10,6 +10,14 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require custom.js
+//= require html5shiv.js
+//= require isotope.js
+//= require jquery.flexslider-min.js
+//= require jquery.prettyPhoto.js
+//= require jquery.themepunch.plugins.min.js
+//= require jquery.themepunch.revolution.min.js
+//= require respond.min.js
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
