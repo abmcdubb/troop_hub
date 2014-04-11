@@ -1,7 +1,9 @@
+<%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "TBD", :right_option => "TBD" }%>
+
 <br/>
 <br/>
 <body>
-<center><h1>Events</h1></center>
+
 <%= render 'search'%><br/>
 <button class = "btn btn-default btn-xs"><%=link_to "Add Event", events_new_path%></button><br/>
 
