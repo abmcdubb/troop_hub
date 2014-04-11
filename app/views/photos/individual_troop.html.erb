@@ -2,3 +2,12 @@
 <%@photos.each do |photo|%>
     <%=image_tag photo.pic_url%>
 <%end%>
+
+<%@troop_events.each do |troop_event|%>
+    <%if troop_event.photos != []%>
+        <h1>Photos from our trip to <%=troop_event.name%>:</h1>
+        <%troop_event.photos.each do |photo|%>
+            <%=image_tag photo.pic_url%>
+        <%end%>
+    <%end%>
+<%end%>
