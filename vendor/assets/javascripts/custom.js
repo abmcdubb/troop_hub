@@ -20,7 +20,7 @@ $(document).ready(function() {
 /* Tool Tip JS */
 /* *************************************** */  
 
-$('.my-tooltip').tooltip();
+// $('.my-tooltip').tooltip();
 
 /* *************************************** */ 
 /* Scroll to Top */
