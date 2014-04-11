@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411181944) do
+ActiveRecord::Schema.define(version: 20140411204835) do
 
   create_table "adult_skills", force: true do |t|
     t.integer  "adult_id"
@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 20140411181944) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.string   "grades"
     t.string   "genre"
     t.text     "description"
     t.string   "season"
@@ -161,6 +160,16 @@ ActiveRecord::Schema.define(version: 20140411181944) do
   add_index "scouts", ["email"], name: "index_scouts_on_email", unique: true
   add_index "scouts", ["reset_password_token"], name: "index_scouts_on_reset_password_token", unique: true
 
+  create_table "scouts_badges", force: true do |t|
+    t.integer  "scout_id"
+    t.integer  "badge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scouts_badges", ["badge_id"], name: "index_scouts_badges_on_badge_id"
+  add_index "scouts_badges", ["scout_id"], name: "index_scouts_badges_on_scout_id"
+
   create_table "skills", force: true do |t|
     t.string   "name"
     t.boolean  "badge_related_skill", default: false
@@ -189,9 +198,6 @@ ActiveRecord::Schema.define(version: 20140411181944) do
     t.text     "about_us"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
   end
-
-  add_index "troops", ["slug"], name: "index_troops_on_slug"
 
 end
