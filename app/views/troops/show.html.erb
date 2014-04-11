@@ -35,7 +35,7 @@
     </p>
 <%end%>
 
-<%= render partial: "image_upload", locals: {:type => "troop", :id => @troop.id} %></br>
+<%= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
 <%= link_to 'Back', troops_path %><br/>
 <%= link_to 'Events', events_index_path %>
 

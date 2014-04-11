@@ -43,10 +43,10 @@ Rails.application.routes.draw do
   # get '/troops/:troop_id/adults' => 'adults#index', as: 'adults'
   get '/troops/:troop_id/adults/:adult_id/skills' => 'skills#index', as: 'skills'
 
-  get 'troop_events' => 'troop_events#index'
+#  get 'troop_events' => 'troop_events#index'
   get 'troop_events/new' => 'troop_events#new'
   post 'troop_events' => 'troop_events#create'
-  get 'troop_events/:id' => 'troop_events#show'
+  get 'troop_events/:id' => 'troop_events#show', as: 'troop_event'
 
   post 'photos/:photoable_id/:photoable_type' => 'photos#create'
   delete 'photos/:photoable_id/:photoable_type/:photo_id' => 'photos#delete'

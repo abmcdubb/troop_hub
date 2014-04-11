@@ -4,6 +4,10 @@ class PhotosController < ApplicationController
             @troop = Troop.find(params[:photoable_id])
             @photo=Photo.create_from_params(photo_params)
             redirect_to troop_path(@troop)
+        elsif params[:photoable_type] == "troop_event"
+            @troop_event = TroopEvent.find(params[:photoable_id])
+            @photo=Photo.create_from_params(photo_params)
+            redirect_to troop_event_path(@troop_event)
         end
     end
 
@@ -13,6 +17,9 @@ class PhotosController < ApplicationController
     if params[:photoable_type] == "troop"
         @troop = Troop.find(params[:photoable_id])
         redirect_to troop_path(@troop)
+    elsif params[:photoable_type] == "troop_event"
+        @troop_event = TroopEvent.find(params[:photoable_id])
+        redirect_to troop_event_path(@troop_event)
     end
   end
 
