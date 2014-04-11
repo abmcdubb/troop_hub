@@ -1,15 +1,4 @@
-
-<div class = "banner padd"><div class = "container"> <%= image_tag "crown-white.png"%><h2 class = "white"><%= @troop.name %></h2>
- 
- <ol class = "breadcrumb">
-  <li>Troop Number: <%= @troop.number %></li>
-<li>Troop Type: <%= @troop.troop_type %> </li>
-</ol>
-
-
-</div>
-</div>
-<br/>
+<%=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.troop_type}", :right_option => "Troop Number: #{@troop.number}" }%>
 <body>
 <p><b>About Us:</b> <%=@troop.about_us %></p>
 <br/>
