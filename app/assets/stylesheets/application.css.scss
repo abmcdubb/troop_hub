@@ -19,6 +19,7 @@
  *= require style.css
  *= require_tree .
  *= require_self
+
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
@@ -27,7 +28,7 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
-  padding-top: 70px;
+  padding-top: 40px;
   padding-bottom: 30px;
 }
 
@@ -44,3 +45,4 @@ body {
 .formfield * {
     vertical-align: middle;
 }
+

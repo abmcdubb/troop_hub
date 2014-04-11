@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410213113) do
+ActiveRecord::Schema.define(version: 20140410213821) do
 
   create_table "adult_skills", force: true do |t|
     t.integer  "adult_id"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20140410213113) do
 
   create_table "events", force: true do |t|
     t.string   "name"
+    t.string   "grades"
     t.string   "genre"
     t.text     "description"
     t.string   "season"
@@ -188,6 +189,9 @@ ActiveRecord::Schema.define(version: 20140410213113) do
     t.text     "about_us"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "troops", ["slug"], name: "index_troops_on_slug"
 
 end
