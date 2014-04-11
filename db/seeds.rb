@@ -84,3 +84,9 @@ scout_2 = Scout.create(troop_id: '2', name: 'Lavender', grade: '2nd', birthday: 
 scout_3 = Scout.create(troop_id: '3', name: 'Parvati', grade: '11th', birthday: '', email: 'PPatil@hogwarts.com', phone_number: '212-994-4925', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
 scout_4 = Scout.create(troop_id: '3', name: 'Cho', grade: '12th', birthday: '', email: 'cchang@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
 
+
+# (:patches, :snack, :jobs, :supplies, :correspondence, :troop_info, :parent_info, :decisions)
+agenda_1 = Agenda.create(meeting_date: '', location: 'St. Marys Church', activity_1: 'Claymation', activity_2: 'Promise/Law, Review previous patch meaning', activity_3: 'some activity', activity_4: 'something related to a patch', activity_5: 'some kind of movement game', activity_6: 'Composting stinky old food', activity_7: 'Clean-up', activity_8: 'Friendship circle, squeeze, song', patches: 'Composting Fun Patch', snack: 'Cheesey poofs', jobs: 'Snack Helper: Emily, Squeeze Starter: Hermione', supplies: 'clay', troop_info: 'Ask girls which field trip they would like next: martial art studio or rooftop farm')
+
+
+agenda_2 = Agenda.create(meeting_date: '', location: 'Fancy highrise lounge', activity_1: 'Robotics building', activity_2: 'Promise/Law, discuss next patch and future field trip', activity_3: 'Some kind of game', activity_4: 'something related to a patch', activity_5: 'Learn a song', activity_6: 'Build a Rails app', activity_7: 'Snack', activity_8: 'Friendship circle, squeeze, song', patches: 'Ruby on Rails Fun Patch', snack: 'Goldfish', jobs: 'Snack Helper: Kid1, Squeeze Starter: Kid2, Attendance Leader: Kid3', supplies: 'computer, pickaxe', troop_info: 'Invite girls to tour Flatiron School summer camp info session')

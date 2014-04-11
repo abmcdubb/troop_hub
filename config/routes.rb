@@ -13,10 +13,38 @@ Rails.application.routes.draw do
 
   root 'troops#home'
 
+  get '/troops' => 'troops#index'
+  get 'troops/new' => 'troops#new'
+  post '/troops' => 'troops#create'
+  get 'troops/edit/:id' => 'troops#edit'
+  get 'troops/:id' => 'troops#show', :as => :troop_show
+  patch 'troops/update/:id' => 'troops#update'
+  delete 'troops/destroy' => 'troops#destroy'
+
+
+  resources :troops do
+    resources :agendas, :only => [:new, :create, :show, :update]
+  end
+
+  # get '/troops/:troop_id/agenda'
+
+  # get '/troops/:troop_id/agenda/new'
+
+  # get '/troops/:troop_id/agenda'
+
+  # get '/troops/:troop_id/agenda/:id'
+
+  # get '/troops/:troop_id/agenda/edit'
+
+  # get '/troops/:troop_id/agenda/update'
+
+  # get '/troops/:troop_id/agenda/destroy'
+
+
   get '/troops/:troop_id/scouts' => 'scouts#index', :as => :troop_scouts
   get '/troops/:troop_id/scouts/new' => 'scouts#new', :as => :new_troop_scout
   post '/troops/:troop_id/scouts' => 'scouts#create'
-  get '/troops/:troop_id/scouts/:id' => 'scouts#show'
+  get '/troops/:troop_id/scouts/:id' => 'scouts#show', :as => :scout_show
   get '/troops/:troop_id/scouts/edit/:id' => 'scouts#edit'
   patch '/troops/:troop_id/scouts/update/:id' => 'scouts#update'
   delete '/troops/:troop_id/scouts/destroy' => 'scouts#destroy'
