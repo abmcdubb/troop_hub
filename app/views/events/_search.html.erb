@@ -1,13 +1,8 @@
 <%= form_tag("/events/search", method: "get") do %>
-  <%= label_tag(:'event[name]', "Event name:") %>
+<%= label_tag(:'event[name]', "Search by Event Name:") %>
   <%= text_field_tag(:'event[name]') %>
-  <%= submit_tag("Search") %>
-
-<% end %>
-
-<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#advancedSearch">
-  Advanced Search
-</button>
+  <button type="submit" class="btn btn-default btn-xs">Search</button>
+<% end %><button class="btn btn-default btn-xs" data-toggle="modal" data-target="#advancedSearch">Advanced Search</button><br/>
 
 <div class="modal fade" id="advancedSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -56,8 +51,6 @@
     ['Independence Day', 117]], 1))%> <!--july-->
     <!-- This system is probably not sustainable. But it was fun to write -->
   </br>
-
-
  <%= submit_tag("Search") %>
  <%end%>      </div>
   

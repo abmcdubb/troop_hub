@@ -1,19 +1,25 @@
 class EventsController < ApplicationController
+    before_action :set_troop_event, only: [:show, :edit, :update, :destroy]
+    before_action :set_event, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @events = Event.all
-     @badges=Badge.all
+    @badges=Badge.all
     @age_levels = AgeLevel.all
   end
 
   def new
     @event = Event.new
+    @troop_event = TroopEvent.new
     @badges=Badge.all
     @age_levels = AgeLevel.all
+    @troops = Troop.all
   end
 
   def create
     @event = Event.create(event_params)
+    @troop_event = @event.troop_events.build(params[:troop_event])
     @badges = Badge.all
     respond_to do |format|
       if @event.save
@@ -62,6 +68,14 @@ private
 
   def event_params
     params.require(:event).permit(:name, :genre, :description, :season, :location, :age_level_ids => [], :badge_ids => [])
+  end
+
+  def set_troop_event
+    @troop_event = TroopEvent.find(params[:id])
+  end
+
+  def troop_event_params
+    params.require(:troop_event).permit(:start_time, :location, :detail, :event_id, :troop_id)
   end
 
 end
