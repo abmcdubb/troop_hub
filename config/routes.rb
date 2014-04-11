@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'troops#home'
 
   get '/troops' => 'troops#index'
   get 'troops/new' => 'troops#new'
@@ -9,21 +10,25 @@ Rails.application.routes.draw do
   patch 'troops/update/:id' => 'troops#update'
   delete 'troops/destroy' => 'troops#destroy'
 
-  get 'agenda/index'
 
-  get 'agenda/new'
+  resources :troops do
+    resources :agendas, :only => [:new, :create, :show, :update]
+  end
 
-  get 'agenda/create'
+  # get '/troops/:troop_id/agenda'
 
-  get 'agenda/show'
+  # get '/troops/:troop_id/agenda/new'
 
-  get 'agenda/edit'
+  # get '/troops/:troop_id/agenda'
 
-  get 'agenda/update'
+  # get '/troops/:troop_id/agenda/:id'
 
-  get 'agenda/destroy'
+  # get '/troops/:troop_id/agenda/edit'
 
-  root 'troops#home'
+  # get '/troops/:troop_id/agenda/update'
+
+  # get '/troops/:troop_id/agenda/destroy'
+
 
   get '/troops/:troop_id/scouts' => 'scouts#index', :as => :troop_scouts
   get '/troops/:troop_id/scouts/new' => 'scouts#new', :as => :new_troop_scout

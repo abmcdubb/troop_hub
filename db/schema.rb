@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410161115) do
+ActiveRecord::Schema.define(version: 20140410213113) do
 
   create_table "adult_skills", force: true do |t|
     t.integer  "adult_id"
@@ -42,8 +42,6 @@ ActiveRecord::Schema.define(version: 20140410161115) do
   end
 
   create_table "agendas", force: true do |t|
-    t.string   "name"
-    t.text     "description"
     t.date     "meeting_date"
     t.string   "location"
     t.text     "activity_1"
@@ -58,10 +56,7 @@ ActiveRecord::Schema.define(version: 20140410161115) do
     t.string   "snack"
     t.text     "jobs"
     t.text     "supplies"
-    t.text     "correspondence"
     t.text     "troop_info"
-    t.text     "parent_info"
-    t.text     "decisions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -110,10 +105,10 @@ ActiveRecord::Schema.define(version: 20140410161115) do
     t.string   "phone_number"
     t.string   "admin_privileges"
     t.integer  "dues"
-    t.string   "profile_photo"
-    t.text     "patches"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_photo"
+    t.text     "patches"
   end
 
   create_table "skills", force: true do |t|

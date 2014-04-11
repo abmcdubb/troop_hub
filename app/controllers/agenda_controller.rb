@@ -10,6 +10,16 @@ class AgendaController < ApplicationController
   end
 
   def create
+    @agenda = Agenda.create(agenda_params)
+    #@badges = Badge.all
+      respond_to do |format|
+        if @agenda.save
+          format.html { redirect_to agendas_index_path, notice: 'Agenda was successfully created.' }
+        else
+          format.html { render action: 'new' }
+        end
+    end   
+    #@troop = Troop.find(params[:troop_id])
     #@agenda = Agenda.find(params[:troop_id])
     #@agenda = @troop.agenda.new(agenda_params) #associates agenda with that troop
     # respond_to do |format|
@@ -41,6 +51,6 @@ class AgendaController < ApplicationController
   end
 
   def agenda_params
-    params.require(:agenda).permit(:name, :meeting_date, :location, :activity_1, :activity_2, :activity_3, :activity_4, :activity_5, :activity_6, :activity_7, :activity_8, :patches, :snack, :jobs, :supplies, :correspondence, :troop_info, :parent_info, :decisions)
+    params.require(:agenda).permit(:name, :meeting_date, :location, :activity_1, :activity_2, :activity_3, :activity_4, :activity_5, :activity_6, :activity_7, :activity_8, :patches, :snack, :jobs, :supplies, :troop_info)
   end
 end
