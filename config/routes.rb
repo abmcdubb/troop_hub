@@ -21,10 +21,9 @@ Rails.application.routes.draw do
   patch 'troops/update/:id' => 'troops#update'
   delete 'troops/destroy' => 'troops#destroy'
 
-
-  resources :troops do
-    resources :agendas, :only => [:new, :create, :show, :update]
-  end
+  # resources :troops do
+  #   resources :agendas, :only => [:new, :create, :show, :update]
+  # end
 
   # get '/troops/:troop_id/agenda'
 
@@ -48,8 +47,6 @@ Rails.application.routes.draw do
   get '/troops/:troop_id/scouts/edit/:id' => 'scouts#edit'
   patch '/troops/:troop_id/scouts/update/:id' => 'scouts#update'
   delete '/troops/:troop_id/scouts/destroy' => 'scouts#destroy'
-  
-  get '/troops' => 'troops#index'
 
   get 'events/index' => 'events#index'
   get 'events/new'

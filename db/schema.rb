@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410175440) do
+ActiveRecord::Schema.define(version: 20140410213113) do
 
   create_table "adult_skills", force: true do |t|
     t.integer  "adult_id"
@@ -108,7 +108,6 @@ ActiveRecord::Schema.define(version: 20140410175440) do
     t.datetime "updated_at"
   end
 
-
   create_table "newsletters", force: true do |t|
     t.string   "item1_title"
     t.text     "item1_desc"
@@ -118,30 +117,11 @@ ActiveRecord::Schema.define(version: 20140410175440) do
     t.text     "item3_desc"
     t.text     "note_from_leader"
     t.string   "leader"
-
-  create_table "scouts", force: true do |t|
-    t.string   "name"
-    t.integer  "troop_id"
-    t.string   "grade"
-    t.date     "birthday"
-    t.string   "email"
-    t.string   "phone_number"
-    t.string   "admin_privileges"
-    t.integer  "dues"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "profile_photo"
-    t.text     "patches"
-  end
-
-  create_table "skills", force: true do |t|
-    t.string   "name"
-    t.boolean  "badge_related_skill", default: false
-
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "troop_type"
     t.string   "troop_name"
+  end
 
   create_table "photos", force: true do |t|
     t.string   "pic"
@@ -151,7 +131,6 @@ ActiveRecord::Schema.define(version: 20140410175440) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "on_page"
-
   end
 
   create_table "scouts", force: true do |t|
@@ -175,6 +154,7 @@ ActiveRecord::Schema.define(version: 20140410175440) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.text     "patches"
   end
 
   add_index "scouts", ["email"], name: "index_scouts_on_email", unique: true
@@ -195,7 +175,6 @@ ActiveRecord::Schema.define(version: 20140410175440) do
     t.text     "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
-
   end
 
   create_table "troops", force: true do |t|
