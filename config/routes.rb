@@ -85,7 +85,7 @@ Rails.application.routes.draw do
   get 'troop_events/:id' => 'troop_events#show', as: 'troop_event'
 
   post 'photos/:photoable_id/:photoable_type' => 'photos#create'
-  delete 'photos/:photoable_id/:photoable_type/:photo_id' => 'photos#delete'
+  delete 'photos/:photoable_id/:page_for_redirect/:photo_id' => 'photos#delete'
 
   get 'troops/:troop_id/photos' => 'photos#individual_troop', as: 'troop_photos'
 
