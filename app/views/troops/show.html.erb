@@ -1,8 +1,16 @@
-<center><h1><%= @troop.name %></h1>
-<h6>Troop Number: <%= @troop.number %></h6>
-<h6>Troop Type: <%= @troop.troop_type %> </h6></center>
-</br>
 
+<div class = "banner padd"><div class = "container"> <%= image_tag "crown-white.png"%><h2 class = "white"><%= @troop.name %></h2>
+ 
+ <ol class = "breadcrumb">
+  <li>Troop Number: <%= @troop.number %></li>
+<li>Troop Type: <%= @troop.troop_type %> </li>
+</ol>
+
+
+</div>
+</div>
+<br/>
+<body>
 <p><b>About Us:</b> <%=@troop.about_us %></p>
 <br/>
 <br/>
@@ -37,4 +45,5 @@
 <%= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
 <%= link_to 'Back', troops_path %><br/>
 <%= link_to 'Events', events_index_path %>
+</body>
 
