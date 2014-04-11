@@ -1,0 +1,8 @@
+<%= form_tag "/photos/#{id}/#{type}", multipart: true do %>
+  <label for="photo[pic]"><h2>Upload Photo</h2></label> <%= file_field_tag "[photo][pic]" %>
+  <%=check_box_tag 'photo[on_page]', 'true'%>
+  <%=label_tag 'photo[on_page]', "I want this photo to appear on this page"%></br>
+  <%= hidden_field_tag 'photo[photoable_id]', id%>
+  <%= hidden_field_tag 'photo[photoable_type]', type%>
+  <%= submit_tag %>
+<% end %>

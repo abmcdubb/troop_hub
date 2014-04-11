@@ -3,4 +3,13 @@
 
 
 <p><%= @troop_event.detail %></p>
+<%= render partial: "/photos/photo_upload", locals: {:type => "troop_event", :id => @troop_event.id} %></br>
 
+<%@photos.each do |photo| %>
+    <p>
+        <%=image_tag photo.pic_url%>
+        <%= form_tag("/photos/#{@troop_event.id}/troop_event/#{photo.id}", method: "delete") do %>
+            <%= submit_tag 'Delete' %>
+        <%end%>
+    </p>
+<%end%>
