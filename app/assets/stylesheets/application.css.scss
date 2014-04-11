@@ -10,6 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require flexslider.css
+ *= require font-awesome.min.css
+ *= require ie-style.css
+ *= require less-style.css
+ *= require prettyPhoto.css
+ *= require settings.css
+ *= require style.css
  *= require_tree .
  *= require_self
 
