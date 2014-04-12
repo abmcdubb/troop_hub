@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
   # devise_for :scouts
-  devise_for :adults, controllers: { :registrations => "registrations" }
-  devise_for :scouts#, controllers: { registrations: "registrations" }
+  devise_for :adults, controllers: { :registrations => "adult/registrations" }
+  devise_for :scouts, controllers: { registrations: "scout/registrations" }
 
   get 'newsletters/new' => 'newsletters#new'
 
