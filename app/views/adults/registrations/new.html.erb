@@ -1,15 +1,16 @@
 <div class="inner-page padd">
-      ADULTS
   <!-- Booking Start -->
   <div class="booking">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-12">
           <!-- Heading -->
-          <h3 class = >Awesome Decoration</h3>
+          <h3 class = >Register for Troop Hub</h3>
           <!-- Paragraph -->
           <p>Loren gypsum dolour sit amet, conjecture listing elite, sed do eiusmod tempor incident ut laboured et magna onjecture listing elite, sed do eiusmod tempo aliqua.</p>
+          </div> <!-- col-md-12 -->
           <!-- Image Slider -->
+          <div class="col-md-4">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Wrapper for slides -->
             <div class="carousel-inner">
@@ -40,14 +41,10 @@
           </a>
           </div> <!-- carousel-example-generic -->
         </div> <!-- col-md-4 -->
+        
 
         <div class="col-md-8">
-          <!-- Booking form area -->
-          <div class="booking-form">
-          <!-- Heading -->
-          <h3>Sign Up</h3>
-          <!-- Paragraph -->
-          <p>Loren gypsum dolour sit amet, conjecture listing elite, sed do eiusmod tempor incident ut laboured et magna aliqua.</p>
+
           
 
 
@@ -82,7 +79,7 @@
                 <label>Phone Number</label>
                 <div class="form-group">
                   <!-- Form input -->
-                  <%= f.text_field :phone_number, autofocus: true, :class => "form-control"  %>
+                  <%= f.text_field :phone_number, autofocus: true, :class => "form-control-custom"  %>
                 </div>
                 <!-- Form label -->
                 <label>Role</label>
@@ -108,15 +105,15 @@
                 <div class="col-md-7">
                   <div class="form-group">
                     <!-- Paragraph -->
-                    <br>
                     <!-- <p><i>Please share any additional skills you posess and a description of them seperated by commas. For example if you play the flute and the piano, select the "Music" checkbox and write in the text field "Flute, Piano"</i></p> -->
                     <label class="form_label_font"> Additional Skills: </label><br>
                   <% @skills.each do |skill| %>                  
                     <%#= label_tag "skills_#{skill.id}", skill.name %>
-                    <%= check_box_tag "adult[skill_ids][]", skill.id, false, id: "skill_#{skill.id}" %>
+                    <%= check_box_tag "adult[skill_ids][]", skill.id, false, id: "skill_#{skill.id}", class: 'skills_check_box', :data => {:skill_id => skill.id} %>
+
                     <label class="form_label_font"><%= skill.name %></label>
                     
-                    <%= text_field_tag "adult[descriptions][]", nil, class: 'hidden_text_input form-control' %>  <br>                  
+                    <%= text_field_tag "adult[descriptions][]", nil, id: "skill_#{skill.id}", class: 'hidden_skills_text_field form-control-update', :data => {:skill_id => skill.id} %>  <br>                  
                   <% end %>
                   </div>
                 </div> <!-- col-md-7 -->
@@ -141,5 +138,19 @@
     </div> <!-- end container -->
   </div> <!-- end booking -->
 </div> <!-- end inner-page padd -->
+<script type="text/javascript">
 
+$(document).ready(function() {
+
+  $('.skills_check_box').change('checkbox :checkbox.toggle', function(e){    
+    var skill_id = $(this).data('skill-id');
+    var text_field = $('.hidden_skills_text_field#skill_'+skill_id);
+
+    text_field.fadeToggle();
+
+    
+
+    });
+});
+</script>
 
