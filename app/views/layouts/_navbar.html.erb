@@ -17,8 +17,11 @@
       <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> Sign Up <b class="caret"></b></a>
     <ul class="dropdown-menu">
-      <li><a href="/scouts/sign_up">Sign Up as a Scout</a></li>
-      <li><a href="/adults/sign_in">Sign Up as a Adult</a></li>
+      <!-- <li><a href="/scouts/sign_up">Sign Up as a Scout</a></li> -->
+      <li><%= link_to "Sign Up as a Scout", new_scout_registration_path %></li>
+
+      <!-- <li><a href="/adults/sign_up">Sign Up as a Adult</a></li> -->
+      <li><%= link_to "Sign Up as an Adult", new_adult_registration_path %></li>
     </ul>
   </li>
 

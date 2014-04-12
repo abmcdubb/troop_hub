@@ -55,7 +55,7 @@ hr{
 ::-moz-focus-inner {
 	border:0;
 }
-
+.form_label_font { font-weight: normal; color: #9a9a9a; }
 form label { font-weight: normal; color: #9a9a9a; }
 form select { padding-left: 7px !important }
 form select, form textarea { color: #9a9a9a !important; }
