@@ -79,13 +79,13 @@
                 <label>Phone Number</label>
                 <div class="form-group">
                   <!-- Form input -->
-                  <%= f.text_field :phone_number, autofocus: true, :class => "form-control-custom"  %>
+                  <%= f.text_field :phone_number, autofocus: true, :class => "form-control"  %>
                 </div>
                 <!-- Form label -->
                 <label>Role</label>
                 <div class="form-group">
                   <!-- Form drop down -->
-                  <select name= :adult_role class="form-control">
+                  <select name="adult[adult_role]" class="form-control">
                     <option value="Parent">Parent</option>
                     <option value="Troop Leader">Troop Leader</option>
                     <option value="Volunteer">Volunteer</option>

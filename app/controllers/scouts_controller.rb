@@ -17,6 +17,7 @@ class ScoutsController < ApplicationController
   end
 
   def new
+    raise inspect.params
     #binding.pry
     # @troop = Troop.find_by(params[:troop_id])
     @scout = Scout.new
