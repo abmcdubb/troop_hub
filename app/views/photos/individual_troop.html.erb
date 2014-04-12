@@ -1,6 +1,15 @@
 <h1><%=@troop.name%> Photos</h1>
 <%@photos.each do |photo|%>
     <%=image_tag photo.pic_url%>
+
+        <%= form_tag("/photos/#{@troop.id}/troop_photo/#{photo.id}", method: "delete") do %>
+            <%= submit_tag 'Delete' %>
+        <%end%>
+
+        <%#= form_tag("/photos/#{@photo.id}/edit", method: "patch") do %>
+        <!-- make this a checkbox (or link) that you can use to set photo as main screen photo -->
+        <%#end%>
+
 <%end%>
 
 <%@troop_events.each do |troop_event|%>
