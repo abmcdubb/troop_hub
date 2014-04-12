@@ -5,9 +5,9 @@
       <div class="row">
         <div class="col-md-12">
           <!-- Heading -->
-          <h3 class = >Register for Troop Hub</h3>
+          <h3 class = >Register as an Adult for Troop Hub</h3>
           <!-- Paragraph -->
-          <p>Loren gypsum dolour sit amet, conjecture listing elite, sed do eiusmod tempor incident ut laboured et magna onjecture listing elite, sed do eiusmod tempo aliqua.</p>
+          <p>Already have an account? <%= link_to "Sign in here.", new_adult_session_path %><br> If you are a Girl Scout register <%= link_to "here.", new_scout_registration_path %> </p>
           </div> <!-- col-md-12 -->
           <!-- Image Slider -->
           <div class="col-md-4">
@@ -96,7 +96,7 @@
                  <div class="form-group">
                   <button class="btn btn-danger btn-sm" type="submit">Sign up</button>&nbsp;
                   <button class="btn btn-default btn-sm" type="reset">Reset</button>
-                  <%= render "adults/shared/links" %>
+                  
                 </div>
 
               </div> <!-- col-md-5 --> 
@@ -113,7 +113,7 @@
 
                     <label class="form_label_font"><%= skill.name %></label>
                     
-                    <%= text_field_tag "adult[descriptions][]", nil, id: "skill_#{skill.id}", class: 'hidden_skills_text_field form-control-update', :data => {:skill_id => skill.id} %>  <br>                  
+                    <%= text_field_tag "adult[descriptions][]", nil, id: "skill_#{skill.id}", class: 'hidden_skills_text_field form-control-update', :data => {:skill_id => skill.id}, placeholder: placeholder(skill.name) %>  <br>                  
                   <% end %>
                   </div>
                 </div> <!-- col-md-7 -->

@@ -65,7 +65,7 @@ form select, form textarea{ box-shadow: none !important; }
 table { background: #fff; }
 
 .padd{
-	padding: 50px 0;
+	padding: 0px 0;
 }
 
 
@@ -233,6 +233,7 @@ transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 .header .header-search form input::-ms-input-placeholder { 
     color:#9e9e9e;
 }
+
 
 .header .header-search .btn{
 	background:#fff !important;
@@ -1213,7 +1214,7 @@ div.ppt { display:none !important; }
  * Booking Page
  */
  
-.inner-page .booking { margin-top: 40px; margin-bottom: 20px; }
+.inner-page .booking { margin-top: 0px; margin-bottom: 0px; }
 .inner-page .booking .carousel {
 	margin-top: 15px;
 	border-radius: 6px;
@@ -2175,7 +2176,7 @@ div.ppt { display:none !important; }
 	.showcase .showcase-item h3{ margin-bottom: 10px; padding: 0; text-align: center; }
 	.showcase .showcase-item p { padding: 0; text-align: center; }
 	
-	.inner-page .booking .booking-form { margin-top: 40px; }
+	.inner-page .booking .booking-form { margin-top: 0px; }
 	.inner-page .recipe .recipe-content{ padding-bottom: 15px; }
 	.inner-page .recipe .recipe-item{ margin-bottom: 15px; }
 	.inner-page .single-item .table-responsive { margin-top: 10px; }
@@ -2188,4 +2189,26 @@ div.ppt { display:none !important; }
 
 
 @media (max-width: 1200px){
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #E0E0E0;
+    font-style: italic;
+    opacity: 1;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #E0E0E0;
+    font-style: italic;
+    opacity: 1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #E0E0E0;
+    font-style: italic;
+    opacity: 1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #E0E0E0;
+    font-style: italic;
+    opacity: 1;
 }
