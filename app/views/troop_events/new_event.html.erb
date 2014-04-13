@@ -1,0 +1,58 @@
+<h4>Enter general event information that can be reused by other scouts:</h4>
+
+<%= form_tag("/troop_events/new_event") do %>
+  <%=label_tag :event_name%>
+  <%=text_field_tag :"event[name]"%><br>
+  <%= label_tag :event_genre %>
+  <%= text_field_tag :"event[genre]" %><br>
+  <%= label_tag :event_description %>
+  <%= text_area_tag :"event[description]" %><br>
+  <%= label_tag :event_season %>
+  <%= text_field_tag :"event[season]" %><br>
+  <%= label_tag :event_location %>
+  <%= text_field_tag :"event[location]" %><br>
+
+  <%@age_levels.each do |age_level|%>
+    <%= check_box_tag(:"event[age_level_ids][]", age_level.id) %>
+    <%= label_tag(:event_age_level_ids, age_level.name) %>
+  <%end%>
+
+<br><br>
+  <%@badges.each do |badge|%>
+    <%= check_box_tag(:"event[badge_ids][]", badge.id) %>
+    <%= label_tag(:event_badge_ids, badge.name) %>
+  <%end%>
+<br>
+
+  <h4>Enter troop specific event information:</h4>
+  <%@troops.each do |troop|%>
+    <%= radio_button_tag(:"troop_event[troop_id]", troop.id) %>
+    <%= label_tag(:troop_event_troop_id, troop.name) %>
+  <%end%>
+  <br>
+  <%= label_tag(:troop_event_start_time, "When:")%>
+  <%= datetime_local_field(:troop_event, :start_time) %><br>
+  <%= label_tag :troop_event_location, "Where:" %>
+  <%= text_field_tag :"troop_event[location]" %><br>
+  <%= label_tag :troop_event_detail, "Details:" %>
+  <%= text_area_tag :"troop_event[detail]" %><br>
+  
+<br>
+<%= submit_tag("Create") %>
+<%end%>
+ <br>
+  <br>
+ <br>
+ <br>
+ <br>
+  <br>
+ <br>
+ <br>
+ <br>
+<%#= form_for(@troop_event) do |f| %>
+
+
+<%#= f.label :start_time, "When:" %>
+<%#= f.datetime_select(:start_time, options = {ampm: true, prompt: true}) %><br/>
+
+<%#end%>
