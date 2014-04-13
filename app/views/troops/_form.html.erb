@@ -1,34 +1,49 @@
+<form role = "form">
 <%= form_for(@troop) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br/>
-  <br/>
-  <%= f.label :number %>
-  <%= f.text_field :number %><br/>
+  <div class = "form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %><br/>
     <br/>
-
+  </div>
+  <div class = "form-group">
+    <%= f.label :number %>
+    <%= f.text_field :number %><br/>
+    <br/>
+  </div>
+  <div class = "form-group">
   <% @age_levels.each do |age_level| %>
     <%= f.radio_button :age_level_id, age_level.id%>
-    <%= f.label :age_level_id, age_level.name, :value => "Brownies" %></br>
+    <%= f.label :age_level_id, age_level.name %></br>
   <% end %>
-
-
-<br/>
-  <%= f.label :city %>
-  <%= f.text_field :city %><br/>
-    <br/>
-  <%= f.label :state %>
-  <%= f.text_field :state %><br/>
-    <br/>
-  <%= f.label :zip_code %>
-  <%= f.text_field :zip_code %><br/>
-    <br/>
-  <%= f.label :meetup_location %>
-  <%= f.text_field :meetup_location %><br/>
+  </div>
+  <div class = "form-group">
   <br/>
-  <p class="formfield">
-  <%= f.label :about_us %>
-  <%= f.text_area :about_us %>
-</p>
+    <%= f.label :city %>
+    <%= f.text_field :city %><br/>
     <br/>
-  <%= f.submit %>
+  </div>
+  <div class = "form-group">
+    <%= f.label :state %>
+    <%= f.text_field :state %><br/>
+    <br/>
+  </div>
+  <div class = "form-group">
+    <%= f.label :zip_code %>
+    <%= f.text_field :zip_code %><br/>
+    <br/>
+  </div>
+  <div class = "form-group">
+    <%= f.label :meetup_location %>
+    <%= f.text_field :meetup_location %><br/>
+    <br/>
+  </div>
+  <div class = "form-group">
+    <p class="formfield">
+      <%= f.label :about_us %>
+      <%= f.text_area :about_us %>
+    </p>
+  </div>
+    <br/>
+  <%= f.submit%>
 <% end %>
+</form>
