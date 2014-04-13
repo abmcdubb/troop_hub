@@ -6,11 +6,11 @@
   <%= f.text_field :number %><br/>
     <br/>
 
-  <%= f.label :troop_type %>:
-  <%= f.label :troop_type, "Daisies", :value => "Daisies"  %>
-  <%= f.radio_button :troop_type, "Daisies" %>
-  <%= f.label :troop_type, "Brownies", :value => "Brownies" %>
-  <%= f.radio_button :troop_type, "Brownies" %>
+  <% @age_levels.each do |age_level| %>
+    <%= f.radio_button :age_level_id, age_level.id%>
+    <%= f.label :age_level_id, age_level.name, :value => "Brownies" %></br>
+  <% end %>
+
 
 <br/>
   <%= f.label :city %>

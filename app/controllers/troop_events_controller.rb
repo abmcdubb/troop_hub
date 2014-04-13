@@ -7,7 +7,7 @@ class TroopEventsController < ApplicationController
   end
 
   def show
-    @photos=@troop_event.on_page_photos
+    @photos=@troop_event.photos
   end
 
   def new

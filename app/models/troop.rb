@@ -3,19 +3,34 @@ class Troop < ActiveRecord::Base
    has_many :adults
    has_many :events, through: :troop_events
    has_many :scouts
-
    has_many :photos, as: :photoable
+   belongs_to :age_level
 
-    def on_page_photos#this should be a method on photoable. not dry
-        photos.where("on_page = \"true\" ")
+    def on_page_photo
+        photos.find_by(:on_page => "true")
     end
 
     def profile_url
-        if on_page_photos != []
-            url = on_page_photos.last.pic_url
+        if url = on_page_photo
+            url = url.pic_url
         else
-            url = "daisy_logo.jpg"
+            url = "default_photo.jpg"
         end
         url
     end
+
+    AgeLevel.all.each do |age_level|
+      define_singleton_method "all_#{age_level.name}" do
+        joins(:age_level).where("age_levels.name = \"#{age_level.name}\" ")
+      end
+    end
+
+    def troop_type
+      type = "Daisy"
+      if age_level
+        type = age_level.name
+      end
+      type
+    end
+
 end

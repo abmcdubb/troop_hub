@@ -38,20 +38,22 @@
 <% end %>
 <br/>
 
-<center><h2>Photos</h2></center>
+<!-- <center><h2>Photos</h2></center> -->
 
 <%=link_to("Photos", troop_photos_path(@troop))%>
 
-<%@photos.each do |photo| %>
-    <p>
-        <%=image_tag photo.pic_url%>
-        <%= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
-            <%= submit_tag 'Delete' %>
-        <%end%>
-    </p>
-<%end%>
+<%#@photos.each do |photo| %>
+    <!-- <p> -->
+        <%#=image_tag photo.pic_url%>
+        <%#= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
+            <%#= submit_tag 'Delete' %>
+        <%#end%>
+    <!-- </p> -->
+<%#end%>
 
-<%= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
+<%#= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
+
+
 <%= link_to 'Back', troops_path %><br/>
 <%= link_to 'Events', events_index_path %>
 </body>
