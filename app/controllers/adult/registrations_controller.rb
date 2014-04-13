@@ -8,8 +8,7 @@ class Adult::RegistrationsController < ::Devise::RegistrationsController
     super
   end
 
-  def create
-    binding.pry  
+  def create 
     super
     add_skills_to_adults(resource.id, skills_params[:skill_ids], skills_params[:descriptions]) unless skills_params[:skill_ids].nil?
   end

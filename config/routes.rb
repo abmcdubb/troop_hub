@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
   
   # devise_for :scouts
-  devise_for :adults, controllers: { :registrations => "adult/registrations" }
-  devise_for :scouts, controllers: { registrations: "scout/registrations" }
+  devise_for :adults, controllers: { :registrations => "adult/registrations", :sessions => "adult/sessions"  }
+  devise_for :scouts, controllers: { registrations: "scout/registrations" }  
 
+  # devise_scope :adults do
+  #   get "/adults/sign_in_pop_up" => "adult/sessions#popup_form", :as => :new_adult_session_pop_up_form
+  # end
+
+  # devise_scope :adult do
+  #   get "adult/sessions/sign_in_pop_up", to: "adult/sessions#popup"
+  # end
+
+  get 'newsletters/new' => 'newsletters#new'
+
+  
+  
   get 'newsletters/new' => 'newsletters#new'
 
   post 'newsletters' => 'newsletters#create'
@@ -72,6 +84,7 @@ Rails.application.routes.draw do
   get '/troops/:troop_id/adults/:id' => 'adults#show'
   patch '/troops/:troop_id/adults/update/:id' => 'adults#update'
   delete '/troops/:troop_id/adults/destroy' => 'adults#destroy'
+  get '/popup' => 'adults#popup'
 
   get '/troops/:troop_id/adults/:adult_id/skills/new' => 'skills#new', as: 'skills_new'
   post '/troops/:troop_id/adults/:adult_id/skills' => 'skills#create'
