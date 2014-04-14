@@ -11,16 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140413200320) do
-
-  create_table "adult_skills", force: true do |t|
-    t.integer  "adult_id"
-    t.integer  "skill_id"
-    t.string   "skill_description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
- end
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -198,10 +189,6 @@ ActiveRecord::Schema.define(version: 20140413200320) do
     t.text     "about_us"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-  end
-
-=======
     t.integer  "age_level_id"
   end
 
@@ -240,5 +227,4 @@ ActiveRecord::Schema.define(version: 20140413200320) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
->>>>>>> e699b24e90bbad591fb575e1393b4dd7dfaffed7
 end
