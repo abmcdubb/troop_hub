@@ -5,6 +5,7 @@ class Scout < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	
   belongs_to :troop
+  has_many :scout_badges
   has_many :badges, through: :scout_badges
 
 	mount_uploader :profile_photo, ProfilePhotoUploader

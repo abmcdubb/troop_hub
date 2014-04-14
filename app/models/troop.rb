@@ -4,6 +4,7 @@ class Troop < ActiveRecord::Base
    has_many :events, through: :troop_events
    has_many :photos, as: :photoable
    belongs_to :age_level
+   validates_uniqueness_of :number
 
     def on_page_photo
         photos.find_by(:on_page => "true")
