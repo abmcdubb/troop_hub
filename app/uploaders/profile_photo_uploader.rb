@@ -49,3 +49,5 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   # end
 
 end
+
+#update!

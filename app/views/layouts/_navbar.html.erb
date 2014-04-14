@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fluid-top" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
   <div class="container">
 <ul class="nav navbar-nav">
       <li><a href="/"><img src="/assets/homebtn.png" class="img-responsive" alt="" />Home</a></li>
@@ -8,26 +8,15 @@
 
 
   
-
-  <%if scout_signed_in? %>
-      <li><a data-method='delete' href="/scouts/sign_out"><img src="/assets/sign_out_btn.png" class="img-responsive" alt="" />Sign Out</a></li>
-  <%elsif adult_signed_in? %>
-           <li><a data-method='delete' href="/adults/sign_out"><img src="/assets/sign_out_btn.png" class="img-responsive" alt="" />Sign Out</a></li>
-      <%else%>
-      <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> Sign Up <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a href="/scouts/sign_up">Sign Up as a Scout</a></li>
-      <li><a href="/adults/sign_in">Sign Up as a Adult</a></li>
-    </ul>
-  </li>
+    <% if user_signed_in? %>
+      <li><a data-method='delete' href="/users/sign_out"><img src="/assets/sign_out_btn.png" class="img-responsive" alt="" />Sign Out</a></li>
+    <% else %>
+      <li>
+    <a href="/users/sign_up" class="img-responsive"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> Sign Up </b></a>
+    </li>
 
   <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/sign_in_btn.png" class="img-responsive" alt="" /> Sign In <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a href="/scouts/sign_in">Sign In as a Scout</a></li>
-      <li><a href="/adults/sign_in">Sign In as an Adult</a></li>
-    </ul>
+      <a href="/users/sign_in" class="img-responsive" ><img src="/assets/sign_in_btn.png" class="img-responsive" alt="" /> Sign In</b></a>
   </li>
 <%end%>
 

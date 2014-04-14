@@ -1,9 +1,32 @@
-<%=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.troop_type}", :right_option => "Troop Number: #{@troop.number}" }%>
+<%#=render partial: 'layouts/banner', locals: {:name => @troop.name, :right_option => "Troop Number: {@troop.number}" } %>
+
+<%#=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.name}", :right_option => "Troop Number: #{@troop.number}" %>
+<!-- #update! -->
 <body>
-<p><b>About Us:</b> <%=@troop.about_us %></p>
+    <!-- if we want to be really snazzy we should change the word "company" to "troop" here and in the css file -->
+<div class="about-company padd">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-company-item"> 
+                    <%= image_tag @troop.profile_url, :class =>  "img-responsive img-thumbnail"%>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-company-item">
+                    <h3>About Us:</h3>
+                    <p><%=@troop.about_us %></p>
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <br/>
 <br/>
-<%= link_to 'Troop Members Listing', troop_scouts_path(@troop) %>
+<%= link_to 'Troop Members Listing', troop_user_path(@troop) %>
 </br>
 </br>
 <%#= link_to 'Add a scout', new_troop_scout_path %>
@@ -18,21 +41,26 @@
 <% end %>
 <br/>
 
-<center><h2>Photos</h2></center>
+<!-- <center><h2>Photos</h2></center> -->
 
 <%=link_to("Photos", troop_photos_path(@troop))%>
 
-<%@photos.each do |photo| %>
-    <p>
-        <%=image_tag photo.pic_url%>
-        <%= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
-            <%= submit_tag 'Delete' %>
-        <%end%>
-    </p>
-<%end%>
+<%#@photos.each do |photo| %>
+    <!-- <p> -->
+        <%#=image_tag photo.pic_url%>
+        <%#= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
+            <%#= submit_tag 'Delete' %>
+        <%#end%>
+    <!-- </p> -->
+<%#end%>
 
-<%= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
+<%#= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
+
+
 <%= link_to 'Back', troops_path %><br/>
-<%= link_to 'Events', events_index_path %>
+<%= link_to 'Browse Events Ideas', events_index_path %></br>
+
+<%= link_to 'New Event', new_event_path(@troop) %></br>
+
 </body>
 
