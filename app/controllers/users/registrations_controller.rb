@@ -1,6 +1,6 @@
 class Users::RegistrationsController < ::Devise::RegistrationsController
   # before_filter :configure_permitted_parameters, :only => [:create]
-  include AdultsHelper
+  include UsersHelper
   before_filter :configure_permitted_parameters, :only => [:create]
   
   def new

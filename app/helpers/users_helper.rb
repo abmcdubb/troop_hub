@@ -1,4 +1,4 @@
-module AdultsHelper
+module UsersHelper
 
   def add_skills_to_adults(user_id, skill_ids, skill_descriptions)
     skill_ids.each do |skill_id|
@@ -34,6 +34,24 @@ module AdultsHelper
       "Parkour, Marketing"
     end
 
+  end
+
+  def grade_level
+    [
+      ['Kindergarten'],
+      ['1st'],
+      ['2nd'],
+      ['3rd'],
+      ['4th'],
+      ['5th'],
+      ['6th'],
+      ['7th'],
+      ['8th'],
+      ['9th'],
+      ['10th'],
+      ['11th'],
+      ['12th'],
+    ]
   end
 
 end
