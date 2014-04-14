@@ -88,11 +88,18 @@ box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
+.adults-form {
+	display: none ;
+}
+
+.scouts-form {
+	display: none ;
+}
+
 .hidden_skills_text_field {
 	display: none ;
 	margin: 1px;
 }
-
 
 .social a i{
 	display:inline-block;
@@ -2212,3 +2219,7 @@ div.ppt { display:none !important; }
     font-style: italic;
     opacity: 1;
 }
+
+.sign-up-button {
+	display: none ;
+}	
