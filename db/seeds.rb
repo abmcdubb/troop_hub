@@ -87,7 +87,7 @@ scout_4 = User.create(troop_id: '4', role: 'Scout', name: 'Cho Chang', grade: '1
 scout_5 = User.create(troop_id: '1', role: 'Scout', name: 'Ginny Weasley', grade: '12th', birthday: '1999/6/17', email: 'gweasley@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'gweasley.jpg', password: '123456789')
 scout_6 = User.create(troop_id: '2', role: 'Scout', name: 'Luna Lovegood', grade: '12th', birthday: '1999/6/17', email: 'llovegood@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'llovegood.jpg', password: '123456789')
 scout_7 = User.create(troop_id: '3', role: 'Scout', name: 'Moaning Myrtle', grade: '12th', birthday: '1999/6/17', email: 'mymyrtle@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'mmyrtle.jpg', password: '123456789')
-scout_8 = User.create(troop_id: '4', role: 'Scout', name: 'Hannah Abbott', grade: '12th', birthday: '1999/6/17', email: 'habbot@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'habbott.png', password: '123456789')
+scout_8 = User.create(troop_id: '4', role: 'Scout', name: 'Hannah Abbott', grade: '12th', birthday: '1999/6/17', email: 'assets/habbot@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'habbott.png', password: '123456789')
 
 
 
