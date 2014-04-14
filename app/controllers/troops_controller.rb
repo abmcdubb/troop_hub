@@ -1,4 +1,4 @@
-class TroopsController < ApplicationController
+  class TroopsController < ApplicationController
   before_action :set_troop, only: [:show, :edit, :update, :destroy]
 
   def index
