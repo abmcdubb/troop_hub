@@ -8,6 +8,7 @@ Designed by : http://responsivewebinc.com
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,700);
 
 /* 
  * Basic CSS starts
@@ -20,8 +21,8 @@ body{
 }
 
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Droid Serif', serif !important;
-	font-weight: 400 !important;
+ font-family: 'Nunito', sans-serif; 
+  font-weight: 700; ;
 }
 
 p{
@@ -2233,7 +2234,4 @@ color:white;
 
 
 .table-striped { background-color: #90EE90;}
-
-.troopcol {column-count: 2;
--moz-column-count:3; /* Firefox */
--webkit-column-count:3; /* Safari and Chrome */}
+.h2 {font-family: 'Nunito', sans-serif; font-weight: 700; }
