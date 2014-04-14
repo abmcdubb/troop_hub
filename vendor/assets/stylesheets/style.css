@@ -2218,3 +2218,18 @@ div.ppt { display:none !important; }
 .sign-up-button {
 	display: none ;
 }	
+
+.calendar td { height: 100px; width: 14.28%; }
+table, td, th
+{
+border:1px solid green; }
+th
+{
+background-color:green;
+color:white;
+}
+
+.cal {height: 50%; width: 50%;}
+
+
+.table-striped { background-color: #90EE90;}
