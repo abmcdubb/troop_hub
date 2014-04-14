@@ -46,9 +46,6 @@ class TroopsController < ApplicationController
   def home
   end
 
-    def search_results
-    @troops = Troop.find_by_search_results(params[:troop])
-  end
 
 private
   def set_troop
