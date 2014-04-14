@@ -1,6 +1,14 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Troop Hub", :left_option => "Stuff", :right_option => "Things" }%>
+<%=render partial: 'layouts/banner', locals: {:name => "Troop Hub", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Search Activities, Create Events, Organize Your Troops! " }%>
 <br/>
 <br/>
+<div class = "container-fluid">
+<div class="row">
+  <div class="col-md-4">
+    <a class="twitter-timeline" href="https://twitter.com/girlscouts" data-widget-id="455791178433044480">Tweets by @girlscouts</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </div>
+  <div class="col-md-4">
 
 <p>
     Some paragraph about the girl scouts
@@ -10,7 +18,7 @@
 </p>
 
 
-
+<p>
 Home Page
 Nav Bar
 Make logo
@@ -25,4 +33,19 @@ twitter feed - sidebar left
 footer - about us, contact us, random social media logos
 
 calendar?
-remove weird line about banner
+remove weird line about banner</p>
+</div>
+  <div class="col-md-4">
+<br/>
+<%= render partial: 'events/search'%>
+ 
+<%= render partial: 'events/advanced_search' %>   
+<br/>
+<br/>
+<br/>
+<%= render 'search' %>
+
+
+
+</div>
+</div>

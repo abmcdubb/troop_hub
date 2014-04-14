@@ -2231,7 +2231,18 @@ color:white;
 }
 
 .cal {height: 45%; width: 45%;}
+displayModes
+{
+    float:left;
+    width:200px;
+    padding-top:4px;
+    padding-left: 2px;  
+    text-align: center;
+}
 
+
+.search {display:inline-block;margin-right:10px; width:200px; } 
+.adv_search {display:inline-block; width:200px; } 
 
 .table-striped { background-color: #90EE90;}
 .h2 {font-family: 'Nunito', sans-serif; font-weight: 700; }

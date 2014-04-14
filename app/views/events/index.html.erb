@@ -6,9 +6,14 @@
 <br/>
 <body>
 
-<%= render 'search'%><br/>
-<button class = "btn btn-default btn-xs"><%=link_to "Add Event", events_new_path%></button><br/>
+<div class="search">
+<%= render 'search'%>
+<%= render 'advanced_search' %>      
+</div>
+<br/>
+<br/>
 
+<button class = "btn btn-default btn-xs"><%=link_to "Add Event", events_new_path%></button><br/>
 <br/>
 <% @events.each do |event| %>
     Name: <%= event.name %><br/>
