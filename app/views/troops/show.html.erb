@@ -1,6 +1,6 @@
 <%#=render partial: 'layouts/banner', locals: {:name => @troop.name, :right_option => "Troop Number: {@troop.number}" } %>
 
-<%#=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.name}", :right_option => "Troop Number: #{@troop.number}" %>
+<%=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.name}", :right_option => "Troop Number: #{@troop.number}" }%>
 <!-- #update! -->
 <body>
     <!-- if we want to be really snazzy we should change the word "company" to "troop" here and in the css file -->
@@ -32,14 +32,35 @@
 <%#= link_to 'Add a scout', new_troop_scout_path %>
 </br>
 </br>
-<center><h2>Calendar of Events</h2></center>
+<left>
+<div class = "cal">
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default" width="100px">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+           <center>Calendar of Events</center>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+            <%= calendar @troop_events do |e| %>
+            <% if e.troop_id == @troop.id %>
+            <ul>
+             <li><a href ="/troop_events/<%=e.id%>"><%= e.event.name %></a></li>
+              <%end%>
+            </ul>
+            <% end %>
 
-<%= calendar @troop_events do |e| %>
-<% if e.troop_id == @troop.id %>
-  <div><a href ="/troop_events/<%=e.id%>"><%= e.event.name %></a></div>
-  <%end%>
-<% end %>
-<br/>
+            <br/></left>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
 
 <!-- <center><h2>Photos</h2></center> -->
 

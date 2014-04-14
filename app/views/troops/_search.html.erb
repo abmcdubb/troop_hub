@@ -1,0 +1,5 @@
+<%= form_tag("/troops/search", method: "get") do %>
+<%= label_tag(:'troop[name]', "Search by Troop Name:") %>
+  <%= text_field_tag(:'troop[name]') %>
+  <button type="submit" class="btn btn-default btn-xs">Search</button>
+  <%end%>
