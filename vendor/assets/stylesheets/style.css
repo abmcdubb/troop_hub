@@ -266,12 +266,14 @@ transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 /*
  * Logo
  */
-
-.logo { margin-top: 20px; }
+.navlogo {
+	display: inline-block;
+}
+.logo { margin-top: 0px; }
 
 .logo img {
 	display: inline-block; 
-	max-width: 50px;
+	max-width: 200px;
 }
 
 .logo h1 {
