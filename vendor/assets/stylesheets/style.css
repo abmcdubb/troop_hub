@@ -8,6 +8,7 @@ Designed by : http://responsivewebinc.com
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,700);
 
 /* 
  * Basic CSS starts
@@ -20,8 +21,8 @@ body{
 }
 
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Droid Serif', serif !important;
-	font-weight: 400 !important;
+ font-family: 'Nunito', sans-serif; 
+  font-weight: 700; ;
 }
 
 p{
@@ -1101,7 +1102,6 @@ div.ppt { display:none !important; }
 	background: url('page_bg.jpg') center center repeat-x; 
 	text-align: center;
 	margin-top: -55px;
-
 
 }
 
@@ -2219,3 +2219,30 @@ div.ppt { display:none !important; }
 .sign-up-button {
 	display: none ;
 }	
+
+.calendar td { height: 100px; width: 14.28%; }
+table, td, th
+{
+border:1px solid green; }
+th
+{
+background-color:green;
+color:white;
+}
+
+.cal {height: 45%; width: 45%;}
+displayModes
+{
+    float:left;
+    width:200px;
+    padding-top:4px;
+    padding-left: 2px;  
+    text-align: center;
+}
+
+
+.search {display:inline-block;margin-right:10px; width:200px; } 
+.adv_search {display:inline-block; width:200px; } 
+
+.table-striped { background-color: #90EE90;}
+.h2 {font-family: 'Nunito', sans-serif; font-weight: 700; }

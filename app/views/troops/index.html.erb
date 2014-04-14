@@ -2,6 +2,7 @@
 <br/>
 <html>
 <body>
+
 <center><h1>Troops</h1>
 <% @troops.each do |troop| %>
     <%= link_to troop.name, troop_show_path(troop)%><br>

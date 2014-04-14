@@ -1,10 +1,19 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "Events", :right_option => "Events" }%>
+
+<%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "TBD", :right_option => "TBD" }%>
+
+
 <br/>
 <br/>
 <body>
-<%= render 'search'%><br/>
-<button class = "btn btn-default btn-xs"><%=link_to "Add Event", events_new_path%></button><br/>
 
+<div class="search">
+<%= render 'search'%>
+<%= render 'advanced_search' %>      
+</div>
+<br/>
+<br/>
+
+<button class = "btn btn-default btn-xs"><%=link_to "Add Event", events_new_path%></button><br/>
 <br/>
 <% @events.each do |event| %>
     Name: <%= event.name %><br/>

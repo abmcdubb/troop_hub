@@ -18,7 +18,7 @@
   <%end%>
 
 <br><br>
-  <%@badges.each do |badge|%>
+<%=label_tag "Badges Earned: "%> <%@badges.each do |badge|%>
     <%= check_box_tag(:"event[badge_ids][]", badge.id) %>
     <%= label_tag(:event_badge_ids, badge.name) %>
   <%end%>

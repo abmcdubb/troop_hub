@@ -44,7 +44,10 @@ class TroopsController < ApplicationController
   end
 
   def home
+    @age_levels = AgeLevel.all
+    @badges = Badge.all
   end
+
 
 private
   def set_troop

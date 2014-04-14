@@ -1,6 +1,7 @@
 <%= form_tag "/photos/#{id}/#{type}", multipart: true do %>
   <label for="photo[pic]"><h2>Upload Photo</h2></label> <%= file_field_tag "[photo][pic]" %>
   <!-- check box should be for admin only -->
+  <!-- check box should exist -->
   <%= hidden_field_tag 'photo[photoable_id]', id%>
   <%= hidden_field_tag 'photo[photoable_type]', type%>
   <%= submit_tag %>

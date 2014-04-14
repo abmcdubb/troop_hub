@@ -1,6 +1,14 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Troop Hub", :left_option => "Stuff", :right_option => "Things" }%>
+<%=render partial: 'layouts/banner', locals: {:name => "Troop Hub", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Search Activities, Create Events, Organize Your Troops! " }%>
 <br/>
 <br/>
+<div class = "container-fluid">
+<div class="row">
+  <div class="col-md-4">
+    <a class="twitter-timeline" href="https://twitter.com/girlscouts" data-widget-id="455791178433044480">Tweets by @girlscouts</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </div>
+  <div class="col-md-4">
 
 <p>
     Some paragraph about the girl scouts
@@ -8,3 +16,36 @@
 <p>
     A calendar of all girl scout stuffs. or maybe recent photos
 </p>
+
+
+<p>
+Home Page
+Nav Bar
+Make logo
+logo on right navbar left of it
+change styling of banner
+add site info to banner (or right below)
+middle news feed
+Search for Activity - sidebar right
+Search for Troop (index) - sidebar right
+twitter feed - sidebar left
+
+footer - about us, contact us, random social media logos
+
+calendar?
+remove weird line about banner</p>
+</div>
+  <div class="col-md-4">
+<br/>
+<%= render partial: 'events/search'%>
+ 
+<%= render partial: 'events/advanced_search' %>   
+<br/>
+<br/>
+<br/>
+<%= render 'search' %>
+<br/><br/><br/><br/>
+   <p align = "justify"> About Us: YOLO occupy fingerstache Vice literally Etsy. Hella dreamcatcher authentic, Pitchfork gastropub plaid organic literally aesthetic yr meggings 8-bit drinking vinegar actually fixie. Helvetica Brooklyn slow-carb YOLO, Intelligentsia leggings flannel ethnic typewriter Pinterest shabby chic flexitarian. High Life church-key Banksy</p>
+   <br/><br/><br/>
+    <center><p>Contact Us: site@site.com</p></center>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413200320) do
+ActiveRecord::Schema.define(version: 20140414185557) do
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20140413200320) do
 
   create_table "events", force: true do |t|
     t.string   "name"
+    t.string   "grades"
     t.string   "genre"
     t.text     "description"
     t.string   "season"
@@ -125,6 +126,13 @@ ActiveRecord::Schema.define(version: 20140413200320) do
     t.string   "on_page"
   end
 
+  create_table "scout_badges", force: true do |t|
+    t.integer  "scout_id"
+    t.integer  "badge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "scouts", force: true do |t|
     t.string   "name"
     t.integer  "troop_id"
@@ -146,7 +154,6 @@ ActiveRecord::Schema.define(version: 20140413200320) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.text     "badges"
   end
 
   add_index "scouts", ["email"], name: "index_scouts_on_email", unique: true
@@ -169,6 +176,11 @@ ActiveRecord::Schema.define(version: 20140413200320) do
     t.datetime "updated_at"
   end
 
+  create_table "troop_newsletters", force: true do |t|
+    t.integer "troop_id"
+    t.integer "newsletter_id"
+  end
+
   create_table "troops", force: true do |t|
     t.string   "name"
     t.string   "number"
@@ -179,8 +191,11 @@ ActiveRecord::Schema.define(version: 20140413200320) do
     t.text     "about_us"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
     t.integer  "age_level_id"
   end
+
+  add_index "troops", ["slug"], name: "index_troops_on_slug"
 
   create_table "user_skills", force: true do |t|
     t.integer  "user_id"
