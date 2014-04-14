@@ -7,48 +7,47 @@
     <%= link_to troop.name, troop_show_path(troop)%><br>
 <% end %>
 
-<!-- <br><%#= link_to troop.name, troop_show_path(troop)%> -->
-<!-- <br> -->
-<%#end%>
-<!-- <br> -->
-<!-- <center><h3>Daisies</h3>
-    <%# @daisies.each do |daisy| %>
-    <%#= link_to daisy.name, troop_show_path(daisy)%>
+<br>
+<br>
+<br>
+<center><h3>Daisies</h3>
+    <% @daisies.each do |daisy| %>
+    <%= link_to daisy.name, troop_show_path(daisy)%>
     <br>
-<%#end%>
+<%end%>
 </br>
 <center><h3>Brownies</h3>
-    <%# @brownies.each do |brownie| %>
-    <%#= link_to brownie.name, troop_show_path(brownie)%>
+    <% @brownies.each do |brownie| %>
+    <%= link_to brownie.name, troop_show_path(brownie)%>
     <br>
-<%#end%>
+<%end%>
 </br>
 <center><h3>Juniors</h3>
-    <%# @juniors.each do |junior| %>
-    <%#= link_to junior.name, troop_show_path(junior)%>
+    <% @juniors.each do |junior| %>
+    <%= link_to junior.name, troop_show_path(junior)%>
     <br>
-<%#end%>
+<%end%>
 </br>
 <center><h3>Cadettes</h3>
-    <%# @cadettes.each do |cadette| %>
-    <%#= link_to cadette.name, troop_show_path(cadette)%>
+    <% @cadettes.each do |cadette| %>
+    <%= link_to cadette.name, troop_show_path(cadette)%>
     <br>
-<%#end%>
+<%end%>
 </br>
 <center><h3>Seniors</h3>
-    <%# @seniors.each do |senior| %>
-    <%#= link_to senior.name, troop_show_path(senior)%>
+    <% @seniors.each do |senior| %>
+    <%= link_to senior.name, troop_show_path(senior)%>
     <br>
-<%#end%>
+<%end%>
 </br>
 <center><h3>Ambassadors</h3>
-    <%# @ambassadors.each do |ambassador| %>
-    <%#= link_to ambassador.name, troop_show_path(ambassador)%>
+    <% @ambassadors.each do |ambassador| %>
+    <%= link_to ambassador.name, troop_show_path(ambassador)%>
     <br>
-<%#end%>
+<%end%>
 </br>
 
 <br>
-<%#= link_to 'Add Your Troop!', troops_new_path %>
+<%= link_to 'Add Your Troop!', troops_new_path %>
 </body>
-</html> -->
+</html>
