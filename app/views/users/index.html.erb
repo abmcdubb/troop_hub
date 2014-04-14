@@ -5,15 +5,11 @@
           <div class="container">
             <!-- Default Heading -->
             <div class="default-heading">
-              <!-- Crown image -->
-              <img class="img-responsive" src="img/crown.png" alt="" />
               <!-- Heading -->
               <!-- Paragraph -->
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="row">
-
-
               <% @users.each do |user| %>
               <div class="col-md-4 col-sm-4">
                 <!-- Chef Member -->
@@ -21,9 +17,11 @@
                   <!-- Chefs member header -->
                   <div class="chefs-head">
                     <!-- Member background image -->
-                    <img class="chefs-back img-responsive" src="img/chef/c-back2.jpg" alt="" />
+                    <img class="chefs-back img-responsive" src="<%= asset_path("page_bg.jpg") %>" alt="" />
                     <!-- chef member image -->
-                    <img class="chefs-img img-responsive" src="img/chef/4.jpg" alt="" />
+                    <!-- <img src=<%#= user.profile_photo %> class="chefs-img-index img-responsive"> -->
+                    <%#= image_tag user.profile_photo_url(:thumb).to_s %>
+                    <%= image_tag user.profile_photo_url(:thumb).to_s, :class => 'chefs-img-index img-responsive' %>
                   </div>
                   <!--Name / Heading -->
                   <h3><%= link_to user.name, user_show_path(@troop, user)%></h3>

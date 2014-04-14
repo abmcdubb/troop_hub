@@ -889,6 +889,19 @@ transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	border-radius: 200px;
 }
 
+img.chefs-img-index{
+	position: absolute;
+	left: 50%;
+	bottom: -60px;
+	width: 50px;
+	height: 200px;
+	max-width: 160px;
+	margin: 0 auto;
+	margin-left: -80px;
+	border: 5px solid #fff;
+	border-radius: 200px;
+}
+
 .chefs .chefs-member h3 { font-size: 20px; }
 .chefs .chefs-member span {
 	font-size: 12px;

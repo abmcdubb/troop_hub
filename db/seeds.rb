@@ -80,15 +80,90 @@ adult_skill_13 = UserSkill.create(skill_id: 11, user_id: 4, skill_description: "
 adult_skill_14 = UserSkill.create(skill_id: 4, user_id: 4, skill_description: "Firestarter, Hiking")
 adult_skill_15 = UserSkill.create(skill_id: 5, user_id: 4, skill_description: "Bird Watching, Frog Hopping")
 
-scout_1 = User.create(troop_id: '1', role: 'Scout', name: 'Hermione Granger', grade: 'Kindergarten', birthday: '2007/4/9', email: 'hermione@hogwarts.com', phone_number: '212-994-4949', admin_privileges: '', dues: '', profile_photo: 'hgranger.jpeg', password: '123456789')
-scout_2 = User.create(troop_id: '2', role: 'Scout', name: 'Lavender Brown', grade: '2nd', birthday: '2007/2/1', email: 'ilovewonwon@hogwarts.com', phone_number: '212-994-4989', admin_privileges: '', dues: '', profile_photo: 'lbrown.jpg', password: '123456789')
-scout_3 = User.create(troop_id: '3', role: 'Scout', name: 'Parvati Patil', grade: '11th', birthday: '2005/4/5', email: 'PPatil@hogwarts.com', phone_number: '212-994-4925', admin_privileges: '', dues: '', profile_photo: 'ppatel.jpeg', password: '123456789')
-scout_4 = User.create(troop_id: '4', role: 'Scout', name: 'Cho Chang', grade: '12th', birthday: '1999/6/17', email: 'cchang@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'cchang.JPG', password: '123456789')
-scout_5 = User.create(troop_id: '1', role: 'Scout', name: 'Ginny Weasley', grade: '12th', birthday: '1999/6/17', email: 'gweasley@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'gweasley.jpg', password: '123456789')
-scout_6 = User.create(troop_id: '2', role: 'Scout', name: 'Luna Lovegood', grade: '12th', birthday: '1999/6/17', email: 'llovegood@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'llovegood.jpg', password: '123456789')
-scout_7 = User.create(troop_id: '3', role: 'Scout', name: 'Moaning Myrtle', grade: '12th', birthday: '1999/6/17', email: 'mymyrtle@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'mmyrtle.jpg', password: '123456789')
-scout_8 = User.create(troop_id: '4', role: 'Scout', name: 'Hannah Abbott', grade: '12th', birthday: '1999/6/17', email: 'assets/habbot@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: 'habbott.png', password: '123456789')
+scout_1 = User.create(troop_id: '1', role: 'Scout', name: 'Hermione Granger', grade: 'Kindergarten', birthday: '2007/4/9', email: 'hermione@hogwarts.com', phone_number: '212-994-4949', admin_privileges: '', dues: '', password: '123456789')
+scout_2 = User.create(troop_id: '2', role: 'Scout', name: 'Lavender Brown', grade: '2nd', birthday: '2007/2/1', email: 'ilovewonwon@hogwarts.com', phone_number: '212-994-4989', admin_privileges: '', dues: '', password: '123456789')
+scout_3 = User.create(troop_id: '3', role: 'Scout', name: 'Parvati Patil', grade: '11th', birthday: '2005/4/5', email: 'PPatil@hogwarts.com', phone_number: '212-994-4925', admin_privileges: '', dues: '', password: '123456789')
+scout_4 = User.create(troop_id: '1', role: 'Scout', name: 'Cho Chang', grade: '12th', birthday: '1999/6/17', email: 'cchang@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
+scout_5 = User.create(troop_id: '2', role: 'Scout', name: 'Ginny Weasley', grade: '12th', birthday: '1999/6/17', email: 'gweasley@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
+scout_6 = User.create(troop_id: '3', role: 'Scout', name: 'Luna Lovegood', grade: '12th', birthday: '1999/6/17', email: 'llovegood@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
+scout_7 = User.create(troop_id: '1', role: 'Scout', name: 'Moaning Myrtle', grade: '12th', birthday: '1999/6/17', email: 'mymyrtle@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
+scout_8 = User.create(troop_id: '2', role: 'Scout', name: 'Hannah Abbott', grade: '12th', birthday: '1999/6/17', email: 'assets/habbot@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
 
+
+s1pic = File.join(Rails.root, '/app/assets/images/hgranger.jpeg')
+s1_file = File.new(s1pic)
+scout_1.profile_photo = s1_file
+scout_1.save!
+
+s2pic = File.join(Rails.root, '/app/assets/images/lbrown.jpg')
+s2_file = File.new(s2pic)
+scout_2.profile_photo = s2_file
+scout_2.save!
+
+s3pic = File.join(Rails.root, '/app/assets/images/ppatel.jpeg')
+s3_file = File.new(s3pic)
+scout_3.profile_photo = s3_file
+scout_3.save!
+
+s4pic = File.join(Rails.root, '/app/assets/images/cchang.JPG')
+s4_file = File.new(s4pic)
+scout_4.profile_photo = s4_file
+scout_4.save!
+
+s5pic = File.join(Rails.root, '/app/assets/images/gweasley.jpg')
+s5_file = File.new(s5pic)
+scout_5.profile_photo = s5_file
+scout_5.save!
+
+s6pic = File.join(Rails.root, '/app/assets/images/llovegood.jpg')
+s6_file = File.new(s6pic)
+scout_6.profile_photo = s6_file
+scout_6.save!
+
+s7pic = File.join(Rails.root, '/app/assets/images/mmyrtle.jpg')
+s7_file = File.new(s7pic)
+scout_7.profile_photo = s7_file
+scout_7.save!
+
+s8pic = File.join(Rails.root, '/app/assets/images/habbott.png')
+s8_file = File.new(s8pic)
+scout_8.profile_photo = s8_file
+scout_8.save!
+
+a1pic = File.join(Rails.root, '/app/assets/images/mweasley.jpg')
+a1_file = File.new(a1pic)
+adult_1.profile_photo = a1_file
+adult_1.save!
+
+a2pic = File.join(Rails.root, '/app/assets/images/mmcgonagall.jpg')
+a2_file = File.new(a2pic)
+adult_2.profile_photo = a2_file
+adult_2.save!
+
+a4pic = File.join(Rails.root, '/app/assets/images/vdursley.jpeg')
+a4_file = File.new(a4pic)
+adult_4.profile_photo = a4_file
+adult_4.save!
+
+a5pic = File.join(Rails.root, '/app/assets/images/lpotter.jpg')
+a5_file = File.new(a5pic)
+adult_5.profile_photo = a5_file
+adult_5.save!
+
+a6pic = File.join(Rails.root, '/app/assets/images/dumbridge.jpg')
+a6_file = File.new(a6pic)
+adult_6.profile_photo = a6_file
+adult_6.save!
+
+a7pic = File.join(Rails.root, '/app/assets/images/fdelacour.jpg')
+a7_file = File.new(a7pic)
+adult_7.profile_photo = a7_file
+adult_7.save!
+
+a8pic = File.join(Rails.root, '/app/assets/images/ntonks.jpg')
+a8_file = File.new(a8pic)
+adult_8.profile_photo = a8_file
+adult_8.save!
 
 
 
