@@ -32,33 +32,58 @@
 <%#= link_to 'Add a scout', new_troop_scout_path %>
 </br>
 </br>
-<left>
-<div class = "cal">
-<div class="panel-group" id="accordion">
-  <div class="panel panel-default" width="100px">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-           <center>Calendar of Events</center>
-        </a>
-      </h4>
+<div class="row">
+<div class="col-md-6">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default" width="100px">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+               <center>Calendar of Events</center>
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+                <%= calendar @troop_events do |e| %>
+                <% if e.troop_id == @troop.id %>
+                <ul>
+                 <li><a href ="/troop_events/<%=e.id%>"><%= e.event.name %></a></li>
+                  <%end%>
+                </ul>
+                <% end %>
+          </div>
+        </div>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-            <%= calendar @troop_events do |e| %>
-            <% if e.troop_id == @troop.id %>
-            <ul>
-             <li><a href ="/troop_events/<%=e.id%>"><%= e.event.name %></a></li>
-              <%end%>
-            </ul>
-            <% end %>
+    </div>
+    </div>
+  <div class="col-md-6">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default" width="100px">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+               <center>Troop News</center>
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+                NEWS
 
-            <br/></left>
+                <br/>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    </div>
+
+      </div>
 </div>
-</div>
+
+
+
+
 
 
 

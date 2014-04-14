@@ -2229,7 +2229,11 @@ background-color:green;
 color:white;
 }
 
-.cal {height: 50%; width: 50%;}
+.cal {height: 45%; width: 45%;}
 
 
 .table-striped { background-color: #90EE90;}
+
+.troopcol {column-count: 2;
+-moz-column-count:3; /* Firefox */
+-webkit-column-count:3; /* Safari and Chrome */}
