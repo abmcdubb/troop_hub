@@ -3,9 +3,16 @@ class AdultsController < ApplicationController
 
 # before_filter :authenticate_user!, except: [:index, :show]
 
-  before_filter :login_required, :except => [:show,:index] 
+  before_filter :login_required, :except => [:show,:index,:popup] 
 
   before_action :set_adult, only: [:show, :edit, :update, :destroy]
+
+  def popup
+     respond_to do |format|
+      format.html { render :partial => "layouts/popup" }
+      format.js { render :partial => "layouts/popup" }
+    end
+  end
 
   def login_required
     if current_adult != nil

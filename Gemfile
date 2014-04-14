@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem "rmagick" #brew install imagemagick in terminal, if this fails. then rebundle
+gem 'rmagick', require: false #brew install imagemagick in terminal, if this fails. then rebundle
 gem 'carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.rc2'

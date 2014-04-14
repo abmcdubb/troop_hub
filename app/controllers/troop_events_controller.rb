@@ -7,7 +7,7 @@ class TroopEventsController < ApplicationController
   end
 
   def show
-    @photos=@troop_event.on_page_photos
+    @photos=@troop_event.photos
   end
 
   def new
@@ -20,6 +20,21 @@ class TroopEventsController < ApplicationController
     end
     @events = Event.all
     @troops = Troop.all
+  end
+
+  def new_event
+    @troops = Troop.all
+    @age_levels = AgeLevel.all
+    @badges = Badge.all
+    @events = Event.all
+  end
+
+  def create_event
+    @event = Event.create(event_params)
+    @troop_event = TroopEvent.create(troop_event_params)
+    @troop_event.event = @event
+    @troop_event.save
+    redirect_to troop_event_path(@troop_event)
   end
 
   def create
@@ -49,6 +64,10 @@ private
 
   def troop_event_params
     params.require(:troop_event).permit(:start_time, :location, :detail, :event_id, :troop_id)
+  end
+
+  def event_params
+    params.require(:event).permit(:name, :genre, :description, :season, :location, :age_level_s => [], :badge_ids => [])
   end
 
 end

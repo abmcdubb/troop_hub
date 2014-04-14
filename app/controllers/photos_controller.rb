@@ -14,12 +14,15 @@ class PhotosController < ApplicationController
   def delete
     @photo = Photo.find(params[:photo_id])
     @photo.destroy
-    if params[:photoable_type] == "troop"
+    if params[:page_for_redirect] == "troop"
         @troop = Troop.find(params[:photoable_id])
         redirect_to troop_path(@troop)
-    elsif params[:photoable_type] == "troop_event"
+    elsif params[:page_for_redirect] == "troop_event"
         @troop_event = TroopEvent.find(params[:photoable_id])
         redirect_to troop_event_path(@troop_event)
+    elsif params[:page_for_redirect] == "troop_photo"
+        @troop = Troop.find(params[:photoable_id])
+        redirect_to troop_photos_path(@troop)
     end
   end
 

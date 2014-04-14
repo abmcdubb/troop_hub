@@ -1,0 +1,156 @@
+<div class="inner-page padd">
+  <!-- Booking Start -->
+  <div class="booking">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Heading -->
+          <h3 class = >Register as an Adult for Troop Hub</h3>
+          <!-- Paragraph -->
+          <p>Already have an account? <%= link_to "Sign in here.", new_adult_session_path %><br> If you are a Girl Scout register <%= link_to "here.", new_scout_registration_path %> </p>
+          </div> <!-- col-md-12 -->
+          <!-- Image Slider -->
+          <div class="col-md-4">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie1.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie2.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie3.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie4.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie5.jpg") %>" alt="" />
+              </div>
+    
+            </div> <!-- carousel-inner -->
+
+            <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="fa fa-chevron-left"></span>
+            </a>
+          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="fa fa-chevron-right"></span>
+          </a>
+          </div> <!-- carousel-example-generic -->
+        </div> <!-- col-md-4 -->
+        
+
+        <div class="col-md-8">
+
+          
+
+
+          <!-- Booking form without skills sections-->
+          <div class="col-md-5">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <!-- Form label -->
+                <label>Full Name</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.text_field :name, autofocus: true, :class => "form-control" %>
+                </div>
+                <!-- Form label -->
+                <label>Email</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.email_field :email, autofocus: true, :class => "form-control"  %>
+                </div>
+                <!-- Form label -->
+                <label>Password</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.password_field :password, autocomplete: "off", :class => "form-control"  %>
+                </div>
+                <!-- Form label -->
+                <label>Password Confirmation</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control"  %>
+                </div>
+                <!-- Form label -->
+                <label>Phone Number</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.text_field :phone_number, autofocus: true, :class => "form-control"  %>
+                </div>
+                <!-- Form label -->
+                <label>Role</label>
+                <div class="form-group">
+                  <!-- Form drop down -->
+                  <select name="adult[adult_role]" class="form-control">
+                    <option value="Parent">Parent</option>
+                    <option value="Troop Leader">Troop Leader</option>
+                    <option value="Volunteer">Volunteer</option>
+                  </select>
+                </div>
+
+                <!-- Form button -->
+                 <div class="form-group">
+                  <button class="btn btn-danger btn-sm" type="submit">Sign up</button>&nbsp;
+                  <button class="btn btn-default btn-sm" type="reset">Reset</button>
+                  
+                </div>
+
+              </div> <!-- col-md-5 --> 
+
+                <!-- Skills section checkbox--> 
+                <div class="col-md-7">
+                  <div class="form-group">
+                    <!-- Paragraph -->
+                    <!-- <p><i>Please share any additional skills you posess and a description of them seperated by commas. For example if you play the flute and the piano, select the "Music" checkbox and write in the text field "Flute, Piano"</i></p> -->
+                    <label class="form_label_font"> Additional Skills: </label><br>
+                  <% @skills.each do |skill| %>                  
+                    <%#= label_tag "skills_#{skill.id}", skill.name %>
+                    <%= check_box_tag "adult[skill_ids][]", skill.id, false, id: "skill_#{skill.id}", class: 'skills_check_box', :data => {:skill_id => skill.id} %>
+
+                    <label class="form_label_font"><%= skill.name %></label>
+                    
+                    <%= text_field_tag "adult[descriptions][]", nil, id: "skill_#{skill.id}", class: 'hidden_skills_text_field form-control-update', :data => {:skill_id => skill.id}, placeholder: placeholder(skill.name) %>  <br>                  
+                  <% end %>
+                  </div>
+                </div> <!-- col-md-7 -->
+
+ 
+
+            </div> <!-- booking-form -->
+            
+        </div> <!-- end col-md-8 -->>
+
+
+            <% end %>
+           <!--  </div> -->
+            
+          <!-- </div>  --><!-- booking-form -->
+
+
+
+
+
+      </div> <!-- end row -->
+    </div> <!-- end container -->
+  </div> <!-- end booking -->
+</div> <!-- end inner-page padd -->
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+  $('.skills_check_box').change('checkbox :checkbox.toggle', function(e){    
+    var skill_id = $(this).data('skill-id');
+    var text_field = $('.hidden_skills_text_field#skill_'+skill_id);
+
+    text_field.fadeToggle();
+
+    
+
+    });
+});
+</script>
+

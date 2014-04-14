@@ -1,0 +1,23 @@
+<center><h1><%= @user.name %> - <%= @user.role %></h1>
+  <%= image_tag(@user.profile_photo, :width => 600) if @user.profile_photo.present? %>
+  <% if @user.role == 'Scout' %>
+    <h6>Grade: <%= @user.grade unless @user.grade == nil %> </h6>
+    <h6>Birthday: <%= @user.birthday.strftime("%B %e, %Y") unless @user.birthday == nil%> </h6>
+    <h6>Patches earned: <%#= @user.patches %></h6>
+  <% else %>
+    <% @user.skills.each do |skill| %>
+    <% description = @user.user_skills.find_by(skill_id: skill.id).skill_description %>
+    <h6> 
+    <%= skill.name %> 
+    <% unless description.blank? %> 
+      - <%= description %>
+    </h6>
+    <% end %>
+  <% end %>
+<% end %>
+</br>
+<%= link_to 'Back to Troop Members', troop_user_path %>
+</br>
+</br>
+<%= link_to 'Home', troops_path %>
+ </center>
