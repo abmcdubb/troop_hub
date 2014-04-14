@@ -1,4 +1,7 @@
-<%=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.troop_type}", :right_option => "Troop Number: #{@troop.number}" }%>
+<%#=render partial: 'layouts/banner', locals: {:name => @troop.name, :right_option => "Troop Number: {@troop.number}" } %>
+
+<%#=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.name}", :right_option => "Troop Number: #{@troop.number}" %>
+<!-- #update! -->
 <body>
     <!-- if we want to be really snazzy we should change the word "company" to "troop" here and in the css file -->
 <div class="about-company padd">

@@ -2,20 +2,19 @@ class TroopsController < ApplicationController
   before_action :set_troop, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @troops = Troop.all
-    @daisies = Troop.all_Daisy
-    @brownies = Troop.all_Brownie
-    @juniors = Troop.all_Junior
-    @cadettes = Troop.all_Cadette
-    @seniors = Troop.all_Senior
-    @ambassadors = Troop.all_Ambassador
-    @age_levels = AgeLevel.all
+    @troops = Troop.all
+    # @daisies = Troop.all_Daisy
+    # @brownies = Troop.all_Brownie
+    # @juniors = Troop.all_Junior
+    # @cadettes = Troop.all_Cadette
+    # @seniors = Troop.all_Senior
+    # @ambassadors = Troop.all_Ambassador
+    # @age_levels = AgeLevel.all
   end
 
   def show
-    params.inspect
     # @troops = Troop.where(params[:troop_id])
-    @scouts = Scout.where(params[:id])
+    # @scouts = Scout.where(params[:id])
     @troop_events = TroopEvent.all
   end
 
