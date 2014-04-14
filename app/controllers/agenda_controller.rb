@@ -51,6 +51,6 @@ class AgendaController < ApplicationController
   end
 
   def agenda_params
-    params.require(:agenda).permit(:name, :meeting_date, :location, :activity_1, :activity_2, :activity_3, :activity_4, :activity_5, :activity_6, :activity_7, :activity_8, :patches, :snack, :jobs, :supplies, :troop_info)
+    params.require(:agenda).permit(:name, :meeting_date, :location, :activity_1, :activity_2, :activity_3, :activity_4, :activity_5, :activity_6, :patches, :snack, :jobs, :supplies, :troop_info)
   end
 end
