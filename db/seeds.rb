@@ -18,10 +18,10 @@ event_badge_1 = EventBadge.create(event_id: 2, badge_id: 1)
 event_badge_2 = EventBadge.create(event_id: 3, badge_id: 2)
 
 adult_1 = User.create(troop_id: '1', role: 'Parent', name: 'Molly Weasley', email: 'mollyw@myfamilyissopooreventhoughwecandomagic.com', phone_number: '555-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
-adult_2 = User.create(troop_id: '2', role: 'Leader', name: 'Minerva McGonagall', email: 'mcgonagall@imtoughbutfirm.com', phone_number: '212-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
+adult_2 = User.create(troop_id: '2', role: 'Troop Leader', name: 'Minerva McGonagall', email: 'mcgonagall@imtoughbutfirm.com', phone_number: '212-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
 adult_3 = User.create(troop_id: '3', role: 'Volunteer', name: 'Helena', email: 'volunteer@imdeadbutistillhelpoutfromtimetotime.com', phone_number: '917-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
 adult_4 = User.create(troop_id: '4', role: 'Parent', name: 'Vernon Dursley', email: 'vdud@whatthehellamidoinghere.com', phone_number: '646-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
-adult_5 = User.create(troop_id: '1', role: 'Leader', name: 'Lilly Potter', email: 'lily@tookawandtotheheart.com', phone_number: '555-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
+adult_5 = User.create(troop_id: '1', role: 'Troop Leader', name: 'Lilly Potter', email: 'lily@tookawandtotheheart.com', phone_number: '555-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
 adult_6 = User.create(troop_id: '2', role: 'Volunteer', name: 'Dolores Umbridge', email: 'dolores@ilovepink.com', phone_number: '212-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
 adult_7 = User.create(troop_id: '3', role: 'Parent', name: 'Fleur Delacour', email: 'fleur@parlevousfrancais.com', phone_number: '917-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
 adult_8 = User.create(troop_id: '4', role: 'Volunteer', name: 'Nymphadora Tonks', email: 'nymphadora@greenhairrocks.com', phone_number: '646-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
@@ -79,10 +79,10 @@ adult_skill_13 = UserSkill.create(skill_id: 11, user_id: 4, skill_description: "
 adult_skill_14 = UserSkill.create(skill_id: 4, user_id: 4, skill_description: "Firestarter, Hiking")
 adult_skill_15 = UserSkill.create(skill_id: 5, user_id: 4, skill_description: "Bird Watching, Frog Hopping")
 
-scout_1 = User.create(troop_id: '1', name: 'Hermione', grade: 'Kindergarten', birthday: '', email: 'hermione@hogwarts.com', phone_number: '212-994-4949', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
-scout_2 = User.create(troop_id: '2', name: 'Lavender', grade: '2nd', birthday: '', email: 'ilovewonwon@hogwarts.com', phone_number: '212-994-4989', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
-scout_3 = User.create(troop_id: '3', name: 'Parvati', grade: '11th', birthday: '', email: 'PPatil@hogwarts.com', phone_number: '212-994-4925', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
-scout_4 = User.create(troop_id: '3', name: 'Cho', grade: '12th', birthday: '', email: 'cchang@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
+scout_1 = User.create(troop_id: '1', role: 'Scout', name: 'Hermione', grade: 'Kindergarten', birthday: '2007/4/9', email: 'hermione@hogwarts.com', phone_number: '212-994-4949', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
+scout_2 = User.create(troop_id: '2', role: 'Scout', name: 'Lavender', grade: '2nd', birthday: '2007/2/1', email: 'ilovewonwon@hogwarts.com', phone_number: '212-994-4989', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
+scout_3 = User.create(troop_id: '3', role: 'Scout', name: 'Parvati', grade: '11th', birthday: '2005/4/5', email: 'PPatil@hogwarts.com', phone_number: '212-994-4925', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
+scout_4 = User.create(troop_id: '3', role: 'Scout', name: 'Cho', grade: '12th', birthday: '1999/6/17', email: 'cchang@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', profile_photo: '', password: '123456789')
 
 
 # (:patches, :snack, :jobs, :supplies, :correspondence, :troop_info, :parent_info, :decisions)

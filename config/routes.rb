@@ -20,14 +20,14 @@ Rails.application.routes.draw do
   patch 'troops/update/:id' => 'troops#update'
   delete 'troops/destroy' => 'troops#destroy'
 
-  get '/troops/:troop_id/user' => 'user#index', :as => :troop_user
-  get '/troops/:troop_id/user/new' => 'user#new', :as => :new_troop_user
-  post '/troops/:troop_id/user' => 'user#create'
-  get '/troops/:troop_id/user/:id' => 'user#show', :as => :user_show
-  get '/troops/:troop_id/user/edit/:id' => 'user#edit'
-  patch '/troops/:troop_id/user/update/:id' => 'user#update'
-  delete '/troops/:troop_id/user/destroy' => 'user#destroy'
-
+  get '/troops/:troop_id/users' => 'users#index', :as => :troop_user
+  get '/troops/:troop_id/users/new' => 'users#new', :as => :new_troop_user
+  post '/troops/:troop_id/users' => 'users#create'
+  get '/troops/:troop_id/users/:id' => 'users#show', :as => :user_show
+  get '/troops/:troop_id/users/edit/:id' => 'users#edit'
+  patch '/troops/:troop_id/users/update/:id' => 'users#update'
+  delete '/troops/:troop_id/users/destroy' => 'users#destroy'
+  
     # resources :troops do
   #   resources :agendas, :only => [:new, :create, :show, :update]
   # end

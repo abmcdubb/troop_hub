@@ -1,0 +1,29 @@
+<center><h1>Troop Members</h1>
+  <br>
+
+Scouts:
+<% @users.each do |user| %>
+<br>
+<%= link_to user.name, user_show_path(@troop, user) if user.role == "Scout" %>
+<%end%>
+</br></br>
+Troop Leaders:
+<br>
+<% @users.each do |user| %>
+<%= link_to user.name, user_show_path(@troop, user) if user.role == "Troop Leader" %>
+<%end%>
+</br></br>
+Volunteers:
+<% @users.each do |user| %>
+<br><%= link_to user.name, user_show_path(@troop, user) if user.role == "Volunteer" %>
+<%end%>
+</br><br/>
+
+Parents:
+<% @users.each do |user| %>
+<br><%= link_to user.name, user_show_path(@troop, user) if user.role == "Parent" %>
+</br>
+<% end %>
+<%#= link_to 'Add A Scout!', new_troop_scout_path %>
+
+<!-- #update! -->
