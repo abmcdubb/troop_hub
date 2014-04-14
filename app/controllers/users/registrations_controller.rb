@@ -1,6 +1,6 @@
 class Users::RegistrationsController < ::Devise::RegistrationsController
   # before_filter :configure_permitted_parameters, :only => [:create]
-  include AdultsHelper
+  include UsersHelper
   before_filter :configure_permitted_parameters, :only => [:create]
   
   def new
@@ -9,9 +9,7 @@ class Users::RegistrationsController < ::Devise::RegistrationsController
   end
 
   def create 
-    binding.pry
     sanitize_params_by_role 
-    binding.pry
     build_resource(sign_up_params)
     resource_saved = resource.save
     yield resource if block_given?
@@ -56,8 +54,8 @@ class Users::RegistrationsController < ::Devise::RegistrationsController
       params[:user][:birthday] = nil
       params[:user][:grade] = nil
     else
-      binding.pry
-      params[:user][:skill_ids].clear
+    
+      # params[:user][:skill_ids].clear
 
     end
 
