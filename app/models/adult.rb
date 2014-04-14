@@ -10,3 +10,5 @@ class Adult < ActiveRecord::Base
   has_many :skills, through: :adult_skills
 
 end
+
+#update!

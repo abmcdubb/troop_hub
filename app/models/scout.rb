@@ -12,3 +12,4 @@ class Scout < ActiveRecord::Base
   # 		validates_integrity_of  :profile_photo
   # 		validates_processing_of :profile_photo
 end
+#update!

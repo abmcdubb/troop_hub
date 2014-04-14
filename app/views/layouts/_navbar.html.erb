@@ -8,41 +8,18 @@
 
 
   
-  <%if scout_signed_in? %>
-      <li><a data-method='delete' href="/scouts/sign_out"><img src="/assets/sign_out_btn.png" class="img-responsive" alt="" />Sign Out</a></li>
-  <%elsif adult_signed_in? %>
-           <li><a data-method='delete' href="/adults/sign_out"><img src="/assets/sign_out_btn.png" class="img-responsive" alt="" />Sign Out</a></li>
-      <%else%>
-      <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> Sign Up <b class="caret"></b></a>
-    <ul class="dropdown-menu">
+    <% if user_signed_in? %>
+      <li><a data-method='delete' href="/users/sign_out"><img src="/assets/sign_out_btn.png" class="img-responsive" alt="" />Sign Out</a></li>
+    <% else %>
+      <li>
+    <a href="/users/sign_up" class="img-responsive"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> Sign Up </b></a>
+    </li>
 
-      <!-- <li><a href="/scouts/sign_up">Sign Up as a Scout</a></li> -->
-      <li><%= link_to "Sign Up as a Scout", new_scout_registration_path %></li>
-
-      <!-- <li><a href="/adults/sign_up">Sign Up as a Adult</a></li> -->
-      <li><%= link_to "Sign Up as an Adult", new_adult_registration_path %></li>
-
-    </ul>
-  </li>
-  <li class>
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/sign_in_btn.png" class="img-responsive" alt="" /> Sign In <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a href="/scouts/sign_in">Sign In as a Scout</a></li>
-      <li><%= link_to 'Sign In', popup_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %></li>
-    </ul>
-
-  </li>
-<!-- 
   <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/sign_in_btn.png" class="img-responsive" alt="" /> Sign In <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a href="/scouts/sign_in">Sign In as a Scout</a></li>
-   
-    </ul>
-  </li> -->
+      <a href="/users/sign_in" class="img-responsive" ><img src="/assets/sign_in_btn.png" class="img-responsive" alt="" /> Sign In</b></a>
+  </li>
 <%end%>
-<%= link_to 'Sign In', popup_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+
 
 
 </ul>
@@ -51,7 +28,3 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav><br/>
-<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" ></div>
-
-
-
