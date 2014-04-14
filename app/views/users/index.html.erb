@@ -7,7 +7,7 @@
             <div class="default-heading">
               <!-- Heading -->
               <!-- Paragraph -->
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel. </p>
             </div>
             <div class="row">
               <% @users.each do |user| %>
@@ -19,9 +19,13 @@
                     <!-- Member background image -->
                     <img class="chefs-back img-responsive" src="<%= asset_path("page_bg.jpg") %>" alt="" />
                     <!-- chef member image -->
-                    <!-- <img src=<%#= user.profile_photo %> class="chefs-img-index img-responsive"> -->
-                    <%#= image_tag user.profile_photo_url(:thumb).to_s %>
-                    <%= image_tag user.profile_photo_url(:thumb).to_s, :class => 'chefs-img-index img-responsive' %>
+                    <% if user.profile_photo_url %>
+                      <%= link_to(image_tag(user.profile_photo_url(:thumb).to_s, :class => 'chefs-img-index img-responsive'), user_show_path(@troop, user)) %>
+                    <% else %>
+
+                    <%= link_to(image_tag('hedwig.jpeg', :class => 'chefs-img-index img-responsive'), user_show_path(@troop, user)) %>
+                      <!-- <img src="<%#= asset_path("hedwig.jpeg") %>" class="chefs-img-index img-responsive"> -->
+                    <% end %>
                   </div>
                   <!--Name / Heading -->
                   <h3><%= link_to user.name, user_show_path(@troop, user)%></h3>
