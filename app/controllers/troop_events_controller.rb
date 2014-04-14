@@ -33,8 +33,11 @@ class TroopEventsController < ApplicationController
     @event = Event.create(event_params)
     @troop_event = TroopEvent.create(troop_event_params)
     @troop_event.event = @event
-    @troop_event.save
-    redirect_to troop_event_path(@troop_event)
+    # if @troop_event.save
+    #   redirect_to troop_event_path(@troop_event)
+    # else
+    #   render "new_event"
+    # end
   end
 
   def create
@@ -43,6 +46,8 @@ class TroopEventsController < ApplicationController
       if @troop_event.save
         format.html { redirect_to "/troops/#{@troop_event.troop_id}", notice: 'Troop was successfully created.' }
       else
+        @events = Event.all
+        @troops = Troop.all
         format.html { render action: 'new' }
       end
     end
