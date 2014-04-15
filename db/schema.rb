@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 20140414185557) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.string   "grades"
     t.string   "genre"
     t.text     "description"
     t.string   "season"
@@ -124,13 +123,6 @@ ActiveRecord::Schema.define(version: 20140414185557) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "on_page"
-  end
-
-  create_table "scout_badges", force: true do |t|
-    t.integer  "scout_id"
-    t.integer  "badge_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "scouts", force: true do |t|
@@ -191,9 +183,18 @@ ActiveRecord::Schema.define(version: 20140414185557) do
     t.text     "about_us"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
     t.integer  "age_level_id"
   end
+
+  create_table "user_badges", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "badge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_badges", ["badge_id"], name: "index_user_badges_on_badge_id"
+  add_index "user_badges", ["user_id"], name: "index_user_badges_on_user_id"
 
   add_index "troops", ["slug"], name: "index_troops_on_slug"
 
