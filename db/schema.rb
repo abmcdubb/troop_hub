@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414185557) do
+ActiveRecord::Schema.define(version: 20140415185700) do
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 20140414185557) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "badge_age_levels", force: true do |t|
+    t.integer  "badge_id"
+    t.integer  "age_level_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "badge_age_levels", ["age_level_id"], name: "index_badge_age_levels_on_age_level_id"
+  add_index "badge_age_levels", ["badge_id"], name: "index_badge_age_levels_on_badge_id"
 
   create_table "badges", force: true do |t|
     t.string   "name"
@@ -195,8 +205,6 @@ ActiveRecord::Schema.define(version: 20140414185557) do
 
   add_index "user_badges", ["badge_id"], name: "index_user_badges_on_badge_id"
   add_index "user_badges", ["user_id"], name: "index_user_badges_on_user_id"
-
-  add_index "troops", ["slug"], name: "index_troops_on_slug"
 
   create_table "user_skills", force: true do |t|
     t.integer  "user_id"
