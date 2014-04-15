@@ -8,9 +8,16 @@ class Parser
     if b.attr('thetitle') != nil
       badge = Badge.new
   		badge.logo = b.css('img').attr('src').text
-  		badge.name = b.attr("thetitle")
+      
+      if b.attr("thetitle") == "Women&#8217;s Health"
+        badge.name = "Women's Health"
+      elsif b.attr("thetitle").include?('&amp;')
+        badge.name =  b.attr("thetitle").gsub('&amp;', '&')
+      else badge.name = b.attr("thetitle")
+      end
+
   		badge.troop_type = b.attr("agelevel")
-  		badge.category = b.attr("subcategory")
+  		badge.category = "#{b.attr('subcategory')} - #{b.attr('category')}"
       badge.save
     end
   end
