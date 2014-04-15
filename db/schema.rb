@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413200320) do
+ActiveRecord::Schema.define(version: 20140415013822) do
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -146,21 +146,10 @@ ActiveRecord::Schema.define(version: 20140413200320) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.text     "badges"
   end
 
   add_index "scouts", ["email"], name: "index_scouts_on_email", unique: true
   add_index "scouts", ["reset_password_token"], name: "index_scouts_on_reset_password_token", unique: true
-
-  create_table "scouts_badges", force: true do |t|
-    t.integer  "scout_id"
-    t.integer  "badge_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "scouts_badges", ["badge_id"], name: "index_scouts_badges_on_badge_id"
-  add_index "scouts_badges", ["scout_id"], name: "index_scouts_badges_on_scout_id"
 
   create_table "skills", force: true do |t|
     t.string   "name"
@@ -179,6 +168,11 @@ ActiveRecord::Schema.define(version: 20140413200320) do
     t.datetime "updated_at"
   end
 
+  create_table "troop_newsletters", force: true do |t|
+    t.integer "troop_id"
+    t.integer "newsletter_id"
+  end
+
   create_table "troops", force: true do |t|
     t.string   "name"
     t.string   "number"
@@ -191,6 +185,16 @@ ActiveRecord::Schema.define(version: 20140413200320) do
     t.datetime "updated_at"
     t.integer  "age_level_id"
   end
+
+  create_table "user_badges", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "badge_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_badges", ["badge_id"], name: "index_user_badges_on_badge_id"
+  add_index "user_badges", ["user_id"], name: "index_user_badges_on_user_id"
 
   create_table "user_skills", force: true do |t|
     t.integer  "user_id"
