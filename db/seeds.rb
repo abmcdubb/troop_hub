@@ -11,6 +11,19 @@ troop_event_2 = TroopEvent.create(event_id: 1, troop_id: 2, start_time: DateTime
 troop_event_3 = TroopEvent.create(event_id: 2, troop_id: 1, start_time: DateTime.now, location: "Little Ones", detail: "We'll talk about how Gloria respected herself. Bring your own picnic lunch.")
 troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, start_time: DateTime.now, location: "Some painting place in Long Island", detail: "Some Details.")
 
+
+badge_1 = Badge.create(name: "Purple Petal: Respect Myself and Others", troop_type: "Daisy")
+badge_2 = Badge.create(name: "Painting", troop_type: "Brownie")
+badge_3 = Badge.create(name: "Violet Petal: Be a Sister to Every Girl Scout", troop_type: "Daisy")
+badge_4 = Badge.create(name: "Red Petal: Courageous & Strong", troop_type: "Daisy")
+badge_5 = Badge.create(name: "Spring Green Petal: Considerate & Caring", troop_type: "Daisy")
+badge_6 = Badge.create(name: "Light Blue Petal: Honest & Fair", troop_type: "Daisy")
+badge_7 = Badge.create(name: "Yellow Petal: Friendly & Helpful", troop_type: "Daisy")
+badge_8 = Badge.create(name: "Orange Petal: Responsible For What I Say & Do", troop_type: "Daisy")
+badge_9 = Badge.create(name: "Magenta Petal: Respect Authority", troop_type: "Daisy")
+badge_10 = Badge.create(name: "Green Petal: Use Resources Wisely", troop_type: "Daisy")
+badge_11 = Badge.create(name: "Rose Petal: Make the World a Better Place", troop_type: "Daisy")
+
 # badge_1 = Badge.create(name: "Respect Myself and Others", troop_type: "Daisy")
 # badge_2 = Badge.create(name: "Painting", troop_type: "Brownie")
 #update! why was troop_type removed?
