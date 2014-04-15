@@ -1,306 +1,35 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-<title>
-</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=320, target-densitydpi=device-dpi">
-<!--[if gte mso 9]>
-<style _tmplitem="1467" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]--></head><body><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table">
-  <tbody><tr>
-    <td align="center" bgcolor="#ececec">
-          <table class="w640" style="margin:0 10px;" width="640" cellpadding="0" cellspacing="0" border="0">
-              <tbody><tr><td class="w640" width="640" height="20"></td></tr>
-                
-              <tr>
-                  <td class="w640" width="640">
-                        <table id="top-bar" class="w640" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#613b11">
-    <tbody><tr>
-        <td class="w15" width="15"></td>
-        <td class="w325" width="350" valign="middle" align="left">
-            <table class="w325" width="350" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w325" width="350" height="8"></td></tr>
-            </tbody></table>
-            <div class="header-content"><webversion>Web Version</webversion><span class="hide">&nbsp;&nbsp;|&nbsp; <preferences lang="en">Update preferences</preferences>&nbsp;&nbsp;|&nbsp; <unsubscribe>Unsubscribe</unsubscribe></span></div>
-            <table class="w325" width="350" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w325" width="350" height="8"></td></tr>
-            </tbody></table>
-        </td>
-        <td class="w30" width="30"></td>
-        <td class="w255" width="255" valign="middle" align="right">
-            <table class="w255" width="255" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w255" width="255" height="8"></td></tr>
-            </tbody></table>
-            <table cellpadding="0" cellspacing="0" border="0">
-    <tbody><tr>
-        
-        <td valign="middle"><fblike><img src="https://img.createsend1.com/img/templatebuilder/like-glyph.png" border="0" width="8" height="14" alt="Facebook icon"=""></fblike></td>
-        <td width="3"></td>
-        <td valign="middle"><div class="header-content"><fblike>Like</fblike></div></td>
-        
-        
-        <td class="w10" width="10"></td>
-        <td valign="middle"><tweet><img src="https://img.createsend1.com/img/templatebuilder/tweet-glyph.png" border="0" width="17" height="13" alt="Twitter icon"=""></tweet></td>
-        <td width="3"></td>
-        <td valign="middle"><div class="header-content"><tweet>Tweet</tweet></div></td>
-        
-        
-        <td class="w10" width="10"></td>
-        <td valign="middle"><forwardtoafriend lang="en"><img src="https://img.createsend1.com/img/templatebuilder/forward-glyph.png" border="0" width="19" height="14" alt="Forward icon"=""></forwardtoafriend></td>
-        <td width="3"></td>
-        <td valign="middle"><div class="header-content"><forwardtoafriend lang="en">Forward</forwardtoafriend></div></td>
-        
-    </tr>
-</tbody></table>
-            <table class="w255" width="255" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w255" width="255" height="8"></td></tr>
-            </tbody></table>
-        </td>
-        <td class="w15" width="15"></td>
-    </tr>
-</tbody></table>
-                        
-                    </td>
-                </tr>
-                <tr>
-                <td id="header" class="w640" width="640" align="center" bgcolor="#009933">
-    
-    <table class="w640" width="640" cellpadding="0" cellspacing="0" border="0">
-        <tbody><tr><td class="w30" width="30"></td><td class="w580" width="580" height="30"></td><td class="w30" width="30"></td></tr>
-        <tr>
-            <td class="w30" width="30"></td>
-            <td class="w580" width="580">
-                <div align="center" id="headline">
-                    <p>
-                        <strong><singleline label="Title"><%=@newsletter.troop_name%></singleline></strong>
-                    </p>
-                </div>
-            </td>
-            <td class="w30" width="30"></td>
-        </tr>
-    </tbody></table>
-    
-    
-</td>
-                </tr>
-                
-                <tr id="twocolumn-content-row"><td class="w640" width="640"><table class="w640" width="640" cellpadding="0" cellspacing="0" border="0">
-  <tbody><tr>
-        <td class="w15" width="15" bgcolor="#e2e2e2"></td>
-        <td id="left-sidebar" class="w140" width="140" bgcolor="#e2e2e2" valign="top" align="left">
-            
-            
-            <table class="w140" width="140" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w140" width="140" height="15"></td></tr>
-                <tr>
-                    <td class="w140" width="140">
-                        <div align="left" class="left-column-heading"><singleline label="Title">Troop Committee</singleline></div>
-                    </td>
-                </tr>
-            </tbody></table>
-                                
-      <repeater>  
-                <layout label="Text only">
-                    <table class="w140" width="140" cellpadding="0" cellspacing="0" border="0">
-                        <tbody><tr><td class="w140" width="140" height="15"></td></tr>
-                        <tr>
-                            <td class="w140" width="140">
-                                <p align="left" class="left-column-subhead"><singleline label="Title"><%=@newsletter.leader%></singleline></p>
-                                <div align="left" class="left-column-content"><multiline label="Description">Troop Leader</multiline></div>
-                            </td>
-                        </tr>
-                    </tbody></table>
-                </layout>
-                                    
-                <layout label="Text with image">
-                    <table class="w140" width="140" cellpadding="0" cellspacing="0" border="0">
-                        <tbody><tr><td class="w140" width="140" height="15"></td></tr>
-                        <tr>
-                       PLACEHOLDER FOR VOLUNTEERS
-                    <td class="w140" width="140"><p align="left" class="left-column-subhead"><singleline label="Title">
-                    </singleline></p></td>
-                        </tr>
-                        <tr>
-                            <td class="w140" width="140"><img editable="true" label="Image" width="140" class="w140" border="0"></td>
-                        </tr>
-                        <tr><td class="w140" width="140" height="15"></td></tr>
-                        <tr>
-                            <td class="w140" width="140"><div align="left" class="left-column-content"><multiline label="Description">Volunteer</multiline></div></td>
-                        </tr>
-                    </tbody></table>
-                </layout>
-            </repeater>
-    
-            
-        </td>
-        <td class="w15" width="15" bgcolor="#e2e2e2"></td>
-        <td class="w470" width="470" bgcolor="#ffffff" valign="top">
-            <table class="w470" width="470" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w470" width="470" height="30"></td></tr>
-            </tbody></table>
-            <table align="left" class="w470" width="470" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr>
-                    <td class="w30" width="30"></td>
-                    <td class="w410" width="410">
-                        <repeater>
-                                                
-                            
-                            <layout label="Text only">
-                                <table class="w410" width="410" cellpadding="0" cellspacing="0" border="0">
-                                    <tbody><tr>
-                                        <td class="w410" width="410">
-                                            <p align="left" class="article-title"><singleline repeatertitle="true" label="Article Title">A Word From Your Troop Leader</singleline></p>
-                                            <div align="left" class="article-content"><multiline label="Description"><%=@newsletter.note_from_leader%></multiline></div>
-                                        </td>
-                                    </tr>
-                                    <tr><td class="w410" width="410" height="10"></td></tr>
-                                </tbody></table>
-                            </layout>
-                                                
-                            
-                            <layout label="Text with full-width image">
-                                <table class="w410" width="410" cellpadding="0" cellspacing="0" border="0">
-                                    <tbody><tr>
-                                        <td class="w410" width="410">
-                                            <p align="left" class="article-title"><singleline repeatertitle="true" label="Article Title"><%=@newsletter.item1_title%></singleline></p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w410" width="410"><img editable="true" label="Image" class="w410" width="410" border="0"></td>
-                                    </tr>
-                                    <tr><td class="w410" width="410" height="15"></td></tr>
-                                    <tr>
-                                        <td class="w410" width="410">
-                                            <div align="left" class="article-content"><multiline label="Description"><%=@newsletter.item1_desc%></multiline></div>
-                                        </td>
-                                    </tr>
-                                    <tr><td class="w410" width="410" height="10"></td></tr>
-                                </tbody></table>
-                            </layout>
-                                                
-                            
-                            <layout label="Text with right-aligned image">
-                                <table class="w410" width="410" cellpadding="0" cellspacing="0" border="0">
-                                    <tbody><tr>
-                                        <td class="w410" width="410">
-                                            <p align="left" class="article-title"><singleline repeatertitle="true" label="Article Title"><%=@newsletter.item2_title%></singleline></p>
-                                            <table cellpadding="0" cellspacing="0" border="0" align="right">
-                                                <tbody><tr>
-                                                    <td class="w30" width="15"></td>
-                                                    <td><img editable="true" label="Image" class="w220" width="220" border="0"></td>
-                                                </tr>
-                                                <tr><td class="w30" width="15" height="5"></td><td></td></tr>
-                                            </tbody></table>
-                                            <div align="left" class="article-content"><multiline label="Description"><%=@newsletter.item2_desc%></multiline></div>
-                                        </td>
-                                    </tr>
-                                    <tr><td class="w410" width="410" height="10"></td></tr>
-                                </tbody></table>
-                            </layout>
-                                                
-                            
-                            <layout label="Text with left-aligned image">
-                                <table class="w410" width="410" cellpadding="0" cellspacing="0" border="0">
-                                    <tbody><tr>
-                                        <td class="w410" width="410">
-                                            <p align="left" class="article-title"><singleline repeatertitle="true" label="Article Title"><%=@newsletter.item3_title%></singleline></p>
-                                            <table cellpadding="0" cellspacing="0" border="0" align="left">
-                                                <tbody><tr>
-                                                    <td><img editable="true" label="Image" class="w220" width="220" border="0"></td>
-                                                    <td class="w30" width="15"></td>
-                                                </tr>
-                                                <tr><td></td><td class="w30" width="15" height="5"></td></tr>
-                                            </tbody></table>
-                                            <div align="left" class="article-content"><multiline label="Description"><%=@newsletter.item3_desc%></multiline></div>
-                                        </td>
-                                    </tr>
-                                    <tr><td class="w410" width="410" height="10"></td></tr>
-                                </tbody></table>
-                            </layout>
-                                                
-                                                
-                            
-                            <layout label="Image gallery">
-                                <table class="w410" width="410" cellpadding="0" cellspacing="0" border="0">
-                                    <tbody><tr>
-                                        <td class="w195" width="195" valign="top">
-                                            <table class="w195" width="195" cellpadding="0" cellspacing="0" border="0">
-                                                <tbody><tr>
-                                                    <td class="w195" width="195"><img editable="true" label="Image" class="w195" width="195" border="0"></td>
-                                                </tr>
-                                                <tr><td class="w195" width="195" height="10"></td></tr>
-                                                <tr>
-                                                    <td class="w195" width="195">
-                                                        <div align="left" class="article-content"><multiline label="Description">Enter your description</multiline></div>
-                                                    </td>
-                                                </tr>
-                                                <tr><td class="w195" width="195" height="10"></td></tr>
-                                            </tbody></table>
-                                        </td>
-                                        <td width="20"></td>
-                                        <td class="w195" width="195" valign="top">
-                                            <table class="w195" width="195" cellpadding="0" cellspacing="0" border="0">
-                                                <tbody><tr>
-                                                    <td class="w195" width="195"><img editable="true" label="Image" class="w195" width="195" border="0"></td>
-                                                </tr>
-                                                <tr><td class="w195" width="195" height="10"></td></tr>
-                                                <tr>
-                                                    <td class="w195" width="195">
-                                                        <div align="left" class="article-content"><multiline label="Description">Enter your description</multiline></div>
-                                                    </td>
-                                                </tr>
-                                                <tr><td class="w195" width="195" height="10"></td></tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                            </layout>
-                        </repeater>
-                    </td>
-                    <td class="w30" width="30"></td>
-                </tr>
-            </tbody></table>
-        </td>
-    </tr>
-</tbody></table>
-</td></tr>
-                <tr>
-                  <td class="w640" width="640"><table class="w640" width="640" cellpadding="0" cellspacing="0" border="0">
-                        <tbody><tr>
-                            <td class="w170" width="170" bgcolor="#e2e2e2" height="15"></td>
-                            <td class="w470" width="470" bgcolor="#ffffff" height="15"></td>
-                        </tr>
-                  </tbody></table></td>
-                </tr>
-                
-                <tr>
-                <td class="w640" width="640">
-    <table id="footer" class="w640" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#69502b">
-        <tbody><tr><td class="w30" width="30"></td><td class="w580 h0" width="360" height="30"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
-        <tr>
-            <td class="w30" width="30"></td>
-            <td class="w580" width="360" valign="top">
-            <span class="hide"><p id="permission-reminder" align="left" class="footer-content-left"></p></span>
-            <p align="left" class="footer-content-left"><preferences lang="en">Edit your subscription</preferences> | <unsubscribe>Unsubscribe</unsubscribe></p>
-            </td>
-            <td class="hide w0" width="60"></td>
-            <td class="hide w0" width="160" valign="top">
-            <p id="street-address" align="right" class="footer-content-right"></p>
-            </td>
-            <td class="w30" width="30"></td>
-        </tr>
-        <tr><td class="w30" width="30"></td><td class="w580 h0" width="360" height="15"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
-    </tbody></table>
-</td>
-                </tr>
-                <tr><td class="w640" width="640" height="60"></td></tr>
-            </tbody></table>
-        </td>
-  </tr>
-</tbody></table></body></html>
+<%=form_for(@newsletter) do |f|%>
+
+ <%= f.label :item1_title %>
+  <%= f.text_field :item1_title %><br/>
+  <br/>
+  <%= f.label :item1_desc %>
+  <%= f.text_field :item1_desc %><br/>
+
+  <%= f.label :item2_title %>
+  <%= f.text_field :item2_title %><br/>
+  <br/>
+  <%= f.label :item2_desc %>
+  <%= f.text_field :item2_desc %><br/>
+
+  <%= f.label :item3_title %>
+  <%= f.text_field :item3_title %><br/>
+  <br/>
+  <%= f.label :item3_desc %>
+  <%= f.text_field :item3_desc %><br/>
+
+  <%= f.label :note_from_leader %>
+  <%= f.text_field :note_from_leader %><br/>
+
+  <%= f.label :leader %>
+  <%= f.text_field :leader %><br/>
+
+    <%= f.label :troop_name %>
+  <%= f.text_field :troop_name %><br/>
+
+  <%= f.label :troop_type %>
+  <%= f.text_field :troop_type %><br/>
+  <%= f.submit %>
+  <%end%>
+
+

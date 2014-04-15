@@ -1,6 +1,8 @@
+
 <%=render partial: 'layouts/banner', locals: {:name => "Search Results", :left_option => "Events", :right_option => "Events" }%>
 <br/>
 <br/>
+
 <% @events.each do |event| %>
     Name: <%= event.name %><br/>
     Grades: 
