@@ -1,12 +1,14 @@
-<div class = "navlogo">
+<% if controller_name != 'sessions' %>
+
+<div class = "logo">
 
   <div class="row">
             <div class="col-md-4 col-sm-5">
               <!-- Link -->
-              <a href="index.html">
+              <a href="/">
                 <!-- Logo area -->
                 <div class="logo">
-  <img class="img-responsive" src="assets/transparent_logo.png" alt="" />
+  <img class="img-responsive" src="/assets/transparent_logo.png" alt="" />
               
                 </div>
               </a>
@@ -38,7 +40,7 @@
   <!-- <li class="dropdown">
       <a href="/users/sign_in" class="img-responsive" ><img src="/assets/sign_in_btn.png" class="img-responsive" alt="" /> Sign In</b></a>
   </li> -->
-  <%= render partial: 'users/sessions/test' %>
+  <li><%= render partial: 'users/sessions/new' %></li>
 <%end%>
 
 
@@ -50,3 +52,4 @@
   </div><!-- /.container-fluid -->
 </div>
 </nav><br/>
+<%end%>
