@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414185557) do
+ActiveRecord::Schema.define(version: 20140414215304) do
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 20140414185557) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.string   "grades"
     t.string   "genre"
     t.text     "description"
     t.string   "season"
@@ -191,11 +190,8 @@ ActiveRecord::Schema.define(version: 20140414185557) do
     t.text     "about_us"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
     t.integer  "age_level_id"
   end
-
-  add_index "troops", ["slug"], name: "index_troops_on_slug"
 
   create_table "user_skills", force: true do |t|
     t.integer  "user_id"
