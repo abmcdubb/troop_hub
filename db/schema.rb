@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415185700) do
+ActiveRecord::Schema.define(version: 20140416143651) do
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(version: 20140415185700) do
     t.string   "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "troop_type"
-    t.string   "troop_name"
+    t.integer  "troop_id"
+    t.string   "news_photo"
   end
 
   create_table "photos", force: true do |t|
@@ -161,11 +161,17 @@ ActiveRecord::Schema.define(version: 20140415185700) do
   add_index "scouts", ["email"], name: "index_scouts_on_email", unique: true
   add_index "scouts", ["reset_password_token"], name: "index_scouts_on_reset_password_token", unique: true
 
+  create_table "scouts_badges", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "skills", force: true do |t|
     t.string   "name"
     t.boolean  "badge_related_skill", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
   end
 
   create_table "troop_events", force: true do |t|
@@ -176,11 +182,6 @@ ActiveRecord::Schema.define(version: 20140415185700) do
     t.text     "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "troop_newsletters", force: true do |t|
-    t.integer "troop_id"
-    t.integer "newsletter_id"
   end
 
   create_table "troops", force: true do |t|

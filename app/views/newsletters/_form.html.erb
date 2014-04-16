@@ -24,11 +24,14 @@
   <%= f.label :leader %>
   <%= f.text_field :leader %><br/>
 
-    <%= f.label :troop_name %>
-  <%= f.text_field :troop_name %><br/>
+  <%= f.label :troop_id %>
+  <%= f.select :troop_id, options_for_select(@troops.map{ |s| [s.name, s.id] if s.id == @user.troop_id}) %>
 
-  <%= f.label :troop_type %>
-  <%= f.text_field :troop_type %><br/>
+
+
+  <br/>
+
+<br/>
   <%= f.submit %>
   <%end%>
 
