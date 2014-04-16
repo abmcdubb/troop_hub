@@ -51,12 +51,6 @@ event_age_level_12 = EventAgeLevel.create(event_id: 3, age_level_id: 5)
 event_age_level_13 = EventAgeLevel.create(event_id: 3, age_level_id: 6)
 
 
-
-
-
-
-
-
 #----General----
 skill1 = Skill.create(name: 'Sports & Fitness', category: 'General', badge_related_skill: true)
 skill2 = Skill.create(name: 'Drama', category: 'General', badge_related_skill: true)
@@ -192,8 +186,6 @@ a8pic = File.join(Rails.root, '/app/assets/images/ntonks.jpg')
 a8_file = File.new(a8pic)
 adult_8.profile_photo = a8_file
 adult_8.save!
-
-
 
 
 # (:patches, :snack, :jobs, :supplies, :correspondence, :troop_info, :parent_info, :decisions)
