@@ -3,5 +3,6 @@ class SkillsController < ApplicationController
   end
 
   def show
+    @nature_skills = Skill.where(:category => "Nature & Ecology")
   end
 end
