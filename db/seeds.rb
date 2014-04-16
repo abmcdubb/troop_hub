@@ -50,37 +50,57 @@ event_age_level_11 = EventAgeLevel.create(event_id: 3, age_level_id: 4)
 event_age_level_12 = EventAgeLevel.create(event_id: 3, age_level_id: 5)
 event_age_level_13 = EventAgeLevel.create(event_id: 3, age_level_id: 6)
 
-skill1 = Skill.create(name: 'Music', badge_related_skill: true)
-skill2 = Skill.create(name: 'Health & Safety', badge_related_skill: true)
-skill3 = Skill.create(name: 'Cooking', badge_related_skill: true)
-skill4 = Skill.create(name: 'Outdoor Skills', badge_related_skill: true)
-skill5 = Skill.create(name: 'Nature, Ecology', badge_related_skill: true)
-skill6 = Skill.create(name: 'Photography', badge_related_skill: true)
-skill7 = Skill.create(name: 'Arts & Crafts', badge_related_skill: true)
-skill8 = Skill.create(name: 'Math', badge_related_skill: true)
-skill9 = Skill.create(name: 'Computers', badge_related_skill: true)
-skill10 = Skill.create(name: 'Folk Dance & Games', badge_related_skill: true)
-skill11 = Skill.create(name: 'Sewing, Needle Arts', badge_related_skill: true)
-skill12 = Skill.create(name: 'Other', badge_related_skill: true)
 
-adult_skill_1 = UserSkill.create(skill_id: 1, user_id: 1, skill_description: "Violin, Viola, Cello")
-adult_skill_2 = UserSkill.create(skill_id: 2, user_id: 1, skill_description: "Nursing, Bandaging Wounds")
-adult_skill_3 = UserSkill.create(skill_id: 3, user_id: 1, skill_description: "Baking")
+#----General----
+skill1 = Skill.create(name: 'Sports & Fitness', category: 'General', badge_related_skill: true)
+skill2 = Skill.create(name: 'Drama', category: 'General', badge_related_skill: true)
+skill3 = Skill.create(name: 'Music', category: 'General', badge_related_skill: true)
+skill4 = Skill.create(name: 'Dance', category: 'General', badge_related_skill: true)
+skill5 = Skill.create(name: 'Arts & Crafts', category: 'General', badge_related_skill: true)
+skill6 = Skill.create(name: 'Cooking', category: 'General', badge_related_skill: true)
+skill7 = Skill.create(name: 'Geography & Culture', category: 'General', badge_related_skill: true)
+skill8 = Skill.create(name: 'Health & Safety',  category: 'General', badge_related_skill: true)
 
-adult_skill_4 = UserSkill.create(skill_id: 2, user_id: 2, skill_description: "Bloodletting")
-adult_skill_5 = UserSkill.create(skill_id: 3, user_id: 2, skill_description: "Hor D'Oervres")
+# ----STEM Skills ----
+skill9= Skill.create(name: 'Computer Science', category: 'STEM', badge_related_skill: true)
+skill10 = Skill.create(name: 'Technology', category: 'STEM', badge_related_skill: true)
+skill11 = Skill.create(name: 'Math', category: 'STEM', badge_related_skill: true)
+skill12 = Skill.create(name: 'Engineering', category: 'STEM', badge_related_skill: true)
+skill13 = Skill.create(name: 'Science', category: 'STEM', badge_related_skill: true)
+skill14 = Skill.create(name: 'Astronomy', category: 'STEM', badge_related_skill: true)
+
+#---Business Smarts
+skill15 = Skill.create(name: 'Financial Literacy', category: 'Business Smarts', badge_related_skill: true)
+skill16 = Skill.create(name: 'Career Explortation', category: 'Business Smarts', badge_related_skill: true)
+
+#---Nature & Ecology ----
+skill17 = Skill.create(name: 'Plants & Gardening', category: 'Nature & Ecology', badge_related_skill: true)
+skill18 = Skill.create(name: 'Outdoor Skills', category: 'Nature & Ecology', badge_related_skill: true)
+skill19 = Skill.create(name: 'Animals', category: 'Nature & Ecology', badge_related_skill: true)
+skill20 = Skill.create(name: 'Climate/Earth Science', category: 'Nature & Ecology', badge_related_skill: true)
+skill21 = Skill.create(name: 'Habitat Restoration', category: 'Nature & Ecology', badge_related_skill: true)
+
+#---OTHER----
+skill22 = Skill.create(name: 'Other', badge_related_skill: true)
+
+adult_skill_1 = UserSkill.create(skill_id: 3, user_id: 1, skill_description: "Violin, Viola, Cello")
+adult_skill_2 = UserSkill.create(skill_id: 8, user_id: 1, skill_description: "Nursing, Bandaging Wounds")
+adult_skill_3 = UserSkill.create(skill_id: 6, user_id: 1, skill_description: "Baking")
+
+adult_skill_4 = UserSkill.create(skill_id: 8, user_id: 2, skill_description: "Bloodletting")
+adult_skill_5 = UserSkill.create(skill_id: 6, user_id: 2, skill_description: "Hor D'Oervres")
 adult_skill_6 = UserSkill.create(skill_id: 9, user_id: 2, skill_description: "Creating Programming, Hacking")
-adult_skill_7 = UserSkill.create(skill_id: 11, user_id: 2, skill_description: "Crocheting")
+adult_skill_7 = UserSkill.create(skill_id: 5, user_id: 2, skill_description: "Crocheting")
 
-adult_skill_8 =  UserSkill.create(skill_id: 8, user_id: 3, skill_description: "Calculus")
+adult_skill_8 =  UserSkill.create(skill_id: 11, user_id: 3, skill_description: "Calculus")
 adult_skill_9 =  UserSkill.create(skill_id: 9, user_id: 3, skill_description: "HTML, Node.js")
-adult_skill_10 = UserSkill.create(skill_id: 10, user_id: 3, skill_description: "Ballet, Riverdance")
+adult_skill_10 = UserSkill.create(skill_id: 4, user_id: 3, skill_description: "Ballet, Riverdance")
 
-adult_skill_11 = UserSkill.create(skill_id: 6, user_id: 4, skill_description: "Black and White, Dark Room")
-adult_skill_12 = UserSkill.create(skill_id: 7, user_id: 4, skill_description: "Popsicle Architecture")
-adult_skill_13 = UserSkill.create(skill_id: 11, user_id: 4, skill_description: "Knitting, Crosstitch")
-adult_skill_14 = UserSkill.create(skill_id: 4, user_id: 4, skill_description: "Firestarter, Hiking")
-adult_skill_15 = UserSkill.create(skill_id: 5, user_id: 4, skill_description: "Bird Watching, Frog Hopping")
+adult_skill_11 = UserSkill.create(skill_id: 5, user_id: 4, skill_description: "Photography, Black and White, Dark Room")
+adult_skill_12 = UserSkill.create(skill_id: 5, user_id: 4, skill_description: "Popsicle Architecture")
+adult_skill_13 = UserSkill.create(skill_id: 5, user_id: 4, skill_description: "Knitting, Crosstitch")
+adult_skill_14 = UserSkill.create(skill_id: 18, user_id: 4, skill_description: "Firestarter, Hiking")
+adult_skill_15 = UserSkill.create(skill_id: 19, user_id: 4, skill_description: "Bird Watching, Frog Hopping")
 
 scout_1 = User.create(troop_id: '1', role: 'Scout', name: 'Hermione Granger', grade: 'Kindergarten', birthday: '2007/4/9', email: 'hermione@hogwarts.com', phone_number: '212-994-4949', admin_privileges: '', dues: '', password: '123456789')
 scout_2 = User.create(troop_id: '2', role: 'Scout', name: 'Lavender Brown', grade: '2nd', birthday: '2007/2/1', email: 'ilovewonwon@hogwarts.com', phone_number: '212-994-4989', admin_privileges: '', dues: '', password: '123456789')
@@ -166,8 +186,6 @@ a8pic = File.join(Rails.root, '/app/assets/images/ntonks.jpg')
 a8_file = File.new(a8pic)
 adult_8.profile_photo = a8_file
 adult_8.save!
-
-
 
 
 # (:patches, :snack, :jobs, :supplies, :correspondence, :troop_info, :parent_info, :decisions)
