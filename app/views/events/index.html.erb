@@ -15,7 +15,7 @@
                                     <h3><a href="#">Nature and Ecology</a></h3>
                                     <!-- Paragraph -->
                                     <% @nature_skills.each do |skill| %>
-                                    <p> <%= link_to skill.name, skills_path(skill) %></p>
+                                    <p> <%= link_to skill.name, "skills/#{skill.id}" %></p>
                                     <% end %>
                                     <div class="clearfix"></div>
                                 </div>
