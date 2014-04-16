@@ -1,7 +1,20 @@
-
-
-<%= form_tag("/events/search", method: "get") do %>
+<%= form_tag("/events/search", method: "get", class: "form-inline") do %>
 <%= label_tag(:'event[name]', "Search by Event Name:") %>
-  <%= text_field_tag(:'event[name]') %>
+  <div class="input-group">
+    <%= text_field_tag(:'event[name]', nil, placeholder: 'Search by event name here', class: 'form-control')%>
+    <span class="input-group-btn">
+      <button class="btn btn-danger" type="button"><i class="fa fa-search"></i></button>
+    </span>
+  </div>
   <button type="submit" class="btn btn-default btn-xs">Search</button>
 <% end %>
+
+
+<!-- <form role="form" class="form-inline">
+                          <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Type to search">
+                            <span class="input-group-btn">
+                              <button class="btn btn-danger" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                          </div>
+                        </form><!--/ Form end --> 
