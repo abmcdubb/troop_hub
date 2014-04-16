@@ -1,56 +1,67 @@
 
 <%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "TBD", :right_option => "TBD" }%>
 
-
-<br/>
-<br/>
-<body>
-
-<div class="search">
-<%= render 'search'%>
-<%= render 'advanced_search' %>      
-</div>
-<br/>
-<br/>
-
-<button class = "btn btn-default btn-xs"><%=link_to "Add Event", events_new_path%></button><br/>
-<br/>
-<% @events.each do |event| %>
-    Name: <%= event.name %><br/>
-    Grades: 
-    <% event.age_levels.each do |age_level|%>
-        <%=age_level.name%>, 
-    <%end%>
-    <br/>
-    Genre: <%= event.genre %><br/>
-    Description: <%= event.description %><br/>
-    Season: <%= event.season %><br/>
-    Location: <%= event.location %><br/>
-    Possible Badges:
-    <% event.badges.each do |i| %>
-        <%= i.name %>, 
-    <%end%>
-    <!-- kill the last comma here. also above with troops -->
-
-    <%= form_tag("/events/#{event.id}/edit", method: "get") do %>
-        <%= submit_tag 'Edit' %> <!--Or use link_to here instead-->
-    <%end%>
-    
-    <%= form_tag("/events/#{event.id}/delete", method: "delete") do %>
-        <%= submit_tag 'Delete' %>
-    <%end%>
-
-<form action="/troop_events/new" method="get">
-  
-  <input type="submit" value="Add Event to Calendar">
-  <input type = "hidden" name = "event_id" value="<%=event.id%>">
-</form>
-
-<br/>
-<br/>
-
-
-<%end%>
-<br/>
-<%= link_to 'Troops Index', troops_path %>
-</body>
+                <!-- Showcase Start -->
+                
+                <div class="showcase">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Showcase section item -->
+                                <div class="showcase-item">
+                                    <!-- Image -->
+                                    <img class="img-responsive" src="/assets/fruit2.png" alt="" />
+                                    <!-- Heading -->
+                                    <h3><a href="#">Nature and Ecology</a></h3>
+                                    <!-- Paragraph -->
+                                    <% @nature_skills.each do |skill| %>
+                                    <p> <%= link_to skill.name, skills_path(skill) %></p>
+                                    <% end %>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Showcase section item -->
+                                <div class="showcase-item">
+                                    <!-- Image -->
+                                    <img class="img-responsive" src="/assets/fruit3.png" alt="" />
+                                    <!-- Heading -->
+                                    <h3><a href="#">STEM</a></h3>
+                                    <!-- Paragraph -->
+                                    <p>Nam libero tempore, cum soluta nobis est minis voluptas assum simple and easy to distinguis quo.</p>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Showcase section item -->
+                                <div class="showcase-item">
+                                    <!-- Image -->
+                                    <img class="img-responsive" src="/assets/fruit2.png" alt="" />
+                                    <!-- Heading -->
+                                    <h3><a href="#">Business Smarts</a></h3>
+                                    <!-- Paragraph -->
+                                    <p>Nam libero tempore, cum soluta nobis est minis voluptas assum simple and easy to distinguis quo.</p>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Showcase section item -->
+                                <div class="showcase-item">
+                                    <!-- Image -->
+                                    <img class="img-responsive" src="/assets/fruit3.png" alt="" />
+                                    <!-- Heading -->
+                                    <h3><a href="#">General</a></h3>
+                                    <!-- Paragraph -->
+                                    <p>Nam libero tempore, cum soluta nobis est minis voluptas assum simple and easy to distinguis quo.</p>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                
+                <!-- Showcase End -->
