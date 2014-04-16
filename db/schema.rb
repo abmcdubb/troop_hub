@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415185700) do
+ActiveRecord::Schema.define(version: 20140416143651) do
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(version: 20140415185700) do
     t.string   "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "troop_type"
-    t.string   "troop_name"
+    t.integer  "troop_id"
+    t.string   "news_photo"
   end
 
   create_table "photos", force: true do |t|
@@ -171,6 +171,7 @@ ActiveRecord::Schema.define(version: 20140415185700) do
     t.boolean  "badge_related_skill", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
   end
 
   create_table "troop_events", force: true do |t|
@@ -181,11 +182,6 @@ ActiveRecord::Schema.define(version: 20140415185700) do
     t.text     "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "troop_newsletters", force: true do |t|
-    t.integer "troop_id"
-    t.integer "newsletter_id"
   end
 
   create_table "troops", force: true do |t|
