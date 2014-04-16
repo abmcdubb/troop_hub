@@ -9,3 +9,4 @@ class UnofficialBadgesParser
 
   end
 end
+
