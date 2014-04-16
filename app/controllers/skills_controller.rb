@@ -3,6 +3,8 @@ class SkillsController < ApplicationController
   end
 
   def show
-    @nature_skills = Skill.where(:category => "Nature & Ecology")
+    
+    @events = Event.where(:skill_id => params[:id])
+
   end
 end

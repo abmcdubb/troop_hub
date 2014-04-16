@@ -596,6 +596,11 @@ transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	color: #676767;
 }
 
+.new-font {
+	font-family: 'Droid Serif', serif;
+
+}
+
 .default-heading p{
 	max-width: 500px;
 	margin: 0 auto;
