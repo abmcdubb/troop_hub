@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'pundit'
 gem 'mini_magick' 
 gem "pundit"
 gem 'rmagick', require: false #brew install imagemagick in terminal, if this fails. then rebundle

@@ -1,10 +1,10 @@
 class Troop < ActiveRecord::Base
    has_many :troop_events
-
-
-  has_and_belongs_to_many :users
-
    has_many :events, through: :troop_events
+
+   has_many :troop_users
+   has_many :users, through: :troop_users
+   
    has_many :photos, as: :photoable
    has_many :newsletters
    belongs_to :age_level

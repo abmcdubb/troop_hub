@@ -2,36 +2,36 @@
 <div align = "justify">
   <center>
   <%=form_for(@newsletter) do |f|%>
-
- <%= f.label :item1_title %>
+<h4>Item 1</h4>
+ <%= f.label "News Item Title" %>
   <%= f.text_field :item1_title %><br/>
   <br/>
-  <%= f.label :item1_desc %>
-  <%= f.text_field :item1_desc %><br/>
+ <div class = "formfield"> <%= f.label "News Item Details" %>
+  <%= f.text_area :item1_desc %></div><br/>
 <br/>
 <br/>
-  <%= f.label :item2_title %>
+<h4>Item 2</h4>
+  <%= f.label "News Item Title" %>
   <%= f.text_field :item2_title %><br/>
   <br/>
-  <%= f.label :item2_desc %>
-  <%= f.text_field :item2_desc %><br/>
+ <div class = "formfield"> <%= f.label "News Item Details" %>
+  <%= f.text_area :item2_desc %></div><br/>
 <br/>
 <br/>
-  <%= f.label :item3_title %>
+<h4>Item 3</h4>
+  <%= f.label "News Item Title" %>
   <%= f.text_field :item3_title %><br/>
   <br/>
-  <%= f.label :item3_desc %>
-  <%= f.text_field :item3_desc %><br/>
+  <div class = "formfield"><%= f.label "News Item Details" %>
+  <%= f.text_area :item3_desc %></div><br/>
 <br/>
 <br/>
-  <%= f.label :note_from_leader %>
-  <%= f.text_field :note_from_leader %><br/>
+<h4>Leader Note</h4>
+  <div class = "formfield"> <%= f.label "Note From Leader" %>
+ <%= f.text_area :note_from_leader %></div><br/>
 <br/>
 <br/>
-  <%= f.label :leader %>
-  <%= f.text_field :leader %><br/>
-<br/>
-<br/>
+
   <%= f.label :troop_id %>
   <%= f.select :troop_id, options_for_select(@user.troops.map{ |s| [s.name, s.id] }) %>
 
