@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   post '/troops' => 'troops#create'
   get 'troops/edit/:id' => 'troops#edit'
   # get 'troops/:id' => 'troops#show', as: 'troop'
+  get 'troops/search/name' => 'troops#name_search'
+  get 'troops/search/location' => 'troops#location_search'
+  #get 'troops/edit/:id' => 'troops#edit'
   get 'troops/:id' => 'troops#show', :as => :troop_show
 
   patch 'troops/update/:id' => 'troops#update'
@@ -48,13 +51,13 @@ Rails.application.routes.draw do
 #-------Events---------------
   get 'events' => 'events#index', :as => :events_index
   get 'events/new'
+  get 'events/advanced_search' => 'events#advanced_search'
   get 'events/search' => 'events#search_results'
   get 'events/:id' => 'events#show', :as => :event
   get 'events/:id/edit' => 'events#edit'
   patch 'events/:id' => 'events#update'
   post 'events' => 'events#create'
   delete 'events/:id/delete' => 'events#delete'
-  get 'events/advanced_search' => 'events#advanced_search'
 
 
 
@@ -81,6 +84,7 @@ Rails.application.routes.draw do
 
     
   get 'skills' => 'skills#index'
+  get 'skills/:id/index' => 'skills#category_index'
   get 'skills/:id'  => 'skills#show'
 
 end

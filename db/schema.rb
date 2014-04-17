@@ -11,31 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417135945) do
 
-  create_table "adults", force: true do |t|
-    t.integer  "troop_id"
-    t.string   "adult_role"
-    t.string   "name"
-    t.string   "phone_number"
-    t.string   "profile_photo"
-    t.string   "admin_privileges"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-  end
-
-  add_index "adults", ["email"], name: "index_adults_on_email", unique: true
-  add_index "adults", ["reset_password_token"], name: "index_adults_on_reset_password_token", unique: true
 
   create_table "age_levels", force: true do |t|
     t.string   "name"
@@ -136,32 +112,6 @@ ActiveRecord::Schema.define(version: 20140417135945) do
     t.string   "on_page"
   end
 
-  create_table "scouts", force: true do |t|
-    t.string   "name"
-    t.integer  "troop_id"
-    t.string   "grade"
-    t.date     "birthday"
-    t.string   "phone_number"
-    t.string   "admin_privileges"
-    t.integer  "dues"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "profile_photo"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-  end
-
-  add_index "scouts", ["email"], name: "index_scouts_on_email", unique: true
-  add_index "scouts", ["reset_password_token"], name: "index_scouts_on_reset_password_token", unique: true
-
   create_table "scouts_badges", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -173,6 +123,15 @@ ActiveRecord::Schema.define(version: 20140417135945) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
+  end
+
+  create_table "troop_blogs", force: true do |t|
+    t.integer  "troop_id"
+    t.string   "headline"
+    t.text     "body"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "troop_events", force: true do |t|
@@ -203,6 +162,8 @@ ActiveRecord::Schema.define(version: 20140417135945) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "age_level_id"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "user_badges", force: true do |t|

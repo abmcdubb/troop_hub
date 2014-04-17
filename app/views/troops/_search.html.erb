@@ -1,5 +1,18 @@
-<%= form_tag("/troops/search", method: "get") do %>
-<%= label_tag(:'troop[name]', "Search by Troop Name:") %>
-  <%= text_field_tag(:'troop[name]') %>
-  <button type="submit" class="btn btn-default btn-xs">Search</button>
-  <%end%>
+<%#= form_tag("/troops/search/name", method: "get", class: "form-inline") do %>
+  <%#= label_tag(:'troop[name]', "Search by Troop Name:") %>
+<!--   <div class="input-group">
+    <%#= text_field_tag(:'troop[name]', nil, placeholder: 'Search by troop name here', class: 'form-control') %>
+    <span class="input-group-btn">
+      <button class="btn btn-danger" type="submit">Search <i class="fa fa-search"></i></button>
+    </span>
+  </div> -->
+<%#end%>
+<%= form_tag("/troops/search/location", method: "get", class: "form-inline") do %>
+  <%= label_tag(:'troop[name]', "Search by Location:") %>
+  <div class="input-group">
+    <%= text_field_tag(:'troop[address]', nil, placeholder: 'Search by location', class: 'form-control') %>
+    <span class="input-group-btn">
+      <button class="btn btn-danger" type="submit">Search <i class="fa fa-search"></i></button>
+    </span>
+  </div>
+<%end%>

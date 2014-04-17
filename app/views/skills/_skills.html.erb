@@ -1,9 +1,3 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Search Results", :left_option => "Events", :right_option => "Events" }%>
-<br/>
-<br/>
-
-
-
 <div class = "inner-page padd"><div class = "inner-menu"><div class = "container"><div class = "row">
   <h1>Events</h1>
   <button type = "button"><%=link_to "Add Event", events_new_path%></button><br/>
@@ -77,4 +71,46 @@
   </div>
   <%end%>
 </div></div></div></div>
-<%= link_to 'Back To All Events', events_index_path %>
+
+
+
+
+
+    <!-- Page Wrapper -->
+ <!--    <div class="wrapper"> -->
+        <!-- Dishes Start -->         
+     <!--    <div class="dishes padd">
+          <div class="container">
+        -->     <!-- Default Heading -->
+    
+            <!-- <div class="row"> -->
+             <%# @events.each do |event| %>
+              <!-- <div class="col-md-3 col-sm-6">  -->
+                <!-- <div class="dishes-item-container"> -->
+                  <!-- Image Frame -->
+                  <!-- <div class="img-frame"> -->
+                    <!-- Image -->
+                    <!-- <img src="img/dish/dish5.jpg" class="img-responsive" alt="" /> -->
+                    <!-- Block for on hover effect to image -->
+                    <!-- <div class="img-frame-hover"> -->
+                      <!-- Hover Icon --><!--event.name-->
+                      <!-- <a href="#"><i class="fa fa-cutlery"></i></a> -->
+                    <!-- </div> -->
+                  <!-- </div> -->
+                  <!-- Dish Details -->
+                  <!-- <div class="dish-details"> -->
+                    <!-- Heading -->
+                    <!-- <h3>Delicious Chinese</h3> -->
+                    <!-- Paragraph -->
+                    <!-- <p>At vero eos et accusal gusto for ides residuum lores.</p> -->
+                    <!-- Button -->
+                    <!-- <a href="#" class="btn btn-danger btn-sm">Add Event</a> -->
+                  <!-- </div> -->
+                <!-- </div -->
+              <!-- </div> -->
+            <!-- <%# end %> -->
+            <!-- </div> -->
+          <!-- </div>           -->
+        <!-- </div> -->
+        <!-- Dishes End -->   
+    <!--</div>--><!-- / Wrapper End -->
