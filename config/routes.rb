@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/troops' => 'troops#index'
   get 'troops/new' => 'troops#new'
   post '/troops' => 'troops#create'
+  get 'troops/search' => 'troops#search'
   #get 'troops/edit/:id' => 'troops#edit'
   get 'troops/:id' => 'troops#show', :as => :troop_show
   #patch 'troops/update/:id' => 'troops#update'
