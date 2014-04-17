@@ -1,13 +1,7 @@
 <%=render partial: 'layouts/banner', locals: {:name => "troop hub", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Search Activities, Create Events, Organize Your Troops! " }%>
 
-
-    
     <!-- Page Wrapper -->
     <div class="wrapper">
-    
-      
-      
-      
       <!-- Inner Content -->
       <div class="inner-page padd">
       
@@ -103,14 +97,18 @@
                         <h4>Search for Events</h4>
                         <!-- search button and input box -->
                        <%= render partial: 'events/search'%>
+                       <br>
+                       <center>
+                       <%= render partial: 'events/advanced_search'%>
+                     </center>
                       </div><!--/ Widget end -->
                     </div>
+
+
                     <div class="col-md-12 col-sm-6">
                       <!-- Blog sidebar page widget -->
                       <div class="sidebar-widget">
-                        <!-- Widget Heading -->
-                        <h4>Recent Post</h4>
-                        <!-- Recent post list -->
+                   
                        <a class="twitter-timeline" href="https://twitter.com/girlscouts" data-widget-id="455791178433044480">Tweets by @girlscouts</a>
                       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                       </div><!--/ Widget end -->
