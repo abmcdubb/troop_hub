@@ -1219,7 +1219,7 @@ div.ppt { display:none !important; }
 .inner-menu .menu-list .menu-list-item {
 	margin-top: 15px;
 	padding-bottom: 10px;
-	border-bottom: 1px dashed #ddd; 
+	border-bottom: 1px dashed #ddd;
 }
 
 .inner-menu .menu-list .menu-list-item h4 {
@@ -2266,4 +2266,9 @@ displayModes
 
 .profile-pics {
 	height: 45px !important;
+}
+
+.event-size{
+	max-height: 800px;
+	min-height: 800;
 }

@@ -23,6 +23,7 @@ class EventsController < ApplicationController
     @badges=Badge.all
     @age_levels = AgeLevel.all
     @troops = Troop.all
+    @skills = Skill.all
   end
 
   def create
@@ -37,6 +38,7 @@ class EventsController < ApplicationController
         @badges=Badge.all
         @age_levels = AgeLevel.all
         @troops = Troop.all
+        @skills = Skill.all
         format.html { render action: 'new' }
       end
     end
@@ -46,6 +48,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @badges=Badge.all
     @age_levels = AgeLevel.all
+    @skill = Skill.all
   end
 
   def update
@@ -56,6 +59,7 @@ class EventsController < ApplicationController
       else
         @badges=Badge.all
         @age_levels = AgeLevel.all
+        @skill = Skill.all
         format.html { render action: 'edit' }
       end
   end
@@ -81,7 +85,7 @@ private
   end
 
   def event_params
-    params.require(:event).permit(:name, :genre, :description, :season, :location, :age_level_ids => [], :badge_ids => [])
+    params.require(:event).permit(:name, :genre, :description, :season, :location, :skill_id, :age_level_ids => [], :badge_ids => [])
   end
 
   def set_troop_event

@@ -14,6 +14,9 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
     </br>
+    <%= f.label :skill %>
+    <%= f.collection_select(:skill_id, @skills, :id, :name) %>
+    </br>
     <%= label_tag(:'event_season', "Event season:") %>
     <%= select_tag(:"event[season]", options_for_select([['Any', 'Any'],
     ['Spring', 'Spring'],
