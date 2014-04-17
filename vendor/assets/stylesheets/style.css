@@ -2237,8 +2237,6 @@ div.ppt { display:none !important; }
 .sign-up-button {
 	display: none ;
 }	
-<<<<<<< HEAD
-
 .calendar td { height: 100px; width: 14.28%; }
 table, td, th
 {
@@ -2265,5 +2263,7 @@ displayModes
 
 .table-striped { background-color: #90EE90;}
 .h2 {font-family: 'Nunito', sans-serif; font-weight: 700; }
-=======
->>>>>>> style_troop_members_index
+
+.profile-pics {
+	height: 45px !important;
+}
