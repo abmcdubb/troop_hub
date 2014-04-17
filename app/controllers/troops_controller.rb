@@ -25,6 +25,9 @@ class TroopsController < ApplicationController
 
   def create
     @troop = Troop.create(troop_params)
+    @troop.user_ids = current_user.id
+    @age_levels = AgeLevel.all
+
     respond_to do |format|
       if @troop.save
         format.html { redirect_to troops_path, notice: 'Troop was successfully created.' }
@@ -44,6 +47,8 @@ class TroopsController < ApplicationController
   end
 
   def home
+    @age_levels = AgeLevel.all
+    @badges = Badge.all
   end
 
 
@@ -53,7 +58,7 @@ private
   end
 
   def troop_params
-    params.require(:troop).permit(:name, :number, :age_level_id, :city, :state, :zip_code, :meetup_location, :about_us)
+    params.require(:troop).permit(:name, :number, :age_level_id, :city, :state, :zip_code, :meetup_location, :about_us, {:user_ids => [] } )
   end
 
 end

@@ -1,9 +1,12 @@
 class NewslettersController < ApplicationController
-    before_action :set_newsletter, only: [:show]
+  before_action :authenticate_user!
+  before_action :set_newsletter, only: [:show]
+
 
 
   def new
     @newsletter = Newsletter.new
+    @user = current_user
   end
 
   def index
@@ -30,7 +33,10 @@ private
 end
 
 def newsletter_params
-  params.require(:newsletter).permit(:troop_name, :item1_title, :item1_desc, :item2_title, :item2_desc, :item3_title, :item3_desc, :note_from_leader, :leader, :troop_type)
+  params.require(:newsletter).permit(:item1_title, :item1_desc, :item2_title, :item2_desc, :item3_title, :item3_desc, :note_from_leader, :leader, :troop_id)
 end
+
+
+
 
 end

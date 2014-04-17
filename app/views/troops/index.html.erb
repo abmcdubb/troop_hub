@@ -1,7 +1,5 @@
-<br/>
-<br/>
-<html>
-<body>
+<center><%=render partial: 'layouts/banner', locals: {:name => "Troops", :left_option => "TBD", :right_option => "TBD" }%>
+</div>
 
 <center><h1>Troops</h1>
 <% @troops.each do |troop| %>
@@ -50,5 +48,3 @@
 
 <br>
 <%= link_to 'Add Your Troop!', troops_new_path %>
-</body>
-</html>

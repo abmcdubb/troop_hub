@@ -1,23 +1,45 @@
-<nav class="navbar navbar-default" role="navigation" background-color = "transparent">
-  <div class="container">
+<% if controller_name != 'sessions' %>
+<div class = "row">
+<div class = "logo">
+
+            <div class="col-md-4 col-sm-5">
+              <!-- Link -->
+              <a href="/">
+                <!-- Logo area -->
+                <div class="logo">
+  <img class="img-responsive" src="/assets/transparent_logo.png" alt="" />
+              
+                </div>
+              </a>
+            </div>
+            <div class="col-md-8 col-sm-7">
+              <!-- Navigation -->
+
+
+<nav class="navbar navbar-default navbar-right" role="navigation" background-color = "transparent">
+  <div class="container-fluid">
+  
+  <!-- Heading -->
+
 <ul class="nav navbar-nav">
-      <li><a href="/"><img src="/assets/homebtn.png" class="img-responsive" alt="" />Home</a></li>
-    <li><a href="/events/index"><img src="/assets/eventsbtn.png" class="img-responsive" alt="" />Events</a></li>
-     <li><a href="/troops"><img src="/assets/troopsbtn.png" class="img-responsive" alt="" />Troops</a></li>
+      <li><a href="/"><img src="/assets/homebtn.png" class="img-responsive" alt="" /><br/><center>Home</center></a></li>
+    <li><a href="/events"><img src="/assets/eventsbtn.png" class="img-responsive" alt="" /><br/><center>Events</center></a></li>
+     <li><a href="/troops"><img src="/assets/troopsbtn.png" class="img-responsive" alt="" /><br/><center>Troops</center></a></li>
 
 
 
   
     <% if user_signed_in? %>
-      <li><a data-method='delete' href="/users/sign_out"><img src="/assets/sign_out_btn.png" class="img-responsive" alt="" />Sign Out</a></li>
+      <li><a data-method='delete' href="/users/sign_out"><img src="/assets/sign_out_btn.png" class="img-responsive" alt="" /><br/><center>Sign Out</center></a></li>
     <% else %>
       <li>
-    <a href="/users/sign_up" class="img-responsive"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> Sign Up </b></a>
+    <a href="/users/sign_up" class="img-responsive"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> <br/><center>Sign Up </center></b></a>
     </li>
 
-  <li class="dropdown">
+  <!-- <li class="dropdown">
       <a href="/users/sign_in" class="img-responsive" ><img src="/assets/sign_in_btn.png" class="img-responsive" alt="" /> Sign In</b></a>
-  </li>
+  </li> -->
+  <li><%= render partial: 'users/sessions/new' %></li>
 <%end%>
 
 
@@ -27,4 +49,9 @@
           
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+</div>
+</div>
 </nav><br/>
+
+<%end%>
+

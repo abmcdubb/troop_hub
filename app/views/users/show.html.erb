@@ -1,21 +1,128 @@
-<center><h1><%= @user.name %> - <%= @user.role %></h1>
-  <%= image_tag(@user.profile_photo, :width => 600) if @user.profile_photo.present? %>
-  <% if @user.role == 'Scout' %>
-    <h6>Grade: <%= @user.grade unless @user.grade == nil %> </h6>
-    <h6>Birthday: <%= @user.birthday.strftime("%B %e, %Y") unless @user.birthday == nil%> </h6>
-    <h6>Patches earned: <%#= @user.patches %></h6>
-  <% else %>
-    <% @user.skills.each do |skill| %>
-    <% description = @user.user_skills.find_by(skill_id: skill.id).skill_description %>
-    <h6> 
-    <%= skill.name %> 
-    <% unless description.blank? %> 
-      - <%= description %>
-    </h6>
-    <% end %>
-  <% end %>
-<% end %>
-</br>
+<%=render partial: 'layouts/banner', locals: {:name => @user.name, :left_option => "The Social Media Site for Girl Scouts", :right_option => "Search Activities, Create Events, Organize Your Troops! " }%>
+
+<!-- <center><h1> --><%#= @user.name %> - <%#= @user.role %><!-- </h1> -->
+
+<!-- Inner Content -->
+      <!-- <div class="inner-page padd"> -->
+      
+        <!-- General Info Start -->
+        
+     <!--    <div class="general">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-sm-8"> -->
+                <!-- General information content -->
+                <!-- <div class="general-content"> -->
+                  <!-- Navigation tab -->
+                  <!-- <ul class="nav nav-tabs"> -->
+                    <!-- Navigation tabs (Job titles ). Use unique value for "href" in "anchor tags". -->
+                    <!-- <li class="active"><a href="#tab1" data-toggle="tab">About Me</a></li> -->
+
+                    <%# if @user.role == 'Scout'%>
+                      <!-- <li><a href="#tab2" data-toggle="tab">Badges</a></li> -->
+                    <%# elsif @user.role != 'Scout' && @user.skills.count > 0 %>
+                      <!-- <li><a href="#tab2" data-toggle="tab">Skills</a></li> -->
+                    <%# end %>
+
+                  <!-- </ul> -->
+                  <!-- Tab content -->
+                  <!-- <div class="tab-content"> -->
+                    <!-- In "id", use the value which you used in above anchor tags -->
+                    <!-- <div class="tab-pane active" id="tab1"> -->
+                      <!-- Heading -->
+                      <!-- Paragraph -->
+                 <!--      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate eros nec odio egestas in dictum nitusrpis egestas. Suspendisse porttitor luctus imperdiet. <a href="#">Praesent ultricies</a> enim ac ipsum aliquet pellentesque. Nullam justo nunc, dignissim at convallis posuere, sit amet blandit viverra, dignissim eget est. Ut <strong>commodo ullamcorper risus nec</strong> mattis.</p> -->
+                      <!-- List content -->
+                     
+                   <!--  </div> --> <!--/ tab-pane end --> 
+            <!--         <div class="tab-pane" id="tab2"> -->
+                    <%# if @user.role == 'Scout' %>
+                      
+                        <!-- heading -->
+                         
+                     <!--    <h5>Badges</h5> -->
+                        <!-- Paragraph -->
+                          <!-- <p>Badges go here</p> -->
+                          <!-- Paragraph -->  
+                      
+                    <%# elsif @user.role != 'Scout' && @user.skills.count > 0 %>                    
+                        <!-- heading -->                        
+                        <%# @user.skills.each do |skill| %>
+                        <%# description = @user.user_skills.find_by(skill_id: skill.id).skill_description %>
+                        <!--  <p> -->
+                        <%#= skill.name %> 
+                          <%# unless description.blank? %> 
+                          <!-- - --> <%#= description %> <!-- </p> -->
+                          <%# end %>
+                        <%# end %>
+                      <%# end %>
+                      <!-- </div> --> <!--/ tab-pane end --> 
+
+                   
+                 <!--  </div> --><!--/ Tab content end -->
+           <!--      </div>
+              </div>
+              <div class="col-md-4 col-sm-4"> -->
+                <!-- General Sidebar image -->
+
+                <!-- <div class="general-img"> -->
+                  <%# if @user.profile_photo %>
+                    <%#= image_tag(@user.profile_photo, :width => 600, :class => 'img-responsive img-thumbnail') %>
+                  <%#else %>
+                    <%#= image_tag('hedwig.jpeg', :width => 600, :class => 'img-responsive img-thumbnail') %>
+                  <%# end %>                    
+           <!--      </div> -->
+                <!-- General Sidebar image -->
+         <!--      </div>
+            </div>
+          </div>
+        </div> -->
+        
+        <!-- General Info End -->
+
+
+        <!-- About company -->
+        <div class="about-company padd">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-2">
+                <!-- About Compnay Item -->
+                <div class="about-company-item">
+                  <!-- About Company Image -->
+                  <!-- <img class="img-responsive img-thumbnail" src="img/chef/about-1.jpg" alt="" /> -->
+                  <%= image_tag(@user.profile_photo, :class => 'img-responsive img-thumbnail') %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <!-- About Compnay Item -->
+                <div class="about-company-item">
+                  <!-- Heading -->
+                  <h3><span class="lblue"><%=@user.role%></span></h3>
+                  <!-- Paragraph -->
+                  <% if @user.birthday %>  
+                  <p>Birthday: <%= @user.birthday %></p>
+                  <% end %> 
+
+                  <% if @user.grade %>  
+                  <p>Grade: <%= @user.grade %></p>
+                  <% end %>
+                  <br /><!--/ Line break -->
+                  <div class="row">
+                
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <!-- About company inner items -->
+                      <div class="about-company-inner">
+                        <!-- Paragraph with icon -->
+                        <span class="company-feature"><i class="fa fa-trophy br-lblue"></i> <b class="lblue">10</b> Awards</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
 <%= link_to 'Back to Troop Members', troop_user_path %>
 </br>
 </br>

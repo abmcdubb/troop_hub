@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :profile_photo, ProfilePhotoUploader
-         
-  belongs_to :troop
+
+  has_and_belongs_to_many :troops
+
   has_many :user_skills
   has_many :skills, through: :user_skills
   has_many :badges, through: :scout_badges

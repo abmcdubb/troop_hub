@@ -7,6 +7,14 @@ class EventsController < ApplicationController
     @events = Event.all
     @badges=Badge.all
     @age_levels = AgeLevel.all
+    @skills = Skill.all
+    @nature_skills = Skill.where(:category => "Nature & Ecology")
+    @stem_skills = Skill.where(:category => "STEM")
+    @business_skills = Skill.where(:category => "Business Smarts")
+    @general_skills = Skill.where(:category => "General")
+  end
+
+  def show
   end
 
   def new

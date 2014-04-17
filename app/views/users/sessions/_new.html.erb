@@ -1,0 +1,37 @@
+
+  <a href="/users/sign_in" class="img-responsive" data-toggle="modal" data-target="#signIn" ><img src="/assets/sign_in_btn.png" class="img-responsive" alt="" /> <br/><center>Sign In</center></b></a>
+
+
+
+<!-- Modal -->
+
+
+<div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="signInLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" align = "center">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        
+
+    <h2>Sign in</h2>
+
+<%= form_for(:user, :url => session_path(:user)) do |f| %>
+  <%= f.text_field :email %>
+  <%= f.password_field :password %>
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %>
+  <%= f.submit 'Sign in' %>
+  <%= link_to "Forgot your password?", new_password_path(:user) %>
+<% end %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
