@@ -1871,7 +1871,7 @@ div.ppt { display:none !important; }
 	display: inline-block;
 	margin-right: 5px;
 	margin-bottom: 10px;
-	max-width: 45px;
+	max-width: 60px;
 }
 
 .footer .footer-widget img.dish {
@@ -2265,5 +2265,7 @@ displayModes
 .h2 {font-family: 'Nunito', sans-serif; font-weight: 700; }
 
 .profile-pics {
-	height: 45px !important;
+	height: 55px !important;
+	width: 55px;
+	max-width: 60 px;
 }
