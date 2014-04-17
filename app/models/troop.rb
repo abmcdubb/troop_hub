@@ -1,7 +1,6 @@
 class Troop < ActiveRecord::Base
   has_many :troop_events
 
-
   has_and_belongs_to_many :users
 
   has_many :events, through: :troop_events
@@ -49,6 +48,8 @@ class Troop < ActiveRecord::Base
   end
 
   def self.search_by_location(location)
+    #binding.pry
+    near(location["address"])
   end
 
 end
