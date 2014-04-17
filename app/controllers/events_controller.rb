@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    before_action :set_troop_event, only: [:show, :edit, :update, :destroy]
+    #before_action :set_troop_event, only: [:show, :edit, :update, :destroy]
     before_action :set_event, only: [:show, :edit, :update, :destroy]
 
 
@@ -26,13 +26,17 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params)
-    @troop_event = @event.troop_events.build(params[:troop_event])
-    @badges = Badge.all
+    @event = Event.new(event_params)
+    #@troop_event = @event.troop_events.build(params[:troop_event])
+    #there should be a seperate form for new event and new troop event?
     respond_to do |format|
       if @event.save
         format.html { redirect_to events_index_path, notice: 'Event was successfully created.' }
       else
+        @troop_event = TroopEvent.new
+        @badges=Badge.all
+        @age_levels = AgeLevel.all
+        @troops = Troop.all
         format.html { render action: 'new' }
       end
     end
@@ -50,6 +54,8 @@ class EventsController < ApplicationController
     if @event.save
         redirect_to events_index_path, notice: 'Event updated.'
       else
+        @badges=Badge.all
+        @age_levels = AgeLevel.all
         format.html { render action: 'edit' }
       end
   end
@@ -60,7 +66,7 @@ class EventsController < ApplicationController
     redirect_to events_index_path
   end
 
-  def advanced_search#eventually make this something that pops out in origional form and not it's own page. Use javascript.
+  def advanced_search
     @age_levels = AgeLevel.all
     @badges = Badge.all
   end

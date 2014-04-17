@@ -10,9 +10,6 @@ class Troop < ActiveRecord::Base
    belongs_to :age_level
    validates_uniqueness_of :number
 
-   geocoded_by :zip_code
-   after_validation :geocode
-
     def on_page_photo
         photos.find_by(:on_page => "true")
     end

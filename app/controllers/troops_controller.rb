@@ -32,6 +32,7 @@ class TroopsController < ApplicationController
       if @troop.save
         format.html { redirect_to troops_path, notice: 'Troop was successfully created.' }
       else
+        @age_levels = AgeLevel.all
         format.html { render action: 'new' }
       end
     end

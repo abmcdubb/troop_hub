@@ -43,13 +43,24 @@
 <br/>
 <% @events.each do |event| %>
 Name: <%= event.name %><br/>
-Grades: <%#= event.grades %><br/>
+Grades: 
+    <% event.age_levels.each_with_index do |age_level, i|%>
+        <%if i+1==event.age_levels.length%>
+          <%=age_level.name%>
+        <%else%>
+          <%=age_level.name%>,
+        <%end%>
+    <%end%></br>
 Genre: <%= event.genre %><br/>
 Description: <%= event.description %><br/>
 Season: <%= event.season %><br/>
 Location: <%= event.location %><br/>
- <% event.badges.each do |i| %>
-Possible Badges: <%= i.name %>
+<% event.badges.each_with_index do |badge, i|%>
+  <%if i+1==event.badges.length%>
+    <%=badge.name%>
+  <%else%>
+    <%=badge.name%>,
+  <%end%>
 <%end%>
 <%#=# form_tag ("/troops_events/new") do %>
 

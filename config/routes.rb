@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   get '/troops' => 'troops#index'
   get 'troops/new' => 'troops#new'
   post '/troops' => 'troops#create'
-  get 'troops/edit/:id' => 'troops#edit'
+  #get 'troops/edit/:id' => 'troops#edit'
   get 'troops/:id' => 'troops#show', :as => :troop_show
-  patch 'troops/update/:id' => 'troops#update'
+  #patch 'troops/update/:id' => 'troops#update'
   delete 'troops/destroy' => 'troops#destroy'
 
   get '/troops/:troop_id/users' => 'users#index', :as => :troop_user
@@ -26,14 +26,14 @@ Rails.application.routes.draw do
   patch '/troops/:troop_id/users/update/:id' => 'users#update'
   delete '/troops/:troop_id/users/destroy' => 'users#destroy'
 
-  get 'events' => 'events#index'
-  get 'events/:id' => 'events#show'
+  get 'events' => 'events#index', :as => :events_index
   get 'events/new'
+  get 'events/search' => 'events#search_results'
+  get 'events/:id' => 'events#show', :as => :event
   get 'events/:id/edit' => 'events#edit'
-  patch 'events/:id/update' => 'events#update'
+  patch 'events/:id' => 'events#update'
   post 'events' => 'events#create'
   delete 'events/:id/delete' => 'events#delete'
-  get 'events/search' => 'events#search_results'
   get 'events/advanced_search' => 'events#advanced_search'
 
   get '/troops' => 'troops#index'
