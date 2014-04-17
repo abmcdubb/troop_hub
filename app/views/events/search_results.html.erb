@@ -6,8 +6,12 @@
 <% @events.each do |event| %>
     Name: <%= event.name %><br/>
     Grades: 
-    <% event.age_levels.each do |age_level|%>
-        <%=age_level.name%>, 
+    <% event.age_levels.each_with_index do |age_level, i|%>
+        <%if i+1==event.age_levels.length%>
+          <%=age_level.name%>
+        <%else%>
+          <%=age_level.name%>,
+        <%end%>
     <%end%>
     <br/>
     Genre: <%= event.genre %><br/>
@@ -15,10 +19,13 @@
     Season: <%= event.season %><br/>
     Location: <%= event.location %><br/>
     Possible Badges:
-    <% event.badges.each do |i| %>
-        <%= i.name %>, 
+    <% event.badges.each_with_index do |badge, i|%>
+        <%if i+1==event.badges.length%>
+            <%=badge.name%>
+        <%else%>
+            <%=badge.name%>,
+        <%end%>
     <%end%>
-    <!-- kill the last comma here. also above with troops -->
     <%= form_tag ("/troops_events/new") do %>
 
 
