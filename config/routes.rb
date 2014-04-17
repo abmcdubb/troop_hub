@@ -67,6 +67,7 @@ Rails.application.routes.draw do
 
     
   get 'skills' => 'skills#index'
+  get 'skills/:id/index' => 'skills#category_index'
   get 'skills/:id'  => 'skills#show'
 
 end
