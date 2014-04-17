@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
   has_many :event_age_levels, dependent: :destroy
   has_many :age_levels, through: :event_age_levels, dependent: :destroy
 
-  belongs_to :skills
+  belongs_to :skill
 
   def self.find_all_by_name(name)
     where("name='#{name}'")
@@ -81,4 +81,10 @@ class Event < ActiveRecord::Base
     end
     season_array
   end
+
+  def self.find_by_skill_category(category_name)
+    category_name = category_name.gsub("-and-"," & ").gsub("-"," ")
+    Event.joins(:skill).where("skills.category like ?", category_name)
+  end
+
 end
