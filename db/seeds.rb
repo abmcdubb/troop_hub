@@ -13,8 +13,8 @@ troop_event_2 = TroopEvent.create(event_id: 1, troop_id: 2, start_time: DateTime
 troop_event_3 = TroopEvent.create(event_id: 2, troop_id: 1, start_time: DateTime.now, location: "Little Ones", detail: "We'll talk about how Gloria respected herself. Bring your own picnic lunch.")
 troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, start_time: DateTime.now, location: "Some painting place in Long Island", detail: "Some Details.")
 
-Parser.new
-UnofficialBadgesParser.new
+# Parser.new
+# UnofficialBadgesParser.new
 
 event_badge_1 = EventBadge.create(event_id: 2, badge_id: 1)
 event_badge_2 = EventBadge.create(event_id: 3, badge_id: 2)
@@ -205,6 +205,11 @@ a8pic = File.join(Rails.root, '/app/assets/images/ntonks.jpg')
 a8_file = File.new(a8pic)
 adult_8.profile_photo = a8_file
 adult_8.save!
+
+badgeparser1 = Parser.new('./gs_site.html')
+badgeparser1.official_badge_list
+badgeparser2 = Parser.new('./Patches1.csv')
+badgeparser2.unofficial_badge_list
 
 # (:patches, :snack, :jobs, :supplies, :correspondence, :troop_info, :parent_info, :decisions)
 agenda_1 = Agenda.create(meeting_date: '', location: 'St. Marys Church', activity_1: 'Claymation', activity_2: 'Promise/Law, Review previous patch meaning', activity_3: 'some activity', activity_4: 'something related to a patch', activity_5: 'some kind of movement game', activity_6: 'Composting stinky old food', activity_7: 'Clean-up', activity_8: 'Friendship circle, squeeze, song', patches: 'Composting Fun Patch', snack: 'Cheesey poofs', jobs: 'Snack Helper: Emily, Squeeze Starter: Hermione', supplies: 'clay', troop_info: 'Ask girls which field trip they would like next: martial art studio or rooftop farm')

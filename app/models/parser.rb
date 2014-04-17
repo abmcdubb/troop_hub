@@ -1,25 +1,40 @@
 class Parser
 
-  html = File.read('./gs_site.html')
+  def initialize(file_path)
+    @file_path = file_path
+  end
 
-  badge_list = Nokogiri::HTML(html)
+  def official_badge_list
+    badge_list = Nokogiri::HTML(@file_path)
 
-  badge_list.css("li").each do |b|
-    if b.attr('thetitle') != nil
-      badge = Badge.new
-  		badge.logo = b.css('img').attr('src').text
-      
-      if b.attr("thetitle") == "Women&#8217;s Health"
-        badge.name = "Women's Health"
-      elsif b.attr("thetitle").include?('&amp;')
-        badge.name =  b.attr("thetitle").gsub('&amp;', '&')
-      else badge.name = b.attr("thetitle")
+    badge_list.css("li").each do |b|
+      if b.attr('thetitle') != nil
+        badge = Badge.new
+        badge.logo = b.css('img').attr('src').text
+        
+        if b.attr("thetitle") == "Women&#8217;s Health"
+          badge.name = "Women's Health"
+        elsif b.attr("thetitle").include?('&amp;')
+          badge.name =  b.attr("thetitle").gsub('&amp;', '&')
+        else badge.name = b.attr("thetitle")
+        end
+
+        badge.troop_type = b.attr("agelevel")
+        badge.category = "#{b.attr('subcategory')} - #{b.attr('category')}"
+        badge.save
       end
-
-  		badge.troop_type = b.attr("agelevel")
-  		badge.category = "#{b.attr('subcategory')} - #{b.attr('category')}"
-      badge.save
     end
   end
+
+  def unofficial_badge_list
+    CSV.foreach(@file_path) do |row|
+      new_row = row.join(",")     
+      name, logo, troop_type  = new_row.split(",")
+      badge = Badge.create(:name => name.strip, :logo => logo.strip, :troop_type => troop_type.strip)
+    end
+  end
+
+#badgeparser1 = Parser.new('./gs_site.html')
+#badgeparser2 = Parser.new('./Patches1.csv')
 
 end
