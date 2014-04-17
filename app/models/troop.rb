@@ -40,7 +40,13 @@ class Troop < ActiveRecord::Base
   end
 
   def full_address
-    "#{city}, #{state} #{zip_code}"
+    if city.include?('|')
+      cities = city.split('|')
+      address = "#{cities[0]}, #{state} #{zip_code}"
+    else
+      address = "#{city}, #{state} #{zip_code}"
+    end
+    address
   end
 
   def self.search_by_name(name)

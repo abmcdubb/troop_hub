@@ -210,6 +210,9 @@ badgeparser1 = Parser.new('./gs_site.html')
 badgeparser1.official_badge_list
 badgeparser2 = Parser.new('./Patches1.csv')
 badgeparser2.unofficial_badge_list
+troopdb = Parser.new('./troopdb.csv')
+troopdb.troop_list
+
 
 # (:patches, :snack, :jobs, :supplies, :correspondence, :troop_info, :parent_info, :decisions)
 agenda_1 = Agenda.create(meeting_date: '', location: 'St. Marys Church', activity_1: 'Claymation', activity_2: 'Promise/Law, Review previous patch meaning', activity_3: 'some activity', activity_4: 'something related to a patch', activity_5: 'some kind of movement game', activity_6: 'Composting stinky old food', activity_7: 'Clean-up', activity_8: 'Friendship circle, squeeze, song', patches: 'Composting Fun Patch', snack: 'Cheesey poofs', jobs: 'Snack Helper: Emily, Squeeze Starter: Hermione', supplies: 'clay', troop_info: 'Ask girls which field trip they would like next: martial art studio or rooftop farm')

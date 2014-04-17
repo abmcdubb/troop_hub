@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417105005) do
+ActiveRecord::Schema.define(version: 20140417195606) do
 
   create_table "age_levels", force: true do |t|
     t.string   "name"
@@ -159,6 +159,8 @@ ActiveRecord::Schema.define(version: 20140417105005) do
     t.integer  "age_level_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "troop_type"
+    t.string   "photo"
   end
 
   create_table "troops_users", id: false, force: true do |t|
