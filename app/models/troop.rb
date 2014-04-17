@@ -7,6 +7,7 @@ class Troop < ActiveRecord::Base
    has_many :events, through: :troop_events
    has_many :photos, as: :photoable
    has_many :newsletters
+   has_many :troop_blogs
    belongs_to :age_level
    validates_uniqueness_of :number
 
