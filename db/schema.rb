@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416184321) do
+ActiveRecord::Schema.define(version: 20140416210055) do
 
   create_table "adults", force: true do |t|
     t.integer  "troop_id"
@@ -162,6 +162,11 @@ ActiveRecord::Schema.define(version: 20140416184321) do
   add_index "scouts", ["email"], name: "index_scouts_on_email", unique: true
   add_index "scouts", ["reset_password_token"], name: "index_scouts_on_reset_password_token", unique: true
 
+  create_table "scouts_badges", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "skills", force: true do |t|
     t.string   "name"
     t.boolean  "badge_related_skill", default: false
@@ -193,6 +198,11 @@ ActiveRecord::Schema.define(version: 20140416184321) do
     t.integer  "age_level_id"
   end
 
+  create_table "troops_users", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "troop_id"
+  end
+
   create_table "user_badges", force: true do |t|
     t.integer  "user_id"
     t.integer  "badge_id"
@@ -212,7 +222,6 @@ ActiveRecord::Schema.define(version: 20140416184321) do
   end
 
   create_table "users", force: true do |t|
-    t.integer  "troop_id"
     t.string   "admin_privileges"
     t.string   "role"
     t.string   "name"
