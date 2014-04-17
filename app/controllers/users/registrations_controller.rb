@@ -48,12 +48,17 @@ class Users::RegistrationsController < ::Devise::RegistrationsController
     params.require(:user).permit(:skill_ids => [], :descriptions => [])
   end
 
+  def troop_ids_param
+    params.require(:user).permit(:troops_ids => [])
+  end
+
+
   private
   def sanitize_params_by_role
     if params[:user][:role] != "Scout"
       params[:user][:birthday] = nil
       params[:user][:grade] = nil
-    else
+    # else
     
       # params[:user][:skill_ids].clear
 
