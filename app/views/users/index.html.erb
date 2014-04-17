@@ -17,7 +17,7 @@
                     <img class="chefs-back img-responsive" src="<%= asset_path("page_bg.jpg") %>" alt="" />
                     <!-- chef member image -->
                     <% if user.profile_photo_url %>
-                      <%= link_to(image_tag(user.profile_photo_url(:thumb).to_s, :class => 'chefs-img-index img-responsive'), user_show_path(@troop, user)) %>
+                    <a href = "/users/<%=user.id%>"><%= image_tag(user.profile_photo_url(:thumb).to_s, :class => 'chefs-img-index img-responsive')%></a>
                     <% else %>
 
                     <%= link_to(image_tag('hedwig.jpeg', :class => 'chefs-img-index img-responsive'), user_show_path(@troop, user)) %>
@@ -25,9 +25,9 @@
                     <% end %>
                   </div>
                   <!--Name / Heading -->
-                  <h3><%= link_to user.name, user_show_path(@troop, user)%></h3>
+                  <h3><a href = "/users/<%=user.id%>"><%=user.name%></h3>
                   <!-- Member designation -->
-                  <span><%= link_to user.role, user_show_path(@troop, user)%></span>
+                  <span><a href = "/users/<%=user.id%>"> <%= user.role%></a></span>
                   <!-- Social media links -->
                 </div>
               </div>

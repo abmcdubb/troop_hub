@@ -1,0 +1,58 @@
+<%=render partial: 'layouts/banner', locals: {:name => @user.name, :left_option => "The Social Media Site for Girl Scouts", :right_option => "Search Activities, Create Events, Organize Your Troops! " }%>
+
+<div class="about-company padd">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-2">
+                <!-- About Compnay Item -->
+                <div class="about-company-item">
+                  <!-- About Company Image -->
+                  <!-- <img class="img-responsive img-thumbnail" src="img/chef/about-1.jpg" alt="" /> -->
+                  <%= image_tag(@user.profile_photo, :class => 'img-responsive img-thumbnail') %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <!-- About Compnay Item -->
+                <div class="about-company-item">
+                  <!-- Heading -->
+                  <h3><span class="lblue"><%=@user.role%></span></h3>
+                  <!-- Paragraph -->
+                  <% if @user.birthday %>  
+                  <p>Birthday: <%= @user.birthday %></p>
+                  <% end %> 
+
+                  <% if @user.grade %>  
+                  <p>Grade: <%= @user.grade %></p>
+                  <% end %>
+
+                  <% if @user.troops.count > 1 %>
+                  <p>Troops:</p> <% @user.troops.each do |troop|%>
+                    <li><a href = "/troops/<%=troop.id%>"><%=troop.name%></a></li>
+                    <%end%>
+                    <%else%>
+                    <p>Troop: <a href = "/troops/<%=@user.troop_ids[0]%>"><%=@user.troops[0].name%></a></p>
+                    <%end%>
+
+                  <br /><!--/ Line break -->
+                  <div class="row">
+                
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                      <!-- About company inner items -->
+                      <div class="about-company-inner">
+                        <!-- Paragraph with icon -->
+                        <span class="company-feature"><i class="fa fa-trophy br-lblue"></i> <b class="lblue">10</b> Awards</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<a href ="/troops/<%=@troop_user.troop_id%>/members">Back to Troop Members</a>
+ 
+</br>
+</br>
+<%= link_to 'Home', troops_path %>
+ </center>
