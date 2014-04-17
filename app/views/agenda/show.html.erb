@@ -1,55 +1,50 @@
-<h1>Agenda#show</h1>
-<p>Find me in app/views/agenda/show.html.erb</p>
+<center><h2>Troop Meeting Agenda for <%= @agenda.meeting_date.strftime("%a %b %e %Y") %>:</h2></center>
 
+<br/>
+<div class = "container-fluid">
+<div class="row">
+  <div class="col-md-4"> 
 
-<h1>Troop Meeting Agenda for <%= @agenda.date %>:</h1>
-<br>
-<br>
-<p>Location:  <%= @agenda.location %></p>
-<br>
+  </div>
+    <div class="col-md-4">
+    <center>
+ <h4>Start-up Activity: </h4>
+    <p><%= @agenda.activity_1 %></p><br>
+     <h4>Troop Business: </h4>
+    <p><%= @agenda.activity_2 %></p><br>
+     <h4>Activity: </h4>
+    <p><%= @agenda.activity_3 %></p><br>
+     <h4>Activity: </h4>
+    <p><%= @agenda.activity_4 %></p><br>
+     <h4>Activity: </h4>
+    <p><%= @agenda.activity_5 %></p><br>
+     <h4>Closing Activity: </h4>
+    <p><%= @agenda.activity_6 %></p><br>
+    <br>
+    <br>
+    <br>
 
-<p><%= agenda.activity_1 %></p>
-<br>
+  <h4>Snack: </h4>
+    <p><%= @agenda.snack %></p><br>
+     <h4>Relevant badges: </h4>
+    <p><%= @agenda.patches %></p><br>
+     <h4>Supplies needed: </h4>
+    <p><%= @agenda.supplies %></p><br>
+     <h4>Kapers/Job assignments: </h4>
+    <p><%= @agenda.jobs %></p><br>
+     <h4>Notes: </h4>
+    <p><%= @agenda.troop_info %></p><br>
+  </center>
+</div>
+  <div class="col-md-4"> 
+<br/>
+<br/>
+<br/>
+<br/>
+<div class = "container-fluid">
+<div class="row">
+  <div class="col-md-4"> 
 
-<p><%= agenda.activity_2 %></p>
-<br>
-
-<p><%= agenda.activity_3 %></p>
-<br>
-
-<p><%= agenda.activity_4 %></p>
-<br>
-
-<p><%= agenda.activity_4 %></p>
-<br>
-
-<p><%= agenda.activity_5 %></p>
-<br>
-
-<p><%= agenda.activity_6 %></p>
-<br>
-<br>
-<br>
-<br>
-
-
-<p><%= agenda.snack %></p>
-<br>
-
-<p><%= agenda.patches %></p>
-<br>
-
-<p><%= agenda.supplies %></p>
-<br>
-
-<p><%= agenda.jobs %></p>
-<br>
-
-<p><%= agenda.troop_info %></p>
-<br>
-
-
-
-<br>
-<br>
-
+  </div>
+    <div class="col-md-4">
+</div>
