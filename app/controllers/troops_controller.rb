@@ -58,6 +58,7 @@ class TroopsController < ApplicationController
   def home
     @age_levels = AgeLevel.all
     @badges = Badge.all
+    @news = TroopBlog.homepage_news_feed
   end
 
 

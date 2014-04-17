@@ -8,7 +8,6 @@ class Troop < ActiveRecord::Base
    has_many :newsletters
    has_many :troop_blogs
    belongs_to :age_level
-   validates_uniqueness_of :number
 
   geocoded_by :full_address
   after_validation :geocode
@@ -52,5 +51,6 @@ class Troop < ActiveRecord::Base
     #binding.pry
     near(location["address"])
   end
+
 
 end
