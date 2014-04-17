@@ -44,4 +44,11 @@ class Troop < ActiveRecord::Base
     "#{city}, #{state} #{zip_code}"
   end
 
+  def self.search_by_name(name)
+    where("name like ?", name["name"]).uniq
+  end
+
+  def self.search_by_location(location)
+  end
+
 end

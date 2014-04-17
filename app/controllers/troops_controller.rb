@@ -3,13 +3,13 @@ class TroopsController < ApplicationController
 
   def index
     @troops = Troop.all
-     @daisies = Troop.all_Daisy
-     @brownies = Troop.all_Brownie
-     @juniors = Troop.all_Junior
-     @cadettes = Troop.all_Cadette
-     @seniors = Troop.all_Senior
-     @ambassadors = Troop.all_Ambassador
-     @age_levels = AgeLevel.all
+    @daisies = Troop.all_Daisy
+    @brownies = Troop.all_Brownie
+    @juniors = Troop.all_Junior
+    @cadettes = Troop.all_Cadette
+    @seniors = Troop.all_Senior
+    @ambassadors = Troop.all_Ambassador
+    @age_levels = AgeLevel.all
   end
 
   def show
@@ -38,7 +38,12 @@ class TroopsController < ApplicationController
     end
   end
 
-  def search
+  def name_search
+    @troops = Troop.search_by_name(params[:troop])
+  end
+
+  def location_search
+    @troops = Troop.search_by_location(params[:troop])
   end
 
   def edit
