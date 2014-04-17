@@ -10,8 +10,8 @@ class Troop < ActiveRecord::Base
   belongs_to :age_level
   validates_uniqueness_of :number
 
-  geocoded_by :zip_code
-  after_validation :geocode, :if => :zip_code_changed?
+  geocoded_by :full_address
+  after_validation :geocode
 
   def on_page_photo
     photos.find_by(:on_page => "true")
@@ -38,6 +38,10 @@ class Troop < ActiveRecord::Base
       type = age_level.name
     end
     type
+  end
+
+  def full_address
+    "#{city}, #{state} #{zip_code}"
   end
 
 end

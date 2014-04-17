@@ -29,13 +29,13 @@ Rails.application.routes.draw do
 
   get 'events' => 'events#index', :as => :events_index
   get 'events/new'
+  get 'events/advanced_search' => 'events#advanced_search'
   get 'events/search' => 'events#search_results'
   get 'events/:id' => 'events#show', :as => :event
   get 'events/:id/edit' => 'events#edit'
   patch 'events/:id' => 'events#update'
   post 'events' => 'events#create'
   delete 'events/:id/delete' => 'events#delete'
-  get 'events/advanced_search' => 'events#advanced_search'
 
   get '/troops' => 'troops#index'
   get 'troops/new' => 'troops#new'
