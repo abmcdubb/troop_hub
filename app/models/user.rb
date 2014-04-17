@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   has_many :user_skills
   has_many :skills, through: :user_skills
   has_many :badges, through: :scout_badges
+  has_many :troop_news
 end

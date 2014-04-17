@@ -3,11 +3,12 @@ class Troop < ActiveRecord::Base
 
   has_and_belongs_to_many :users
 
-  has_many :events, through: :troop_events
-  has_many :photos, as: :photoable
-  has_many :newsletters
-  belongs_to :age_level
-  validates_uniqueness_of :number
+   has_many :events, through: :troop_events
+   has_many :photos, as: :photoable
+   has_many :newsletters
+   has_many :troop_blogs
+   belongs_to :age_level
+   validates_uniqueness_of :number
 
   geocoded_by :full_address
   after_validation :geocode
