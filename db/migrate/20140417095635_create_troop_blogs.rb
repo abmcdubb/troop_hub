@@ -1,4 +1,4 @@
-class CreateTroopBlog < ActiveRecord::Migration
+class CreateTroopBlogs < ActiveRecord::Migration
   def change
     create_table :troop_blogs do |t|
       t.integer :troop_id

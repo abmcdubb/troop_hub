@@ -8,5 +8,3 @@ class NewsletterMailer < ActionMailer::Base
   end
 
 end
-
-

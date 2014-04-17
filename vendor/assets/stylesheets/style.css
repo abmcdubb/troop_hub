@@ -2272,5 +2272,10 @@ displayModes
 
 .event-size{
 	max-height: 800px;
-	min-height: 800;
+	min-height: 800px;
+}
+
+.descript{
+	max-height: 28px;
+	min-height: 28px;
 }
