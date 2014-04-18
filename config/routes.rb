@@ -75,4 +75,5 @@ Rails.application.routes.draw do
   get 'skills/:id/index' => 'skills#category_index'
   get 'skills/:id'  => 'skills#show'
 
+
 end

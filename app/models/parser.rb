@@ -72,4 +72,4 @@ end
 #troopdb = Parser.new('./troopdb.csv')
 
 
-end
+

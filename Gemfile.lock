@@ -103,8 +103,12 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
+    pdf-core (0.2.5)
     pg (0.17.1)
     polyglot (0.3.4)
+    prawn (1.0.0)
+      pdf-core (~> 0.2.2)
+      ttfunk (~> 1.1.1)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -192,6 +196,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    ttfunk (1.1.1)
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
     uglifier (2.5.0)
@@ -223,6 +228,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   pg
+  prawn
   pry
   pundit
   rails (= 4.1.0.rc2)
