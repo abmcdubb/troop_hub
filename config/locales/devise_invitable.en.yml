@@ -10,8 +10,9 @@ en:
         header: "Send invitation"
         submit_button: "Send an invitation"
       edit:
-        header: "Set your password"
+        header: "Welcome to Troop Hub! \n Set your password"
         submit_button: "Set my password"
     mailer:
       invitation_instructions:
-        subject: 'Invitation instructions'
+        subject: 'Welcome to Troop Hub!'
+# Set your password for your new account at Troop Hub
