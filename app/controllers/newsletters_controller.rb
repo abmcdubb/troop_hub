@@ -6,7 +6,6 @@ class NewslettersController < ApplicationController
 
   def new
     @newsletter = Newsletter.new
-    @troops = Troop.all
     @user = current_user
   end
 

@@ -1,3 +1,5 @@
+<%=render partial: 'layouts/banner', locals: {:name => @user.name, :left_option => "The Social Media Site for Girl Scouts", :right_option => "Search Activities, Create Events, Organize Your Troops! " }%>
+
 <!-- <center><h1> --><%#= @user.name %> - <%#= @user.role %><!-- </h1> -->
 
 <!-- Inner Content -->
@@ -50,7 +52,7 @@
                         <!--  <p> -->
                         <%#= skill.name %> 
                           <%# unless description.blank? %> 
-                          - <%#= description %> <!-- </p> -->
+                          <!-- - --> <%#= description %> <!-- </p> -->
                           <%# end %>
                         <%# end %>
                       <%# end %>
@@ -95,7 +97,7 @@
                 <!-- About Compnay Item -->
                 <div class="about-company-item">
                   <!-- Heading -->
-                  <h3><%= @user.name%>: <span class="lblue"><%=@user.role%></span></h3>
+                  <h3><span class="lblue"><%=@user.role%></span></h3>
                   <!-- Paragraph -->
                   <% if @user.birthday %>  
                   <p>Birthday: <%= @user.birthday %></p>

@@ -14,8 +14,29 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
     </br>
-    <%= f.label :season %>   
-    <%= f.text_field :season %>
+    <%= f.label :skill %>
+    <%= f.collection_select(:skill_id, @skills, :id, :name) %>
+    </br>
+    <%= label_tag(:'event_season', "Event season:") %>
+    <%= select_tag(:"event[season]", options_for_select([['Any', 'Any'],
+    ['Spring', 'Spring'],
+    ['Summer', "Summer"],
+    ['Fall', "Fall"],
+    ['Winter', 'Winter'],
+    ['January', 'January'],
+    ['Febuary', 'Febuary'],
+    ['March', 'March'],
+    ['April', 'April'],
+    ['May', 'May'],
+    ['June', 'June'],
+    ['July', 'July'],
+    ['August', 'August'],
+    ['September', 'September'],
+    ['October', 'October'],
+    ['November', "November"],
+    ['December', 'December'],
+    ['New Years', 'New Years'],
+    ['Independence Day', 'Independence Day']], 1))%>
     </br>
     <%= f.label :location %>
     <%= f.text_field :location %>

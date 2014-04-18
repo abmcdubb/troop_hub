@@ -3,13 +3,13 @@ class TroopsController < ApplicationController
 
   def index
     @troops = Troop.all
-     @daisies = Troop.all_Daisy
-     @brownies = Troop.all_Brownie
-     @juniors = Troop.all_Junior
-     @cadettes = Troop.all_Cadette
-     @seniors = Troop.all_Senior
-     @ambassadors = Troop.all_Ambassador
-     @age_levels = AgeLevel.all
+    @daisies = Troop.all_Daisy
+    @brownies = Troop.all_Brownie
+    @juniors = Troop.all_Junior
+    @cadettes = Troop.all_Cadette
+    @seniors = Troop.all_Senior
+    @ambassadors = Troop.all_Ambassador
+    @age_levels = AgeLevel.all
   end
 
   def show
@@ -25,13 +25,25 @@ class TroopsController < ApplicationController
 
   def create
     @troop = Troop.create(troop_params)
+    @troop.user_ids = current_user.id
+    @age_levels = AgeLevel.all
+
     respond_to do |format|
       if @troop.save
         format.html { redirect_to troops_path, notice: 'Troop was successfully created.' }
       else
+        @age_levels = AgeLevel.all
         format.html { render action: 'new' }
       end
     end
+  end
+
+  def name_search
+    @troops = Troop.search_by_name(params[:troop])
+  end
+
+  def location_search
+    @troops = Troop.search_by_location(params[:troop])
   end
 
   def edit
@@ -46,6 +58,7 @@ class TroopsController < ApplicationController
   def home
     @age_levels = AgeLevel.all
     @badges = Badge.all
+    @news = TroopBlog.homepage_news_feed
   end
 
 
@@ -55,7 +68,7 @@ private
   end
 
   def troop_params
-    params.require(:troop).permit(:name, :number, :age_level_id, :city, :state, :zip_code, :meetup_location, :about_us)
+    params.require(:troop).permit(:name, :number, :age_level_id, :city, :state, :zip_code, :meetup_location, :about_us, {:user_ids => [] } )
   end
 
 end

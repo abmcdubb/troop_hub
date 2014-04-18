@@ -1,4 +1,4 @@
-<button class="btn btn-default btn-xs" data-toggle="modal" data-target="#advancedSearch">Advanced Search</button>
+<button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#advancedSearch">Advanced Search</button>
 
 <div class="modal fade" id="advancedSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -26,6 +26,7 @@
     <%= badge.name%></br>
   <% end %>
 
+    <%= label_tag(:'season', "Event season:") %>
     <%= select_tag(:season, options_for_select([['Any', 1],
     ['Spring', 2],
     ['Summer', 3],

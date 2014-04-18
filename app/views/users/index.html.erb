@@ -1,14 +1,11 @@
-<center><h1>Our Scouts</h1>
+<%=render partial: 'layouts/banner', locals: {:name => "Our Scouts", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Check out your Troop" }%>
+
+<center>
   <br>
         
         <div class="chefs padd">
           <div class="container">
             <!-- Default Heading -->
-            <div class="default-heading">
-              <!-- Heading -->
-              <!-- Paragraph -->
-              <p>Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel. </p>
-            </div>
             <div class="row">
               <% @users.each do |user| %>
               <div class="col-md-4 col-sm-4">

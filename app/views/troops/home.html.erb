@@ -1,59 +1,94 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Troop Hub", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Search Activities, Create Events, Organize Your Troops! " }%>
-<br/>
-<br/>
-<div class = "container-fluid">
-<div class="row">
-  <div class="col-md-4">
-    <a class="twitter-timeline" href="https://twitter.com/girlscouts" data-widget-id="455791178433044480">Tweets by @girlscouts</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<%=render partial: 'layouts/banner', locals: {:name => "troop hub", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Search Activities, Create Events, Organize Your Troops! " }%>
 
-  </div>
-  <div class="col-md-4">
+    <!-- Page Wrapper -->
+    <div class="wrapper">
+      <!-- Inner Content -->
+      <div class="inner-page padd">
+      
+        <!-- Blog Start -->
+          
+        <div class="blog">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <!-- The new post done by user's all in the post block -->
+                <div class="blog-post">
+                  <!-- Entry is the one post for each user -->
 
-<p>
-    Some paragraph about the girl scouts
-</p>
-<p>
-    A calendar of all girl scout stuffs. or maybe recent photos
-</p>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<center>
-<a href="https://twitter.com/intent/tweet?button_hashtag=TroopHub&text=Easily%20organize%20your%20girl%20scout%20troop%20with%20Troop%20Hub!%20%20Search%20activities%2C%20plan%20meetings%2C%20share%20photos%2C%20etc." class="twitter-hashtag-button" data-related="flatironschool" data-url="http://troop-hub.herokuapp.com">Tweet #TroopHub</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></center>
-=======
-<p>
-Home Page
-Nav Bar
-Make logo
-logo on right navbar left of it
-change styling of banner
-add site info to banner (or right below)
-middle news feed
-Search for Activity - sidebar right
-Search for Troop (index) - sidebar right
-twitter feed - sidebar left
-
-footer - about us, contact us, random social media logos
-
-calendar?
-remove weird line about banner</p>
-</div>
-  <div class="col-md-4">
-<%= render partial: 'events/search'%>
+                  <% @news.each do |article| %>
+                  <div class="entry">
+                    <!-- Post Images -->
+                    <div class="blog-img pull-left">
+                      <img src="<%= article.photo %>" class="img-responsive img-thumbnail" alt="" />
+                    </div>
+                    <!-- Meta for this block -->
+                    <div class="meta">
+                      <i class="fa fa-calendar"></i>&nbsp; <%= article.formatted_date %>
+                      <span class="pull-right"><i class="fa fa-comment"></i> <a href="/troops/<%=article.troop_id%>"><%= article.find_troop_name(article.troop_id) %></a></span>
+                    </div>
+                    <!-- Heading of the  post -->
+                    <h3><a href="blog-single.html"><%= article.headline %> </a></h3>
+                    <hr /><!-- Horizontal line -->
+                    <!-- Paragraph -->
+                    <p><%= article.body %></p>
+                    <div class="clearfix"></div>
+                  </div>
+                <% end %>
  
-<%= render partial: 'events/advanced_search' %>   
-<br/>
-<br/>
-<br/>
-<%= render 'search' %>
-<br/><br/><br/><br/>
-   <p align = "justify"> About Us: YOLO occupy fingerstache Vice literally Etsy. Hella dreamcatcher authentic, Pitchfork gastropub plaid organic literally aesthetic yr meggings 8-bit drinking vinegar actually fixie. Helvetica Brooklyn slow-carb YOLO, Intelligentsia leggings flannel ethnic typewriter Pinterest shabby chic flexitarian. High Life church-key Banksy</p>
-   <br/><br/><br/>
-    <center><p>Contact Us: site@site.com</p></center>
-</div>
+                  
+                </div>
+              </div> <!--/ Main blog column end -->
+              <div class="col-md-4">
+                <!-- Blog page sidebar -->
+                <div class="blog-sidebar">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-6">
+                      <!-- Blog sidebar page widget -->
+                      <div class="sidebar-widget">
+                        <!-- Widget Heading -->
+                        <h4>Search for Troops</h4>
+                        <!-- search button and input box -->
+                          <%= render partial: 'troops/search'%>
+                      </div><!--/ Widget end -->
+                    </div>
+                    <div class="col-md-12 col-sm-6">
+                      <!-- Blog sidebar page widget -->
+                      <div class="sidebar-widget">
+                        <!-- Widget Heading -->
+                        <h4>Search for Events</h4>
+                        <!-- search button and input box -->
+                       <%= render partial: 'events/search'%>
+                       <br>
+                       <center>
+                       <%= render partial: 'events/advanced_search'%>
+                     </center>
+                      </div><!--/ Widget end -->
+                    </div>
+
+
+                    <div class="col-md-12 col-sm-6">
+                      <!-- Blog sidebar page widget -->
+                      <div class="sidebar-widget">
+                   
+                       <a class="twitter-timeline" href="https://twitter.com/girlscouts" data-widget-id="455791178433044480">Tweets by @girlscouts</a>
+                      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                      </div><!--/ Widget end -->
+                    </div>
+                   
+                    
+                </div><!--/ Page sidebar end -->
+              </div>
+            </div><!--/ Row end -->
+          </div>
+        </div>
+        
+        <!-- Blog End -->   
+
+        
+      </div><!-- / Inner Page Content End --> 
+      
+    
+    </div><!-- / Wrapper End -->
+    
+    
+    

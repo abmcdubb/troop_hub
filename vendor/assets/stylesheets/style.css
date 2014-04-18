@@ -596,6 +596,11 @@ transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 	color: #676767;
 }
 
+.new-font {
+	font-family: 'Droid Serif', serif;
+
+}
+
 .default-heading p{
 	max-width: 500px;
 	margin: 0 auto;
@@ -1214,7 +1219,7 @@ div.ppt { display:none !important; }
 .inner-menu .menu-list .menu-list-item {
 	margin-top: 15px;
 	padding-bottom: 10px;
-	border-bottom: 1px dashed #ddd; 
+	border-bottom: 1px dashed #ddd;
 }
 
 .inner-menu .menu-list .menu-list-item h4 {
@@ -1866,7 +1871,7 @@ div.ppt { display:none !important; }
 	display: inline-block;
 	margin-right: 5px;
 	margin-bottom: 10px;
-	max-width: 45px;
+	max-width: 60px;
 }
 
 .footer .footer-widget img.dish {
@@ -2232,8 +2237,6 @@ div.ppt { display:none !important; }
 .sign-up-button {
 	display: none ;
 }	
-<<<<<<< HEAD
-
 .calendar td { height: 100px; width: 14.28%; }
 table, td, th
 {
@@ -2260,5 +2263,14 @@ displayModes
 
 .table-striped { background-color: #90EE90;}
 .h2 {font-family: 'Nunito', sans-serif; font-weight: 700; }
-=======
->>>>>>> style_troop_members_index
+
+.profile-pics {
+	height: 57px !important;
+	width: 57px;
+	max-width: 60 px;
+}
+
+.event-size{
+	max-height: 800px;
+	min-height: 800;
+}
