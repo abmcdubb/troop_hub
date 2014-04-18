@@ -1,18 +1,84 @@
-<% if @troops != [] %>  
-  <% @troops.each do |troop|%>
-    <% if troop.name %>
-      <a href="troops/<%=troop.id%>"><%= troop.troop_type%>: <%=troop.number %> (<%= troop.name %>  ) - <%= troop.city %>, <%= troop.state%></a><br> 
-    <% else %>
-      <a href="troops/<%=troop.id%>"><%= troop.troop_type%>: <%=troop.number %> - <%= troop.city %>, <%= troop.state%></a><br>
-    <% end %> 
+
+
+<!-- Inner Content -->
+      <div class="inner-page padd">
+      
+        <!-- Single Item Start -->
+        
+        <div class="single-item">
+          <div class="container">
+            <!-- Shopping single item contents -->
+            <div class="single-item-content">
+              <div class="row">
+                <div class="col-md-4 col-sm-5">
+                  <!-- Product image -->
+                  <img class="img-responsive img-thumbnail" src="http://www.justamorous.com/wp-content/uploads/2014/02/Girl-Scout-Cookies.jpg" alt="" />
+                </div>
+                <div class="col-md-8 col-sm-7">
+                  <!-- Heading -->
+                  <h3>Your Search Results:  </h3>
+                  <div class="row">
+                    <div class="col-md-7 col-sm-12">
+                      <!-- Single item details -->
+                      <div class="item-details">
+                        <!-- Paragraph -->
+                        <p class="text-justify"></p>
+                        <!-- Heading -->
+                        <!-- Recipe ingredients -->
+                        <ul class="list-unstyled">
+                          <% if @troops != [] %>  
+
+                            <% @troops.each do |troop|%>
+                            <% if troop.name %>
+                              <li>
+                              <i class="fa fa-check"></i> <a href="troops/<%=troop.id%>"><%= troop.troop_type%>: <%=troop.number %> (<%= troop.name %>  ) - <%= troop.city %>, <%= troop.state%></a>
+                              <div class="clearfix"></div>
+                              </li>
+                            <% else %>
+                              <li>
+                              <i class="fa fa-check"></i> <a href="troops/<%=troop.id%>"><%= troop.troop_type%>: <%=troop.number %> - <%= troop.city %>, <%= troop.state%></a>
+                              </li>
+                            <% end %> 
+
+                          <%end%>
+                            
+                          <% else %> 
+                          <li> <h5> No troops match your search! </h5> </li>
+
+                          <% end %>           
+                        </ul>
+                      </div>
+                       <div class="table-responsive">
+                        <!-- Ordering form -->
+                        <form role="form">
+                          <!-- Table -->
+                          <table class="table table-bordered">
+                            <tr>
+                              <h5>Didn't find what you were looking for? <br><br>You can retry your search below or include your troop <%= link_to 'here.', troops_new_path %></h5>
+                            </tr>
+                            <tr>
+
+                     <%= render partial: 'troops/search'%>
+                            </tr>
+
+
+
   
-  <%end%>
-Didn't find the troop you were looking for? Create a page for your troop  <%= link_to 'here.', troops_new_path %>
-<% else %>
-No troops match your search!
-You can retry your search or add your own troop <%= link_to 'here.', troops_new_path %>
-
-
-<% end %>
+                          </table>
+                        </form><!--/ Table End-->
+                      </div><!--/ Table responsive class end -->
+                    </div>
+                    <div class="col-md-5 col-sm-12"> 
+                      <!-- Form inside table wrapper -->
+                     
+                    </div>
+                  </div><!--/ Inner row end  -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Single Item End -->  
 
   
