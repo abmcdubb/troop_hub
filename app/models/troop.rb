@@ -32,16 +32,14 @@ class Troop < ActiveRecord::Base
     end
   end
 
-  def troop_type
-    type = "Daisy"
-    if age_level
-      type = age_level.name
-    end
-    type
-  end
-
   def full_address
-    "#{city}, #{state} #{zip_code}"
+    if city.include?('|')
+      cities = city.split('|')
+      address = "#{cities[0]}, #{state} #{zip_code}"
+    else
+      address = "#{city}, #{state} #{zip_code}"
+    end
+    address
   end
 
   def self.search_by_name(name)

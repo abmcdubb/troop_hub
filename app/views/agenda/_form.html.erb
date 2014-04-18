@@ -1,5 +1,5 @@
 
-<%= form_for [@agenda], url: new_troop_agenda_path do |f| %>
+<%= form_for @agenda do |f| %>
 
   <%= f.label :meeting_date, 'Date of meeting: ' %><br>
   <%= f.date_field :meeting_date, :value => Time.now.strftime("%Y-%m-%d") %><br/>
