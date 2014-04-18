@@ -13,27 +13,17 @@ troop_event_2 = TroopEvent.create(event_id: 1, troop_id: 2, start_time: DateTime
 troop_event_3 = TroopEvent.create(event_id: 2, troop_id: 1, start_time: DateTime.now, location: "Little Ones", detail: "We'll talk about how Gloria respected herself. Bring your own picnic lunch.")
 troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, start_time: DateTime.now, location: "Some painting place in Long Island", detail: "Some Details.")
 
-#badges
-Parser.new
-# UnofficialBadgesParser.new
-# badge_1 = Badge.create(name: "Respect Myself and Others", troop_type: "Daisy")
-# badge_2 = Badge.create(name: "Painting", troop_type: "Brownie")
-#update! why was troop_type removed?
-
-# Parser.new
-# UnofficialBadgesParser.new
-
 event_badge_1 = EventBadge.create(event_id: 2, badge_id: 1)
 event_badge_2 = EventBadge.create(event_id: 3, badge_id: 2)
 
-adult_1 = User.create(troop_ids: '1', role: 'Parent', name: 'Molly Weasley', email: 'mollyw@myfamilyissopooreventhoughwecandomagic.com', phone_number: '555-555-5555', profile_photo: 'mweasley.jpg', admin_privileges: '', password: '123456789')
-adult_2 = User.create(troop_ids: '2', role: 'Troop Leader', name: 'Minerva McGonagall', email: 'mcgonagall@imtoughbutfirm.com', phone_number: '212-555-5555', profile_photo: 'mmcgonagall.jpg', admin_privileges: '', password: '123456789')
-adult_3 = User.create(troop_ids: '3', role: 'Volunteer', name: 'Helena', email: 'volunteer@imdeadbutistillhelpoutfromtimetotime.com', phone_number: '917-555-5555', profile_photo: '', admin_privileges: '', password: '123456789')
-adult_4 = User.create(troop_ids: '1, 3', role: 'Parent', name: 'Vernon Dursley', email: 'vdud@whatthehellamidoinghere.com', phone_number: '646-555-5555', profile_photo: 'vdursley.jpeg', admin_privileges: '', password: '123456789')
-adult_5 = User.create(troop_ids: '1', role: 'Troop Leader', name: 'Lilly Potter', email: 'lily@tookawandtotheheart.com', phone_number: '555-555-5555', profile_photo: 'lpotter.jpg', admin_privileges: '', password: '123456789')
-adult_6 = User.create(troop_ids: '2', role: 'Volunteer', name: 'Dolores Umbridge', email: 'dolores@ilovepink.com', phone_number: '212-555-5555', profile_photo: 'dumbridge.jpg', admin_privileges: '', password: '123456789')
-adult_7 = User.create(troop_ids: '3', role: 'Parent', name: 'Fleur Delacour', email: 'fleur@parlevousfrancais.com', phone_number: '917-555-5555', profile_photo: 'fdelacour.jpg', admin_privileges: '', password: '123456789')
-adult_8 = User.create(troop_ids: '2, 1', role: 'Volunteer', name: 'Nymphadora Tonks', email: 'nymphadora@greenhairrocks.com', phone_number: '646-555-5555', profile_photo: 'ntonks.jpg', admin_privileges: '', password: '123456789')
+adult_1 = User.create(troop_ids: '1', role: 'Parent', name: 'Molly Weasley', email: 'mollyw@myfamilyissopooreventhoughwecandomagic.com', phone_number: '555-555-5555', profile_photo: 'mweasley.jpg', admin_privileges: 'admin', password: '123456789')
+adult_2 = User.create(troop_ids: '2', role: 'Troop Leader', name: 'Minerva McGonagall', email: 'mcgonagall@imtoughbutfirm.com', phone_number: '212-555-5555', profile_photo: 'mmcgonagall.jpg', admin_privileges: 'admin', password: '123456789')
+adult_3 = User.create(troop_ids: '3', role: 'Volunteer', name: 'Helena', email: 'volunteer@imdeadbutistillhelpoutfromtimetotime.com', phone_number: '917-555-5555', profile_photo: '', admin_privileges: 'admin', password: '123456789')
+adult_4 = User.create(troop_ids: '1, 3', role: 'Parent', name: 'Vernon Dursley', email: 'vdud@whatthehellamidoinghere.com', phone_number: '646-555-5555', profile_photo: 'vdursley.jpeg', admin_privileges: 'admin', password: '123456789')
+adult_5 = User.create(troop_ids: '1', role: 'Troop Leader', name: 'Lilly Potter', email: 'lily@tookawandtotheheart.com', phone_number: '555-555-5555', profile_photo: 'lpotter.jpg', admin_privileges: 'admin', password: '123456789')
+adult_6 = User.create(troop_ids: '2', role: 'Volunteer', name: 'Dolores Umbridge', email: 'dolores@ilovepink.com', phone_number: '212-555-5555', profile_photo: 'dumbridge.jpg', admin_privileges: 'admin', password: '123456789')
+adult_7 = User.create(troop_ids: '3', role: 'Parent', name: 'Fleur Delacour', email: 'fleur@parlevousfrancais.com', phone_number: '917-555-5555', profile_photo: 'fdelacour.jpg', admin_privileges: 'admin', password: '123456789')
+adult_8 = User.create(troop_ids: '2, 1', role: 'Volunteer', name: 'Nymphadora Tonks', email: 'nymphadora@greenhairrocks.com', phone_number: '646-555-5555', profile_photo: 'ntonks.jpg', admin_privileges: 'admin', password: '123456789')
 
 age_level_1 = AgeLevel.create(name: "Daisy", grades: "K-1")
 age_level_2 = AgeLevel.create(name: "Brownie", grades: "2-3")
@@ -217,8 +207,8 @@ badgeparser1 = Parser.new('./gs_site.html')
 badgeparser1.official_badge_list
 badgeparser2 = Parser.new('./Patches1.csv')
 badgeparser2.unofficial_badge_list
-troopdb = Parser.new('./troopdb.csv')
-troopdb.troop_list
+# troopdb = Parser.new('./troopdb.csv')
+# troopdb.troop_list
 
 
 # (:patches, :snack, :jobs, :supplies, :correspondence, :troop_info, :parent_info, :decisions)

@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
     #before_action :set_troop_event, only: [:show, :edit, :update, :destroy]
     before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new]
+    load_and_authorize_resource :only => :new
 
 
   def index

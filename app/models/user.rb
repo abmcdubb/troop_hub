@@ -14,4 +14,16 @@ class User < ActiveRecord::Base
   has_many :user_badges
   has_many :badges, through: :user_badges
   has_many :troop_news
+
+  def admin?
+    admin_privileges == "admin" ? true : false
+  end
+
+  def scout?
+    admin_privileges == "troop member" ? true : false
+  end
+
+  def troop_member?
+    current_user.troop_id == TroopUser.troop_id
+  end
 end

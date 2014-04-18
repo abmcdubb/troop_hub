@@ -48,7 +48,6 @@ class Parser
     end
   end
 
-end
 
   def unofficial_badge_list
     CSV.foreach(@file_path) do |row|

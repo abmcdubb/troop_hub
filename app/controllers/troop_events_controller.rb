@@ -1,6 +1,8 @@
 class TroopEventsController < ApplicationController
 
   before_action :set_troop_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   def index
     @troop_events = TroopEvent.all
@@ -63,6 +65,11 @@ class TroopEventsController < ApplicationController
   end
 
 private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def set_troop_event
     @troop_event = TroopEvent.find(params[:id])
   end
