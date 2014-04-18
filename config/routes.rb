@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get 'troops/new' => 'troops#new'
   post '/troops' => 'troops#create'
   get 'troops/edit/:id' => 'troops#edit'
-  get 'troops/:id' => 'troops#show', as: 'troop'
+  get 'troops/:id' => 'troops#show'
   patch 'troops/update/:id' => 'troops#update'
   delete 'troops/destroy' => 'troops#destroy'
 
@@ -57,13 +57,18 @@ Rails.application.routes.draw do
 
   get 'troops/:troop_id/photos' => 'photos#individual_troop', as: 'troop_photos'
 
-  get '/agenda' => 'agenda#index', :as => :troop_agenda
-  get '/agenda/new' => 'agenda#new', :as => :new_troop_agenda
-  post '/agenda' => 'agenda#create'
-  get '/agenda/:id' => 'agenda#show', :as => :agenda_show
-  get '/agenda/edit/:id' => 'agenda#edit'
-  patch '/agenda/update/:id' => 'agenda#update'
-  delete '/agenda/destroy' => 'agenda#destroy'
+  # get '/agenda' => 'agenda#index', :as => :troop_agenda
+  # get '/agenda/new' => 'agenda#new', :as => :new_troop_agenda
+  # post '/agenda' => 'agenda#create'
+  # get '/agenda/:id' => 'agenda#show', :as => :agenda_show
+  # get '/agenda/edit/:id' => 'agenda#edit'
+  # patch '/agenda/update/:id' => 'agenda#update'
+  # delete '/agenda/destroy' => 'agenda#destroy'
+
+  get 'agenda/new' => 'agenda#new'
+  post 'agendas' => 'agenda#create'
+  get 'agenda/:id' => 'agenda#show', as: 'agenda_show'
+  get 'agenda' => 'agenda#index'
 
     
   get 'skills' => 'skills#index'

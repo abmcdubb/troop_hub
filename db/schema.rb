@@ -11,6 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20140417215832) do
+
+  create_table "adults", force: true do |t|
+    t.integer  "troop_id"
+    t.string   "adult_role"
+    t.string   "name"
+    t.string   "phone_number"
+    t.string   "profile_photo"
+    t.string   "admin_privileges"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+  end
+
+  add_index "adults", ["email"], name: "index_adults_on_email", unique: true
+  add_index "adults", ["reset_password_token"], name: "index_adults_on_reset_password_token", unique: true
+
 ActiveRecord::Schema.define(version: 20140417195606) do
 
   create_table "age_levels", force: true do |t|
@@ -85,6 +111,7 @@ ActiveRecord::Schema.define(version: 20140417195606) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "skill_id"
+    t.integer  "badge_id"
   end
 
   create_table "newsletters", force: true do |t|

@@ -13,6 +13,13 @@ troop_event_2 = TroopEvent.create(event_id: 1, troop_id: 2, start_time: DateTime
 troop_event_3 = TroopEvent.create(event_id: 2, troop_id: 1, start_time: DateTime.now, location: "Little Ones", detail: "We'll talk about how Gloria respected herself. Bring your own picnic lunch.")
 troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, start_time: DateTime.now, location: "Some painting place in Long Island", detail: "Some Details.")
 
+#badges
+Parser.new
+# UnofficialBadgesParser.new
+# badge_1 = Badge.create(name: "Respect Myself and Others", troop_type: "Daisy")
+# badge_2 = Badge.create(name: "Painting", troop_type: "Brownie")
+#update! why was troop_type removed?
+
 # Parser.new
 # UnofficialBadgesParser.new
 

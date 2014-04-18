@@ -1,5 +1,5 @@
 class AgendaController < ApplicationController
-  before_action :set_agenda, only: [:show, :edit, :update, :destroy]
+  before_action :set_agenda, only: [:show]
 
   def index
     @agendas = Agenda.all
@@ -14,31 +14,25 @@ class AgendaController < ApplicationController
     #@badges = Badge.all
       respond_to do |format|
         if @agenda.save
-          format.html { redirect_to agendas_index_path, notice: 'Agenda was successfully created.' }
+          format.html { redirect_to agenda_show_path(@agenda), notice: 'Agenda was successfully created.' }
         else
           format.html { render action: 'new' }
         end
     end   
-    #@troop = Troop.find(params[:troop_id])
-    #@agenda = Agenda.find(params[:troop_id])
-    #@agenda = @troop.agenda.new(agenda_params) #associates agenda with that troop
-    # respond_to do |format|
-    #   if @agenda.save
-    #     format.html { redirect_to troops_path, notice: 'Meeting agenda was successfully created.' }
-    #   else
-    #     format.html { render action: 'new' }
-    #   end
-    # end
   end
 
   def show
-    @agenda = Agenda.find(1)
+    @agenda = Agenda.find(params[:id])
   end
 
   def edit
   end
 
   def update
+    @agenda = Agenda.find(params[:id])
+      UserMailer.agenda_email(@agenda).deliver
+
+      redirect_to agenda_show_path, notice: 'Agenda was successfully sent.'
   end
 
   def destroy
