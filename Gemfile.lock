@@ -108,6 +108,12 @@ GEM
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
+    postmark (1.1.2)
+      json
+      rake
+    postmark-rails (0.6.0)
+      actionmailer (>= 3.0.0)
+      postmark (~> 1.1.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -227,6 +233,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick
   pg
+  postmark-rails
   pry
   pundit
   rails (= 4.1.0.rc2)
