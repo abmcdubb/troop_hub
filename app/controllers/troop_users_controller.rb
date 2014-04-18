@@ -1,24 +1,38 @@
 class TroopUsersController < ApplicationController
 before_action :set_troop_user, only: [:show]
-load_and_authorize_resource
+before_action :set_troop, only: [:index]
 
   def index
-    @troop_user = TroopUser.all
+    if @troop.users.include?(current_user)
+      @users = @troop.users
+      @troop_user = TroopUser.all
+    else
+      redirect_to current_user
+    end
   end
 
   def show
-    binding.pry
     @user = @troop_user.user
-    @troops = @user.troops
+    if  @user.troop_ids.include?(current_user.id)
+
+  else
+    redirect_to current_user
+  end
+
   end
 
 private
+
+
   def set_troop_user
-    binding.pry
     @troop_user = TroopUser.find(params[:user_id])
   end
 
-  def agenda_params
+  def set_troop
+    @troop = Troop.find(params[:troop_id])
+  end
+
+  def troop_user_params
     params.require(:troop_user).permit(:troop_id, :user_id)
   end
 

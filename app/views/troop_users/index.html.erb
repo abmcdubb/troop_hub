@@ -1,0 +1,40 @@
+<%=render partial: 'layouts/banner', locals: {:name => "Our Scouts", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Check out your Troop" }%>
+
+<center>
+  <br>
+        
+        <div class="chefs padd">
+          <div class="container">
+            <!-- Default Heading -->
+            <div class="row">
+              <% @users.each do |user| %>
+              <div class="col-md-4 col-sm-4">
+                <!-- Chef Member -->
+                <div class="chefs-member">
+                  <!-- Chefs member header -->
+                  <div class="chefs-head">
+                    <!-- Member background image -->
+                    <img class="chefs-back img-responsive" src="<%= asset_path("page_bg.jpg") %>" alt="" />
+                    <!-- chef member image -->
+                    <% if user.profile_photo_url %>
+                    <a href = "/users/<%=user.id%>"><%= image_tag(user.profile_photo_url(:thumb).to_s, :class => 'chefs-img-index img-responsive')%></a>
+                    <% else %>
+
+                    <%= link_to(image_tag('hedwig.jpeg', :class => 'chefs-img-index img-responsive'), user_show_path(@troop, user)) %>
+                      <!-- <img src="<%#= asset_path("hedwig.jpeg") %>" class="chefs-img-index img-responsive"> -->
+                    <% end %>
+                  </div>
+                  <!--Name / Heading -->
+                  <h3><a href = "/users/<%=user.id%>"><%=user.name%></h3>
+                  <!-- Member designation -->
+                  <span><a href = "/users/<%=user.id%>"> <%= user.role%></a></span>
+                  <!-- Social media links -->
+                </div>
+              </div>
+              <% end %>
+
+
+          </div>
+        </div>
+        
+        <!-- Chefs End -->

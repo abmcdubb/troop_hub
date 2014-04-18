@@ -30,7 +30,7 @@ get 'user_badges' => 'user_badges#index'
 
   patch 'troops/update/:id' => 'troops#update'
   delete 'troops/destroy' => 'troops#destroy'
-  get '/troops/:troop_id/members' => 'users#index', :as => :troop_user
+  get '/troops/:troop_id/members' => 'troop_users#index', :as => :troop_user
 
   # get '/troops' => 'troops#index'
   # get 'troops/new' => 'troops#new'

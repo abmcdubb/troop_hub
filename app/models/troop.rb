@@ -13,6 +13,7 @@ class Troop < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
+
   def on_page_photo
     photos.find_by(:on_page => "true")
   end

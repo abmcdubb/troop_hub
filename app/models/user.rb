@@ -15,15 +15,21 @@ class User < ActiveRecord::Base
   has_many :badges, through: :user_badges
   has_many :troop_news
 
+
+ADMIN = {
+  admin: 0,
+  troop_member: 50
+}
   def admin?
     admin_privileges == "admin" ? true : false
   end
 
-  def scout?
-    admin_privileges == "troop member" ? true : false
-  end
+  # def scout?
+  #   admin_privileges == "troop member" ? true : false
+  # end
 
-  def troop_member?
-    current_user.troop_id == TroopUser.troop_id
-  end
+  # def troop_member?()
+  #  troop_ids.include?(troop.id)
+  # end
+
 end

@@ -2,7 +2,6 @@ class EventsController < ApplicationController
     #before_action :set_troop_event, only: [:show, :edit, :update, :destroy]
     before_action :set_event, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, only: [:new]
-    load_and_authorize_resource :only => :new
 
 
   def index
@@ -20,12 +19,15 @@ class EventsController < ApplicationController
   end
 
   def new
+    if current_user.admin_privileges < 50
     @event = Event.new
     @troop_event = TroopEvent.new
     @badges=Badge.all
     @age_levels = AgeLevel.all
     @troops = Troop.all
     @skills = Skill.all
+  else
+    redirect_to events_index_path
   end
 
   def create
@@ -47,10 +49,13 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
-    @badges=Badge.all
-    @age_levels = AgeLevel.all
-    @skill = Skill.all
+    if current_user.admin_privileges < 50
+      @event = Event.find(params[:id])
+      @badges=Badge.all
+      @age_levels = AgeLevel.all
+      @skill = Skill.all
+    else
+    redirect_to events_index_path
   end
 
   def update
@@ -64,12 +69,6 @@ class EventsController < ApplicationController
         @skill = Skill.all
         format.html { render action: 'edit' }
       end
-  end
-
-  def delete
-    @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to events_index_path
   end
 
   def advanced_search

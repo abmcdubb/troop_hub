@@ -13,8 +13,8 @@ class Ability
         can :cru, TroopEvent
         can :cru, TroopBlog
         can :cru, Newsletter
-      elsif user.troop_member?
-        can :cru, Troop
+      # elsif params[:troop_user] && user.troop_ids.include?(params[:troop_user])
+      #   can :read, TroopUser
       end
     
     # The first argument to `can` is the action you are giving the user
