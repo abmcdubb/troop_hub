@@ -13,7 +13,7 @@ troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, start_time: DateTime
 
 #badges
 Parser.new
-UnofficialBadgesParser.new
+# UnofficialBadgesParser.new
 # badge_1 = Badge.create(name: "Respect Myself and Others", troop_type: "Daisy")
 # badge_2 = Badge.create(name: "Painting", troop_type: "Brownie")
 #update! why was troop_type removed?

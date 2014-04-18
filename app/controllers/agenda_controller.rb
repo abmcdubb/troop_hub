@@ -29,6 +29,10 @@ class AgendaController < ApplicationController
   end
 
   def update
+    @agenda = Agenda.find(params[:id])
+      UserMailer.agenda_email(@agenda).deliver
+
+      redirect_to agenda_show_path, notice: 'Agenda was successfully sent.'
   end
 
   def destroy

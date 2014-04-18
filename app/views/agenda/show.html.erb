@@ -1,3 +1,6 @@
+<%=render partial: 'layouts/banner', locals: {:name => "Meeting Planner", :left_option => "Events", :right_option => "Events" }%>
+
+<div STYLE="border: double #CCFFCC 20px">
 <center><h2>Troop Meeting Agenda for <%= @agenda.meeting_date.strftime("%a %b %e %Y") %>:</h2></center>
 
 <br/>
@@ -23,7 +26,8 @@
     <br>
     <br>
     <br>
-
+<h3><i>Misc. Notes</i></h3>
+<br>
   <h4>Snack: </h4>
     <p><%= @agenda.snack %></p><br>
      <h4>Relevant badges: </h4>
@@ -34,17 +38,32 @@
     <p><%= @agenda.jobs %></p><br>
      <h4>Notes: </h4>
     <p><%= @agenda.troop_info %></p><br>
-  </center>
-</div>
+  
+</div></P>
   <div class="col-md-4"> 
 <br/>
 <br/>
 <br/>
 <br/>
-<div class = "container-fluid">
-<div class="row">
-  <div class="col-md-4"> 
 
-  </div>
-    <div class="col-md-4">
+
+<br>
+<br>
+<hr>
+
+
+
 </div>
+</div>
+<br>
+<br>
+<center><p>Click the button to print the current page.</p>
+
+<button onclick="myFunction()">Print this page</button>
+
+<script>
+function myFunction()
+{
+window.print();
+}
+</script></center>
