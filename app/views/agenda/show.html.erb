@@ -11,6 +11,8 @@
   </div>
     <div class="col-md-4">
     <center>
+   <h4>Location: </h4>
+    <p><%= @agenda.location %></p><br>  	
  <h4>Start-up Activity: </h4>
     <p><%= @agenda.activity_1 %></p><br>
      <h4>Troop Business: </h4>
@@ -67,3 +69,7 @@ function myFunction()
 window.print();
 }
 </script></center>
+
+  <div class="pdf_link">
+    <%= link_to "Print", agenda_show_path(@agenda, :format => "pdf") %>
+  </div>
