@@ -13,6 +13,8 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
+//= require autocomplete-rails
 //= require custom.js
 //= require html5shiv.js
 //= require isotope.js

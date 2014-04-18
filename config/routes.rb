@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+get 'badges' => 'badges#index'
   devise_for :users, controllers: { :registrations => "users/registrations" }
 
   root 'troops#home'
@@ -10,10 +10,14 @@ Rails.application.routes.draw do
   get 'newsletters/:id' => 'newsletters#show'
   get 'newsletters' => 'newsletters#index'
 
+resources :user_badges do
+  get :autocomplete_badge_name, :on => :collection
+end
 
 
 #-------Troop-Specific Routes----------
-
+get 'user_badges/new' => 'user_badges#new'
+get 'user_badges' => 'user_badges#index'
   get '/troops' => 'troops#index'
   get 'troops/new' => 'troops#new'
   post '/troops' => 'troops#create'

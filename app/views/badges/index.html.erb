@@ -1,0 +1,4 @@
+<%= form_for @badge do |f| %>
+  <%= f.autocomplete_field :name, autocomplete_badge_name_user_badges_path, 'data-delimiter' => ',', :multiple => true%>
+  <%= f.submit 'Add Badge' %>
+<%end%>
