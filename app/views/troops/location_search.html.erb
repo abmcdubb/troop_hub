@@ -1,3 +1,18 @@
-<%@troops.each do |troop|%>
-  <h1><%= link_to troop.name, troop_path(troop) %></h1>
-<%end%>
+<% if @troops != [] %>  
+  <% @troops.each do |troop|%>
+    <% if troop.name %>
+      <a href="troops/<%=troop.id%>"><%= troop.troop_type%>: <%=troop.number %> (<%= troop.name %>  ) - <%= troop.city %>, <%= troop.state%></a><br> 
+    <% else %>
+      <a href="troops/<%=troop.id%>"><%= troop.troop_type%>: <%=troop.number %> - <%= troop.city %>, <%= troop.state%></a><br>
+    <% end %> 
+  
+  <%end%>
+Didn't find the troop you were looking for? Create a page for your troop  <%= link_to 'here.', troops_new_path %>
+<% else %>
+No troops match your search!
+You can retry your search or add your own troop <%= link_to 'here.', troops_new_path %>
+
+
+<% end %>
+
+  

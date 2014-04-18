@@ -31,14 +31,6 @@ class Troop < ActiveRecord::Base
     end
   end
 
-  def troop_type
-    type = "Daisy"
-    if age_level
-      type = age_level.name
-    end
-    type
-  end
-
   def full_address
     if city.include?('|')
       cities = city.split('|')
