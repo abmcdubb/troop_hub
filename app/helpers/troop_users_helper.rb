@@ -1,0 +1,2 @@
+module TroopUsersHelper
+end

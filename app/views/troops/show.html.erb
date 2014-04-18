@@ -90,6 +90,9 @@
 <!-- <center><h2>Photos</h2></center> -->
 
 <%=link_to("Photos", troop_photos_path(@troop))%>
+<% if @user.role == "Scout"%>
+<%= "HELLO WORLD" %>
+<%end%>
 
 <%#@photos.each do |photo| %>
     <!-- <p> -->

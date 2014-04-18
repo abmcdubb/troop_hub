@@ -30,6 +30,8 @@
 
   
     <% if user_signed_in? %>
+      <li> <a href="/users/<%=current_user.id%>" class="img-responsive"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> <br/><center>Profile</center></b></a></li>
+
       <li><a data-method='delete' href="/users/sign_out"><img src="/assets/sign_out_btn.png" class="img-responsive" alt="" /><br/><center>Sign Out</center></a></li>
     <% else %>
       <li>

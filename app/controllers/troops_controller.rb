@@ -1,5 +1,6 @@
 class TroopsController < ApplicationController
   before_action :set_troop, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show]
 
   def index
     @troops = Troop.all
@@ -16,6 +17,7 @@ class TroopsController < ApplicationController
     # @troops = Troop.where(params[:troop_id])
     # @scouts = Scout.where(params[:id])
     @troop_events = TroopEvent.all
+    
   end
 
   def new
@@ -69,6 +71,10 @@ private
 
   def troop_params
     params.require(:troop).permit(:name, :number, :age_level_id, :city, :state, :zip_code, :meetup_location, :about_us, {:user_ids => [] } )
+  end
+
+    def set_user
+    @user = User.find(params[:id])
   end
 
 end

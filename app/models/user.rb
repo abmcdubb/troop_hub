@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
-  has_and_belongs_to_many :troops
+  has_many :troop_users
+  has_many :troops, through: :troop_users
 
   has_many :user_skills
   has_many :skills, through: :user_skills
