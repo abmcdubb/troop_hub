@@ -25,6 +25,7 @@ class TroopEventsController < ApplicationController
       @troops = Troop.all
     else
         redirect_to events_index_path
+    end
 
   end
 
