@@ -45,15 +45,12 @@
                        <ul style = "list-style: none;">
                         <% @user.badges.each do |badge|%>
                           <li> <img class = "badge-logo" src = "<%=badge.logo%>"/> <%= badge.name %>  </li>
-<%end%>
-</ul>
-
+                          <%end%>
+                        </ul>
                </div>
-                    </div>
+                </div>
                   </div>
-                                        <%= render :partial => 'user_badges/new' %>
-
-
+                      <%= render :partial => 'user_badges/new' %>
                 </div>
               </div>
             </div>
