@@ -23,4 +23,4 @@
 
 <%= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
 
-<%= link_to @troop.name, troop_path(@troop) %>
+<%= link_to @troop.name, troop_show_path(@troop) %>
