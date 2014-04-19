@@ -1,5 +1,3 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Browse the events listed below and add them to your troop calendar" }%>
-
  <!-- Page Wrapper -->
     <div class="wrapper">
       <!-- Inner Content -->
@@ -13,19 +11,20 @@
                <div class="col-md-4 col-sm-4">
                 <!-- General Sidebar image -->
                 <div class="component-content">
-                  <h4>Add A New Event</h4>
-                  <%= render 'events/form' %>
-                  <!-- Hot tag -->
-                  <br>
-
-                </div>
-                <div class="component-content">
                   <h4>Search for Events</h4>  
                   <%= render partial: 'events/search'%>
                   <!-- Hot tag -->
                   <br>
                   <%= render partial: 'events/advanced_search'%>
                 </div>
+                <div class="component-content">
+                  <h3 align="center">Add A New Event</h3>
+                  <%= render 'events/form' %>
+                  <!-- Hot tag -->
+                  <br>
+
+                </div>
+                
                 
                 <!-- General Sidebar image -->
                 <div class="general-img">
@@ -36,7 +35,9 @@
               </div>
               <div class="col-md-8 col-sm-8">
                 <!-- General information content -->
-
+                 <% if @events == [] %>
+                 <h3> No activities matched your search.<br>  Try using different search terms or browsing activities by category <%= link_to "here.", events_path %></h3>
+                 <% end %> 
                  <% @events.each do |event| %>
 
                   <!-- Navigation tab -->
@@ -97,7 +98,7 @@
                         <br>
                         <form action="/troop_events/new" method="get">
                           <button type="submit" class="btn btn-danger">Add Event to Calendar</button>
-                          <input type = "hidden" name = "event_id" value="<%=event.id%>">
+                          <input type = "hidden" name = "event_id" value="<%#=event.id%>">
                         </form>
      
                       </ul>

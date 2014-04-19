@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @skills = Skill.all
   end
 
   def new
@@ -32,6 +33,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    @skills = Skill.all
     @event = Event.new(event_params)
     #@troop_event = @event.troop_events.build(params[:troop_event])
     #there should be a seperate form for new event and new troop event?
@@ -44,7 +46,8 @@ class EventsController < ApplicationController
         @age_levels = AgeLevel.all
         @troops = Troop.all
         @skills = Skill.all
-        format.html { render action: 'new' }
+        @events = Event.all
+        format.html { render template: "skills/show", notice: 'Event was not createds' }
       end
     end
   end
@@ -54,7 +57,7 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
       @badges=Badge.all
       @age_levels = AgeLevel.all
-      @skill = Skill.all
+      @skills = Skill.all
     else
       redirect_to events_index_path
     end
@@ -68,7 +71,7 @@ class EventsController < ApplicationController
     else
       @badges=Badge.all
       @age_levels = AgeLevel.all
-      @skill = Skill.all
+      @skills = Skill.all
       format.html { render action: 'edit' }
     end
   end
@@ -79,6 +82,9 @@ class EventsController < ApplicationController
   end
 
   def search_results
+    @event = Event.new
+    @skills = Skill.all
+    @age_levels = AgeLevel.all
     @events = Event.find_by_search_results_with_too_many_forks(params[:event], params[:age_level_ids], params[:badge_ids], params[:season])
   end
 

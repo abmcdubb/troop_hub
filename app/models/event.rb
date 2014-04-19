@@ -7,8 +7,13 @@ class Event < ActiveRecord::Base
 
   has_many :event_age_levels, dependent: :destroy
   has_many :age_levels, through: :event_age_levels, dependent: :destroy
-
   belongs_to :skill
+
+  validates :name, :presence => true
+  validates :age_level_ids, :presence => true  
+  validates :skill_id, :presence => true
+  validates :season, :presence => true
+  
 
   def self.find_all_by_name(name)
     where("name='#{name}'")
