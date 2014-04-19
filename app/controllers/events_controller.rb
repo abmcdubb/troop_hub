@@ -20,14 +20,15 @@ class EventsController < ApplicationController
 
   def new
     if current_user.admin_privileges < 50
-    @event = Event.new
-    @troop_event = TroopEvent.new
-    @badges=Badge.all
-    @age_levels = AgeLevel.all
-    @troops = Troop.all
-    @skills = Skill.all
-  else
-    redirect_to events_index_path
+      @event = Event.new
+      @troop_event = TroopEvent.new
+      @badges=Badge.all
+      @age_levels = AgeLevel.all
+      @troops = Troop.all
+      @skills = Skill.all
+    else
+      redirect_to events_index_path
+    end
   end
 
   def create
@@ -57,6 +58,7 @@ class EventsController < ApplicationController
     else
     redirect_to events_index_path
   end
+end
 
   def update
     @event = Event.find(params[:id])
