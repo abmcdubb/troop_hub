@@ -20,14 +20,15 @@ class EventsController < ApplicationController
 
   def new
     if current_user.admin_privileges < 50
-    @event = Event.new
-    @troop_event = TroopEvent.new
-    @badges=Badge.all
-    @age_levels = AgeLevel.all
-    @troops = Troop.all
-    @skills = Skill.all
-  else
-    redirect_to events_index_path
+      @event = Event.new
+      @troop_event = TroopEvent.new
+      @badges=Badge.all
+      @age_levels = AgeLevel.all
+      @troops = Troop.all
+      @skills = Skill.all
+    else
+      redirect_to events_index_path
+    end
   end
 
   def create
@@ -55,7 +56,8 @@ class EventsController < ApplicationController
       @age_levels = AgeLevel.all
       @skill = Skill.all
     else
-    redirect_to events_index_path
+      redirect_to events_index_path
+    end
   end
 
   def update
@@ -63,12 +65,12 @@ class EventsController < ApplicationController
     @event.update_attributes(event_params)
     if @event.save
         redirect_to events_index_path, notice: 'Event updated.'
-      else
-        @badges=Badge.all
-        @age_levels = AgeLevel.all
-        @skill = Skill.all
-        format.html { render action: 'edit' }
-      end
+    else
+      @badges=Badge.all
+      @age_levels = AgeLevel.all
+      @skill = Skill.all
+      format.html { render action: 'edit' }
+    end
   end
 
   def advanced_search

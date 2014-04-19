@@ -1,5 +1,5 @@
 
-<%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "TBD", :right_option => "TBD" }%>
+<%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "Select a Category to see all its events", :right_option => "" }%>
 
                 <!-- Showcase Start -->
                 
@@ -15,7 +15,7 @@
                                     <h3><a href="/skills/general/index">General</a></h3>
                                     <!-- Paragraph -->
                                     <% @general_skills.each do |skill| %>
-                                    <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
+                                        <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
                                     <% end %>
                                     <div class="clearfix"></div>
                                 </div>
@@ -29,7 +29,7 @@
                                     <!-- Heading -->
                                     <h3><a href="/skills/stem/index">STEM</a></h3>
                                     <% @stem_skills.each do |skill| %>
-                                    <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
+                                        <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
                                     <% end %>
                                        <br>
                                     <br>
@@ -53,7 +53,7 @@
                                     <!-- Heading -->
                                     <h3><a href="/skills/business-smarts/index">Business Smarts</a></h3>
                                     <% @business_skills.each do |skill| %>
-                                    <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
+                                        <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
                                     <% end %>
                                     <p></p>
                                     <br>
@@ -75,7 +75,7 @@
                                     <h3><a href="/skills/nature-and-ecology/index">Nature and Ecology</a></h3>
                                     <!-- Paragraph -->
                                     <% @nature_skills.each do |skill| %>
-                                    <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
+                                        <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
                                     <% end %>
                                     <div class="clearfix"></div>
                                 </div>

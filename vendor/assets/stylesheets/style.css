@@ -2274,3 +2274,8 @@ displayModes
 	max-height: 800px;
 	min-height: 800;
 }
+
+.modal-background {
+	background: url('bg_gradient3.gif') top center repeat-x; 
+
+}
