@@ -1,18 +1,19 @@
 <%= form_for @event do |f| %>
-  <center>  <%= f.label :event_Name %>
-    <%= f.text_field :name %>
+<div class="form-group">
+  <center>  
+    <%= f.label :event_Name %>
+    <%= f.text_field :name, :class => "form-control" %>
     </br>
 <!--     <%#= f.label :appropriate_Ages %>
     <%#= f.text_field :grades %> -->
-<%=f.collection_check_boxes(:age_level_ids, @age_levels, :id, :name)%>
-<%#= f.select(:grades, [['K', 'K'],['1st', '1st'], ['2nd', '2nd'], ['3rd', '3rd'], ['4th', '4th'], ['5th', '5th'], ['6th', '6th'], ['7th', '7th'], ['8th', '8th'], ['9th', '9th'], ['10th', '10th'], ['11th', '11th'], ['12th', '12th']]) %>
+<%=f.collection_check_boxes(:age_level_ids, @age_levels, :id, :name, :item_wrapper_class => 'form-control' )%>
 
     </br>
     <%= f.label :Type_of_Event %>
-    <%= f.text_field :genre %>
+    <%= f.text_field :genre, :class => "form-control" %>
     </br>
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :class => "form-control" %>
     </br>
     <%= f.label :skill %>
     <%= f.collection_select(:skill_id, @skills, :id, :name) %>
@@ -36,15 +37,16 @@
     ['November', "November"],
     ['December', 'December'],
     ['New Years', 'New Years'],
-    ['Independence Day', 'Independence Day']], 1))%>
+    ['Independence Day', 'Independence Day']], 1), :class => "form-control") %>
     </br>
     <%= f.label :location %>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, :class => "form-control"  %>
     </br>
-    <%=f.collection_check_boxes(:badge_ids, @badges, :id, :name)%>
-    </br>
+    <%#=f.collection_check_boxes(:badge_ids, @badges, :id, :name)%>
+    <!-- </br> -->
 
   <%= f.submit %>
 <% end %>
+</div>
 
 

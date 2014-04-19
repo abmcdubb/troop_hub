@@ -1,5 +1,5 @@
 <%= form_tag("/events/search", method: "get", class: "form-inline") do %>
-<%= label_tag(:'event[name]', "Search by Event Name:") %>
+
   <div class="input-group">
     <%= text_field_tag(:'event[name]', nil, placeholder: 'Search by event name here', class: 'form-control')%>
     <span class="input-group-btn">
