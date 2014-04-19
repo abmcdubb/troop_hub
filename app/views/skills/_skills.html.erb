@@ -1,4 +1,4 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Our Scouts", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Check out your Troop" }%>
+<%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Browse the events listed below and add them to your troop calendar" }%>
 
  <!-- Page Wrapper -->
     <div class="wrapper">
@@ -36,8 +36,10 @@
                      <h3 align="center"><%= event.name %></h3>
                      
                       <!-- List content -->
-                      <ul class="list-unstyled">
-                        <li><i class="fa br-lblue"></i> Age Levels: 
+
+                      <ul class="list-unstyled" align="center">
+                        <% unless event.age_levels.empty? %>
+                        <li><h5><i class="glyphicon glyphicon-user"></i> Age Levels: 
                            <% event.age_levels.each_with_index do |age_level, i|%>
                             <%if i+1==event.age_levels.length%>
                               <%=age_level.name%>
@@ -45,10 +47,12 @@
                               <%=age_level.name%>,
                             <%end%>
                           <%end%> 
-                        </li>
+                        <% end %>
+                      
+                        </h5></li>
                         <% unless event.badges.empty? %>
 
-                          <li><i class="fa fa-envelope-o br-lblue"></i> Badges:                           
+                          <li><h5><i class="glyphicon glyphicon-certificate"></i> Badges:                           
                              <% event.badges.each_with_index do |badge, i|%>
                               <%if i+1==event.badges.length%>
                                 <%=badge.name%>
@@ -56,28 +60,28 @@
                                 <%=badge.name%>,
                               <%end%>
                             <%end%>                          
-                        </li>
+                        </h5></li>
                         <% end %>
 
                         <% unless event.season.blank? %>
 
-                          <li><i class="fa fa-envelope-o br-lblue"></i> Seasons:                           
+                          <li><h5><i class="glyphicon glyphicon-cloud"></i> Seasons:                           
                              <%=event.season%>      
-                        </li>
+                        </h5></li>
                         <% end %>
 
                         <% unless event.location.blank? %>
 
-                          <li><i class="fa fa-envelope-o br-lblue"></i> Location:                           
+                          <li><h5><i class="glyphicon glyphicon-globe"></i> Location:                           
                              <%=event.location.capitalize%>      
-                        </li>
+                        </h5></li>
                         <% end %>
 
                         <% unless event.description.blank? %>
 
-                          <li><i class="fa fa-envelope-o br-lblue"></i> Description:                           
+                          <li><h5><i class="glyphicon glyphicon-info-sign"></i> Description:                           
                              <%=event.description%>      
-                        </li>
+                        </h5></li>
                         <% end %>
 
                         <br>
