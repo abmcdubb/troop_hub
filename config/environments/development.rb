@@ -2,6 +2,7 @@ Rails.application.configure do
   config.assets.raise_production_errors = true
   config.action_controller.include_all_helpers = true
   # Settings specified here will take precedence over those in config/application.rb.
+  config.middleware.use "PDFKit::Middleware", :print_media_type => true
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
