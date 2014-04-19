@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  before_action :set_troop_user, only: [:show, :edit, :update, :destroy]
+  # before_action :set_troop_user, only: [:show, :edit, :update, :destroy]
 
   def login_required
      authenticate_user!    
@@ -56,13 +56,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-    def set_troop_user
-    @troop_user = TroopUser.find(params[:id])
-  end
 
 
-  def troop_user_params
-    params.require(:troop_user).permit(:troop_id)
-  end
+  #   def set_troop_user
+  #   @troop_user = TroopUser.find(params[:user_id])
+  # end
+
+
+  # def user_params
+  #   params.require(:troop_user).permit(:troop_id)
+  # end
 
 end

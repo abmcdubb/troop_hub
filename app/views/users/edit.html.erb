@@ -1,2 +1,8 @@
 <h1>Scouts#edit</h1>
 <p>Find me in app/views/scouts/edit.html.erb</p>
+
+
+<% if current_user.admin_privileges < 50 %>
+<dl><%= f.label :permissions %>:
+<%= f.select :permissions, User::PERMISSIONS, class: "form-control" %></dl>
+<%end%>

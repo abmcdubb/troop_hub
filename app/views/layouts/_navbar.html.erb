@@ -29,7 +29,15 @@
     <% if user_signed_in? %>
       <li> <a href="/users/<%=current_user.id%>" class="img-responsive"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> <br/>Profile</b></a></li>
  <%if current_user.troops.count > 1 %>
-    <%= render '_nav_dropdown'%>
+    <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/troopsbtn.png" class="img-responsive" alt="" /><br/>Your Troops<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% current_user.troops.each do |troop|%>
+              <li><a href = "/troops/<%=troop.id%>"><%=troop.name%></a></li> 
+              <%end%>           
+          </ul>
+        </li>
+    
     <%else%>
    <li><a href= "/troops/<%=current_user.troop_ids[0]%>"><img src="/assets/troopsbtn.png" class="img-responsive" alt="" /><br/>Troop</a></li>
 <%end%>

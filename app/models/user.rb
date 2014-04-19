@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
 ADMIN = {
   admin: 0,
-  troop_member: 50
+  troop_member: 100
 }
   def admin?
     admin_privileges == "admin" ? true : false

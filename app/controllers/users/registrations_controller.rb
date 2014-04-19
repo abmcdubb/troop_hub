@@ -1,12 +1,32 @@
 class Users::RegistrationsController < ::Devise::RegistrationsController
   # before_filter :configure_permitted_parameters, :only => [:create]
   include UsersHelper
-  before_filter :configure_permitted_parameters, :only => [:create]
+  before_filter :configure_permitted_parameters, :only => [:create, :update]
   
   def new
     @skills = Skill.all
     super
   end
+
+  def edit
+ @skills = current_user.skills
+  
+  end
+  
+
+def update
+   sanitize_params_by_role 
+    build_resource(sign_up_params)
+    resource_saved = resource.save
+    yield resource if block_given?
+    if resource_saved
+    add_skills_to_adults(resource.id, skills_params[:skill_ids], skills_params[:descriptions]) unless skills_params[:skill_ids].nil?
+    else
+      @skills = Skill.all
+      clean_up_passwords resource
+      respond_with resource
+    end  
+end
 
   def create 
     sanitize_params_by_role 
