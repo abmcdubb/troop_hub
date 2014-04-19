@@ -43,6 +43,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @skills= Skill.all
+    intersection = current_user.troop_ids & @user.troop_ids
+    if (current_user != @user) || (current_user.role != "Troop Leader" && intersection.empty?)
+      redirect_to(:back)
+    end
+
   end
 
   def update

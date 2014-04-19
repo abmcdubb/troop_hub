@@ -54,7 +54,7 @@
 
           <!-- Booking form without skills sections-->
           <div class="col-md-5">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= form_for(:user, url: edit_user_registration_path(:user), html: { method: :patch }) do |f| %>
                 <!-- Form label -->
                 <label>Full Name</label>
                 <div class="form-group">
@@ -77,9 +77,9 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %></div>
 
-<% if current_user.admin_privileges < 50 %>
-<dl><%= f.label :permissions %>:
-<%= f.select :permissions, User::PERMISSIONS, class: "form-control" %></dl>
+<% if current_user.role == 'Troop Leader' %>
+<dl><%= f.label :admin_privileges %>:
+<%= f.select :admin_privileges, User::ADMIN, class: "form-control" %></dl>
 <%end%>
 
                 <!-- Form label -->
@@ -97,17 +97,20 @@
                 </div>
 
 
+
                 <div class="col-md-7">
                   <div class="form-group">
                 <% if current_user.role == "Scout"%>
                     <%= render :partial => 'scouts_form' , :locals => {:f => f} %>
                 <%else%>
-                    <%= render :partial => 'adults_form' , :locals => {:f => f} %>
+                    <%= render :partial => 'users/registrations/adults_form' , :locals => {:f => f} %>
                   <%end%>
                 </div><!-- form-group -->
               </div> <!-- col-md-7 -->
 
 
+<%= f.submit "Update" %>
+<% end %>
             </div> <!-- booking-form -->
             
         </div> <!-- end col-md-8 -->
@@ -116,6 +119,10 @@
               
 
 
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
   
            <!--  </div> -->
@@ -128,12 +135,24 @@
 </div> <!-- end inner-page padd -->
 
 
+<script type="text/javascript">
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+$(document).ready(function() {
 
-<h3>Cancel my account</h3>
+  $('.skills_check_box').change('checkbox :checkbox.toggle', function(e){    
+    var skill_id = $(this).data('skill-id');
+    var text_field = $('.hidden_skills_text_field#skill_'+skill_id);
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    text_field.fadeToggle();
+    });
 
-<%= link_to "Back", :back %>
+      $('.adults-form').show();
+
+});
+</script>
+
+
+
+
+
+
