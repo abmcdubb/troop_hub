@@ -59,17 +59,5 @@
 </div>
 <br>
 <br>
-<center><p>Click the button to print the current page.</p>
 
-<button onclick="myFunction()">Print this page</button>
-
-<script>
-function myFunction()
-{
-window.print();
-}
-</script></center>
-
-  <div class="pdf_link">
-    <%= link_to "Print", agenda_show_path(@agenda, :format => "pdf") %>
-  </div>
+<p id="pdf_link"><%= link_to "Download Agenda (PDF)", agenda_show_path(@agenda, :format => "pdf") %></p>
