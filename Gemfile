@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'mini_magick' 
+gem 'cancancan', '~> 1.7'
 gem "pundit"
 gem 'pdfkit'
 gem 'postmark-rails'

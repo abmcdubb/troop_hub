@@ -1,26 +1,29 @@
 class TroopUsersController < ApplicationController
 before_action :set_troop_user, only: [:show]
+before_action :set_troop, only: [:index]
 
   def index
-    @troop_user = TroopUser.all
-
+    if @troop.users.include?(current_user)
+      @users = @troop.users
+      @troop_user = TroopUser.all
+    else
+      redirect_to(:back)
+    end
   end
-
-  def show
-    @user = @troop_user.user
-    @troops = @user.troops
-  end
-
-
-
 
 
 private
+
+
   def set_troop_user
-    @troop_user = TroopUser.find(params[:user_id])
+    @troop_user = TroopUser.find(params[:id])
   end
 
-  def agenda_params
+  def set_troop
+    @troop = Troop.find(params[:troop_id])
+  end
+
+  def troop_user_params
     params.require(:troop_user).permit(:troop_id, :user_id)
   end
 

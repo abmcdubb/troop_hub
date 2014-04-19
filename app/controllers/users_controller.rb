@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  # before_action :set_troop_user, only: [:show, :edit, :update, :destroy]
+
   def login_required
      authenticate_user!    
   end
@@ -33,9 +35,20 @@ class UsersController < ApplicationController
   # end
 
   def show
+   intersection = current_user.troop_ids & @user.troop_ids
+   unless !intersection.empty?
+    redirect_to(:back)
+  end
+  
   end
 
   def edit
+    @skills= Skill.all
+    intersection = current_user.troop_ids & @user.troop_ids
+    if (current_user != @user) || (current_user.role != "Troop Leader" && intersection.empty?)
+      redirect_to(:back)
+    end
+
   end
 
   def update
@@ -49,7 +62,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # def scout_params
-  #   params.require(:scout).permit(:name, :troop_id, :grade, :birthday, :email, :phone_number, :admin_privileges, :dues, :profile_photo, :patches)
+
+
+  #   def set_troop_user
+  #   @troop_user = TroopUser.find(params[:user_id])
   # end
+
+
+  # def user_params
+  #   params.require(:troop_user).permit(:troop_id)
+  # end
+
 end
