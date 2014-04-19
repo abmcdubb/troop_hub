@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'mini_magick' 
 gem 'cancancan', '~> 1.7'
+gem "pundit"
+gem 'prawn'
 gem 'rmagick', require: false #brew install imagemagick in terminal, if this fails. then rebundle
 gem 'carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

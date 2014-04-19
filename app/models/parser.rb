@@ -71,4 +71,4 @@ class Parser
 #troopdb = Parser.new('./troopdb.csv')
 
 
-end
+

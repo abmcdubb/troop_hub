@@ -93,4 +93,5 @@ get 'user_badges' => 'user_badges#index'
   get 'skills/:id/index' => 'skills#category_index'
   get 'skills/:id'  => 'skills#show'
 
+
 end

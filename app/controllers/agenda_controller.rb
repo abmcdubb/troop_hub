@@ -1,5 +1,6 @@
 class AgendaController < ApplicationController
   before_action :set_agenda, only: [:show]
+  #prawnto :prawn => { :top_margin => 75 }
 
   def index
     @agendas = Agenda.all
@@ -23,6 +24,14 @@ class AgendaController < ApplicationController
 
   def show
     @agenda = Agenda.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = AgendaPdf.new(@agenda)
+        send_data pdf.render, filename: "agenda.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
   end
 
   def edit
