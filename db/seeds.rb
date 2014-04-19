@@ -205,8 +205,8 @@ a8_file = File.new(a8pic)
 adult_8.profile_photo = a8_file
 adult_8.save!
 
-badgeparser1 = Parser.new('./gs_site.html')
-badgeparser1.official_badge_list
+OfficialBadgeParser.new
+
 badgeparser2 = Parser.new('./Patches1.csv')
 badgeparser2.unofficial_badge_list
 # troopdb = Parser.new('./troopdb.csv')

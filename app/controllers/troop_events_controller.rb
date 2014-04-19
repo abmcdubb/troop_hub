@@ -1,4 +1,5 @@
 class TroopEventsController < ApplicationController
+ # autocomplete :badge, :name
 
   before_action :set_troop_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
@@ -29,6 +30,7 @@ class TroopEventsController < ApplicationController
   end
 
   def new_event
+  
     if current_user.admin_privileges < 50
       @troops = Troop.all
       @age_levels = AgeLevel.all

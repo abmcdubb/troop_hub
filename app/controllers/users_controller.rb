@@ -35,6 +35,8 @@ class UsersController < ApplicationController
   # end
 
   def show
+    @user_badge = UserBadge.new
+ 
    intersection = current_user.troop_ids & @user.troop_ids
    unless !intersection.empty?
     redirect_to(:back)

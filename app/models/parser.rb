@@ -1,32 +1,12 @@
 require 'csv'
 
+
 class Parser
 
   def initialize(file_path)
     @file_path = file_path
   end
 
-  def official_badge_list
-    badge_list = Nokogiri::HTML(@file_path)
-
-    badge_list.css("li").each do |b|
-      if b.attr('thetitle') != nil
-        badge = Badge.new
-        badge.logo = b.css('img').attr('src').text
-        
-        if b.attr("thetitle") == "Women&#8217;s Health"
-          badge.name = "Women's Health"
-        elsif b.attr("thetitle").include?('&amp;')
-          badge.name =  b.attr("thetitle").gsub('&amp;', '&')
-        else badge.name = b.attr("thetitle")
-        end
-
-        badge.troop_type = b.attr("agelevel")
-        badge.category = "#{b.attr('subcategory')} - #{b.attr('category')}"
-        badge.save
-      end
-    end
-  end
 
   def unofficial_badge_list
     CSV.foreach(@file_path) do |row|
@@ -72,3 +52,4 @@ class Parser
 
 
 
+end
