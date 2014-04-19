@@ -12,6 +12,13 @@
 
 
 </head>
+<% if flash[:notice] %>
+<div id=”notice”><%= flash[:notice] %></div>
+<% end %>
+
+<%= yield %>
+
+<%= render '/layouts/footer' %>
 
     <%= render '/layouts/navbar' %>
 
@@ -33,13 +40,7 @@
 
 
 
-<% if flash[:notice] %>
-<div id=”notice”><%= flash[:notice] %></div>
-<% end %>
 
-<%= yield %>
-
-<%= render '/layouts/footer' %>
 
 
 

@@ -36,10 +36,6 @@ class Parser
     end
   end
 
-#badgeparser1 = Parser.new('./gs_site.html')
-#badgeparser2 = Parser.new('./Patches1.csv')
-#badgeparser3 = Parser.new('./Patches2.csv')
-
   def activities_list_for_events
     CSV.foreach(@file_path) do |row|
       new_row = row.join(",")     
@@ -64,11 +60,4 @@ class Parser
       troop = Troop.create(:troop_type => troop_type.strip, :number => number.strip, :city => city.strip, :state => state.strip)
     end
   end
-
-# Girl Scout Troop,31212,Birmingham, Alabama
-#badgeparser1 = Parser.new('./gs_site.html')
-#badgeparser2 = Parser.new('./Patches1.csv')
-#troopdb = Parser.new('./troopdb.csv')
-
-
-
+end
