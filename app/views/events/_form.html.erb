@@ -1,5 +1,5 @@
 <%= form_for @event do |f| %>
-  <center>  <%= f.label :event_Name %>
+  <center>  <%= f.label :event_name %>
     <%= f.text_field :name %>
     </br>
 <!--     <%#= f.label :appropriate_Ages %>
@@ -41,7 +41,10 @@
     <%= f.label :location %>
     <%= f.text_field :location %>
     </br>
-    <%=f.collection_check_boxes(:badge_ids, @badges, :id, :name)%>
+  <%=f.label "Badges Earned"%><%= f.autocomplete_field :badge_id, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true%>
+
+
+
     </br>
 
   <%= f.submit %>

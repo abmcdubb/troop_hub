@@ -14,6 +14,10 @@ resources :user_badges do
   get :autocomplete_badge_name, :on => :collection
 end
 
+resources :events do
+  get :autocomplete_badge_name, :on => :collection
+end
+
 
 #-------Troop-Specific Routes----------
 get 'user_badges/new' => 'user_badges#new'
@@ -53,19 +57,19 @@ get 'user_badges' => 'user_badges#index'
 
 
 #-------Events---------------
-  get 'events' => 'events#index', :as => :events_index
-  get 'events/new'
+  # get 'events' => 'events#index', :as => :events_index
+  # get 'events/new'
   get 'events/advanced_search' => 'events#advanced_search'
   get 'events/search' => 'events#search_results'
-  get 'events/:id' => 'events#show', :as => :event
-  get 'events/:id/edit' => 'events#edit'
-  patch 'events/:id' => 'events#update'
-  post 'events' => 'events#create'
-  delete 'events/:id/delete' => 'events#delete'
+  # get 'events/:id' => 'events#show', :as => :event
+  # get 'events/:id/edit' => 'events#edit'
+  # patch 'events/:id' => 'events#update'
+  # post 'events' => 'events#create'
+  # delete 'events/:id/delete' => 'events#delete'
 
 
   get 'troop_events/new' => 'troop_events#new'
-  get 'troop_events/:troop_id/new_event' => 'troop_events#new_event', as: 'new_event'
+  get 'troop_events/:troop_id/new_event' => 'troop_events#new_event', as: 'new_troop_event'
   post 'troop_events/new_event' => 'troop_events#create_event'
   post 'troop_events' => 'troop_events#create'
   get 'troop_events/:id' => 'troop_events#show', as: 'troop_event'

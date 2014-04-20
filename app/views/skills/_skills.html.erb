@@ -1,6 +1,6 @@
 <div class = "inner-page padd"><div class = "inner-menu"><div class = "container"><div class = "row">
   <h1>Events</h1>
-  <button type = "button"><%=link_to "Add Event", events_new_path%></button><br/>
+  <button type = "button"><%=link_to "Add Event", new_event_path%></button><br/>
   <br/>
   <% @events.each do |event| %>
     <div class ="col-md-4 col-sm-6 event-size">

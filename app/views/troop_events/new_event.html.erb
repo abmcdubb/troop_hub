@@ -18,10 +18,9 @@
   <%end%>
 
 <br><br>
-<%=label_tag "Badges Earned: "%> <%@badges.each do |badge|%>
-    <%= check_box_tag(:"event[badge_ids][]", badge.id) %>
-    <%= label_tag(:event_badge_ids, badge.name) %>
-  <%end%>
+<%= label_tag "Event Badges" %>
+ <%= autocomplete_field_tag :"event[badge_ids]", '', autocomplete_badge_name_events_path, :size => 75, 'data-delimiter' => ',', :multiple => true%>
+
 <br>
 
   <h4>Enter troop specific event information:</h4>
