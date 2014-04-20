@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 get 'badges' => 'badges#index'
-  devise_for :users, controllers: { :registrations => "users/registrations" }
+  devise_for :users, controllers: { :registrations => "users/registrations", :invitations => 'users/invitations' }
 
   root 'troops#home'
 

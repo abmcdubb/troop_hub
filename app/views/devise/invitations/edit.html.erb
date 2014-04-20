@@ -1,0 +1,169 @@
+<%=render partial: 'layouts/banner', locals: {:name => "troop hub", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Search Activities, Create Events, Organize Your Troops! " }%>
+<div class="inner-page padd">
+  <!-- Booking Start -->
+  <div class="booking">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Heading -->
+          <h3 >Welcome to Troop Hub!</h3>
+          <!-- Paragraph -->
+          <p>
+        </div> <!-- col-md-12 -->
+        <!-- Image Slider -->
+        <div class="col-md-4">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie1.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie2.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie3.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie4.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie5.jpg") %>" alt="" />
+              </div>
+    
+            </div> <!-- carousel-inner -->
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <span class="fa fa-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="fa fa-chevron-right"></span>
+            </a>
+          </div> <!-- carousel-example-generic -->
+        </div> <!-- col-md-4 -->
+        
+
+        <div class="col-md-8">
+          <!-- Booking form without skills sections-->
+          <div class="col-md-5">
+            <h2><%= t 'devise.invitations.edit.header' %></h2>
+
+              <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
+                <%= devise_error_messages! %>
+                <%= f.hidden_field :invitation_token %>
+                <!-- Form label -->
+                <label>Full Name</label>
+                <div class="form-group">
+                      <!-- Form input -->
+                    <%= f.text_field :name, autofocus: true, :class => "form-control" %>
+                </div>
+                <!-- Form label -->
+                <label>Email</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.email_field :email, autofocus: true, :class => "form-control"  %>
+                </div>
+
+                <p><%= f.label :password %><br />
+                <div class="form-group">
+                    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %></p>
+                </div>
+                <p><%= f.label :password_confirmation %><br />
+                <div class="form-group">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %></p>
+                </div>
+
+                <label>Phone Number</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.text_field :phone_number, autofocus: true, :class => "form-control"  %>
+                </div>
+
+                <!-- Form label -->
+                <label class="form_label_font">Profile Photo</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.file_field :profile_photo %><br/>
+                </div>
+
+                <!-- Form label -->
+                <label>Role</label>
+                <div class="form-group">
+                  <!-- Form drop down -->
+                  <select name="user[role]" class="form-control role-select">
+                    <option value>Please select one to continue</option>
+                    <option value="Scout">Scout</option>
+                    <option value="Parent">Parent</option>
+                    <option value="Troop Leader">Troop Leader</option>
+                    <option value="Volunteer">Volunteer</option>
+                  </select>
+                </div>
+
+                
+
+                <!-- Form button -->
+                 <div class="form-group">
+                   <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>             
+                </div>
+          </div> <!-- col-md-5 --> 
+
+            <!-- Adults Sign Up--> 
+          <div class="col-md-7">
+            <div class="form-group">
+
+              <%= render :partial => 'scouts_form' , :locals => {:f => f} %>
+              <%@skills = Skill.all%>
+              <%= render :partial => 'adults_form' , :locals => {:f => f} %>
+                  
+            </div><!-- form-group -->
+          </div> <!-- col-md-7 -->
+        </div> <!-- booking-form -->
+            
+      </div> <!-- end col-md-8 -->
+
+
+    <% end %>
+           <!--  </div> -->
+            
+          <!-- </div>  --><!-- booking-form -->
+
+      </div> <!-- end row -->
+    </div> <!-- end container -->
+  </div> <!-- end booking -->
+</div> <!-- end inner-page padd -->
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+  $('.skills_check_box').change('checkbox :checkbox.toggle', function(e){    
+    var skill_id = $(this).data('skill-id');
+    var text_field = $('.hidden_skills_text_field#skill_'+skill_id);
+
+    text_field.fadeToggle();
+    });
+
+  // $('.role-select onption')
+
+  $('.role-select').on('change', function(e) {
+    var selected_field = $('.role-select option:selected').val()
+    if (selected_field === "Troop Leader" || selected_field === "Volunteer" || selected_field === "Parent" ) {
+      $('.adults-form').show();
+      $('.scouts-form').hide();
+      $('.sign-up-button').show();
+
+    }
+    else if (selected_field === "Scout"){
+      $('.scouts-form').show();
+      $('.adults-form').hide();
+      $('.sign-up-button').show();
+      $('.hidden_skills_text_field').hide();
+    }  
+    else {
+      $('.scouts-form').hide();
+      $('.adults-form').hide();
+      $('.sign-up-button').hide();
+    }
+  });
+});
+</script>
