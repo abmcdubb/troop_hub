@@ -50,7 +50,9 @@
                </div>
                 </div>
                   </div>
+                  <%if @user == current_user || @user.admin_privileges < 50 %>
                       <%= render :partial => 'user_badges/new' %>
+                      <%end%>
                 </div>
               </div>
             </div>
