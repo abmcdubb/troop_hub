@@ -70,3 +70,41 @@ body {
 
 }
 
+#multi1{
+  width:760px;
+  margin-bottom:20px;
+  overflow:hidden;
+}
+#multi2{
+  line-height:1.5em;
+  float:left;
+  display:inline;
+  
+}
+#double li  { width:50%;} 
+#triple li  { width:33.333%; }
+#quad li    { width:25%; }
+#six li     { width:16.666%; } 
+
+
+
+@media print {
+  body {
+    background-color: #FFF;
+  }
+
+  #container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  
+  #line_items {
+    page-break-before: always;
+  }
+  
+  #pdf_link {
+    display: none;
+  }
+}

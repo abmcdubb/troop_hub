@@ -8,6 +8,14 @@ class Users::RegistrationsController < ::Devise::RegistrationsController
     super
   end
 
+  def edit
+    @skills = Skill.all
+  end
+  
+
+def update
+end
+
   def create 
     sanitize_params_by_role 
     build_resource(sign_up_params)

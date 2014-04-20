@@ -7,25 +7,16 @@ before_action :set_troop, only: [:index]
       @users = @troop.users
       @troop_user = TroopUser.all
     else
-      redirect_to current_user
+      redirect_to(:back)
     end
   end
 
-  def show
-    @user = @troop_user.user
-    if  @user.troop_ids.include?(current_user.id)
-
-  else
-    redirect_to current_user
-  end
-
-  end
 
 private
 
 
   def set_troop_user
-    @troop_user = TroopUser.find(params[:user_id])
+    @troop_user = TroopUser.find(params[:id])
   end
 
   def set_troop

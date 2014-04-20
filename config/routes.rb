@@ -45,8 +45,8 @@ get 'user_badges' => 'user_badges#index'
   delete 'troops/destroy' => 'troops#destroy'
 
 #---Routes for Individual Users -----
-  get '/users/:user_id' => 'troop_users#show', :as => :user_show
-  get '/users/edit/:user_id' => 'troop_users#edit'
+  get '/users/:id' => 'users#show', :as => :user_show
+  get '/users/edit/:id' => 'users#edit'
   patch '/users/update/:user_id' => 'troop_users#update'
   delete '/users/destroy' => 'troop_users#destroy'
 

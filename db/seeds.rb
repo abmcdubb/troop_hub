@@ -120,14 +120,14 @@ adult_skill_13 = UserSkill.create(skill_id: 5, user_id: 4, skill_description: "K
 adult_skill_14 = UserSkill.create(skill_id: 18, user_id: 4, skill_description: "Firestarter, Hiking")
 adult_skill_15 = UserSkill.create(skill_id: 19, user_id: 4, skill_description: "Bird Watching, Frog Hopping")
 
-scout_1 = User.create(troop_ids: '1', role: 'Scout', name: 'Hermione Granger', grade: 'Kindergarten', birthday: '2007/4/9', email: 'hermione@hogwarts.com', phone_number: '212-994-4949', admin_privileges: '', dues: '', password: '123456789')
-scout_2 = User.create(troop_ids: '2', role: 'Scout', name: 'Lavender Brown', grade: '2nd', birthday: '2007/2/1', email: 'ilovewonwon@hogwarts.com', phone_number: '212-994-4989', admin_privileges: '', dues: '', password: '123456789')
-scout_3 = User.create(troop_ids: '3', role: 'Scout', name: 'Parvati Patil', grade: '11th', birthday: '2005/4/5', email: 'PPatil@hogwarts.com', phone_number: '212-994-4925', admin_privileges: '', dues: '', password: '123456789')
-scout_4 = User.create(troop_ids: '1', role: 'Scout', name: 'Cho Chang', grade: '12th', birthday: '1999/6/17', email: 'cchang@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
-scout_5 = User.create(troop_ids: '2', role: 'Scout', name: 'Ginny Weasley', grade: '12th', birthday: '1999/6/17', email: 'gweasley@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
-scout_6 = User.create(troop_ids: '3', role: 'Scout', name: 'Luna Lovegood', grade: '12th', birthday: '1999/6/17', email: 'llovegood@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
-scout_7 = User.create(troop_ids: '1', role: 'Scout', name: 'Moaning Myrtle', grade: '12th', birthday: '1999/6/17', email: 'mymyrtle@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
-scout_8 = User.create(troop_ids: '2', role: 'Scout', name: 'Hannah Abbott', grade: '12th', birthday: '1999/6/17', email: 'assets/habbot@hogwarts.com', phone_number: '212-994-4911', admin_privileges: '', dues: '', password: '123456789')
+scout_1 = User.create(troop_ids: '1', role: 'Scout', name: 'Hermione Granger', grade: 'Kindergarten', birthday: '2007/4/9', email: 'hermione@hogwarts.com', phone_number: '212-994-4949', dues: '', password: '123456789', admin_privileges: 50)
+scout_2 = User.create(troop_ids: '2', role: 'Scout', name: 'Lavender Brown', grade: '2nd', birthday: '2007/2/1', email: 'ilovewonwon@hogwarts.com', phone_number: '212-994-4989', dues: '', password: '123456789', admin_privileges: 50)
+scout_3 = User.create(troop_ids: '3', role: 'Scout', name: 'Parvati Patil', grade: '11th', birthday: '2005/4/5', email: 'PPatil@hogwarts.com', phone_number: '212-994-4925', dues: '', password: '123456789', admin_privileges: 50)
+scout_4 = User.create(troop_ids: '1', role: 'Scout', name: 'Cho Chang', grade: '12th', birthday: '1999/6/17', email: 'cchang@hogwarts.com', phone_number: '212-994-4911', dues: '', password: '123456789', admin_privileges: 50)
+scout_5 = User.create(troop_ids: '2', role: 'Scout', name: 'Ginny Weasley', grade: '12th', birthday: '1999/6/17', email: 'gweasley@hogwarts.com', phone_number: '212-994-4911', dues: '', password: '123456789', admin_privileges: 50)
+scout_6 = User.create(troop_ids: '3', role: 'Scout', name: 'Luna Lovegood', grade: '12th', birthday: '1999/6/17', email: 'llovegood@hogwarts.com', phone_number: '212-994-4911',dues: '', password: '123456789', admin_privileges: 50)
+scout_7 = User.create(troop_ids: '1', role: 'Scout', name: 'Moaning Myrtle', grade: '12th', birthday: '1999/6/17', email: 'mymyrtle@hogwarts.com', phone_number: '212-994-4911', dues: '', password: '123456789', admin_privileges: 50)
+scout_8 = User.create(troop_ids: '2', role: 'Scout', name: 'Hannah Abbott', grade: '12th', birthday: '1999/6/17', email: 'assets/habbot@hogwarts.com', phone_number: '212-994-4911', dues: '', password: '123456789', admin_privileges: 50)
 
 
 s1pic = File.join(Rails.root, '/app/assets/images/hgranger.jpeg')
@@ -205,8 +205,8 @@ a8_file = File.new(a8pic)
 adult_8.profile_photo = a8_file
 adult_8.save!
 
-badgeparser1 = Parser.new('./gs_site.html')
-badgeparser1.official_badge_list
+OfficialBadgeParser.new
+
 badgeparser2 = Parser.new('./Patches1.csv')
 badgeparser2.unofficial_badge_list
 # troopdb = Parser.new('./troopdb.csv')

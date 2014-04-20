@@ -1,32 +1,12 @@
 require 'csv'
 
+
 class Parser
 
   def initialize(file_path)
     @file_path = file_path
   end
 
-  def official_badge_list
-    badge_list = Nokogiri::HTML(@file_path)
-
-    badge_list.css("li").each do |b|
-      if b.attr('thetitle') != nil
-        badge = Badge.new
-        badge.logo = b.css('img').attr('src').text
-        
-        if b.attr("thetitle") == "Women&#8217;s Health"
-          badge.name = "Women's Health"
-        elsif b.attr("thetitle").include?('&amp;')
-          badge.name =  b.attr("thetitle").gsub('&amp;', '&')
-        else badge.name = b.attr("thetitle")
-        end
-
-        badge.troop_type = b.attr("agelevel")
-        badge.category = "#{b.attr('subcategory')} - #{b.attr('category')}"
-        badge.save
-      end
-    end
-  end
 
   def unofficial_badge_list
     CSV.foreach(@file_path) do |row|
@@ -60,4 +40,16 @@ class Parser
       troop = Troop.create(:troop_type => troop_type.strip, :number => number.strip, :city => city.strip, :state => state.strip)
     end
   end
+<<<<<<< HEAD
 end
+=======
+
+# Girl Scout Troop,31212,Birmingham, Alabama
+#badgeparser1 = Parser.new('./gs_site.html')
+#badgeparser2 = Parser.new('./Patches1.csv')
+#troopdb = Parser.new('./troopdb.csv')
+
+
+
+end
+>>>>>>> 5db69954db01fe5b33214a458232d41c3a4bdb88
