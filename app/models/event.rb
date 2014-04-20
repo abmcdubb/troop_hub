@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+
   has_many :troop_events
   has_many :troops, through: :troop_events
 
@@ -7,8 +8,12 @@ class Event < ActiveRecord::Base
 
   has_many :event_age_levels, dependent: :destroy
   has_many :age_levels, through: :event_age_levels, dependent: :destroy
-
   belongs_to :skill
+
+  validates :name, :presence => true 
+  validates :skill_id, :presence => true
+  validates :season, :presence => true
+  
 
   def self.find_all_by_name(name)
     where("name='#{name}'")
@@ -27,7 +32,7 @@ class Event < ActiveRecord::Base
     else
       results = where(query_hash)
     end
-    results
+    results  
   end
 
   def self.find_by_search_results_with_too_many_forks(results_hash, age_level_ids, badge_ids, season_number)
@@ -76,7 +81,7 @@ class Event < ActiveRecord::Base
     season_array = []
     seasons.each do |season_number, season_name|
       if searched_season_number % season_number == 0 || season_number % searched_season_number == 0
-          season_array << season_name
+        season_array << season_name
       end
     end
     season_array
