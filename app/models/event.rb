@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+
   has_many :troop_events
   has_many :troops, through: :troop_events
 

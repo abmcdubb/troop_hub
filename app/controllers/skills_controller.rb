@@ -5,7 +5,7 @@ class SkillsController < ApplicationController
     @skills = Skill.all
     @age_levels = AgeLevel.all
     @badges = Badge.all
-    @events = Event.where(:skill_id => params[:id])
+    @events = Event.where(:skill_id => params[:id]).paginate(page: params[:page], per_page: 10)
   end
 
   def category_index
@@ -14,6 +14,6 @@ class SkillsController < ApplicationController
     @skills = Skill.all
     @age_levels = AgeLevel.all
     @badges = Badge.all
-    @events = Event.find_by_skill_category(params[:id])
+    @events = Event.find_by_skill_category(params[:id]).paginate(page: params[:page], per_page: 10)
   end
 end

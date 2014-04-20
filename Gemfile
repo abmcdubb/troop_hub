@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'will_paginate-bootstrap'
 gem 'mini_magick' 
 gem "pundit"
 gem 'prawn'
