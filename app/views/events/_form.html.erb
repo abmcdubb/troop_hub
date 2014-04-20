@@ -1,5 +1,8 @@
 <%= form_for @event do |f| %>
-
+<ul class="list-unstyled">
+  <%  @event.errors.full_messages.each do |msg| %>
+    <li><font color="red"><%= msg %></font></li>
+ <% end %>
 
 <div class="form-group">
   <center>  
@@ -97,9 +100,10 @@
 
     </br>
     <%#=f.collection_check_boxes(:badge_ids, @badges, :id, :name)%>
-    <!-- </br> -->
 
-  <%= f.submit %>
+
+      <button class="btn btn-danger btn-sm show-submit" type="submit">Add Event</button>              
+
 <% end %>
 </div>
 

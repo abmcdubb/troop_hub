@@ -55,7 +55,7 @@ class EventsController < ApplicationController
         @age_levels = AgeLevel.all
         @troops = Troop.all
         @skills = Skill.all
-        @events = Event.all
+        @events = Event.all.paginate(page: params[:page], per_page: 10)
         format.html { render template: "skills/show", notice: 'Event was not createds' }
       end
     end

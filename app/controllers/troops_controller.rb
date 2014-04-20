@@ -1,5 +1,6 @@
 class TroopsController < ApplicationController
   before_action :set_troop, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new]
   before_action :set_user, only: [:show]
 
   def index

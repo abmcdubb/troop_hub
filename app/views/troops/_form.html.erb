@@ -1,38 +1,35 @@
 <%= form_for(@troop) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %><br/>
-    <br/>
+    <label>Troop Name:</label>
+    <%= f.text_field :name, class: "form-control" %></br>
   
-    <%= f.label :number %>
-    <%= f.text_field :number %><br/>
-    <br/>
-  
+    <label>Troop Number:</label>
+    <%= f.text_field :number, class: "form-control" %>
+  <label>Troop Type:</label></br>
   <% @age_levels.each do |age_level| %>
     <%= f.radio_button :age_level_id, age_level.id%>
     <%= f.label :age_level_id, age_level.name %></br>
   <% end %>
+                      <!-- Form inside table wrapper -->
+                     
+                    
+    <label>City:</label>
+    <%= f.text_field :city, class: "form-control" %></br>
   
-  <br/>
-    <%= f.label :city %>
-    <%= f.text_field :city %><br/>
-    <br/>
+    <label>State:</label>
+    <%= f.text_field :state, class: "form-control" %></br>
+
   
-    <%= f.label :state %>
-    <%= f.text_field :state %><br/>
-    <br/>
+    <label>Zip Code:</label>
+    <%= f.text_field :zip_code, class: "form-control" %></br>
+
   
-    <%= f.label :zip_code %>
-    <%= f.text_field :zip_code %><br/>
-    <br/>
+    <label>Meetup Location:</label>
+    <%= f.text_field :meetup_location, class: "form-control" %></br>
+
   
-    <%= f.label :meetup_location %>
-    <%= f.text_field :meetup_location %><br/>
-    <br/>
-  
-      <%= f.label :about_us %>
-      <%= f.text_area :about_us %>
-    
-  
-    <br/>
-  <%= f.submit%>
+    <label>About Us:</label>
+      <%= f.text_area :about_us, class: "form-control" %></br>
+      <br>
+
+  <button class="btn btn-danger btn-sm show-submit " type="submit">Add Troop</button>
 <% end %>
