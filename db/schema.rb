@@ -113,6 +113,11 @@ ActiveRecord::Schema.define(version: 20140418223524) do
     t.string   "on_page"
   end
 
+  create_table "scouts_badges", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "skills", force: true do |t|
     t.string   "name"
     t.boolean  "badge_related_skill", default: false
