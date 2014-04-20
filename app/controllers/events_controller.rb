@@ -92,6 +92,7 @@ class EventsController < ApplicationController
   end
 
   def search_results
+    raise 8
     @event = Event.new
     @skills = Skill.all
     @age_levels = AgeLevel.all
