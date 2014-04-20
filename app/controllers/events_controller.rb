@@ -2,6 +2,8 @@ class EventsController < ApplicationController
     #before_action :set_troop_event, only: [:show, :edit, :update, :destroy]
     before_action :set_event, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, only: [:new]
+     autocomplete :badge, :name
+
 
 
   def index
@@ -16,35 +18,45 @@ class EventsController < ApplicationController
   end
 
   def show
+    @skills = Skill.all
   end
 
   def new
     if current_user.admin_privileges < 50
       @event = Event.new
+      @event_badge = EventBadge.new
       @troop_event = TroopEvent.new
       @badges=Badge.all
       @age_levels = AgeLevel.all
       @troops = Troop.all
       @skills = Skill.all
     else
-      redirect_to events_index_path
+      redirect_to events_path
     end
   end
 
   def create
-    @event = Event.new(event_params)
+
+    @event = Event.create(event_params)
+    @badges = params[:event][:badge_id][0].split(",")
+    @badges.each do |b|
+      @badge = Badge.find_by_name(b)
+      @event_badge = EventBadge.create({:badge_id => @badge.id, :event_id => @event.id})
+    end
+    @skills = Skill.all
     #@troop_event = @event.troop_events.build(params[:troop_event])
     #there should be a seperate form for new event and new troop event?
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_index_path, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
       else
         @troop_event = TroopEvent.new
         @badges=Badge.all
         @age_levels = AgeLevel.all
         @troops = Troop.all
         @skills = Skill.all
-        format.html { render action: 'new' }
+        @events = Event.all
+        format.html { render template: "skills/show", notice: 'Event was not createds' }
       end
     end
   end
@@ -54,24 +66,25 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
       @badges=Badge.all
       @age_levels = AgeLevel.all
-      @skill = Skill.all
+      @skills = Skill.all
     else
-    redirect_to events_index_path
+      redirect_to events_path
+    end
   end
-end
+
 
   def update
     @event = Event.find(params[:id])
     @event.update_attributes(event_params)
     if @event.save
-        redirect_to events_index_path, notice: 'Event updated.'
+        redirect_to events_path, notice: 'Event updated.'
       else
         @badges=Badge.all
         @age_levels = AgeLevel.all
         @skill = Skill.all
         format.html { render action: 'edit' }
       end
-  end
+    end
 
   def advanced_search
     @age_levels = AgeLevel.all
@@ -79,7 +92,10 @@ end
   end
 
   def search_results
-    @events = Event.find_by_search_results_with_too_many_forks(params[:event], params[:age_level_ids], params[:badge_ids], params[:season])
+    @event = Event.new
+    @skills = Skill.all
+    @age_levels = AgeLevel.all
+    @events = Event.find_by_search_results_with_too_many_forks(params[:event], params[:age_level_ids], params[:badge_ids], params[:season]).paginate(page: params[:page], per_page: 10)
   end
 
 private
@@ -88,7 +104,7 @@ private
   end
 
   def event_params
-    params.require(:event).permit(:name, :genre, :description, :season, :location, :skill_id, :age_level_ids => [], :badge_ids => [])
+    params.require(:event).permit(:name, :genre, :description, :season, :location, :badge_id, :skill_id, :age_level_ids => [], :badge_ids => [])
   end
 
   def set_troop_event
@@ -99,4 +115,12 @@ private
     params.require(:troop_event).permit(:start_time, :location, :detail, :event_id, :troop_id)
   end
 
+
+  def badge_params
+    params.require(:badge).permit(:name, :category)
+  end
+
+  def event_badge_params
+    params.require(:event_badge).permit(:event_id, :badge_id)
+  end
 end

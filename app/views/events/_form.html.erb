@@ -1,24 +1,71 @@
 <%= form_for @event do |f| %>
-  <center>  <%= f.label :event_Name %>
-    <%= f.text_field :name %>
+
+
+<div class="form-group">
+  <center>  
+    <label class="form_label_font">Event Name:</label>
+    <%= f.text_field :name, :class => "form-control" %>
     </br>
 <!--     <%#= f.label :appropriate_Ages %>
     <%#= f.text_field :grades %> -->
-<%=f.collection_check_boxes(:age_level_ids, @age_levels, :id, :name)%>
-<%#= f.select(:grades, [['K', 'K'],['1st', '1st'], ['2nd', '2nd'], ['3rd', '3rd'], ['4th', '4th'], ['5th', '5th'], ['6th', '6th'], ['7th', '7th'], ['8th', '8th'], ['9th', '9th'], ['10th', '10th'], ['11th', '11th'], ['12th', '12th']]) %>
-
+    <%#=f.collection_check_boxes(:age_level_ids, @age_levels, :id, :name, :item_wrapper_class => 'form-control' )%>
+    <label class="form_label_font">Appropriate Age Level:</label><br>
+        <label for="event_age_level_ids_1">Daisy</label>
+        <input id="event_age_level_ids_1" name="event[age_level_ids][]" type="checkbox" value="1"> | 
+        <label for="event_age_level_ids_2">Brownie</label>
+        <input id="event_age_level_ids_2" name="event[age_level_ids][]" type="checkbox" value="2"> | 
+        <label for="event_age_level_ids_3">Junior</label>
+        <input id="event_age_level_ids_3" name="event[age_level_ids][]" type="checkbox" value="3"> | 
+        <label for="event_age_level_ids_4">Cadette</label>
+        <input id="event_age_level_ids_4" name="event[age_level_ids][]" type="checkbox" value="4"> | 
+        <label for="event_age_level_ids_5">Senior</label>
+        <input id="event_age_level_ids_5" name="event[age_level_ids][]" type="checkbox" value="5"> | 
+        <label for="event_age_level_ids_6">Ambassador</label>
+        <input id="event_age_level_ids_6" name="event[age_level_ids][]" type="checkbox" value="6"> | 
+        <label for="event_age_level_ids_7">All Ages</label>
+        <input id="event_age_level_ids_7" name="event[age_level_ids][]" type="checkbox" value="7"> 
+        <input name="event[age_level_ids][]" type="hidden" value="">
     </br>
-    <%= f.label :Type_of_Event %>
-    <%= f.text_field :genre %>
+    <%#= f.label :Type_of_Event %>
+    <%#= f.text_field :genre, :class => "form-control" %>
     </br>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <label class="form_label_font">Event Description:</label>
+    <%= f.text_area :description, :class => "form-control", :rows => 6 %>
     </br>
-    <%= f.label :skill %>
-    <%= f.collection_select(:skill_id, @skills, :id, :name) %>
+    <label class="form_label_font">Event Category:</label>
+    <select id="event_skill_id" name="event[skill_id]", class="form-control">
+        <option value="">Please select a category</option>
+        <option value="1">Sports &amp; Fitness</option>
+        <option value="2">Drama</option>
+        <option value="3">Music</option>
+        <option value="4">Dance</option>
+        <option value="5">Arts &amp; Crafts</option>
+        <option value="6">Cooking</option>
+        <option value="7">Geography &amp; Culture</option>
+        <option value="8">Health &amp; Safety</option>
+        <option value="9">Community Service</option>
+        <option value="10">Computer Science</option>
+        <option value="11">Technology</option>
+        <option value="12">Math</option>
+        <option value="13">Engineering</option>
+        <option value="14">Science</option>
+        <option value="15">Astronomy</option>
+        <option value="16">Financial Literacy</option>
+        <option value="17">Career Exploration</option>
+        <option value="18">Plants &amp; Gardening</option>
+        <option value="19">Outdoor Skills</option>
+        <option value="20">Animals</option>
+        <option value="21">Climate/Earth Science</option>
+        <option value="22">Habitat Restoration</option>
+        <option value="23">Other</option>
+    </select>
+    <%#= f.label :skill %>
+    <%#= f.collection_select(:skill_id, @skills, :id, :name) %>
     </br>
     <%= label_tag(:'event_season', "Event season:") %>
-    <%= select_tag(:"event[season]", options_for_select([['Any', 'Any'],
+    <%= select_tag(:"event[season]", options_for_select([
+    ['Please select a category', ''],    
+    ['Any', 'Any'],
     ['Spring', 'Spring'],
     ['Summer', "Summer"],
     ['Fall', "Fall"],
@@ -36,15 +83,24 @@
     ['November', "November"],
     ['December', 'December'],
     ['New Years', 'New Years'],
-    ['Independence Day', 'Independence Day']], 1))%>
+    ['Independence Day', 'Independence Day']], 1), :class => "form-control") %>
+
     </br>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+
+
+ <label class="form_label_font">Badges Earned</label>
+<%= f.autocomplete_field :badge_id, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true, :class => "form-control"%>
+<br/>
+
+ <label class="form_label_font">Location</label>
+<%= f.text_field :location, :class => "form-control"  %>
+
     </br>
-    <%=f.collection_check_boxes(:badge_ids, @badges, :id, :name)%>
-    </br>
+    <%#=f.collection_check_boxes(:badge_ids, @badges, :id, :name)%>
+    <!-- </br> -->
 
   <%= f.submit %>
 <% end %>
+</div>
 
 

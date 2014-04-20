@@ -8,6 +8,27 @@ troop_3 = Troop.create(name: 'Tutshill Tornadoes', number: '0101', age_level_id:
 city: 'Tutshill', state: 'England', zip_code: '10004', meetup_location:
 'Tutshill Church of England Primary School', about_us: "Boggarts lavender robes, Hermione Granger Fantastic Beasts and Where to Find Them. Bee in your bonnet Hand of Glory elder wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir mewing kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma and Parvati Sorting Hat Minister of Magic blue turban remember my last.")
 
+
+event_1 = Event.new(skill_id: 1, name: 'Yoga', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
+event_2 = Event.new(skill_id: 2, name: 'Improv', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
+event_3 = Event.new(skill_id: 3, name: 'Harpsichord Lessons', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
+event_4 = Event.new(skill_id: 4, name: 'Macarena', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
+event_5 = Event.new(skill_id: 5, name: 'Gingerbread House Making', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
+event_6 = Event.new(skill_id: 6, name: 'Making Healthy Snacks', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
+event_7 = Event.new(skill_id: 7, name: 'Learning Chinese', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
+event_8 = Event.new(skill_id: 8, name: 'Learning CPR', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
+event_9 = Event.new(skill_id: 9, name: 'Introduction to Ruby on Rails', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
+event_10 = Event.new(skill_id: 10, name: 'Video Game Development', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
+event_11 = Event.new(skill_id: 11, name: 'Calculus', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
+event_12 = Event.new(skill_id: 12, name: 'Robotics', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
+event_13 = Event.new(skill_id: 13, name: 'Making Volcanoes', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
+event_14 = Event.new(skill_id: 14, name: 'Stargazing', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
+event_15 = Event.new(skill_id: 15, name: 'Making a Budget', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
+event_16 = Event.new(skill_id: 16, name: 'Woodworking', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
+event_17 = Event.new(skill_id: 17, name: 'Planting a Tree', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
+event_18 = Event.new(skill_id: 18, name: 'Camping', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
+
+
 troop_event_1 = TroopEvent.create(event_id: 1, troop_id: 1, start_time: DateTime.now, location: "The long Island Center for Yoga", detail: "The daisys will be doing yoga today! We'll be leaving from Little Ones at 11, and going to the Long Island Yoga Center for 4 hours of yoga. Get excited!")
 troop_event_2 = TroopEvent.create(event_id: 1, troop_id: 2, start_time: DateTime.now, location: "The long Island Center for Yoga", detail: "The brownies will be doing yoga today! We'll be leaving from St. Mary\'s at 12:30, and going to the Long Island Yoga Center for 4 hours of yoga. Get excited!")
 troop_event_3 = TroopEvent.create(event_id: 2, troop_id: 1, start_time: DateTime.now, location: "Little Ones", detail: "We'll talk about how Gloria respected herself. Bring your own picnic lunch.")
@@ -27,6 +48,7 @@ adult_8 = User.create(troop_ids: '2, 1', role: 'Volunteer', name: 'Nymphadora To
 adult_8 = User.create(role: 'Volunteer', name: 'Tom Riddle', email: 'tomriddle@deathtomuggles.com', phone_number: '646-555-5555', profile_photo: 'tomriddle.jpg', password: '123456789')
 
 
+
 age_level_1 = AgeLevel.create(name: "Daisy", grades: "K-1")
 age_level_2 = AgeLevel.create(name: "Brownie", grades: "2-3")
 age_level_3 = AgeLevel.create(name: "Junior", grades: "4-5")
@@ -34,6 +56,78 @@ age_level_4 = AgeLevel.create(name: "Cadette", grades: "6-8")
 age_level_5 = AgeLevel.create(name: "Senior", grades: "9-10")
 age_level_6 = AgeLevel.create(name: "Ambassador", grades: "11-12")
 age_level_7 = AgeLevel.create(name: "All Ages", grades: "K-12")
+
+
+# event_1.age_level_ids << 1
+# event_1.age_level_ids << 2
+event_1.save
+
+# event_2.age_level_ids << 3
+# event_2.age_level_ids << 4
+event_2.save
+
+# event_3.age_level_ids  << 5
+# event_3.age_level_ids << 6
+event_3.save
+
+# event_4.age_level_ids << 7
+# event_4.age_level_ids << 1
+# event_4.save
+
+# event_5.age_level_ids << 2
+# event_5.age_level_ids << 3
+event_5.save
+
+# event_6.age_level_ids << 4
+# event_6.age_level_ids << 5
+event_6.save
+
+# event_7.age_level_ids << 6
+# event_7.age_level_ids << 7
+event_7.save
+
+# event_8.age_level_ids << 4
+# event_8.age_level_ids << 5
+event_8.save
+
+# event_9.age_level_ids << 6
+# event_9.age_level_ids << 7
+event_9.save
+
+# event_10.age_level_ids << 3
+# event_10.age_level_ids << 7
+event_10.save
+
+# event_11.age_level_ids << 2
+# event_11.age_level_ids << 4
+event_11.save
+
+# event_12.age_level_ids << 3
+# event_12.age_level_ids << 5
+event_12.save
+
+# event_13.age_level_ids << 4
+# event_13.age_level_ids << 6
+event_13.save
+
+# event_14.age_level_ids << 5
+# event_14.age_level_ids << 7
+event_14.save
+
+# event_15.age_level_ids << 3
+# event_15.age_level_ids << 4
+event_15.save
+
+# event_16.age_level_ids << 5
+# event_16.age_level_ids << 6
+event_16.save
+
+# event_17.age_level_ids << 6
+event_17.save
+
+# event_18.age_level_ids << 7
+event_18.save
+
 
 event_age_level_1 = EventAgeLevel.create(event_id: 1, age_level_id: 1)
 event_age_level_2 = EventAgeLevel.create(event_id: 1, age_level_id: 2)
@@ -82,24 +176,6 @@ skill21 = Skill.create(name: 'Habitat Restoration', category: 'Nature & Ecology'
 #---OTHER----
 skill22 = Skill.create(name: 'Other', badge_related_skill: true)
 
-event_1 = Event.create(skill_id: 1, name: 'Yoga', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
-event_2 = Event.create(skill_id: 2, name: 'Improv', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
-event_3 = Event.create(skill_id: 3, name: 'Harpsichord Lessons', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
-event_4 = Event.create(skill_id: 4, name: 'Macarena', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
-event_5 = Event.create(skill_id: 5, name: 'Gingerbread House Making', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
-event_6 = Event.create(skill_id: 6, name: 'Making Healthy Snacks', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
-event_7 = Event.create(skill_id: 7, name: 'Learning Chinese', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
-event_8 = Event.create(skill_id: 8, name: 'Learning CPR', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
-event_9 = Event.create(skill_id: 9, name: 'Introduction to Ruby on Rails', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
-event_10 = Event.create(skill_id: 10, name: 'Video Game Development', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
-event_11 = Event.create(skill_id: 11, name: 'Calculus', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
-event_12 = Event.create(skill_id: 12, name: 'Robotics', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
-event_13 = Event.create(skill_id: 13, name: 'Making Volcanoes', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
-event_14 = Event.create(skill_id: 14, name: 'Stargazing', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
-event_15 = Event.create(skill_id: 15, name: 'Making a Budget', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
-event_16 = Event.create(skill_id: 16, name: 'Woodworking', description: "To learn about this ancient science that promotes health and well-being. Yoga can help with concentration and teaches respect for others, nature and ourselves. It can help give you tools you can use in daily life to relax and be more focused on the present moment.", season: "Any", one_time: "false", location: 'anywhere')
-event_17 = Event.create(skill_id: 17, name: 'Planting a Tree', description: "1. Talk about \"Gloria's Story\" \n 2. Invite an older Girl Scout to talk to your group about ways to respect yourself and others \n 3. Practice respecting yourself and others", season: "Any", one_time: "false", location: 'anywhere')
-event_18 = Event.create(skill_id: 18, name: 'Camping', description: "Artists take what they see and make it beautiful. Learn to paint and color your world in super strokes. \n 1. Get inspired \n 2. Paint the real world \n 3. Paint a mood \n 4. Paint without brushes \n 5. Paint a mural", season: "Any", one_time: "false", location: 'anywhere')
 
 adult_skill_1 = UserSkill.create(skill_id: 3, user_id: 1, skill_description: "Violin, Viola, Cello")
 adult_skill_2 = UserSkill.create(skill_id: 8, user_id: 1, skill_description: "Nursing, Bandaging Wounds")
@@ -205,8 +281,8 @@ a8_file = File.new(a8pic)
 adult_8.profile_photo = a8_file
 adult_8.save!
 
-badgeparser1 = Parser.new('./gs_site.html')
-badgeparser1.official_badge_list
+OfficialBadgeParser.new
+
 badgeparser2 = Parser.new('./Patches1.csv')
 badgeparser2.unofficial_badge_list
 # troopdb = Parser.new('./troopdb.csv')

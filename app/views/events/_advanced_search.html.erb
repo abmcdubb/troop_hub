@@ -20,11 +20,13 @@
     <%= age_level.name%></br>
   <% end %>
   
-  <h4>Badges</h4>
-  <% @badges.each do |badge| %>
-    <%= check_box_tag 'badge_ids[]', badge.id%>
-    <%= badge.name%></br>
-  <% end %>
+ <!--  <h4>Badges</h4> -->
+  <%# @badges.each do |badge| %>
+    <%#= check_box_tag 'badge_ids[]', badge.id%>
+    <%#= badge.name%></br>
+  <%# end %>
+
+    
 
     <%= label_tag(:'season', "Event season:") %>
     <%= select_tag(:season, options_for_select([['Any', 1],

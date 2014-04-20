@@ -40,10 +40,17 @@
                       <!-- About company inner items -->
                       <div class="about-company-inner">
                         <!-- Paragraph with icon -->
-                        <span class="company-feature"><i class="fa fa-trophy br-lblue"></i> <b class="lblue">10</b> Awards</span>
-                      </div>
-                    </div>
+                        <span class="company-feature"></b>Badges</span>
+                      
+                       <ul style = "list-style: none;">
+                        <% @user.badges.each do |badge|%>
+                          <li> <img class = "badge-logo" src = "<%=badge.logo%>"/> <%= badge.name %>  </li>
+                          <%end%>
+                        </ul>
+               </div>
+                </div>
                   </div>
+                      <%= render :partial => 'user_badges/new' %>
                 </div>
               </div>
             </div>

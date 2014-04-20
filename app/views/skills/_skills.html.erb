@@ -1,6 +1,6 @@
 <div class = "inner-page padd"><div class = "inner-menu"><div class = "container"><div class = "row">
   <h1>Events</h1>
-  <button type = "button"><%=link_to "Add Event", events_new_path%></button><br/>
+  <button type = "button"><%=link_to "Add Event", new_event_path%></button><br/>
   <br/>
   <% @events.each do |event| %>
     <div class ="col-md-4 col-sm-6 event-size">
@@ -80,37 +80,135 @@
  <!--    <div class="wrapper"> -->
         <!-- Dishes Start -->         
      <!--    <div class="dishes padd">
+=======
+ <!-- Page Wrapper -->
+    <div class="wrapper">
+      <!-- Inner Content -->
+      <div class="inner-page padd">
+      
+        <!-- General Info Start -->
+        
+        <div class="general">
           <div class="container">
-        -->     <!-- Default Heading -->
-    
-            <!-- <div class="row"> -->
-             <%# @events.each do |event| %>
-              <!-- <div class="col-md-3 col-sm-6">  -->
-                <!-- <div class="dishes-item-container"> -->
-                  <!-- Image Frame -->
-                  <!-- <div class="img-frame"> -->
-                    <!-- Image -->
-                    <!-- <img src="img/dish/dish5.jpg" class="img-responsive" alt="" /> -->
-                    <!-- Block for on hover effect to image -->
-                    <!-- <div class="img-frame-hover"> -->
-                      <!-- Hover Icon --><!--event.name-->
-                      <!-- <a href="#"><i class="fa fa-cutlery"></i></a> -->
-                    <!-- </div> -->
-                  <!-- </div> -->
-                  <!-- Dish Details -->
-                  <!-- <div class="dish-details"> -->
-                    <!-- Heading -->
-                    <!-- <h3>Delicious Chinese</h3> -->
-                    <!-- Paragraph -->
-                    <!-- <p>At vero eos et accusal gusto for ides residuum lores.</p> -->
-                    <!-- Button -->
-                    <!-- <a href="#" class="btn btn-danger btn-sm">Add Event</a> -->
-                  <!-- </div> -->
-                <!-- </div -->
-              <!-- </div> -->
-            <!-- <%# end %> -->
-            <!-- </div> -->
-          <!-- </div>           -->
-        <!-- </div> -->
-        <!-- Dishes End -->   
-    <!--</div>--><!-- / Wrapper End -->
+            <div class="row">
+               <div class="col-md-4 col-sm-4">
+                <!-- General Sidebar image -->
+                <div class="component-content">
+                  <h4>Search for Events</h4>  
+                  <%= render partial: 'events/search'%>
+                  <!-- Hot tag -->
+                  <br>
+                  <%= render partial: 'events/advanced_search'%>
+                </div>
+                <div class="component-content">
+                  <h3 align="center">Add A New Event</h3>
+                  <%= render 'events/form' %>
+                  <!-- Hot tag -->
+                  <br>
+
+                </div>
+                
+                
+                <!-- General Sidebar image -->
+                <div class="general-img">
+                  <img class="img-responsive img-thumbnail" src="img/dish/dish2.jpg" alt="" />
+                  <!-- Hot tag -->
+                  <span class="hot-tag br-red">Hot</span>
+                </div>
+              </div>
+              <div class="col-md-8 col-sm-8">
+                <!-- General information content -->
+                 <% if @events == [] %>
+                 <h3> No activities matched your search.<br>  Try using different search terms or browsing activities by category <%= link_to "here.", events_path %></h3>
+                 <% end %> 
+                 <% @events.each do |event| %>
+
+                  <!-- Navigation tab -->
+                  <div class="component-content">
+                         
+                    <!-- Navigation tabs (Job titles ). Use unique value for "href" in "anchor tags". -->
+                     <h3 align="center"><%= event.name %></h3>
+                     
+                      <!-- List content -->
+
+                      <ul class="list-unstyled" align="center">
+                        <% unless event.age_levels.empty? %>
+                        <li><h5><i class="glyphicon glyphicon-user"></i> Age Levels: 
+                           <% event.age_levels.each_with_index do |age_level, i|%>
+                            <%if i+1==event.age_levels.length%>
+                              <%=age_level.name%>
+                            <%else%>
+                              <%=age_level.name%>,
+                            <%end%>
+                          <%end%> 
+                        <% end %>
+                      
+                        </h5></li>
+                        <% unless event.badges.empty? %>
+
+                          <li><h5><i class="glyphicon glyphicon-certificate"></i> Badges:                           
+                             <% event.badges.each_with_index do |badge, i|%>
+                              <%if i+1==event.badges.length%>
+                                <%=badge.name%>
+                              <%else%>
+                                <%=badge.name%>,
+                              <%end%>
+                            <%end%>                          
+                        </h5></li>
+                        <% end %>
+
+                        <% unless event.season.blank? %>
+
+                          <li><h5><i class="glyphicon glyphicon-cloud"></i> Seasons:                           
+                             <%=event.season%>      
+                        </h5></li>
+                        <% end %>
+
+                        <% unless event.location.blank? %>
+
+                          <li><h5><i class="glyphicon glyphicon-globe"></i> Location:                           
+                             <%=event.location.capitalize%>      
+                        </h5></li>
+                        <% end %>
+
+                        <% unless event.description.blank? %>
+
+                          <li><h5><i class="glyphicon glyphicon-info-sign"></i> Description:                           
+                             <%=event.description%>      
+                        </h5></li>
+                        <% end %>
+
+                        <br>
+                        <form action="/troop_events/new" method="get">
+                          <button type="submit" class="btn btn-danger">Add Event to Calendar</button>
+                          <input type = "hidden" name = "event_id" value="<%#=event.id%>">
+                        </form>
+     
+                      </ul>
+                    </div><!-- / component content end -->
+
+               <% end %> 
+               <%= will_paginate @events, renderer: BootstrapPagination::Rails %>
+              <div> <!-- / col-md-8 col-sm-8 end -->
+
+
+             
+
+            </div> <!-- / row end -->
+          </div> <!-- / container -->
+        </div> <!-- / general end -->
+        </div> <!-- / inner page pad end -->
+        
+        <!-- General Info End -->
+      
+        
+      </div><!-- / Inner Page Content End --> 
+      
+     
+      
+    </div><!-- / Wrapper End -->
+
+
+
+
+ 
