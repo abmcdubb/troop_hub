@@ -103,6 +103,8 @@ private
     @event = Event.find(params[:id])
   end
 
+
+
   def event_params
     params.require(:event).permit(:name, :genre, :description, :season, :location, :badge_id, :skill_id, :age_level_ids => [], :badge_ids => [])
   end
