@@ -14,12 +14,15 @@
         <%= text_field_tag(:'event[name]', nil, :class => "form-control") %></br>
         <label class="form_label_font">Event Category:</label>
         <select id="event_skill_id" name="event[skill_id]", class="form-control">
-          <option value="0">Any</option>
+          <option value="Any">Any</option>
           <option value="General">General</option>
           <option value="STEM">STEM</option>
           <option value="Business Smarts">Business Smarts</option>
           <option value="Nature and Ecology">Nature and Ecology</option>
-          <option value="1">Sports &amp; Fitness</option>
+          <%@skills.each do |skill|%>
+            <option value= "<%=skill.id%>" ><%=skill.name%></option>
+          <%end%>
+          <!-- <option value="1">Sports &amp; Fitness</option>
           <option value="2">Drama</option>
           <option value="3">Music</option>
           <option value="4">Dance</option>
@@ -42,7 +45,7 @@
           <option value="21">Climate/Earth Science</option>
           <option value="22">Habitat Restoration</option>
           <option value="23">Other</option>
-        </select>
+         --></select>
   
         <label class="form_label_font">Appropriate Age Level:</label><br>
         <label for="event_age_level_ids_1">Daisy</label>

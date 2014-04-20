@@ -88,13 +88,14 @@ class EventsController < ApplicationController
   def advanced_search
     @age_levels = AgeLevel.all
     @badges = Badge.all
+    @skills = Skill.all
   end
 
   def search_results
     @event = Event.new
     @skills = Skill.all
     @age_levels = AgeLevel.all
-    @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name], params[:event][:age_level_ids], params[:event][:badge_ids], params[:event][:season]).paginate(page: params[:page], per_page: 10)
+    @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name], params[:event][:skill_id], params[:event][:age_level_ids], params[:event][:badge_ids], params[:event][:season]).paginate(page: params[:page], per_page: 10)
   end
 
 private
