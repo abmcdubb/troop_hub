@@ -17,6 +17,8 @@
                   <br>
                   <%= render partial: 'events/advanced_search'%>
                 </div>
+
+                <% if current_user && current_user.admin_privileges == 0 %>
                 <div class="component-content">
                   <h3 align="center">Add A New Event</h3>
                   <%= render 'events/form' %>
@@ -24,15 +26,19 @@
                   <br>
 
                 </div>
+                <% else %>
+                 <div class="general-img">
+                  <img class="img-responsive img-thumbnail" src="/assets/thin_mint_cookie.jpg" alt="" />
+                  <!-- Hot tag -->
+                 
+                </div>
+              
+                <% end %>
+                </div>
                 
                 
                 <!-- General Sidebar image -->
-                <div class="general-img">
-                  <img class="img-responsive img-thumbnail" src="img/dish/dish2.jpg" alt="" />
-                  <!-- Hot tag -->
-                  <span class="hot-tag br-red">Hot</span>
-                </div>
-              </div>
+                
               <div class="col-md-8 col-sm-8">
                 <!-- General information content -->
                  <% if @events == [] %>
@@ -94,12 +100,14 @@
                              <%=event.description%>      
                         </h5></li>
                         <% end %>
-
+                        <% if current_user && current_user.admin_privileges == 0 %>
                         <br>
+
                         <form action="/troop_events/new" method="get">
                           <button type="submit" class="btn btn-danger">Add Event to Calendar</button>
                           <input type = "hidden" name = "event_id" value="<%#=event.id%>">
                         </form>
+                        <% end %>
      
                       </ul>
                     </div><!-- / component content end -->
