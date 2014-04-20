@@ -40,16 +40,7 @@ class Parser
       troop = Troop.create(:troop_type => troop_type.strip, :number => number.strip, :city => city.strip, :state => state.strip)
     end
   end
-<<<<<<< HEAD
-end
-=======
-
-# Girl Scout Troop,31212,Birmingham, Alabama
-#badgeparser1 = Parser.new('./gs_site.html')
-#badgeparser2 = Parser.new('./Patches1.csv')
-#troopdb = Parser.new('./troopdb.csv')
-
-
 
 end
->>>>>>> 5db69954db01fe5b33214a458232d41c3a4bdb88
+
+

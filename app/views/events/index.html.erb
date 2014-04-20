@@ -1,5 +1,5 @@
 
-<%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "TBD", :right_option => "TBD" }%>
+<%=render partial: 'layouts/banner', locals: {:name => "Events", :left_option => "Select a Category to see all its events", :right_option => "" }%>
 
                 <!-- Showcase Start -->
                 
@@ -10,12 +10,12 @@
                                 <!-- Showcase section item -->
                                 <div class="showcase-item">
                                     <!-- Image -->
-                                    <img class="img-responsive" src="http://www.flaticon.com/png/256/43179.png" width ="250" height="290" alt="" />
+                                    <img class="img-responsive" src="/assets/generalskills.gif" width ="300" height="300" alt="" />
                                     <!-- Heading -->
                                     <h3><a href="/skills/general/index">General</a></h3>
                                     <!-- Paragraph -->
                                     <% @general_skills.each do |skill| %>
-                                    <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
+                                        <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
                                     <% end %>
                                     <div class="clearfix"></div>
                                 </div>
@@ -25,17 +25,18 @@
                                 <!-- Showcase section item -->
                                 <div class="showcase-item">
                                     <!-- Image -->
-                                    <img class="img-responsive" src="http://www.flaticon.com/png/256/12124.png" width ="250" height="290" alt="" />
+                                    <img class="img-responsive" src="/assets/science_skills.gif" width ="300" height="300"  alt="" />
                                     <!-- Heading -->
                                     <h3><a href="/skills/stem/index">STEM</a></h3>
                                     <% @stem_skills.each do |skill| %>
-                                    <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
+                                        <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
                                     <% end %>
                                        <br>
                                     <br>
                                     <br>
                                     <br>
                                     <br>
+                                    <br> <br>
                                     <br>
                                    
                                     <div class="clearfix"></div>
@@ -49,11 +50,11 @@
                                 <!-- Showcase section item -->
                                 <div class="showcase-item">
                                     <!-- Image -->
-                                    <img class="img-responsive" src="http://www.flaticon.com/png/256/31816.png" alt="" width ="250" height="290" />
+                                    <img class="img-responsive" src="/assets/business_skills.gif" alt="" wwidth ="300" height="300"  />
                                     <!-- Heading -->
                                     <h3><a href="/skills/business-smarts/index">Business Smarts</a></h3>
                                     <% @business_skills.each do |skill| %>
-                                    <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
+                                        <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
                                     <% end %>
                                     <p></p>
                                     <br>
@@ -70,12 +71,12 @@
                                 <!-- Showcase section item -->
                                 <div class="showcase-item">
                                     <!-- Image -->
-                                    <img class="img-responsive" src="http://www.flaticon.com/png/256/43798.png" alt="" width ="250" height="290" />
+                                    <img class="img-responsive" src="/assets/nature_skills.gif" alt="" width ="300" height="300"  />
                                     <!-- Heading -->
                                     <h3><a href="/skills/nature-and-ecology/index">Nature and Ecology</a></h3>
                                     <!-- Paragraph -->
                                     <% @nature_skills.each do |skill| %>
-                                    <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
+                                        <p><a href="/skills/<%=skill.id%>"><%= skill.name%></a></p>
                                     <% end %>
                                     <div class="clearfix"></div>
                                 </div>

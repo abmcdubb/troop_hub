@@ -24,9 +24,11 @@ class TroopEventsController < ApplicationController
       end
       @events = Event.all
       @troops = Troop.all
+
     else 
       redirect_to(:back)
     end
+      
   end
 
   def new_event

@@ -14,7 +14,7 @@ class TroopsController < ApplicationController
   end
 
   def show
-    # @troops = Troop.where(params[:troop_id])
+    @troop = Troop.find(params[:id])
     # @scouts = Scout.where(params[:id])
     @troop_events = TroopEvent.all
     

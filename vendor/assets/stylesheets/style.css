@@ -2283,3 +2283,14 @@ displayModes
 	max-height: 800px;
 	min-height: 800;
 }
+
+.modal-background {
+	background: url('bg_gradient3.gif') top center repeat-x; 
+
+}
+
+.checkbox_container input {
+  display: inline;
+  vertical-align: -1px;
+  margin: 5px;
+}
