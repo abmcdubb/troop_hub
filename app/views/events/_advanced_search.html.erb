@@ -15,6 +15,10 @@
         <label class="form_label_font">Event Category:</label>
         <select id="event_skill_id" name="event[skill_id]", class="form-control">
           <option value="0">Any</option>
+          <option value="General">General</option>
+          <option value="STEM">STEM</option>
+          <option value="Business Smarts">Business Smarts</option>
+          <option value="Nature and Ecology">Nature and Ecology</option>
           <option value="1">Sports &amp; Fitness</option>
           <option value="2">Drama</option>
           <option value="3">Music</option>
@@ -54,12 +58,11 @@
         <label for="event_age_level_ids_6">Ambassador</label>
         <input id="event_age_level_ids_6" name="event[age_level_ids][]" type="checkbox" value="6"> | 
         <label for="event_age_level_ids_7">All Ages</label>
-        <input id="event_age_level_ids_7" name="event[age_level_ids][]" type="checkbox" value="7"> 
-        <input name="event[age_level_ids][]" type="hidden" value="">
+        <input id="event_age_level_ids_7" name="event[age_level_ids][]" type="checkbox" value="7">
         </br>
 
-        <%= label_tag(:'season', "Event season:", :class => "form_label_font") %>
-        <%= select_tag(:season, options_for_select([['Any', 1],
+        <%= label_tag(:'event[season]', "Event season:", :class => "form_label_font") %>
+        <%= select_tag(:"event[season]", options_for_select([['Any', 1],
           ['Spring', 2],
           ['Summer', 3],
           ['Fall', 5],
