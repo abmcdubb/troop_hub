@@ -4,4 +4,78 @@
 <%= render 'skills/skills' %>
 
 
-<%= link_to 'Back To All Events', events_index_path %>
+<div class = "inner-page padd"><div class = "inner-menu"><div class = "container"><div class = "row">
+  <h1>Events</h1>
+  <button type = "button"><%=link_to "Add Event", new_event_path%></button><br/>
+  <br/>
+  <% @events.each do |event| %>
+    <div class ="col-md-4 col-sm-6 event-size">
+      <div class = "menu-list">
+        <h3><%= event.name %></h3>
+        <div class = "menu-list-item">
+          <h4 class = "pull-left">Grades</h4>
+          <span class = "price pull-right">
+            <% event.age_levels.each_with_index do |age_level, i|%>
+                <%if i+1==event.age_levels.length%>
+                  <%=age_level.name%>
+                <%else%>
+                  <%=age_level.name%>,
+                <%end%>
+            <%end%></br>
+          </span>
+          <div class = "clearfix"></div>
+        </div>
+        <div class = "menu-list-item">
+          <h4 class = "pull-left">Genre</h4>
+          <span class = "price pull-right">
+            <%=event.genre%>
+          </span>
+          <div class = "clearfix"></div>
+        </div>
+        <div class = "menu-list-item">
+          <h4 class = "pull-left">Description</h4>
+          <span class = "price pull-right">
+            <%=event.description%>
+          </span>
+          <div class = "clearfix"></div>
+        </div>
+        <div class = "menu-list-item">
+          <h4 class = "pull-left">Season</h4>
+          <span class = "price pull-right">
+            <%=event.season%>
+          </span>
+          <div class = "clearfix"></div>
+        </div>
+        <div class = "menu-list-item">
+          <h4 class = "pull-left">Location</h4>
+          <span class = "price pull-right">
+            <%=event.location%>
+          </span>
+          <div class = "clearfix"></div>
+        </div>
+        <div class = "menu-list-item">
+          <h4 class = "pull-left">Possible Badges</h4>
+          <span class = "price pull-right">
+            <% event.badges.each_with_index do |badge, i|%>
+                <%if i+1==event.badges.length%>
+                  <%=badge.name%>
+                <%else%>
+                  <%=badge.name%>,
+                <%end%>
+            <%end%></br>
+          </span>
+          <div class = "clearfix"></div>
+        </div>
+        <div class = "menu-list-item">
+          <form action="/troop_events/new" method="get">
+            <input type="submit" value="Add Event to Calendar">
+            <input type = "hidden" name = "event_id" value="<%=event.id%>">
+          </form>
+          <div class = "clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div></div></div></div>
+<%= link_to 'Back To All Events', events_path %>
+

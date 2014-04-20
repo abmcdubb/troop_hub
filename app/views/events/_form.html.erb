@@ -1,9 +1,5 @@
 <%= form_for @event do |f| %>
-<ul class="list-unstyled">
-  <%-  @event.errors.full_messages.each do |msg| %>
-    <li><font color="red"><%= msg %></font></li>
-  <%- end %>
-</ul>
+
 
 <div class="form-group">
   <center>  
@@ -88,9 +84,17 @@
     ['December', 'December'],
     ['New Years', 'New Years'],
     ['Independence Day', 'Independence Day']], 1), :class => "form-control") %>
+
     </br>
-    <%= f.label :location %>
-    <%= f.text_field :location, :class => "form-control"  %>
+
+
+ <label class="form_label_font">Badges Earned</label>
+<%= f.autocomplete_field :badge_id, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true, :class => "form-control"%>
+<br/>
+
+ <label class="form_label_font">Location</label>
+<%= f.text_field :location, :class => "form-control"  %>
+
     </br>
     <%#=f.collection_check_boxes(:badge_ids, @badges, :id, :name)%>
     <!-- </br> -->
