@@ -36,12 +36,11 @@ class EventsController < ApplicationController
   end
 
   def create
-
     @event = Event.create(event_params)
     @badges = params[:event][:badge_id][0].split(",")
     @badges.each do |b|
       @badge = Badge.find_by_name(b)
-      @event_badge = EventBadge.create({:badge_id => @badge.id, :event_id => @event.id})
+      @event_badge = EventBadge.create({:badge_id => @badge.id, :event_id => @event.id}) if @badge
     end
     @skills = Skill.all
     #@troop_event = @event.troop_events.build(params[:troop_event])
