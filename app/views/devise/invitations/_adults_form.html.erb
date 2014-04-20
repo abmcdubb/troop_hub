@@ -1,0 +1,7 @@
+<!-- Adults Sign Up Form--> 
+<label class="form_label_font adults-form"> Additional Skills: </label><br>
+<% @skills.each do |skill| %>
+  <%= check_box_tag "user_skill_#{skill.id}[skill_id]", skill.id, false, id: "skill_#{skill.id}", class: 'skills_check_box adults-form', :data => {:skill_id => skill.id} %>
+  <label class="form_label_font adults-form"><%= skill.name %></label>
+  <%= text_field_tag "user_skill_#{skill.id}[skill_description]", nil, id: "skill_#{skill.id}", class: 'hidden_skills_text_field form-control-update', :data => {:skill_id => skill.id}, placeholder: placeholder(skill.name) %>  <br>                  
+<% end %>

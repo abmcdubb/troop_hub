@@ -112,9 +112,9 @@
           <div class="col-md-7">
             <div class="form-group">
 
-              <%= render :partial => '/users/registrations/scouts_form' , :locals => {:f => f} %>
+              <%= render :partial => 'scouts_form' , :locals => {:f => f} %>
               <%@skills = Skill.all%>
-              <%= render :partial => '/users/registrations/adults_form' , :locals => {:f => f} %>
+              <%= render :partial => 'adults_form' , :locals => {:f => f} %>
                   
             </div><!-- form-group -->
           </div> <!-- col-md-7 -->
