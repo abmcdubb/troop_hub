@@ -6,6 +6,27 @@ prepend_before_filter :authenticate_inviter!, :only => [:new, :create]
   prepend_before_filter :resource_from_invitation_token, :only => [:edit, :destroy]
   helper_method :after_sign_in_path_for
 
+  def create
+    self.resource = invite_resource
+    self.resource.name = params[:user][:name]
+    self.resource.role = params[:user][:role]
+    troop = Troop.find(params[:troop_id])
+    self.resource.troops<< troop
+    self.resource.save
+    if resource.errors.empty?
+      yield resource if block_given?
+      set_flash_message :notice, :send_instructions, :email => self.resource.email if self.resource.invitation_sent_at
+      respond_with resource, :location => after_invite_path_for(resource)
+    else
+      respond_with_navigational(resource) { render :new }
+    end
+  end
+
+
+
+
+
+
   # PUT /resource/invitation
   def update
     self.resource = accept_resource

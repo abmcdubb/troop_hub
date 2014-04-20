@@ -16,9 +16,30 @@
             <%= devise_error_messages! %>
 
             <% resource.class.invite_key_fields.each do |field| -%>
-              <p><%= f.label field %><br /><%= f.text_field field %></p>
+            <p><%= f.label field %><br /><%= f.text_field field %></p>
             <% end -%>
-
+            <p><%= f.label "name" %><br /><%= f.text_field "name" %></p>
+            
+            <label>Role</label>
+                <div class="form-group">
+                  <!-- Form drop down -->
+                  <select name="user[role]" class="form-control role-select">
+                    <option value>Please select one to continue</option>
+                    <option value="Scout">Scout</option>
+                    <option value="Parent">Parent</option>
+                    <option value="Troop Leader">Troop Leader</option>
+                    <option value="Volunteer">Volunteer</option>
+                  </select>
+                </div>
+            <label>Troop</label>
+                <div class="form-group">
+                  <!-- Form drop down -->
+                  <select name="troop_id" class="form-control role-select">
+                    <%Troop.all.each do |troop|%>
+                      <option value=<%=troop.id%>><%=troop.name%></option>
+                    <%end%>
+                  </select>
+                </div>
             <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
           <% end %>
         </div>

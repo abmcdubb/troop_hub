@@ -4,7 +4,13 @@
     <%inviter = "Someone"%>
 <%end%>
 
-<p>Hi <%= @resource.name %>!</p>
+<%if @resource.name%>
+    <%your_name = @resource.name%>
+<%else%>
+    <%your_name = "You"%>
+<%end%>
+
+<p>Hi <%= your_name %>!</p>
 
 <p><%=inviter%> has invited you to <%= root_url %>. The go-to site for all your troop related needs. You can set up your account for the site by clicking the link below.</p>
 
