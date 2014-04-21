@@ -1,63 +1,52 @@
 <%=render partial: 'layouts/banner', locals: {:name => "Meeting Planner", :left_option => "Events", :right_option => "Events" }%>
 
-<div STYLE="border: double #CCFFCC 20px">
-<center><h2>Troop Meeting Agenda for <%= @agenda.meeting_date.strftime("%a %b %e %Y") %>:</h2></center>
-
-<br/>
-<div class = "container-fluid">
-<div class="row">
-  <div class="col-md-4"> 
-
-  </div>
-    <div class="col-md-4">
-    <center>
-   <h4>Location: </h4>
-    <p><%= @agenda.location %></p><br>  	
- <h4>Start-up Activity: </h4>
-    <p><%= @agenda.activity_1 %></p><br>
-     <h4>Troop Business: </h4>
-    <p><%= @agenda.activity_2 %></p><br>
-     <h4>Activity: </h4>
-    <p><%= @agenda.activity_3 %></p><br>
-     <h4>Activity: </h4>
-    <p><%= @agenda.activity_4 %></p><br>
-     <h4>Activity: </h4>
-    <p><%= @agenda.activity_5 %></p><br>
-     <h4>Closing Activity: </h4>
-    <p><%= @agenda.activity_6 %></p><br>
-    <br>
-    <br>
-    <br>
-<h3><i>Misc. Notes</i></h3>
-<br>
-  <h4>Snack: </h4>
-    <p><%= @agenda.snack %></p><br>
-     <h4>Relevant badges: </h4>
-    <p><%= @agenda.patches %></p><br>
-     <h4>Supplies needed: </h4>
-    <p><%= @agenda.supplies %></p><br>
-     <h4>Kapers/Job assignments: </h4>
-    <p><%= @agenda.jobs %></p><br>
-     <h4>Notes: </h4>
-    <p><%= @agenda.troop_info %></p><br>
-  
-</div></P>
-  <div class="col-md-4"> 
-<br/>
-<br/>
-<br/>
-<br/>
-
-
-<br>
-<br>
-<hr>
-
-
-
+<body>
+    <!-- if we want to be really snazzy we should change the word "company" to "troop" here and in the css file -->
+<div class="about-company padd">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-company-item"> 
+                    <img class="img-responsive img-thumbnail" src="http://www.girlscoutshop.com/site/img/Badges_awards.jpg" alt="" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-company-item">
+                    <h2>Troop Meeting Agenda</h2>
+                    <h4><%= @agenda.meeting_date.strftime("%a %b %e %Y") %></h4><br>
+                   <h4>Location: </h4>
+                    <p><%= @agenda.location %></p><br>      
+                 <h4>Start-up Activity: </h4>
+                    <p><%= @agenda.activity_1 %></p><br>
+                     <h4>Troop Business: </h4>
+                    <p><%= @agenda.activity_2 %></p><br>
+                     <h4>Activity: </h4>
+                    <p><%= @agenda.activity_3 %></p><br>
+                     <h4>Activity: </h4>
+                    <p><%= @agenda.activity_4 %></p><br>
+                     <h4>Activity: </h4>
+                    <p><%= @agenda.activity_5 %></p><br>
+                     <h4>Closing Activity: </h4>
+                    <p><%= @agenda.activity_6 %></p><br>
+                    <br>
+                    <br>
+                    <br>
+                <h3><i>Misc. Notes</i></h3>
+                <br>
+                  <h4>Snack: </h4>
+                    <p><%= @agenda.snack %></p><br>
+                     <h4>Relevant badges: </h4>
+                    <p><%= @agenda.badges %></p><br>
+                     <h4>Supplies needed: </h4>
+                    <p><%= @agenda.supplies %></p><br>
+                     <h4>Kapers/Job assignments: </h4>
+                    <p><%= @agenda.jobs %></p><br>
+                     <h4>Notes: </h4>
+                    <p><%= @agenda.troop_info %></p><br>
+                    </br>
+                    <p id="pdf_link"><%= link_to "Download Agenda (PDF)", agenda_show_path(@agenda, :format => "pdf") %></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-<br>
-<br>
-
-<p id="pdf_link"><%= link_to "Download Agenda (PDF)", agenda_show_path(@agenda, :format => "pdf") %></p>
