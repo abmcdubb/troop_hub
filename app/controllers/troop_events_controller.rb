@@ -32,6 +32,7 @@ class TroopEventsController < ApplicationController
   end
 
   def new_event
+    @user = current_user
     if current_user.admin_privileges < 50
       @troops = Troop.all
       @age_levels = AgeLevel.all

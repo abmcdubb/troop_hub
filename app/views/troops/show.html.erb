@@ -17,6 +17,10 @@
                     <h3>About Us:</h3>
                     <p><%=@troop.about_us %></p>
                     </br>
+                    <% if @user.troop_ids.include?(@troop.id)%>
+                   <center> <%= link_to 'Troop Members Listing', troop_user_path(@troop) %></center>
+                    <%end%>
+
                 </div>
             </div>
         </div>
@@ -26,7 +30,6 @@
 
 <br/>
 <br/>
-<%= link_to 'Troop Members Listing', troop_user_path(@troop) %>
 </br>
 </br>
 <%#= link_to 'Add a scout', new_troop_scout_path %>
@@ -69,8 +72,10 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
-                NEWS
-
+                <%= render partial: 'newsletters/show' %>
+<% if current_user.admin_privileges < 50 %>
+<left><%=link_to 'Update News Section', newsletters_new_path %></left>
+<%end%>
                 <br/>
           </div>
         </div>
@@ -82,34 +87,8 @@
 </div>
 
 
+<#%= link_to 'Browse Events', events_path %#></br>
 
-
-
-
-
-<!-- <center><h2>Photos</h2></center> -->
-
-<%=link_to("Photos", troop_photos_path(@troop))%>
-<% if @user.role == "Scout"%>
-<%= "HELLO WORLD" %>
-<%end%>
-
-<%#@photos.each do |photo| %>
-    <!-- <p> -->
-        <%#=image_tag photo.pic_url%>
-        <%#= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
-            <%#= submit_tag 'Delete' %>
-        <%#end%>
-    <!-- </p> -->
-<%#end%>
-
-<%#= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
-
-
-<%= link_to 'Back', troops_path %><br/>
-<%= link_to 'Browse Events Ideas', events_path %></br>
-
-<%= link_to 'New Event', new_troop_event_path(@troop) %></br>
 
 </body>
 
