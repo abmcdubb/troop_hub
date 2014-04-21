@@ -1,6 +1,8 @@
 class TroopBlog < ActiveRecord::Base
   belongs_to :troop
 
+  mount_uploader :photo, ProfilePhotoUploader
+
   def self.homepage_news_feed
     order(created_at: :desc).limit(3)
   end
@@ -23,6 +25,10 @@ class TroopBlog < ActiveRecord::Base
 
   def self.full_news_feed(troop_id)
     TroopBlog.where(troop_id: troop_id).order(created_at: :desc)
+  end
+
+  def self.large_sidebar_news_feed(troop_id)
+    TroopBlog.where(troop_id: troop_id).order(created_at: :desc).limit(10)
   end
 
 end

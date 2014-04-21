@@ -98,9 +98,9 @@ get 'user_badges' => 'user_badges#index'
   get 'skills/:id'  => 'skills#show'
 
   #-------Troop Blog---------------
-  get '/troops/:id/troop_blog/new' => 'troop_blogs#new'
-  post '/troops/:id/troop_blog' => 'troop_blogs#create'
-  get 'troops/:id/troop_blog' => 'troop_blogs#show', :as => :troopblog_show
+  get '/troops/:id/troop_blog/new' => 'troop_blogs#new',  :as => 'troop_blog_new'
+  post '/troops/:id/troop_blogs' => 'troop_blogs#create', :as => 'troop_blogs'
+  get 'troops/:id/troop_blog' => 'troop_blogs#index', :as => 'troop_blog_index'
 
 
 end

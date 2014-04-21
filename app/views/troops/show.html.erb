@@ -122,10 +122,11 @@
                       <span class="pull-right"><i class="fa fa-comment"></i> <a href="/troops/<%=article.troop_id%>"><%= article.find_troop_name(article.troop_id) %></a></span>
                     </div>
                     <!-- Heading of the  post -->
-                    <h3><a href="blog-single.html"><%= article.headline %> </a></h3>
+                    <h3><%= link_to article.headline, troop_blog_index_path(@troop) %></h3>
                     <hr /><!-- Horizontal line -->
                     <!-- Paragraph -->
                     <p><%= article.body %></p>
+                    <p><%= link_to 'Continue reading more news articles', troop_blog_index_path(@troop) %></p>
                     <div class="clearfix"></div>
                   </div>
                 <% end %>
@@ -134,7 +135,7 @@
 
 
                   <!-- Pagination -->
-          <%= link_to 'Go to troop blog', troopblog_show_path(@troop) %>
+          
                   <!-- Pagination end-->
                 </div>
               </div> <!--/ Main blog column end -->
@@ -150,7 +151,7 @@
                         <!-- Recent post list -->
                         <ul class="list-unstyled">
                           <% @sidebar_news.each do |article|  %>
-                          <li><i class="fa fa-angle-double-right"></i> <a href="#"><%= article.headline %></a></li>
+                          <li><i class="fa fa-angle-double-right"></i> <%= link_to "#{article.headline}", troop_blog_index_path(@troop) %></li>
                           <% end %>
                         </ul>
                       </div><!--/ Widget end -->
