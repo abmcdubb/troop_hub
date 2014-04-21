@@ -36,12 +36,11 @@ class EventsController < ApplicationController
   end
 
   def create
-
     @event = Event.create(event_params)
     @badges = params[:event][:badge_id][0].split(",")
     @badges.each do |b|
       @badge = Badge.find_by_name(b)
-      @event_badge = EventBadge.create({:badge_id => @badge.id, :event_id => @event.id})
+      @event_badge = EventBadge.create({:badge_id => @badge.id, :event_id => @event.id}) if @badge
     end
     @skills = Skill.all
     #@troop_event = @event.troop_events.build(params[:troop_event])
@@ -55,7 +54,7 @@ class EventsController < ApplicationController
         @age_levels = AgeLevel.all
         @troops = Troop.all
         @skills = Skill.all
-        @events = Event.all
+        @events = Event.all.paginate(page: params[:page], per_page: 10)
         format.html { render template: "skills/show", notice: 'Event was not createds' }
       end
     end
@@ -89,19 +88,23 @@ class EventsController < ApplicationController
   def advanced_search
     @age_levels = AgeLevel.all
     @badges = Badge.all
+    @skills = Skill.all
   end
 
   def search_results
+    raise 8
     @event = Event.new
     @skills = Skill.all
     @age_levels = AgeLevel.all
-    @events = Event.find_by_search_results_with_too_many_forks(params[:event], params[:age_level_ids], params[:badge_ids], params[:season]).paginate(page: params[:page], per_page: 10)
+    @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name], params[:event][:skill_id], params[:event][:age_level_ids], params[:event][:badge_ids], params[:event][:season]).paginate(page: params[:page], per_page: 10)
   end
 
 private
   def set_event
     @event = Event.find(params[:id])
   end
+
+
 
   def event_params
     params.require(:event).permit(:name, :genre, :description, :season, :location, :badge_id, :skill_id, :age_level_ids => [], :badge_ids => [])

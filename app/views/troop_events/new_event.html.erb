@@ -1,57 +1,118 @@
-<h4>Enter general event information that can be reused by other scouts:</h4>
+<%=render partial: 'layouts/banner', locals: {:name => "Add Event for Troop", :left_option => "Troop", :right_option => "Event" }%>
+<div class="wrapper">
+  <div class="inner-page padd">
+    <div class="general">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+            <div class="component-content">
+              <h3 align="center">Enter general event information that can be reused by other scouts:</h3>
+                <div class="form-group"><center>
+                  <%= form_tag("/troop_events/new_event") do %>
+                    <label class="form_label_font">Event Name:</label>
+                    <%= text_field_tag(:"event[name]", nil, :class => "form-control") %>
+                    </br>
+                    <label class="form_label_font">Appropriate Age Level:</label><br>
+                    <label for="event_age_level_ids_1">Daisy</label>
+                    <input id="event_age_level_ids_1" name="event[age_level_ids][]" type="checkbox" value="1"> | 
+                    <label for="event_age_level_ids_2">Brownie</label>
+                    <input id="event_age_level_ids_2" name="event[age_level_ids][]" type="checkbox" value="2"> | 
+                    <label for="event_age_level_ids_3">Junior</label>
+                    <input id="event_age_level_ids_3" name="event[age_level_ids][]" type="checkbox" value="3"> | 
+                    <label for="event_age_level_ids_4">Cadette</label>
+                    <input id="event_age_level_ids_4" name="event[age_level_ids][]" type="checkbox" value="4"> | 
+                    <label for="event_age_level_ids_5">Senior</label>
+                    <input id="event_age_level_ids_5" name="event[age_level_ids][]" type="checkbox" value="5"> | 
+                    <label for="event_age_level_ids_6">Ambassador</label>
+                    <input id="event_age_level_ids_6" name="event[age_level_ids][]" type="checkbox" value="6"> | 
+                    <label for="event_age_level_ids_7">All Ages</label>
+                    <input id="event_age_level_ids_7" name="event[age_level_ids][]" type="checkbox" value="7"> 
+                    </br>
+                    </br>
+                    <label class="form_label_font">Event Description:</label>
+                    <%= text_area_tag :"event[description]", nil, :class => "form-control", :rows => 6 %>
+                    </br>
+                    <label class="form_label_font">Event Category:</label>
+                    <select id="event_skill_id" name="event[skill_id]", class="form-control">
+                      <option value="">Please select a category</option>
+                      <option value="1">Sports &amp; Fitness</option>
+                      <option value="2">Drama</option>
+                      <option value="3">Music</option>
+                      <option value="4">Dance</option>
+                      <option value="5">Arts &amp; Crafts</option>
+                      <option value="6">Cooking</option>
+                      <option value="7">Geography &amp; Culture</option>
+                      <option value="8">Health &amp; Safety</option>
+                      <option value="9">Community Service</option>
+                      <option value="10">Computer Science</option>
+                      <option value="11">Technology</option>
+                      <option value="12">Math</optxion>
+                      <option value="13">Engineering</option>
+                      <option value="14">Science</option>
+                      <option value="15">Astronomy</option>
+                      <option value="16">Financial Literacy</option>
+                      <option value="17">Career Exploration</option>
+                      <option value="18">Plants &amp; Gardening</option>
+                      <option value="19">Outdoor Skills</option>
+                      <option value="20">Animals</option>
+                      <option value="21">Climate/Earth Science</option>
+                      <option value="22">Habitat Restoration</option>
+                      <option value="23">Other</option>
+                    </select>
+                    </br>
+                    <%= label_tag(:'event_season', "Event season:") %>
+                    <%= select_tag(:"event[season]", options_for_select([ 
+                        ['Any', 'Any'],
+                        ['Spring', 'Spring'],
+                        ['Summer', "Summer"],
+                        ['Fall', "Fall"],
+                        ['Winter', 'Winter'],
+                        ['January', 'January'],
+                        ['Febuary', 'Febuary'],
+                        ['March', 'March'],
+                        ['April', 'April'],
+                        ['May', 'May'],
+                        ['June', 'June'],
+                        ['July', 'July'],
+                        ['August', 'August'],
+                        ['September', 'September'],
+                        ['October', 'October'],
+                        ['November', "November"],
+                        ['December', 'December'],
+                        ['New Years', 'New Years'],
+                        ['Independence Day', 'Independence Day']], 1), :class => "form-control") %>
 
-<%= form_tag("/troop_events/new_event") do %>
-  <%=label_tag :event_name%>
-  <%=text_field_tag :"event[name]"%><br>
-  <%= label_tag :event_genre %>
-  <%= text_field_tag :"event[genre]" %><br>
-  <%= label_tag :event_description %>
-  <%= text_area_tag :"event[description]" %><br>
-  <%= label_tag :event_season %>
-  <%= text_field_tag :"event[season]" %><br>
-  <%= label_tag :event_location %>
-  <%= text_field_tag :"event[location]" %><br>
+                    </br>
+                    <label class="form_label_font">Badges Earned</label>
+                    <%= autocomplete_field_tag :"event[badge_id]", nil, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true, :class => "form-control"%>
+                    <br/>
 
-  <%@age_levels.each do |age_level|%>
-    <%= check_box_tag(:"event[age_level_ids][]", age_level.id) %>
-    <%= label_tag(:event_age_level_ids, age_level.name) %>
-  <%end%>
+                    </br>
+                  </div>
+                  <h3 align="center">Enter troop specific event information:</h3>
+                  <div class="form-group"><center>
 
-<br><br>
-<%= label_tag "Event Badges" %>
- <%= autocomplete_field_tag :"event[badge_ids]", '', autocomplete_badge_name_events_path, :size => 75, 'data-delimiter' => ',', :multiple => true%>
-
-<br>
-
-  <h4>Enter troop specific event information:</h4>
-  <%@troops.each do |troop|%>
-    <%= radio_button_tag(:"troop_event[troop_id]", troop.id) %>
-    <%= label_tag(:troop_event_troop_id, troop.name) %>
-  <%end%>
-  <br>
-  <%= label_tag(:troop_event_start_time, "When:")%>
-  <%= datetime_local_field(:troop_event, :start_time) %><br>
-  <%= label_tag :troop_event_location, "Where:" %>
-  <%= text_field_tag :"troop_event[location]" %><br>
-  <%= label_tag :troop_event_detail, "Details:" %>
-  <%= text_area_tag :"troop_event[detail]" %><br>
+                    <%@troops.each do |troop|%>
+                        <%= radio_button_tag(:"troop_event[troop_id]", troop.id) %>
+                        <%= label_tag(:troop_event_troop_id, troop.name, :class => "form_label_font") %><br>
+                    <%end%>
+                    <br>
+                    <%= label_tag(:troop_event_start_time, "When:",:class => "form_label_font")%>
+                    <%= datetime_local_field(:troop_event, :start_time, :class => "form-control") %><br>
+                    <%= label_tag :troop_event_location, "Where:", :class => "form_label_font"%>
+                    <%= text_field_tag :"troop_event[location]", nil, :class => "form-control" %><br>
+                    <%= label_tag :troop_event_detail, "Details:", :class => "form_label_font" %>
+                    <%= text_area_tag :"troop_event[detail]", nil, :class => "form-control" %><br>
   
-<br>
-<%= submit_tag("Create") %>
-<%end%>
- <br>
-  <br>
- <br>
- <br>
- <br>
-  <br>
- <br>
- <br>
- <br>
-<%#= form_for(@troop_event) do |f| %>
-
-
-<%#= f.label :start_time, "When:" %>
-<%#= f.datetime_select(:start_time, options = {ampm: true, prompt: true}) %><br/>
-
-<%#end%>
+                    <br>
+                  </div>
+                  <%= submit_tag("Create") %>
+                <%end%>
+              <!-- end accidental indent from h3 above -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

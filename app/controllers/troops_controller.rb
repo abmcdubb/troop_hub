@@ -1,5 +1,6 @@
 class TroopsController < ApplicationController
   before_action :set_troop, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new]
   before_action :set_user, only: [:show]
 
   def index
@@ -14,13 +15,15 @@ class TroopsController < ApplicationController
   end
 
   def show
-    @troop = Troop.find(params[:id])
     # @scouts = Scout.where(params[:id])
     @troop_events = TroopEvent.all
     
   end
 
   def new
+  unless current_user.admin_privileges < 50
+    redirect_to(:back)
+  end
     @troop = Troop.new
     @age_levels = AgeLevel.all
   end
@@ -61,6 +64,11 @@ class TroopsController < ApplicationController
     @age_levels = AgeLevel.all
     @badges = Badge.all
     @news = TroopBlog.homepage_news_feed
+    @skills = Skill.all
+    # @event = Event.new
+    # @event_badge = EventBadge.new
+    # @troops = Troop.all
+    # @events = Event.all
   end
 
 

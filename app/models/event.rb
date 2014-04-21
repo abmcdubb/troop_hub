@@ -14,64 +14,51 @@ class Event < ActiveRecord::Base
   validates :skill_id, :presence => true
   validates :season, :presence => true
   
+  before_save :check_age_level, #if age level changed?
+
+  def check_age_level
+    # if age_level_ids.include?(7)
+    #   (1...7).each do |i|
+    #     age_level_ids << i
+    #     self.save #-- infinite loop
+    #   end
+    # end
+    # all = true
+    # (1...7).each do |i|
+    #   if not age_level_ids.include?(i)
+    #     all = false
+    #   end
+    # end
+    # if all
+    #   age_level_ids << 7
+    #   self.save #-- infinite loop
+    # end
+  end
+
 
   def self.find_all_by_name(name)
     where("name='#{name}'")
   end
 
-  def self.find_by_search_results(results_hash, age_level_ids, badge_ids, season_number)
+  def self.find_by_search_results_with_too_many_forks(name, skill_id, age_level_ids, badge_ids, season_number)
     seasons = Event.seasons_for_search(season_number.to_i)
-    results_hash["season"] = seasons
-    query_hash = results_hash.reject{|k,v|v.empty?}
-    if age_level_ids && badge_ids
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where(query_hash).uniq
-    elsif age_level_ids
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where(query_hash).uniq
-    elsif badge_ids
-      results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where(query_hash).uniq
-    else
-      results = where(query_hash)
-    end
-    results  
-  end
-
-  def self.find_by_search_results_with_too_many_forks(results_hash, age_level_ids, badge_ids, season_number)
-    seasons = Event.seasons_for_search(season_number.to_i)
-    results_hash["season"] = seasons
-    query_hash = results_hash.reject{|k,v|v.empty?}
-
-    if age_level_ids && badge_ids && query_hash["name"] && query_hash["genre"]
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ? and genre like ?", query_hash["name"], query_hash["genre"]).where(season: query_hash["season"]).uniq
-    elsif age_level_ids && badge_ids && query_hash["name"]
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ?", query_hash["name"]).where(season: query_hash["season"]).uniq
-    elsif age_level_ids && badge_ids && query_hash["genre"]
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("genre like ?", query_hash["genre"]).where(season: query_hash["season"]).uniq
+    skills = Event.skills_for_search(skill_id)
+    if age_level_ids && badge_ids && (name != "")
+      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif age_level_ids && badge_ids
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where(season: query_hash["season"]).uniq 
-    elsif age_level_ids && query_hash["name"] && query_hash["genre"]
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where("name like ? and genre like ?", query_hash["name"], query_hash["genre"]).where(season: query_hash["season"]).uniq
-    elsif age_level_ids && query_hash["name"]
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where("name like ?", query_hash["name"]).where(season: query_hash["season"]).uniq
-    elsif age_level_ids && query_hash["genre"]
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where("genre like ?", query_hash["genre"]).where(season: query_hash["season"]).uniq
+      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where(season: seasons, skill: skills).uniq 
+    elsif age_level_ids && (name != "")
+      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif age_level_ids
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where(season: query_hash["season"]).uniq 
-    elsif badge_ids && query_hash["name"] && query_hash["genre"]
-      results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ? and genre like ?", query_hash["name"], query_hash["genre"]).where(season: query_hash["season"]).uniq
-    elsif badge_ids && query_hash["name"]
-      results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ?", query_hash["name"]).where(season: query_hash["season"]).uniq
-    elsif badge_ids && query_hash["genre"]
-      results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("genre like ?", query_hash["genre"]).where(season: query_hash["season"]).uniq
+      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where(season: seasons, skill: skills).uniq 
+    elsif badge_ids && (name != "")
+      results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif badge_ids
-      results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where(season: query_hash["season"]).uniq 
-    elsif query_hash["name"] && query_hash["genre"]
-      results = Event.where("name like ? and genre like ?", query_hash["name"], query_hash["genre"]).where(season: query_hash["season"]).uniq
-    elsif query_hash["name"]
-      results = Event.where("name like ?", query_hash["name"]).where(season: query_hash["season"]).uniq
-    elsif query_hash["genre"]
-      results = Event.where("genre like ?", query_hash["genre"]).where(season: query_hash["season"]).uniq
+      results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where(season: seasons, skill: skills).uniq 
+    elsif (name != "")
+      results = Event.where("name like ?", name).where(season: seasons, skill: skills).uniq
     else
-      results = Event.where(season: query_hash["season"]).uniq
+      results = Event.where(season: seasons, skill: skills).uniq
     end
     results
   end
@@ -85,6 +72,23 @@ class Event < ActiveRecord::Base
       end
     end
     season_array
+  end
+
+  def self.skills_for_search(skill_id)
+    if skill_id.to_i > 0
+      skills = Skill.where(id: skill_id)
+    elsif skill_id == "General"
+      skills = Skill.where(category: 'General')
+    elsif skill_id == "STEM"
+      skills = Skill.where(category: 'STEM')
+    elsif skill_id == "Business Smarts"
+      skills = Skill.where(category: 'Business Smarts')
+    elsif skill_id == "Nature and Ecology"
+      skills = Skill.where(category: 'Nature and Ecology')
+    else
+      skills = Skill.all
+    end
+    skills
   end
 
   def self.find_by_skill_category(category_name)

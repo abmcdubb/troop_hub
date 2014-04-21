@@ -48,7 +48,7 @@
                 <%= calendar @troop_events do |e| %>
                 <% if e.troop_id == @troop.id %>
                 <ul>
-                 <li><a href ="/troop_events/<%=e.id%>"><%= e.event.name %></a></li>
+                 <li><a href ="/troop_events/<%=e.id%>"><%= e.name %></a></li>
                   <%end%>
                 </ul>
                 <% end %>

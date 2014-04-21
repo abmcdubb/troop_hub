@@ -47,8 +47,6 @@ adult_7 = User.create(troop_ids: '3', role: 'Parent', name: 'Fleur Delacour', em
 adult_8 = User.create(troop_ids: '2, 1', role: 'Volunteer', name: 'Nymphadora Tonks', email: 'nymphadora@greenhairrocks.com', phone_number: '646-555-5555', profile_photo: 'ntonks.jpg', admin_privileges: 0, password: '123456789')
 adult_8 = User.create(role: 'Volunteer', name: 'Tom Riddle', email: 'tomriddle@deathtomuggles.com', phone_number: '646-555-5555', profile_photo: 'tomriddle.jpg', password: '123456789')
 
-
-
 age_level_1 = AgeLevel.create(name: "Daisy", grades: "K-1")
 age_level_2 = AgeLevel.create(name: "Brownie", grades: "2-3")
 age_level_3 = AgeLevel.create(name: "Junior", grades: "4-5")

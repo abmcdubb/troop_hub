@@ -30,15 +30,15 @@
                             <% @troops.each do |troop|%>
                             <% if troop.name %>
                               <li>
-                              <i class="fa fa-check"></i> <a href="troops/<%=troop.id%>"><%= troop.troop_type%>: <%=troop.number %> (<%= troop.name %>  ) - <%= troop.city %>, <%= troop.state%></a>
+                              <i class="fa fa-check"></i> <a href=<%=troop_show_path(troop)%>><%= troop.troop_type%> <%=troop.number %> (<%= troop.name %>  ) - <%= troop.city %>, <%= troop.state%></a>
                               <div class="clearfix"></div>
                               </li>
                             <% else %>
                               <li>
-                              <i class="fa fa-check"></i> <a href="troops/<%=troop.id%>"><%= troop.troop_type%>: <%=troop.number %> - <%= troop.city %>, <%= troop.state%></a>
+                              <i class="fa fa-check"></i> <a href=<%=troop_show_path(troop)%>><%= troop.troop_type%>: <%=troop.number %> - <%= troop.city %>, <%= troop.state%></a>
                               </li>
                             <% end %> 
-
+  
                           <%end%>
                             
                           <% else %> 
