@@ -1,5 +1,7 @@
 <%#=render partial: 'layouts/banner', locals: {:name => @troop.name, :right_option => "Troop Number: {@troop.number}" } %>
 
+
+
 <%=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.name}", :right_option => "Troop Number: #{@troop.number}" }%>
 <!-- #update! -->
     <!-- if we want to be really snazzy we should change the word "company" to "troop" here and in the css file -->
@@ -76,13 +78,7 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
-                <%= calendar @troop_events do |e| %>
-                <% if e.troop_id == @troop.id %>
-                <ul>
-                 <li><a href ="/troop_events/<%=e.id%>"><%= e.name %></a></li>
-                  <%end%>
-                </ul>
-                <% end %>
+             <%= render 'troopevent_show' %>
           </div>
         </div>
     </div>
@@ -113,34 +109,6 @@ NEWS
     </div> <!-- container -->
 </div> <!-- end about-company padd -->
 
-<%#= link_to 'Browse Events', events_path %#></br>
 
-
-
-
-
-<!-- <center><h2>Photos</h2></center> -->
-
-<%#=link_to("Photos", troop_photos_path(@troop))%>
-  
-<%#= "HELLO WORLD" %>
-<%#end%>
-
-<%#@photos.each do |photo| %>
-    <!-- <p> -->
-        <%#=image_tag photo.pic_url%>
-        <%#= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
-            <%#= submit_tag 'Delete' %>
-        <%#end%>
-    <!-- </p> -->
-<%#end%>
-
-<%#= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
-
-
-<%#= link_to 'Back', troops_path %><br/>
-
-
-<%#= link_to 'New Event', new_troop_event_path(@troop) %></br>
 
 

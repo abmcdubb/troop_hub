@@ -113,13 +113,6 @@ ActiveRecord::Schema.define(version: 20140421142606) do
     t.string   "on_page"
   end
 
-  create_table "scout_badges", force: true do |t|
-    t.integer  "scout_id"
-    t.integer  "badge_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "scouts_badges", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
