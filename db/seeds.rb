@@ -297,25 +297,75 @@ Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir mewing
 kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus
 Niffler dead easy second bedroom. Padma and Parvati Sorting Hat Minister of
 Magic blue turban remember my last.', photo: '') 
-blog2 = TroopBlog.create(troop_id: '1', headline: 'Full moon Whomping Willow three turns should do it lemon drops.', body: "Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this, which creature would you be unwilling to kiss? Poltergeist sticking charm, troll umbrella stand flying cars golden locket Lily Potter. Pumpkin juice Trevor wave your wand out glass orbs, a Grim knitted hats. Stan Shunpike doe patronus, suck his soul Muggle-Born large order of drills the trace. Bred in captivity fell through the veil, quaffle blue flame ickle diddykins Aragog. Yer a wizard, Harry Doxycide the woes of Mrs. Weasley Goblet of Fire.", photo: 'http://img4.wikia.nocookie.net/__cb20131023083618/harrypotter/images/9/91/Harry_Potter_wand.png') 
+blog2 = TroopBlog.create(troop_id: '1', headline: 'Full moon Whomping Willow three turns should do it lemon drops.', body: "Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this, which creature would you be unwilling to kiss? Poltergeist sticking charm, troll umbrella stand flying cars golden locket Lily Potter. Pumpkin juice Trevor wave your wand out glass orbs, a Grim knitted hats. Stan Shunpike doe patronus, suck his soul Muggle-Born large order of drills the trace. Bred in captivity fell through the veil, quaffle blue flame ickle diddykins Aragog. Yer a wizard, Harry Doxycide the woes of Mrs. Weasley Goblet of Fire.", photo: '') 
 blog3 = TroopBlog.create(troop_id: '2', headline: 'Boggarts lavender robes, Hermione
-Granger Fantastic Beasts and Where to Find Them.', body: "Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel. Gillyweed portkey, keeper Godric’s Hollow telescope, splinched fire-whisky silver Leprechaun O.W.L. stroke the spine. Chalice Hungarian Horntail, catherine wheels Essence of Dittany Gringotts Harry Potter. Prophecies Yaxley green eyes Remembrall horcrux hand of the servant. Devil’s snare love potion Ravenclaw, Professor Sinistra time-turner steak and kidney pie. Cabbage Daily Prophet letters from no one Dervish and Banges leg.", photo: 'http://images5.fanpop.com/image/photos/26300000/Harry-Potter-Wallpaper-harry-potter-26303844-1280-800.jpg')  
-blog4 = TroopBlog.create(troop_id: '2', headline: 'Locomotor trunks owl treats that will be 50 points, Mr. Potter.', body: "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods yew pumpkin juice phials Ravenclaw’s Diadem 10 galleons Thieves Downfall. Ministry-of-Magic mimubulus mimbletonia Pigwidgeon knut phoenix feather other minister Azkaban. Hedwig Daily Prophet treacle tart full-moon Ollivanders You-Know-Who cursed. Fawkes maze raw-steak Voldemort Goblin Wars snitch Forbidden forest grindylows wool socks.", photo: 'http://1.bp.blogspot.com/_EAViqbzwc_s/TO5YkP0KioI/AAAAAAAACeE/I5trRJgkZv4/s1600/Harry-Potter-the-Order-Phoenix-wallpaper.jpg')
+Granger Fantastic Beasts and Where to Find Them.', body: "Red hair crookshanks bludger Marauder’s Map Prongs sunshine daisies butter mellow Ludo Bagman. Beaters gobbledegook N.E.W.T., Honeydukes eriseD inferi Wormtail. Mistletoe dungeons Parseltongue Eeylops Owl Emporium expecto patronum floo powder duel. Gillyweed portkey, keeper Godric’s Hollow telescope, splinched fire-whisky silver Leprechaun O.W.L. stroke the spine. Chalice Hungarian Horntail, catherine wheels Essence of Dittany Gringotts Harry Potter. Prophecies Yaxley green eyes Remembrall horcrux hand of the servant. Devil’s snare love potion Ravenclaw, Professor Sinistra time-turner steak and kidney pie. Cabbage Daily Prophet letters from no one Dervish and Banges leg.", photo: '')  
+blog4 = TroopBlog.create(troop_id: '2', headline: 'Locomotor trunks owl treats that will be 50 points, Mr. Potter.', body: "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods yew pumpkin juice phials Ravenclaw’s Diadem 10 galleons Thieves Downfall. Ministry-of-Magic mimubulus mimbletonia Pigwidgeon knut phoenix feather other minister Azkaban. Hedwig Daily Prophet treacle tart full-moon Ollivanders You-Know-Who cursed. Fawkes maze raw-steak Voldemort Goblin Wars snitch Forbidden forest grindylows wool socks.", photo: '')
 blog5 = TroopBlog.create(troop_id: '2', headline: 'Boggarts lavender robes,
-Hermione Granger Fantastic Beasts and Where to Find Them.', body: "Thestral dirigible plums, Viktor Krum hexed memory charm Animagus Invisibility Cloak three-headed Dog. Half-Blood Prince Invisibility Cloak cauldron cakes, hiya Harry! Basilisk venom Umbridge swiveling blue eye Levicorpus, nitwit blubber oddment tweak. Chasers Winky quills The Boy Who Lived bat spleens cupboard under the stairs flying motorcycle. Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter.", photo: 'http://www.whitegadget.com/attachments/pc-wallpapers/82397d1317986277-harry-potter-harry-potter-photo.jpg') 
+Hermione Granger Fantastic Beasts and Where to Find Them.', body: "Thestral dirigible plums, Viktor Krum hexed memory charm Animagus Invisibility Cloak three-headed Dog. Half-Blood Prince Invisibility Cloak cauldron cakes, hiya Harry! Basilisk venom Umbridge swiveling blue eye Levicorpus, nitwit blubber oddment tweak. Chasers Winky quills The Boy Who Lived bat spleens cupboard under the stairs flying motorcycle. Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter.", photo: '') 
 blog6 = TroopBlog.create(troop_id: '2', headline: 'Fenrir Grayback horseless carriages ‘zis is a chance many would die for!', body: 'Bee in your bonnetHand of Glory elder wand, spectacles House Cup Bertie Bott’s Every Flavor BeansImpedimenta. Stunning spells tap-dancing spider Slytherin’s Heir mewing kittens
-Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma and Parvati Sorting Hat Minister of Magic blue turban   remember my last.', photo: 'http://img2.wikia.nocookie.net/__cb20090124005459/harrypotter/images/4/41/2003_harry_potter_and_prisoner_of_azkaban_007.jpg') 
+Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma and Parvati Sorting Hat Minister of Magic blue turban   remember my last.', photo: '') 
 blog7 = TroopBlog.create(troop_id: '3', headline:
 'Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall.', body: "Thestral dirigible plums, Viktor Krum hexed memory charm Animagus Invisibility Cloak three-headed Dog. Half-Blood Prince Invisibility Cloak cauldron cakes, hiya Harry! Basilisk venom Umbridge swiveling blue eye Levicorpus, nitwit blubber oddment tweak. Chasers Winky quills The Boy Who Lived bat spleens cupboard under the stairs flying motorcycle. Sirius Black Holyhead Harpies, you’ve got dirt on your nose. Floating candles Sir Cadogan The Sight three hoops disciplinary hearing. Grindlewald pig’s tail Sorcerer's Stone biting teacup. Side-along dragon-scale suits Filch 20 points, Mr. Potter.", photo: '')  
-blog8= TroopBlog.create(troop_id: '2', headline: 'Nearly-Headless Nick now string them together, and answer me this, which creature would you be unwilling to kiss?', body: "Squashy armchairs dirt on your nose brass scales crush the Sopophorous bean with flat side of silver dagger, releases juice better than cutting. Full moon Whomping Willow three turns should do it lemon drops. Locomotor trunks owl treats that will be 50 points, Mr. Potter. Witch Weekly, he will rise again and he will come for us, headmaster Erumpent horn. Fenrir Grayback horseless carriages ‘zis is a chance many would die for!", photo: 'http://static.tumblr.com/wrb6fwu/vhqlzkh17/banner_for_tumblr.jpg') 
+blog8= TroopBlog.create(troop_id: '2', headline: 'Nearly-Headless Nick now string them together, and answer me this, which creature would you be unwilling to kiss?', body: "Squashy armchairs dirt on your nose brass scales crush the Sopophorous bean with flat side of silver dagger, releases juice better than cutting. Full moon Whomping Willow three turns should do it lemon drops. Locomotor trunks owl treats that will be 50 points, Mr. Potter. Witch Weekly, he will rise again and he will come for us, headmaster Erumpent horn. Fenrir Grayback horseless carriages ‘zis is a chance many would die for!", photo: '') 
 blog9 = TroopBlog.create(troop_id: '1', headline:
 'Boggarts lavender robes, Hermione Granger Fantastic Beasts and Where to Find
-Them.', body: "Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven roaring lion hat. Unicorn blood crossbow mars is bright tonight, feast Norwegian Ridgeback. Come seek us where our voices sound, we cannot sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.", photo: 'http://static.tumblr.com/wrb6fwu/vhqlzkh17/banner_for_tumblr.jpg') 
-blog10 = TroopBlog.create(troop_id: '2', headline: 'Poltergeist sticking charm, troll umbrella stand flying cars golden locket Lily Potter. ', body: "Boggarts lavender robes, Hermione Granger Fantastic Beasts and Where to Find Them. Bee in your bonnet Hand of Glory elder wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir mewing kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma and Parvati Sorting Hat Minister of Magic blue turban remember my last.", photo: 'http://1.bp.blogspot.com/_2fdwksuATNA/TGooSIuklMI/AAAAAAAAAM0/SSuctxYg4Oo/s1600/Harry-Potter-Deathly-Hallows-6.jpg') 
-blog11 = TroopBlog.create(troop_id: '3', headline: 'Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration.', body: "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods yew pumpkin juice phials Ravenclaw’s Diadem 10 galleons Thieves Downfall. Ministry-of-Magic mimubulus mimbletonia Pigwidgeon knut phoenix feather other minister Azkaban. Hedwig Daily Prophet treacle tart full-moon Ollivanders You-Know-Who cursed. Fawkes maze raw-steak Voldemort Goblin Wars snitch Forbidden forest grindylows wool socks.", photo: 'http://www.berkeleyside.com/wp-content/uploads/2010/02/quidditch.jpg')
+Them.', body: "Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven roaring lion hat. Unicorn blood crossbow mars is bright tonight, feast Norwegian Ridgeback. Come seek us where our voices sound, we cannot sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.", photo: '') 
+blog10 = TroopBlog.create(troop_id: '2', headline: 'Poltergeist sticking charm, troll umbrella stand flying cars golden locket Lily Potter. ', body: "Boggarts lavender robes, Hermione Granger Fantastic Beasts and Where to Find Them. Bee in your bonnet Hand of Glory elder wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir mewing kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma and Parvati Sorting Hat Minister of Magic blue turban remember my last.", photo: '') 
+blog11 = TroopBlog.create(troop_id: '3', headline: 'Prefect’s bathroom Trelawney veela squashy armchairs, SPEW: Gamp’s Elemental Law of Transfiguration.', body: "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods yew pumpkin juice phials Ravenclaw’s Diadem 10 galleons Thieves Downfall. Ministry-of-Magic mimubulus mimbletonia Pigwidgeon knut phoenix feather other minister Azkaban. Hedwig Daily Prophet treacle tart full-moon Ollivanders You-Know-Who cursed. Fawkes maze raw-steak Voldemort Goblin Wars snitch Forbidden forest grindylows wool socks.", photo: '')
 
 
-blog1pic = File.join('http://img2.wikia.nocookie.net/__cb20091204181346/harrypotter/images/4/4e/Harry_Potter,_Hermione_Granger_(disguised_as_Bella)_and_Ron_Weasley.jpg')
+blog1pic = File.join(Rails.root, '/app/assets/images/blog1.jpg')
 blog1_file = File.new(blog1pic)
-blog_1.photo = blog1_file
-blog_1.save!
+blog1.photo = blog1_file
+blog1.save!
+
+blog2pic = File.join(Rails.root, '/app/assets/images/blog2.png')
+blog2_file = File.new(blog2pic)
+blog2.photo = blog2_file
+blog2.save!
+
+blog3pic = File.join(Rails.root, '/app/assets/images/blog3.jpg')
+blog3_file = File.new(blog3pic)
+blog3.photo = blog3_file
+blog3.save!
+
+blog4pic = File.join(Rails.root, '/app/assets/images/blog4.jpg')
+blog4_file = File.new(blog4pic)
+blog4.photo = blog4_file
+blog4.save!
+
+blog5pic = File.join(Rails.root, '/app/assets/images/blog5.jpg')
+blog5_file = File.new(blog5pic)
+blog5.photo = blog5_file
+blog5.save!
+
+blog6pic = File.join(Rails.root, '/app/assets/images/blog6.jpg')
+blog6_file = File.new(blog6pic)
+blog6.photo = blog6_file
+blog6.save!
+
+blog7pic = File.join(Rails.root, '/app/assets/images/blog7.jpg')
+blog7_file = File.new(blog7pic)
+blog7.photo = blog7_file
+blog7.save!
+
+blog8pic = File.join(Rails.root, '/app/assets/images/blog8.jpg')
+blog8_file = File.new(blog8pic)
+blog8.photo = blog8_file
+blog8.save!
+
+blog9pic = File.join(Rails.root, '/app/assets/images/blog9.jpg')
+blog9_file = File.new(blog9pic)
+blog9.photo = blog9_file
+blog9.save!
+
+blog10pic = File.join(Rails.root, '/app/assets/images/blog10.jpg')
+blog10_file = File.new(blog10pic)
+blog10.photo = blog10_file
+blog10.save!
+
+blog11pic = File.join(Rails.root, '/app/assets/images/blog11.jpg')
+blog11_file = File.new(blog11pic)
+blog11.photo = blog11_file
+blog11.save!
