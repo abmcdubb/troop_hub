@@ -1,4 +1,5 @@
 class SkillsController < ApplicationController
+autocomplete :badge, :name
 
   def show
     @event = Event.new

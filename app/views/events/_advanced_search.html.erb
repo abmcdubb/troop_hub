@@ -54,15 +54,15 @@
           <!-- This system is probably not sustainable. But it was fun to write -->
         </br><br>
         <label class="form_label_font">Badges Earned</label>
-        <%#= autocomplete_field_tag :"event[badge_id]", nil, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true, :class => "form-control"%>
+       <%= autocomplete_field_tag :name, nil, autocomplete_badge_name_events_path, :id_element => '#autocomplete', 'data-delimiter' => ',', :multiple => true, :class => "form-control", :append_to => "#advancedSearch"%>
 
 
-   <label class="form_label_font">Badges Earned</label>
                     <%#= autocomplete_field_tag :"event[badge_id]", nil, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true, :class => "form-control"%>
                     <br/>
                      <br> 
  <%= submit_tag("Search") %>
  <%end%>      </div>
+
   
     </div>
   </div>
