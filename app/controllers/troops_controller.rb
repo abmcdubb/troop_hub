@@ -64,6 +64,11 @@ class TroopsController < ApplicationController
     @age_levels = AgeLevel.all
     @badges = Badge.all
     @news = TroopBlog.homepage_news_feed
+    @skills = Skill.all
+    # @event = Event.new
+    # @event_badge = EventBadge.new
+    # @troops = Troop.all
+    # @events = Event.all
   end
 
 
