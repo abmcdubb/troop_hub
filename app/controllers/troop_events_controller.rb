@@ -18,6 +18,7 @@ class TroopEventsController < ApplicationController
       @troop_event = TroopEvent.new
       # if params[:event_id]
       @troop_event.event_id = params[:event_id]
+      @event = Event.find(@troop_event.event_id)
       # end
       # if params[:troop_id]
       #   @troop_event.troop_id = params[:troop_id]

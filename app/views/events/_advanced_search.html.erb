@@ -23,14 +23,14 @@
             <option value= "<%=skill.id%>" ><%=skill.name%></option>
           <%end%>
         </select>
-  
+        <br>
         <label class="form_label_font">Appropriate Age Level:</label><br>
           <%@age_levels.each do |age_level|%>
             <label for="event_age_level_ids_<%=age_level.id%>"><%=age_level.name%></label>
             <input id="event_age_level_ids_<%=age_level.id%>" name="event[age_level_ids][]" type="checkbox" value="<%=age_level.id%>"> | 
           <%end%>
         </br>
-
+        <br>
         <%= label_tag(:'event[season]', "Event season:", :class => "form_label_font") %>
         <%= select_tag(:"event[season]", options_for_select([['Any', 1],
           ['Spring', 2],
@@ -52,7 +52,7 @@
           ['New Years', 245],#january and december
           ['Independence Day', 117]], 1), :class => "form-control")%> <!--july-->
           <!-- This system is probably not sustainable. But it was fun to write -->
-        </br>
+        </br><br>
         <label class="form_label_font">Badges Earned</label>
         <%#= autocomplete_field_tag :"event[badge_id]", nil, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true, :class => "form-control"%>
 
@@ -60,7 +60,7 @@
    <label class="form_label_font">Badges Earned</label>
                     <%#= autocomplete_field_tag :"event[badge_id]", nil, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true, :class => "form-control"%>
                     <br/>
-
+                     <br> 
  <%= submit_tag("Search") %>
  <%end%>      </div>
   
