@@ -1,5 +1,7 @@
 <%#=render partial: 'layouts/banner', locals: {:name => @troop.name, :right_option => "Troop Number: {@troop.number}" } %>
 
+
+
 <%=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.name}", :right_option => "Troop Number: #{@troop.number}" }%>
 <!-- #update! -->
     <!-- if we want to be really snazzy we should change the word "company" to "troop" here and in the css file -->
@@ -70,21 +72,39 @@
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-               <center>Calendar of Events</center>
+               <center>Calendar of Events </center>
             </a>
           </h4>
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
-                <%= calendar @troop_events do |e| %>
-                <% if e.troop_id == @troop.id %>
-                <ul>
-                 <li><a href ="/troop_events/<%=e.id%>"><%= e.name %></a></li>
-                  <%end%>
-                </ul>
-                <% end %>
-          </div>
-        </div>
+
+      <%= calendar @troop_events do |e| %>
+    <% if e.troop_id == @troop.id %>
+
+    <li ><a data-toggle="modal" data-target="#<%=e.id%>" href = "#"><%= e.name %></a></li> 
+
+<div class="modal fade" id = "<%=e.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><center><%=e.name%></center></h4>
+      </div>
+        <div class="modal-body">
+    <center>  
+  <b>Date:</b> <%= e.start_time.strftime("%A %B %e")%><br/>
+<b>Time:</b> <%= e.start_time.strftime("%I:%M %p") %><br/>
+<b>Location:</b> <%= e.location%><br/>
+<b>Details:</b> <%= e.detail%><br/></center>
+  <%end%>
+  </div>
+</div>
+  <%end%>
+   </div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
@@ -98,12 +118,83 @@
             </a>
           </h4>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in">
+        <!-- Inner Content -->
+      <div class="inner-page padd">
+      
+        <!-- Blog Start -->
+          
+        <div class="blog">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <!-- The new post done by user's all in the post block -->
+                <div class="blog-post">
+                  <!-- Entry is the one post for each user -->
+                <% @news.each do |article| %>
+                  <div class="entry">
+                    <!-- Post Images -->
+                    <div class="blog-img pull-left">
+                      <img src="<%= article.photo %>" class="img-responsive img-thumbnail" alt="" />
+                    </div>
+                    <!-- Meta for this block -->
+                    <div class="meta">
+                      <i class="fa fa-calendar"></i>&nbsp; <%= article.formatted_date %>
+                      <span class="pull-right"><i class="fa fa-comment"></i> <a href="/troops/<%=article.troop_id%>"><%= article.find_troop_name(article.troop_id) %></a></span>
+                    </div>
+                    <!-- Heading of the  post -->
+                    <h3><%= link_to article.headline, troop_blog_index_path(@troop) %></h3>
+                    <hr /><!-- Horizontal line -->
+                    <!-- Paragraph -->
+                    <p><%= article.body %></p>
+                    <p><%= link_to 'Continue reading more news articles', troop_blog_index_path(@troop) %></p>
+                    <div class="clearfix"></div>
+                  </div>
+                <% end %>
+ 
+                  <!-- Entry is the one post for each user -->
+
+
+                  <!-- Pagination -->
+          
+                  <!-- Pagination end-->
+                </div>
+              </div> <!--/ Main blog column end -->
+              <div class="col-md-3">
+                <!-- Blog page sidebar -->
+                <div class="blog-sidebar">
+                  
+                    <div class="col-md-12 col-sm-6">
+                      <!-- Blog sidebar page widget -->
+                      <div class="sidebar-widget">
+                        <!-- Widget Heading -->
+                        <h4>Recent Posts</h4>
+                        <!-- Recent post list -->
+                        <ul class="list-unstyled">
+                          <% @sidebar_news.each do |article|  %>
+                          <li><i class="fa fa-angle-double-right"></i> <%= link_to "#{article.headline}", troop_blog_index_path(@troop) %></li>
+                          <% end %>
+                        </ul>
+                      </div><!--/ Widget end -->
+                    </div>
+                   
+                  </div><!--/ Inner row end -->
+                </div><!--/ Page sidebar end -->
+              </div>
+            </div><!--/ Row end -->
+
+        
+        <!-- Blog End -->
+        <!-- <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
-NEWS
+            <%# unless @newsletter.nil? %>
+                <%#= render partial: 'newsletters/show' %>
+                <%# end %>
+<%# if current_user && current_user.admin_privileges < 50 %>
+<left><%#=link_to 'Update News Section', newsletters_new_path %></left>
+<%#end%>
                 <br/>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     </div>
@@ -113,34 +204,6 @@ NEWS
     </div> <!-- container -->
 </div> <!-- end about-company padd -->
 
-<%#= link_to 'Browse Events', events_path %#></br>
 
-
-
-
-
-<!-- <center><h2>Photos</h2></center> -->
-
-<%#=link_to("Photos", troop_photos_path(@troop))%>
-  
-<%#= "HELLO WORLD" %>
-<%#end%>
-
-<%#@photos.each do |photo| %>
-    <!-- <p> -->
-        <%#=image_tag photo.pic_url%>
-        <%#= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
-            <%#= submit_tag 'Delete' %>
-        <%#end%>
-    <!-- </p> -->
-<%#end%>
-
-<%#= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
-
-
-<%#= link_to 'Back', troops_path %><br/>
-
-
-<%#= link_to 'New Event', new_troop_event_path(@troop) %></br>
 
 

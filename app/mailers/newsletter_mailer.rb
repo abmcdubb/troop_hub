@@ -1,5 +1,5 @@
 class NewsletterMailer < ActionMailer::Base
-   default from: 'emma.ife@flatironschool.com'
+   default from: 'troop_hub@gmail.com'
 
   def newsletter_email(newsletter)
     @newsletter = newsletter
