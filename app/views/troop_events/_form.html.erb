@@ -1,7 +1,9 @@
 <%= form_for(@troop_event) do |f| %>
-<%= f.collection_radio_buttons(:event_id, @events, :id, :name) do |r|%>
-<%= r.radio_button %> <%=r.label%>
-<%end%>
+
+<%= f.hidden_field :event_id %>
+<%#= f.collection_radio_buttons(:event_id, @events, :id, :name) do |r|%>
+<%#= r.radio_button %> <%#=r.label%>
+<%#end%>
 <br/>
 <br/>
 <%= f.collection_radio_buttons(:troop_id, @troops, :id, :name) do |r|%>
