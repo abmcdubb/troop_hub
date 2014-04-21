@@ -7,6 +7,7 @@ gem "pundit"
 gem 'pdfkit'
 gem 'postmark-rails'
 gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf'
 gem 'rmagick', require: false #brew install imagemagick in terminal, if this fails. then rebundle
 gem 'carrierwave'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
