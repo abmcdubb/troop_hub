@@ -1,12 +1,13 @@
 class NewsletterMailer < ActionMailer::Base
-  default from: "from@example.com"
+   default from: 'troop_hub@gmail.com'
 
-  def newsletter_email(user)
-    @user = user
-    mail(to: @user.email, subject: 'Troop Newsletter')
-    @newsletter= Newsletter.new(newsletter_params)
+  def newsletter_email(newsletter)
+    @newsletter = newsletter
+    @troop = @newsletter.troop
+    mail(to: @newsletter.troop.users.pluck(:email), subject: "Newsletter")
   end
 
 end
+
 
 

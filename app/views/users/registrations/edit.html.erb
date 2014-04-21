@@ -1,4 +1,4 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Register", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Join Now to become a Member! " }%>
+<%=render partial: 'layouts/banner', locals: {:name => "Edit Account", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Edit Your Account " }%>
 
 <div class="inner-page padd">
   <!-- Booking Start -->
@@ -76,8 +76,9 @@
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-<% if current_user.role == 'Troop Leader' %>
+<br/>
+<br/>
+<% if current_user.admin_privileges < 50 %>
 <dl><%= f.label :admin_privileges %>:
 <%= f.select :admin_privileges, User::ADMIN, class: "form-control" %></dl>
 <%end%>

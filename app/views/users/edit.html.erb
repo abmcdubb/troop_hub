@@ -1,0 +1,159 @@
+<%=render partial: 'layouts/banner', locals: {:name => "Edit Account", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Edit Your Account " }%>
+
+<div class="inner-page padd">
+  <!-- Booking Start -->
+  <div class="booking">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Heading -->
+          <h3 >Edit Account</h3>
+          </div> <!-- col-md-12 -->
+          <!-- Image Slider -->
+          <div class="col-md-4">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie1.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie2.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie3.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie4.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie5.jpg") %>" alt="" />
+              </div>
+    
+            </div> <!-- carousel-inner -->
+
+            <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="fa fa-chevron-left"></span>
+            </a>
+          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="fa fa-chevron-right"></span>
+          </a>
+          </div> <!-- carousel-example-generic -->
+        </div> <!-- col-md-4 -->
+        
+
+        <div class="col-md-8">
+
+        
+
+
+
+  
+
+
+          <!-- Booking form without skills sections-->
+          <div class="col-md-5">
+        <%= form_for(:user, url: edit_user_registration_path(:user), html: { method: :patch }) do |f| %>
+                <!-- Form label -->
+                <label>Full Name</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.text_field :name, autofocus: true, :class => "form-control" %>
+                </div>
+                <!-- Form label -->
+                <label>Email</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.email_field :email, autofocus: true, :class => "form-control"  %>
+                </div>
+                <!-- Form label -->
+   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %></div>
+<br/>
+<br/>
+<% if current_user.admin_privileges < 50 %>
+<dl><%= f.label :admin_privileges %>:
+<%= f.select :admin_privileges, User::ADMIN, class: "form-control" %></dl>
+<%end%>
+
+                <!-- Form label -->
+                <label>Phone Number</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.text_field :phone_number, autofocus: true, :class => "form-control"  %>
+                </div>
+
+                <!-- Form label -->
+                <label class="form_label_font">Profile Photo</label>
+                <div class="form-group">
+                  <!-- Form input -->
+                  <%= f.file_field :profile_photo %><br/>
+                </div>
+
+
+
+                <div class="col-md-7">
+                  <div class="form-group">
+                <% if current_user.role == "Scout"%>
+                    <%= render :partial => 'scouts_form' , :locals => {:f => f} %>
+                <%else%>
+                    <%= render :partial => 'users/registrations/adults_form' , :locals => {:f => f} %>
+                  <%end%>
+                </div><!-- form-group -->
+              </div> <!-- col-md-7 -->
+
+
+<%= f.submit "Update" %>
+<% end %>
+            </div> <!-- booking-form -->
+            
+        </div> <!-- end col-md-8 -->
+            
+
+              
+
+
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+  
+           <!--  </div> -->
+            
+          <!-- </div>  --><!-- booking-form -->
+
+      </div> <!-- end row -->
+    </div> <!-- end container -->
+  </div> <!-- end booking -->
+</div> <!-- end inner-page padd -->
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+  $('.skills_check_box').change('checkbox :checkbox.toggle', function(e){    
+    var skill_id = $(this).data('skill-id');
+    var text_field = $('.hidden_skills_text_field#skill_'+skill_id);
+
+    text_field.fadeToggle();
+    });
+
+      $('.adults-form').show();
+
+});
+</script>
+
+
+
+
+
+

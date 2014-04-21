@@ -29,7 +29,7 @@
                   <p>Troops:</p> <% @user.troops.each do |troop|%>
                     <li><a href = "/troops/<%=troop.id%>"><%=troop.name%></a></li>
                     <%end%>
-                    <%else%>
+                    <%elsif @user.troops == 1%>
                     <p>Troop: <a href = "/troops/<%=@user.troop_ids[0]%>"><%=@user.troops[0].name%></a></p>
                     <%end%>
 
@@ -64,3 +64,8 @@
 </br>
 <%#= link_to 'Home', troops_path %>
  </center>
+ <footer>   <%if @user == current_user || @user.admin_privileges < 50  %>
+
+<%= link_to "Edit Account", edit_user_path %>
+<%end%>
+</footer>

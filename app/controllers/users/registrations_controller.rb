@@ -23,6 +23,8 @@ end
     yield resource if block_given?
     if resource_saved
     add_skills_to_adults(resource.id, skills_params[:skill_ids], skills_params[:descriptions]) unless skills_params[:skill_ids].nil?
+      
+
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
@@ -66,11 +68,14 @@ end
     if params[:user][:role] != "Scout"
       params[:user][:birthday] = nil
       params[:user][:grade] = nil
-    # else
-    
+    # else  
       # params[:user][:skill_ids].clear
-
     end
-
+    if 
+      params[:user][:role] == "Troop Leader"
+      params[:user][:admin_privileges] = 0
+    end
   end
+
+
 end

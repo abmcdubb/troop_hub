@@ -1,5 +1,7 @@
 <%#=render partial: 'layouts/banner', locals: {:name => @troop.name, :right_option => "Troop Number: {@troop.number}" } %>
 
+
+
 <%=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.name}", :right_option => "Troop Number: #{@troop.number}" }%>
 <!-- #update! -->
     <!-- if we want to be really snazzy we should change the word "company" to "troop" here and in the css file -->
@@ -76,15 +78,33 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
-                <%= calendar @troop_events do |e| %>
-                <% if e.troop_id == @troop.id %>
-                <ul>
-                 <li><a href ="/troop_events/<%=e.id%>"><%= e.name %></a></li>
-                  <%end%>
-                </ul>
-                <% end %>
-          </div>
-        </div>
+
+      <%= calendar @troop_events do |e| %>
+    <% if e.troop_id == @troop.id %>
+
+    <li ><a data-toggle="modal" data-target="#<%=e.id%>" href = "#"><%= e.name %></a></li> 
+
+<div class="modal fade" id = "<%=e.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><center><%=e.name%></center></h4>
+      </div>
+        <div class="modal-body">
+    <center>  
+  <b>Date:</b> <%= e.start_time.strftime("%A %B %e")%><br/>
+<b>Time:</b> <%= e.start_time.strftime("%I:%M %p") %><br/>
+<b>Location:</b> <%= e.location%><br/>
+<b>Details:</b> <%= e.detail%><br/></center>
+  <%end%>
+  </div>
+</div>
+  <%end%>
+   </div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
@@ -161,8 +181,7 @@
                 </div><!--/ Page sidebar end -->
               </div>
             </div><!--/ Row end -->
-          </div>
-        </div>
+
         
         <!-- Blog End -->
         <!-- <div id="collapseOne" class="panel-collapse collapse in">
@@ -185,34 +204,6 @@
     </div> <!-- container -->
 </div> <!-- end about-company padd -->
 
-<%#= link_to 'Browse Events', events_path %#></br>
 
-
-
-
-
-<!-- <center><h2>Photos</h2></center> -->
-
-<%#=link_to("Photos", troop_photos_path(@troop))%>
-  
-<%#= "HELLO WORLD" %>
-<%#end%>
-
-<%#@photos.each do |photo| %>
-    <!-- <p> -->
-        <%#=image_tag photo.pic_url%>
-        <%#= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
-            <%#= submit_tag 'Delete' %>
-        <%#end%>
-    <!-- </p> -->
-<%#end%>
-
-<%#= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
-
-
-<%#= link_to 'Back', troops_path %><br/>
-
-
-<%#= link_to 'New Event', new_troop_event_path(@troop) %></br>
 
 

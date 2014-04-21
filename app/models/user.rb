@@ -24,6 +24,8 @@ ADMIN = {
     admin_privileges == "admin" ? true : false
   end
 
+
+
   # def scout?
   #   admin_privileges == "troop member" ? true : false
   # end
