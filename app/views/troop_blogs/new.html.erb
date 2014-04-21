@@ -1,0 +1,58 @@
+<%=render partial: 'layouts/banner', locals: {:name => "Add Troop Form", :left_option => "TBD", :right_option => "TBD" }%>
+
+
+      <div class="inner-page padd">
+      
+        <!-- Single Item Start -->
+        
+        <div class="single-item">
+          <div class="container">
+            <!-- Shopping single item contents -->
+            <div class="single-item-content">
+              <div class="row">
+                <div class="col-md-4 col-sm-5">
+                  <!-- Product image -->
+                  <img class="img-responsive img-thumbnail" src="http://www.justamorous.com/wp-content/uploads/2014/02/Girl-Scout-Cookies.jpg" alt="" />
+                </div>
+                <div class="col-md-8 col-sm-7">
+                  <!-- Heading -->
+                  <h3>Add News Article</h3>
+                  <div class="row">
+                    <div class="col-md-7 col-sm-12">
+                      <!-- Single item details -->
+                      <div class="item-details">
+                        <!-- Paragraph -->
+                        <p class="text-justify"></p>
+
+                       <%= form_for @troop_blog do |f| %>
+                            <label>Troop News:</label>
+                            <%= f.hidden_field :troop_id %>
+
+                            <label>Headline:</label>
+                            <%= f.text_field :headline, class: "form-control" %></br>
+
+                            <label>News Body:</label>
+                            <%= f.text_area :body, class: "form-control", :rows => 15 %>
+                         
+                            <label>Photo:</label>
+                            <%= f.file_field :photo %></br>
+
+                            
+                          <button class="btn btn-danger btn-sm show-submit" type="submit">Add News Article</button>
+                          <% end %>
+                      </div>
+
+
+
+                       <div class="table-responsive">
+                        <!-- Ordering form -->
+                       
+                      </div><!--/ Table responsive class end -->
+                    </div>
+                    
+                  </div><!--/ Inner row end  -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
