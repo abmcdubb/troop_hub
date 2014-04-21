@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418223524) do
+ActiveRecord::Schema.define(version: 20140421142606) do
 
   create_table "age_levels", force: true do |t|
     t.string   "name"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140418223524) do
     t.text     "activity_6"
     t.text     "activity_7"
     t.text     "activity_8"
-    t.string   "patches"
+    t.string   "badges"
     t.string   "snack"
     t.text     "jobs"
     t.text     "supplies"
@@ -111,11 +111,6 @@ ActiveRecord::Schema.define(version: 20140418223524) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "on_page"
-  end
-
-  create_table "scouts_badges", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "skills", force: true do |t|

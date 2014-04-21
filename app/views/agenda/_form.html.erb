@@ -1,59 +1,52 @@
+<%= form_for (@agenda) do |f| %>
+    <label>Date of meeting:</label>
+    <%= f.date_field :meeting_date, :value => Time.now.strftime("%Y-%m-%d"), class: "form-control" %></br>
+  
+    <label>Location:</label>
+      <%= f.text_field :location, class: "form-control" %>
+    <label>Start-up Activity (while girls arrive):</label></br>
+      <%= f.text_area :activity_1, class: "form-control" %>
 
-<%= form_for @agenda do |f| %>
+    <label>Opening discussion and Troop Business (attendance, dues, Promise/Law):</label></br>
+      <%= f.text_area :activity_2, class: "form-control" %>
+    
+    <label>Activity (movement game, craft, badgework, etc.):</label></br>
+      <%= f.text_area :activity_3, class: "form-control" %>
+    
+    <label>Activity (movement game, craft, badgework, etc.):</label></br>
+      <%= f.text_area :activity_4, class: "form-control" %>
+    
+    <label>Activity (snack, clean-up):</label></br>
+      <%= f.text_area :activity_5, class: "form-control" %>
+    
+    <label>Closing Activity (friendship circle, song, squeeze):</label></br>
+      <%= f.text_area :activity_6, class: "form-control" %>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+                      <!-- Form inside table wrapper -->
+                     
+<h3>Other information:</h3>                    
+    <label>Snack:</label>
+    <%= f.text_field :snack, class: "form-control" %></br>
+  
+    <label>Relevant badges/patches:</label>
+    <%= f.text_field :badges, class: "form-control" %></br>
 
-  <%= f.label :meeting_date, 'Date of meeting: ' %><br>
-  <%= f.date_field :meeting_date, :value => Time.now.strftime("%Y-%m-%d") %><br/>
-  <br/>
+  
+    <label>Supplies needed:</label>
+    <%= f.text_area :supplies, class: "form-control" %></br>
 
-  <%= f.label :location, 'Location: ' %><br>
-  <%= f.text_field :location %><br/>
-  <br/>
+  
+    <label>Kapers/Job assignments:</label>
+    <%= f.text_area :jobs, class: "form-control" %></br>
 
-  <%= f.label :activty_1, 'Start-up Activity (while girls arrive): ' %><br>
-  <%= f.text_area :activity_1 %><br/>
-  <br/>
+  
+    <label>Notes (calls/emails to make, info/materials to share with troop members and parents, decisions for next meeting):</label>
+      <%= f.text_area :troop_info, class: "form-control" %></br>
+      <br>
 
-  <%= f.label :activty_2, 'Opening discussion & Troop Business (attendance, dues, Promise/Law): ' %><br>
-  <%= f.text_area :activity_2 %><br/>
-  <br/>
-
-  <%= f.label :activty_3, 'Activity (movement game, craft, badgework, etc.): ' %><br>
-  <%= f.text_area :activity_3 %><br/>
-  <br/>
-
-  <%= f.label :activty_4, 'Activity (movement game, craft, badgework, etc.): ' %><br>
-  <%= f.text_area :activity_4 %><br/>
-  <br/>
-
-  <%= f.label :activty_5, 'Activity (snack, clean-up): ' %><br>
-  <%= f.text_area :activity_5 %><br/>
-  <br/>
-
-  <%= f.label :activty_6, 'Closing Activity (friendship circle, song, squeeze): ' %><br>
-  <%= f.text_area :activity_6 %><br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-
-<h3>Other information:</h3>
-  <%= f.label :snack, 'Snack: ' %><br>
-  <%= f.text_field :snack %><br/>
-  <br/>
-  <%= f.label :patches, 'Relevant badges/patches: ' %><br>
-  <%= f.text_field :patches %><br/>
-  <br/>
-  <%= f.label :supplies, 'Supplies needed: ' %><br>
-  <%= f.text_area :supplies %><br/>
-  <br/>
-  <%= f.label :jobs, 'Kapers/Job assignments: ' %><br>
-  <%= f.text_area :jobs %><br/>
-  <br/>
-  <%= f.label :troop_info, 'Notes (calls/emails to make, info/materials to share with troop members and parents, decisions for next meeting)' %><br>
-  <%= f.text_area :troop_info %><br/>
-  <br/>
-  <br/>
-  <%= f.submit %>
+  <button class="btn btn-danger btn-sm show-submit " type="submit">Create Meeting Agenda</button>
 <% end %>
-
