@@ -12,4 +12,13 @@ class TroopBlog < ActiveRecord::Base
   def find_troop_name(troop_id)
     Troop.find(troop_id).name
   end
+
+  def self.troop_news_feed(troop_id)
+    TroopBlog.where(troop_id: troop_id).order(created_at: :desc).limit(5)
+  end
+
+  def self.sidebar_news_feed(troop_id)
+    TroopBlog.where(troop_id: troop_id).order(created_at: :desc).limit(4)
+  end
+
 end

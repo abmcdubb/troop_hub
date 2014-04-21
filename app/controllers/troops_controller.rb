@@ -19,6 +19,8 @@ class TroopsController < ApplicationController
     # @scouts = Scout.where(params[:id])
     @troop_events = TroopEvent.all
     @newsletter = Newsletter.all.last
+    @news = TroopBlog.troop_news_feed(params[:id]).paginate(page: params[:page], per_page: 1)
+    @sidebar_news = TroopBlog.sidebar_news_feed(params[:id])
     
   end
 
