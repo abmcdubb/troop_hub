@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 get 'badges' => 'badges#index'
-  devise_for :users, controllers: { :registrations => "users/registrations" }
+  devise_for :users, controllers: { :registrations => "users/registrations", :invitations => 'users/invitations' }
 
   root 'troops#home'
 
@@ -13,6 +13,10 @@ get 'badges' => 'badges#index'
 resources :user_badges do
   get :autocomplete_badge_name, :on => :collection
 end
+resources :events, :only => [:new, :create] do
+  get :autocomplete_badge_name, :on => :collection
+end
+
 
 
 #-------Troop-Specific Routes----------
@@ -65,7 +69,7 @@ get 'user_badges' => 'user_badges#index'
 
 
   get 'troop_events/new' => 'troop_events#new'
-  get 'troop_events/:troop_id/new_event' => 'troop_events#new_event', as: 'new_event'
+  get 'troop_events/:troop_id/new_event' => 'troop_events#new_event', as: 'new_troop_event'
   post 'troop_events/new_event' => 'troop_events#create_event'
   post 'troop_events' => 'troop_events#create'
   get 'troop_events/:id' => 'troop_events#show', as: 'troop_event'

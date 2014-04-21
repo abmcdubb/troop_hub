@@ -9,9 +9,17 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
-
+  <%= favicon_link_tag 'thinmint.jpg' %>
 
 </head>
+
+<% if flash[:notice] %>
+<div id=”notice” class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
 
     <%= render '/layouts/navbar' %>
 
@@ -33,9 +41,7 @@
 
 
 
-<% if flash[:notice] %>
-<div id=”notice”><%= flash[:notice] %></div>
-<% end %>
+
 
 <%= yield %>
 

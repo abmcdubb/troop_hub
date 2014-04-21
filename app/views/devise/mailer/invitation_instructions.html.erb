@@ -1,0 +1,20 @@
+<%if @resource.invited_by && @resource.invited_by.name%>
+    <%inviter = "#{@resource.invited_by.name}, your troop leader,"%>
+<%else%>
+    <%inviter = "Someone"%>
+<%end%>
+
+<%if @resource.name%>
+    <%your_name = @resource.name%>
+<%else%>
+    <%your_name = "You"%>
+<%end%>
+
+<p>Hi <%= your_name %>!</p>
+
+<p><%=inviter%> has invited you to <%= root_url %>. The go-to site for all your troop related needs. You can set up your account for the site by clicking the link below.</p>
+
+<p><%= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @token) %></p>
+
+<p>If you don't want to accept the invitation, please ignore this email.<br />
+Your account won't be created until you access the link above and set your password.</p>

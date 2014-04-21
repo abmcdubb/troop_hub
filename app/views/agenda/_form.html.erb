@@ -1,4 +1,3 @@
-
 <%= form_for @agenda do |f| %>
 
   <%= f.label :meeting_date, 'Date of meeting: ' %><br>
@@ -55,5 +54,56 @@
   <br/>
   <br/>
   <%= f.submit %>
-<% end %>
 
+<%= form_for (@agenda) do |f| %>
+    <label>Date of meeting:</label>
+    <%= f.date_field :meeting_date, :value => Time.now.strftime("%Y-%m-%d"), class: "form-control" %></br>
+  
+    <label>Location:</label>
+      <%= f.text_field :location, class: "form-control" %>
+    <label>Start-up Activity (while girls arrive):</label></br>
+      <%= f.text_area :activity_1, class: "form-control" %>
+
+    <label>Opening discussion and Troop Business (attendance, dues, Promise/Law):</label></br>
+      <%= f.text_area :activity_2, class: "form-control" %>
+    
+    <label>Activity (movement game, craft, badgework, etc.):</label></br>
+      <%= f.text_area :activity_3, class: "form-control" %>
+    
+    <label>Activity (movement game, craft, badgework, etc.):</label></br>
+      <%= f.text_area :activity_4, class: "form-control" %>
+    
+    <label>Activity (snack, clean-up):</label></br>
+      <%= f.text_area :activity_5, class: "form-control" %>
+    
+    <label>Closing Activity (friendship circle, song, squeeze):</label></br>
+      <%= f.text_area :activity_6, class: "form-control" %>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+                      <!-- Form inside table wrapper -->
+                     
+<h3>Other information:</h3>                    
+    <label>Snack:</label>
+    <%= f.text_field :snack, class: "form-control" %></br>
+  
+    <label>Relevant badges/patches:</label>
+    <%= f.text_field :badges, class: "form-control" %></br>
+
+  
+    <label>Supplies needed:</label>
+    <%= f.text_area :supplies, class: "form-control" %></br>
+
+  
+    <label>Kapers/Job assignments:</label>
+    <%= f.text_area :jobs, class: "form-control" %></br>
+
+  
+    <label>Notes (calls/emails to make, info/materials to share with troop members and parents, decisions for next meeting):</label>
+      <%= f.text_area :troop_info, class: "form-control" %></br>
+      <br>
+
+  <button class="btn btn-danger btn-sm show-submit " type="submit">Create Meeting Agenda</button>
+<% end %>

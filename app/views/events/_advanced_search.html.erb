@@ -9,45 +9,58 @@
       </div>
       <div class="modal-body">
         <%= form_tag("/events/search", method: "get") do %>
-  <%= label_tag(:'event[name]', "Event name:") %>
-  <%= text_field_tag(:'event[name]') %></br>
-  <%= label_tag(:'event[genre]', "Event genre:") %>
-  <%= text_field_tag(:'event[genre]') %></br>
-  
-  <h4>Age Level</h4>
-  <% @age_levels.each do |age_level| %>
-    <%= check_box_tag 'age_level_ids[]', age_level.id%>
-    <%= age_level.name%></br>
-  <% end %>
-  
-  <h4>Badges</h4>
-  <% @badges.each do |badge| %>
-    <%= check_box_tag 'badge_ids[]', badge.id%>
-    <%= badge.name%></br>
-  <% end %>
 
-    <%= label_tag(:'season', "Event season:") %>
-    <%= select_tag(:season, options_for_select([['Any', 1],
-    ['Spring', 2],
-    ['Summer', 3],
-    ['Fall', 5],
-    ['Winter', 7],
-    ['January', 49],#winter
-    ['Febuary', 77],#winter
-    ['March', 14],#spring and winter
-    ['April', 4],#spring
-    ['May', 22],#spring
-    ['June', 6],#spring and summer
-    ['July', 9],#summer
-    ['August', 33],#summer
-    ['September', 15],#summer and fall
-    ['October', 25],#fall
-    ['November', 55],#fall
-    ['December', 35],#winter and fall
-    ['New Years', 245],#january and december
-    ['Independence Day', 117]], 1))%> <!--july-->
-    <!-- This system is probably not sustainable. But it was fun to write -->
-  </br>
+        <%= label_tag(:'event[name]', "Event name:", :class => "form_label_font") %>
+        <%= text_field_tag(:'event[name]', nil, :class => "form-control") %></br>
+        <label class="form_label_font">Event Category:</label>
+        <select id="event_skill_id" name="event[skill_id]", class="form-control">
+          <option value="Any">Any</option>
+          <option value="General">General</option>
+          <option value="STEM">STEM</option>
+          <option value="Business Smarts">Business Smarts</option>
+          <option value="Nature and Ecology">Nature and Ecology</option>
+          <%@skills.each do |skill|%>
+            <option value= "<%=skill.id%>" ><%=skill.name%></option>
+          <%end%>
+        </select>
+        <br>
+        <label class="form_label_font">Appropriate Age Level:</label><br>
+          <%@age_levels.each do |age_level|%>
+            <label for="event_age_level_ids_<%=age_level.id%>"><%=age_level.name%></label>
+            <input id="event_age_level_ids_<%=age_level.id%>" name="event[age_level_ids][]" type="checkbox" value="<%=age_level.id%>"> | 
+          <%end%>
+        </br>
+        <br>
+        <%= label_tag(:'event[season]', "Event season:", :class => "form_label_font") %>
+        <%= select_tag(:"event[season]", options_for_select([['Any', 1],
+          ['Spring', 2],
+          ['Summer', 3],
+          ['Fall', 5],
+          ['Winter', 7],
+          ['January', 49],#winter
+          ['Febuary', 77],#winter
+          ['March', 14],#spring and winter
+          ['April', 4],#spring
+          ['May', 22],#spring
+          ['June', 6],#spring and summer
+          ['July', 9],#summer
+          ['August', 33],#summer
+          ['September', 15],#summer and fall
+          ['October', 25],#fall
+          ['November', 55],#fall
+          ['December', 35],#winter and fall
+          ['New Years', 245],#january and december
+          ['Independence Day', 117]], 1), :class => "form-control")%> <!--july-->
+          <!-- This system is probably not sustainable. But it was fun to write -->
+        </br><br>
+        <label class="form_label_font">Badges Earned</label>
+        <%#= autocomplete_field_tag :"event[badge_id]", nil, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true, :class => "form-control"%>
+
+
+   <label class="form_label_font">Badges Earned</label>
+                    <%#= autocomplete_field_tag :"event[badge_id]", nil, autocomplete_badge_name_events_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true, :class => "form-control"%>
+                    <br/>
+                     <br> 
  <%= submit_tag("Search") %>
  <%end%>      </div>
   
