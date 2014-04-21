@@ -2,7 +2,6 @@
 
 <%=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.name}", :right_option => "Troop Number: #{@troop.number}" }%>
 <!-- #update! -->
-<body>
     <!-- if we want to be really snazzy we should change the word "company" to "troop" here and in the css file -->
 <div class="about-company padd">
     <div class="container">
@@ -17,26 +16,55 @@
                     <h3>About Us:</h3>
                     <p><%=@troop.about_us %></p>
                     </br>
-                    <% if @user.troop_ids.include?(@troop.id)%>
-                   <center> <%= link_to 'Troop Members Listing', troop_user_path(@troop) %></center>
-                    <%end%>
+                </div> 
+            </div> <!-- end col-md-6 -->
+        </div> <!-- end row -->
 
+
+<!-- hide from non Troop members -->
+ <% if @user && @user.troop_ids.include?(@troop.id)%>
+<div class="showcase">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <!-- Showcase section item -->
+                <div class="showcase-item">
+                  <!-- Image -->
+                  <img class="img-responsive" src="/assets/making_friends.gif" alt="" />
+                  <!-- Heading -->
+                  <h3><%= link_to 'Meet Your Troop!', troop_user_path(@troop) %></h3>
+                  <!-- Paragraph -->
+                  <p>View the members of your troop and add our virtual badges to your profile page.</p>
+                  <div class="clearfix"></div>
                 </div>
-            </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <!-- Showcase section item -->
+                <div class="showcase-item">
+                  <!-- Image -->
+                  <img class="img-responsive" src="/assets/activity_badge.gif" alt="" />
+                  <!-- Heading -->
+                  <h3><%= link_to 'Browse Activities', events_path %></br></h3>
+                  <!-- Paragraph -->
+                  <p>Browse the activities in our database and help plan the next event for your troop!</p>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>`
+          </div>
         </div>
-    </div>
-</div>
-
+        <%end%>
 
 <br/>
 <br/>
+
 </br>
 </br>
 <%#= link_to 'Add a scout', new_troop_scout_path %>
 </br>
 </br>
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-">
     <div class="panel-group" id="accordion">
       <div class="panel panel-default" width="100px">
         <div class="panel-heading">
@@ -60,7 +88,7 @@
     </div>
     </div>
     </div>
-  <div class="col-md-6">
+  <div class="col-md-">
     <div class="panel-group" id="accordion">
       <div class="panel panel-default" width="100px">
         <div class="panel-heading">
@@ -72,8 +100,10 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
+            <% unless @newsletter.nil? %>
                 <%= render partial: 'newsletters/show' %>
-<% if current_user.admin_privileges < 50 %>
+                <% end %>
+<% if current_user && current_user.admin_privileges < 50 %>
 <left><%=link_to 'Update News Section', newsletters_new_path %></left>
 <%end%>
                 <br/>
@@ -85,10 +115,37 @@
 
       </div>
 </div>
+    </div> <!-- container -->
+</div> <!-- end about-company padd -->
+
+<%#= link_to 'Browse Events', events_path %#></br>
 
 
-<#%= link_to 'Browse Events', events_path %#></br>
 
 
-</body>
+
+<!-- <center><h2>Photos</h2></center> -->
+
+<%#=link_to("Photos", troop_photos_path(@troop))%>
+  
+<%#= "HELLO WORLD" %>
+<%#end%>
+
+<%#@photos.each do |photo| %>
+    <!-- <p> -->
+        <%#=image_tag photo.pic_url%>
+        <%#= form_tag("/photos/#{@troop.id}/troop/#{photo.id}", method: "delete") do %>
+            <%#= submit_tag 'Delete' %>
+        <%#end%>
+    <!-- </p> -->
+<%#end%>
+
+<%#= render partial: "/photos/photo_upload", locals: {:type => "troop", :id => @troop.id} %></br>
+
+
+<%#= link_to 'Back', troops_path %><br/>
+
+
+<%#= link_to 'New Event', new_troop_event_path(@troop) %></br>
+
 
