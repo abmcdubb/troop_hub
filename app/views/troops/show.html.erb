@@ -2,7 +2,6 @@
 
 <%=render partial: 'layouts/banner', locals: {:name => @troop.name, :left_option => "Troop Type: #{@troop.name}", :right_option => "Troop Number: #{@troop.number}" }%>
 <!-- #update! -->
-<body>
     <!-- if we want to be really snazzy we should change the word "company" to "troop" here and in the css file -->
 <div class="about-company padd">
     <div class="container">
@@ -17,13 +16,13 @@
                     <h3>About Us:</h3>
                     <p><%=@troop.about_us %></p>
                     </br>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                </div> 
+            </div> <!-- end col-md-6 -->
+        </div> <!-- end row -->
+
 
 <!-- hide from non Troop members -->
+ <% if @user && @user.troop_ids.include?(@troop.id)%>
 <div class="showcase">
           <div class="container">
             <div class="row">
@@ -54,6 +53,7 @@
             </div>`
           </div>
         </div>
+        <%end%>
 
 <br/>
 <br/>
@@ -64,7 +64,7 @@
 </br>
 </br>
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-">
     <div class="panel-group" id="accordion">
       <div class="panel panel-default" width="100px">
         <div class="panel-heading">
@@ -88,7 +88,7 @@
     </div>
     </div>
     </div>
-  <div class="col-md-6">
+  <div class="col-md-">
     <div class="panel-group" id="accordion">
       <div class="panel panel-default" width="100px">
         <div class="panel-heading">
@@ -100,8 +100,12 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
-                NEWS
-
+            <% unless @newsletter.nil? %>
+                <%= render partial: 'newsletters/show' %>
+                <% end %>
+<% if current_user && current_user.admin_privileges < 50 %>
+<left><%=link_to 'Update News Section', newsletters_new_path %></left>
+<%end%>
                 <br/>
           </div>
         </div>
@@ -111,8 +115,10 @@
 
       </div>
 </div>
+    </div> <!-- container -->
+</div> <!-- end about-company padd -->
 
-
+<%#= link_to 'Browse Events', events_path %#></br>
 
 
 
@@ -142,5 +148,4 @@
 
 <%#= link_to 'New Event', new_troop_event_path(@troop) %></br>
 
-</body>
 

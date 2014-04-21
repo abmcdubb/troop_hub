@@ -34,6 +34,7 @@ class TroopEventsController < ApplicationController
 
 #why is this here? how is it different than create
   def new_event
+    @user = current_user
     if current_user.admin_privileges < 50
       @troops = Troop.all
       @age_levels = AgeLevel.all
