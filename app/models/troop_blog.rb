@@ -21,4 +21,8 @@ class TroopBlog < ActiveRecord::Base
     TroopBlog.where(troop_id: troop_id).order(created_at: :desc).limit(4)
   end
 
+  def self.full_news_feed(troop_id)
+    TroopBlog.where(troop_id: troop_id).order(created_at: :desc)
+  end
+
 end
