@@ -17,13 +17,11 @@ class TroopsController < ApplicationController
   def show
     @user = current_user
     # @scouts = Scout.where(params[:id])
-    @troop_events = TroopEvent.all
-    @newsletter = Newsletter.all.last
-    
+    @troop_events = TroopEvent.all    
   end
 
   def new
-  unless current_user.admin_privileges < 50
+  unless current_user.role == "Troop Leader"
     redirect_to(:back)
   end
     @troop = Troop.new

@@ -37,6 +37,8 @@ Rails.application.configure do
   #added for Devise #change_for_production!!
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = { :api_key => ENV["POSTMARK_API_KEY"] }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

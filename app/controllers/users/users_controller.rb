@@ -49,6 +49,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+
   # def scout_params
   #   params.require(:scout).permit(:name, :troop_id, :grade, :birthday, :email, :phone_number, :admin_privileges, :dues, :profile_photo, :patches)
   # end

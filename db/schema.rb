@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(version: 20140418223524) do
   end
 
   create_table "users", force: true do |t|
-    t.integer  "admin_privileges",       limit: 255, default: 100
+    t.integer  "admin_privileges",       limit: 255
     t.string   "role"
     t.string   "name"
     t.string   "phone_number"
@@ -197,12 +197,12 @@ ActiveRecord::Schema.define(version: 20140418223524) do
     t.integer  "dues"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                              default: "",  null: false
+    t.string   "email",                              default: "", null: false
     t.string   "encrypted_password",                 default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,   null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

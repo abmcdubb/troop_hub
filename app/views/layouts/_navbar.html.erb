@@ -28,13 +28,17 @@
   
     <% if user_signed_in? %>
       <li> <a href="/users/<%=current_user.id%>" class="img-responsive"><img src="/assets/sign_up_btn.png" class="img-responsive" alt="" /> <br/>Profile</b></a></li>
- <%if current_user.troops.count > 1 %>
+<% if (current_user.admin_privileges < 50) || (current_user.role == "Troop Leader")%>
+
     <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/troopsbtn.png" class="img-responsive" alt="" /><br/>Your Troops<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/troopsbtn.png" class="img-responsive" alt="" /><br/>Manage Troops<b class="caret"></b></a>
           <ul class="dropdown-menu">
+            <li><a href = "/newsletters/new">Create and Send Newsletter</a></li>
+            <li><a href = "/users/invitation/new">Invite Members</a></li>
             <% current_user.troops.each do |troop|%>
-              <li><a href = "/troops/<%=troop.id%>"><%=troop.name%></a></li> 
-              <%end%>           
+              <li><a href = "/troops/<%=troop.id%>"><%=troop.name%> Home Page</a></li>  
+              <%end%>  
+              <li><a href = "/troops/new">Add Your Troop</a></li>       
           </ul>
         </li>
     

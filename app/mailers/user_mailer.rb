@@ -13,4 +13,6 @@ class UserMailer < ActionMailer::Base
 		      # :tag     => 'my-tag'
 		    )
 	  end
+
+
 end

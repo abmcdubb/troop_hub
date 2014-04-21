@@ -50,7 +50,7 @@ get 'user_badges' => 'user_badges#index'
 
 #---Routes for Individual Users -----
   get '/users/:id' => 'users#show', :as => :user_show
-  get '/users/edit/:id' => 'users#edit'
+  get '/users/edit/:id' => 'users#edit', :as => :edit_user
   patch '/users/update/:user_id' => 'troop_users#update'
   delete '/users/destroy' => 'troop_users#destroy'
 
