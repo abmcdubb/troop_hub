@@ -1,9 +1,12 @@
 class NewslettersController < ApplicationController
   before_action :set_newsletter, only: [:show]
 
-  def new
+  def new 
     @newsletter = Newsletter.new
     @user = current_user
+    unless @user.admin_privileges < 50
+      redirect_to(:back)
+    end
   end
 
   def index
@@ -14,7 +17,7 @@ class NewslettersController < ApplicationController
      @newsletter = Newsletter.create(newsletter_params)
     respond_to do |format|
       if @newsletter.save
-        format.html { redirect_to "/newsletters/#{@newsletter.id}", notice: 'Troop was successfully created.' }
+        format.html { redirect_to "/troops/#{@newsletter.troop_id}", notice: 'Troop was successfully created.' }
       else
         format.html { render action: 'new' }
       end

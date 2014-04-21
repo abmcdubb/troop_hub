@@ -15,8 +15,10 @@ class TroopsController < ApplicationController
   end
 
   def show
+    @user = current_user
     # @scouts = Scout.where(params[:id])
     @troop_events = TroopEvent.all
+    @newsletter = Newsletter.all.last
     
   end
 

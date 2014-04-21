@@ -1,24 +1,60 @@
-<%= form_for(@troop_event) do |f| %>
-<%= f.collection_radio_buttons(:event_id, @events, :id, :name) do |r|%>
-<%= r.radio_button %> <%=r.label%>
-<%end%>
-<br/>
-<br/>
-<%= f.collection_radio_buttons(:troop_id, @troops, :id, :name) do |r|%>
-<%= r.radio_button %> <%=r.label%>
-<%end%>
-<br/>
-<%= f.label :start_time, "When:" %>
-<%= f.datetime_select(:start_time, options = {ampm: true, prompt: true}) %><br/>
-<br/>
-<%=f.label :location, "Where:" %>
-<%= f.text_field :location %>
-<br/>
-<br/>
+      <div class="inner-page padd">
+      
+        <!-- Single Item Start -->
+        
+        <div class="single-item">
+          <div class="container">
+            <!-- Shopping single item contents -->
+            <div class="single-item-content">
+              <div class="row">
+                <div class="col-md-4 col-sm-5">
+                  <!-- Product image -->
+                  <img class="img-responsive img-thumbnail" src="http://www.justamorous.com/wp-content/uploads/2014/02/Girl-Scout-Cookies.jpg" alt="" />
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <!-- Heading -->
+                  <h3>Add <%= @event.name %> to your Troop Calendar</h3>
+                  <div class="row">
+                    <div class="col-md-7 col-sm-12">
+                      <!-- Single item details -->
+                      <div class="item-details">
+                        <!-- Paragraph -->
+                        <p class="text-justify"></p>
+                          <%= form_for(@troop_event) do |f| %>
+                            <%= f.hidden_field :event_id %>
+                            <%#= f.collection_radio_buttons(:event_id, @events, :id, :name) do |r|%>
+                            <%#= r.radio_button %> <%#=r.label%>
+                            <%#end%>
+                            <label>Troop:</label></br>  
+                            <%= f.collection_radio_buttons(:troop_id, @troops, :id, :name) do |r|%>
+                            <%= r.radio_button %> <%=r.label%>
+                            <%end%>
+                            <br/><br/>
+                            <%= f.label :start_time, "When:" %><br>
+                            <%= f.datetime_select(:start_time, options = {ampm: true, prompt: true, class: "form-control"}) %><br/>
+                            <br/>
+                            <%=f.label :location, "Where:" %>
+                            <%= f.text_field :location, class: "form-control" %>
+                            <br/>
+                            <br/>
 
-<p class = "formfield"> <%= f.label :detail, "Details:" %>
-<%= f.text_area :detail %></p><br/>
+                            <p class = "formfield"> <%= f.label :detail, "Details:" %>
+                            <%= f.text_area :detail, class: "form-control" %></p><br/>
 
- <%= f.submit %>
+                             <%= f.submit "Add to Calendar", class: "btn btn-danger" %>
 
-<%end%>
+                        <%end%> 
+                       <%#= render 'form' %>
+                      </div>
+                       <div class="table-responsive">
+                        <!-- Ordering form -->
+                       
+                      </div><!--/ Table responsive class end -->
+                    </div>
+                    
+                  </div><!--/ Inner row end  -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

@@ -105,10 +105,8 @@
                         <% if current_user && current_user.admin_privileges == 0 %>
                         <br>
 
-                        <form action="/troop_events/new" method="get">
-                          <button type="submit" class="btn btn-danger">Add Event to Calendar</button>
-                          <input type = "hidden" name = "event_id" value="<%#=event.id%>">
-                        </form>
+                        <%= link_to "Add Event to Calendar", troop_events_new_path(:event_id => event.id), class: 'btn btn-danger' %>
+
                         <% end %>
      
                       </ul>
