@@ -1,9 +1,6 @@
- <%= calendar @troop_events do |e| %>
-    <% if e.troop_id == @troop.id %>
 
-    <li ><a data-toggle="modal" data-target="#troopEvents" href = "#"><%= e.name %></a></li>
-               
 
+<% @troop.events.each do |e| %>
 
 <div class="modal fade" id="troopEvents" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -29,3 +26,18 @@
 
 <%end%>
 <%end%>
+
+
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <h3><%= e.name %></h3>
+  <b>Date:</b> <%= e.start_time.strftime("%A %B %e")%><br/>
+<b>Time:</b> <%= e.start_time.strftime("%I:%M %p") %><br/>
+<b>Location:</b> <%= e.location%><br/>
+<b>Details:</b> <%= e.detail%><br/>
+    </div>
+  </div>
+</div>

@@ -78,9 +78,33 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
-             <%= render 'troopevent_show' %>
-          </div>
-        </div>
+
+      <%= calendar @troop_events do |e| %>
+    <% if e.troop_id == @troop.id %>
+
+    <li ><a data-toggle="modal" data-target="#<%=e.id%>" href = "#"><%= e.name %></a></li> 
+
+<div class="modal fade" id = "<%=e.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><center><%=e.name%></center></h4>
+      </div>
+        <div class="modal-body">
+    <center>  
+  <b>Date:</b> <%= e.start_time.strftime("%A %B %e")%><br/>
+<b>Time:</b> <%= e.start_time.strftime("%I:%M %p") %><br/>
+<b>Location:</b> <%= e.location%><br/>
+<b>Details:</b> <%= e.detail%><br/></center>
+  <%end%>
+  </div>
+</div>
+  <%end%>
+   </div>
+  </div>
+</div>
+
     </div>
     </div>
     </div>
