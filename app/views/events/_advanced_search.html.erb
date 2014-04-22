@@ -8,7 +8,7 @@
         <h4 class="modal-title" id="myModalLabel">Advanced Search</h4>
       </div>
       <div class="modal-body">
-        <%= form_tag("/events/search", method: "get") do %>
+        <%= form_tag("/events/a_search", method: "get") do %>
 
         <%= label_tag(:'event[name]', "Event name:", :class => "form_label_font") %>
         <%= text_field_tag(:'event[name]', nil, :class => "form-control") %></br>

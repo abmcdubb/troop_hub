@@ -43,8 +43,8 @@ class Event < ActiveRecord::Base
   def self.find_by_search_results_with_too_many_forks(name, skill_id, age_level_ids, badge_ids, season_number)
     seasons = Event.seasons_for_search(season_number.to_i)
     skills = Event.skills_for_search(skill_id)
-    if name && seasons.nil? && skills.nil? && age_level_ids.nil? && badge_ids.nil?
-      results = Event.find_by_name(name)
+    if (name != "") && seasons.nil? && skills.nil? && age_level_ids.nil? && badge_ids.nil?
+      results = Event.find_all_by_name(name.capitalize)
     elsif age_level_ids && badge_ids && (name != "")
       results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif age_level_ids && badge_ids
