@@ -13,7 +13,7 @@ get 'badges' => 'badges#index'
 resources :user_badges do
   get :autocomplete_badge_name, :on => :collection
 end
-resources :events, :only => [:new, :create] do
+resources :events, :only => [:new, :create, :advanced_search] do
   get :autocomplete_badge_name, :on => :collection
 end
 
