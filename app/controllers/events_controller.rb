@@ -11,10 +11,10 @@ class EventsController < ApplicationController
     @badges=Badge.all
     @age_levels = AgeLevel.all
     @skills = Skill.all
-    @nature_skills = Skill.where(:category => "Nature & Ecology")
-    @stem_skills = Skill.where(:category => "STEM")
-    @business_skills = Skill.where(:category => "Business Smarts")
-    @general_skills = Skill.where(:category => "General")
+    @nature_skills = Skill.where(:category => "Nature & Ecology").order(name: :asc)
+    @stem_skills = Skill.where(:category => "STEM").order(name: :asc)
+    @business_skills = Skill.where(:category => "Business Smarts").order(name: :asc)
+    @general_skills = Skill.where(:category => "General").order(name: :asc)
   end
 
   def show
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
       @badges=Badge.all
       @age_levels = AgeLevel.all
       @troops = Troop.all
-      @skills = Skill.all
+      @skills = Skill.order(name: :asc)
     else
       redirect_to events_path
     end
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
       @badge = Badge.find_by_name(b)
       @event_badge = EventBadge.create({:badge_id => @badge.id, :event_id => @event.id}) if @badge
     end
-    @skills = Skill.all
+    @skills = Skill.order(name: :asc)
     #@troop_event = @event.troop_events.build(params[:troop_event])
     #there should be a seperate form for new event and new troop event?
     respond_to do |format|
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
         @badges=Badge.all
         @age_levels = AgeLevel.all
         @troops = Troop.all
-        @skills = Skill.all
+        @skills = Skill.order(name: :asc)
         @events = Event.all.paginate(page: params[:page], per_page: 10)
         format.html { render template: "skills/show", notice: 'Event was not createds' }
       end
@@ -89,9 +89,7 @@ class EventsController < ApplicationController
     @age_levels = AgeLevel.all
     @badges = params[:event][:badge_id][0].split(",")
     @event_badges = EventBadge.all
-    @skills = Skill.all
-
-
+    @skills = Skill.order(name: :asc)
   end
 
   def search_results
@@ -100,7 +98,7 @@ class EventsController < ApplicationController
     @age_levels = AgeLevel.all
     @badges = Badge.all
     @event_badges = EventBadge.all
-    @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name], params[:event][:skill_id], params[:event][:age_level_ids], params[:event][:badge_ids].split(","), params[:event][:season]).paginate(page: params[:page], per_page: 10)
+    @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name], params[:event][:skill_id], params[:event][:age_level_ids], params[:event][:badge_ids].split(","), params[:event][:season]).order(name: :asc).paginate(page: params[:page], per_page: 10)
   end
 
 private

@@ -6,7 +6,6 @@ gem 'cancancan', '~> 1.7'
 gem "pundit"
 gem 'pdfkit'
 gem 'postmark-rails'
-gem 'wkhtmltopdf-binary'
 gem 'wkhtmltopdf'
 gem 'rmagick', require: false #brew install imagemagick in terminal, if this fails. then rebundle
 gem 'carrierwave'
