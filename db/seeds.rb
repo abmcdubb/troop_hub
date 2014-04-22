@@ -36,6 +36,8 @@ troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, start_time: DateTime
 
 event_badge_1 = EventBadge.create(event_id: 2, badge_id: 1)
 event_badge_2 = EventBadge.create(event_id: 3, badge_id: 2)
+event_badge_1 = EventBadge.create(event_id: 1, badge_id: 5)
+
 
 adult_1 = User.create(troop_ids: '1', role: 'Parent', name: 'Molly Weasley', email: 'mollyw@myfamilyissopooreventhoughwecandomagic.com', phone_number: '555-555-5555', profile_photo: 'mweasley.jpg', admin_privileges: 0, password: '123456789')
 adult_2 = User.create(troop_ids: '2', role: 'Troop Leader', name: 'Minerva McGonagall', email: 'mcgonagall@imtoughbutfirm.com', phone_number: '212-555-5555', profile_photo: 'mmcgonagall.jpg', admin_privileges: 0, password: '123456789')

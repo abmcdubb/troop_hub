@@ -3,7 +3,7 @@ class EventBadgesController < ApplicationController
 autocomplete :badge, :name
 
   def index
-    @user_badges = UserBadge.all
+    @event_badges = EventBadge.all
   end
 
   def new

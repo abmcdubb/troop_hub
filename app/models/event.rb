@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   validates :skill_id, :presence => true
   validates :season, :presence => true
   
-  before_save :check_age_level #if age level changed?
+  before_save :check_age_level, #if age level changed?
 
   def check_age_level
     # if age_level_ids.include?(7)
@@ -54,7 +54,7 @@ class Event < ActiveRecord::Base
     elsif badge_ids && (name != "")
       results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif badge_ids
-      results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where(season: seasons, skill: skills).uniq 
+      results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => Badge.where(name: badge_ids)).where(season: seasons, skill: skills).uniq 
     elsif (name != "")
       results = Event.where("name like ?", name).where(season: seasons, skill: skills).uniq
     else
@@ -73,6 +73,7 @@ class Event < ActiveRecord::Base
     end
     season_array
   end
+
 
   def self.skills_for_search(skill_id)
     if skill_id.to_i > 0
