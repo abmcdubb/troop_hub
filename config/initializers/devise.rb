@@ -11,7 +11,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   #change!
-  config.mailer_sender = 'services@flatironschool.com'
+  config.mailer_sender = 'emma.ife@flatironschool.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
