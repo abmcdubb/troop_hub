@@ -103,8 +103,20 @@ body {
   #line_items {
     page-break-before: always;
   }
+
+  #autocomplete {
+     z-index: 1511;
+  position: relative;
+  width: 300px;
+  height: 24px;
+  margin-bottom: 5px;
+  padding-top: 2px;
+  border: 1px solid #DDD !important;
+  padding-top: 0px !important;
+  }
   
   #pdf_link {
     display: none;
   }
+
 }
