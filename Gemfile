@@ -9,6 +9,7 @@ gem 'postmark-rails'
 gem 'wkhtmltopdf'
 gem 'rmagick', require: false #brew install imagemagick in terminal, if this fails. then rebundle
 gem 'carrierwave'
+gem 'nokogiri'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.rc2'
 # Use SCSS for stylesheets
