@@ -5,7 +5,6 @@ gem 'prawn'
 gem 'cancancan', '~> 1.7'
 gem "pundit"
 gem 'pdfkit'
-gem 'postmark-rails'
 gem 'wkhtmltopdf'
 gem 'rmagick', require: false #brew install imagemagick in terminal, if this fails. then rebundle
 gem 'carrierwave'
@@ -50,6 +49,7 @@ gem 'geocoder'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem "pg"
 
 group :test, :development do
   gem "rspec-rails"
@@ -66,7 +66,6 @@ group :test, :development do
 end
 
 group :production do
-  gem "pg"
   gem "google-analytics-rails"
   gem "rails_12factor"
 end

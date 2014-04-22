@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   validates :skill_id, :presence => true
   validates :season, :presence => true
   
-  before_save :check_age_level, #if age level changed?
+  before_save :check_age_level #if age level changed?
 
   def check_age_level
     # if age_level_ids.include?(7)

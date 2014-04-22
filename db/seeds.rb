@@ -72,7 +72,7 @@ event_3.save
 
 # event_4.age_level_ids << 7
 # event_4.age_level_ids << 1
-# event_4.save
+event_4.save
 
 # event_5.age_level_ids << 2
 # event_5.age_level_ids << 3
@@ -155,7 +155,7 @@ skill8 = Skill.create(name: 'Health & Safety',  category: 'General', badge_relat
 skill23 = Skill.create(name: 'Community Service',  category: 'General', badge_related_skill: true)
 
 # ----STEM Skills ----
-skill9= Skill.create(name: 'Computer Science', category: 'STEM', badge_related_skill: true)
+skill9 = Skill.create(name: 'Computer Science', category: 'STEM', badge_related_skill: true)
 skill10 = Skill.create(name: 'Technology', category: 'STEM', badge_related_skill: true)
 skill11 = Skill.create(name: 'Math', category: 'STEM', badge_related_skill: true)
 skill12 = Skill.create(name: 'Engineering', category: 'STEM', badge_related_skill: true)
