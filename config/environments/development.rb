@@ -3,7 +3,6 @@ Rails.application.configure do
   config.action_controller.include_all_helpers = true
   # Settings specified here will take precedence over those in config/application.rb.
   config.middleware.use "PDFKit::Middleware", :print_media_type => true
-  config.action_controller.asset_host = "http://localhost"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
