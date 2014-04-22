@@ -43,7 +43,7 @@
 
                       <% if @user.role == 'Scout' %>
                       <span class="company-feature"></b>Badges</span>
-                       <ul style = "list-style: none;">
+                       <ul class="list-unstyled">s
                         <% @user.badges.each do |badge|%>
                           <li> 
                           <img class = "badge-logo" src = "<%=badge.logo%>"/> <%= badge.name %>  
@@ -52,7 +52,7 @@
 
                         <% else %>
                         <% @user.skills.each do |skill|%>
-                            <li> <%= skill.name%>
+                            <li > <%= skill.name%>
                             <% if @user.user_skills.find_by(skill_id: skill.id).skill_description %>
                              - <span class="lblue"><%= @user.user_skills.find_by(skill_id: skill.id).skill_description %></span>
                              <% end %>
