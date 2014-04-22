@@ -8,8 +8,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 
-# config.action_mailer.delivery_method = :postmark
-# config.action_mailer.postmark_settings = { :api_key => "19d471fe-b9f2-47b7-ad51-a777472f6d6f" }
+# config.action_mailer.delivery_method = :postmarks
 
 # require "rails/test_unit/railtie"
 
@@ -20,7 +19,8 @@ Bundler.require(*Rails.groups)
 module TroopHub
   class Application < Rails::Application
     config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { :api_key => "9e88efbd-5139-4b81-9a5e-7e68c8902357" }
+    config.action_mailer.postmark_settings = { :api_key => ENV["POSTMARK_API_KEY2"] }
+    config.assets.initialize_on_precompile = false
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
