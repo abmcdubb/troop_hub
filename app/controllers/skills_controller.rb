@@ -9,7 +9,8 @@ autocomplete :badge, :name
     @events = Event.where(:skill_id => params[:id]).order(name: :asc).paginate(page: params[:page], per_page: 10)
   end
 
-  def category_index    
+  def category_index   
+  binding.pry 
     @event = Event.new
     @skills = Skill.order(name: :asc)
     @age_levels = AgeLevel.all
