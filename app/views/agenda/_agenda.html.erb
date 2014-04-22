@@ -1,0 +1,48 @@
+<div class="about-company padd">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-company-item"> 
+                    <img class="img-responsive img-thumbnail" src="http://www.girlscoutshop.com/site/img/Badges_awards.jpg" alt="" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-company-item">
+                    <h2>Troop Meeting Agenda</h2>
+                    <h4><%= @agenda.meeting_date.strftime("%a %b %e %Y") %></h4><br>
+                   <h4>Location: </h4>
+                    <p><%= @agenda.location %></p><br>      
+                 <h4>Start-up Activity: </h4>
+                    <p><%= @agenda.activity_1 %></p><br>
+                     <h4>Troop Business: </h4>
+                    <p><%= @agenda.activity_2 %></p><br>
+                     <h4>Activity: </h4>
+                    <p><%= @agenda.activity_3 %></p><br>
+                     <h4>Activity: </h4>
+                    <p><%= @agenda.activity_4 %></p><br>
+                     <h4>Activity: </h4>
+                    <p><%= @agenda.activity_5 %></p><br>
+                     <h4>Closing Activity: </h4>
+                    <p><%= @agenda.activity_6 %></p><br>
+                    <br>
+                    <br>
+                    <br>
+                <h3><i>Misc. Notes</i></h3>
+                <br>
+                  <h4>Snack: </h4>
+                    <p><%= @agenda.snack %></p><br>
+                     <h4>Relevant badges: </h4>
+                    <p><%= @agenda.badges %></p><br>
+                     <h4>Supplies needed: </h4>
+                    <p><%= @agenda.supplies %></p><br>
+                     <h4>Kapers/Job assignments: </h4>
+                    <p><%= @agenda.jobs %></p><br>
+                     <h4>Notes: </h4>
+                    <p><%= @agenda.troop_info %></p><br>
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
