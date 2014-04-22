@@ -61,6 +61,7 @@ get 'user_badges' => 'user_badges#index'
   get 'events/new'
   get 'events/advanced_search' => 'events#advanced_search'
   get 'events/search' => 'events#search_results'
+  get 'events/a_search' => 'events#advanced_search_results'
   get 'events/:id' => 'events#show', :as => :event
   get 'events/:id/edit' => 'events#edit'
   patch 'events/:id' => 'events#update'

@@ -11,10 +11,10 @@ class EventsController < ApplicationController
     @badges=Badge.all
     @age_levels = AgeLevel.all
     @skills = Skill.all
-    @nature_skills = Skill.where(:category => "Nature & Ecology").order(name: :asc)
+    @nature_skills = Skill.where(:category => "NATURE & ECOLOGY").order(name: :asc)
     @stem_skills = Skill.where(:category => "STEM").order(name: :asc)
-    @business_skills = Skill.where(:category => "Business Smarts").order(name: :asc)
-    @general_skills = Skill.where(:category => "General").order(name: :asc)
+    @business_skills = Skill.where(:category => "BUSINESS SMARTS").order(name: :asc)
+    @general_skills = Skill.where(:category => "GENERAL").order(name: :asc)
   end
 
   def show
@@ -98,8 +98,8 @@ class EventsController < ApplicationController
     @age_levels = AgeLevel.all
     @badges = Badge.all
     @event_badges = EventBadge.all
-    @events = Event.find_all_by_name(params[:event][:name])
-    @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name], params[:event][:skill_id], params[:event][:age_level_ids], params[:event][:badge_ids], params[:event][:season]).order(name: :asc).paginate(page: params[:page], per_page: 10)
+
+    @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name].capitalize, params[:event][:skill_id].upcase, params[:event][:age_level_ids], params[:event][:badge_ids], params[:event][:season]).order(name: :asc).paginate(page: params[:page], per_page: 10)
   end
 
   def advanced_search_results
@@ -108,7 +108,7 @@ class EventsController < ApplicationController
     @age_levels = AgeLevel.all
     @badges = Badge.all
     @event_badges = EventBadge.all
-    @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name], params[:event][:skill_id], params[:event][:age_level_ids], params[:event][:badge_ids], params[:event][:season]).order(name: :asc).paginate(page: params[:page], per_page: 10)
+    @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name].capitalize, params[:event][:skill_id], params[:event][:age_level_ids], params[:event][:badge_ids].split(","), params[:event][:season]).order(name: :asc).paginate(page: params[:page], per_page: 10)
   end
   
 private
