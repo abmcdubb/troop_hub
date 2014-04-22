@@ -43,7 +43,9 @@ class Event < ActiveRecord::Base
   def self.find_by_search_results_with_too_many_forks(name, skill_id, age_level_ids, badge_ids, season_number)
     seasons = Event.seasons_for_search(season_number.to_i)
     skills = Event.skills_for_search(skill_id)
-    if age_level_ids && badge_ids && (name != "")
+    if name && seasons.nil? && skills.nil? && age_level_ids.nil? && badge_ids.nil?
+      results = Event.find_by_name(name)
+    elsif age_level_ids && badge_ids && (name != "")
       results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif age_level_ids && badge_ids
       results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where(season: seasons, skill: skills).uniq 
@@ -94,7 +96,7 @@ class Event < ActiveRecord::Base
 
   def self.find_by_skill_category(category_name)
     category_name = category_name.gsub("-and-"," & ").gsub("-"," ")
-    Event.joins(:skill).where("skills.category like ?", category_name)
+    Event.joins(:skill).where("skills.category like ?", category_name.capitalize)
   end
 
 end

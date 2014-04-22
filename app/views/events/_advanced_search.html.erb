@@ -57,7 +57,8 @@
        <%= autocomplete_field_tag(:"event[badge_ids]", '', autocomplete_badge_name_events_path, 'data-delimiter' => ',', :multiple => true, :class => "form-control", :append_to => "#advancedSearch")%>
                     <br/>
                      <br> 
- <%= submit_tag("Search") %>
+  <center><button class="btn btn-danger btn-sm show-submit " type="submit">Search</button></center>
+
  <%end%>      </div>
 
   

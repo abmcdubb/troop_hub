@@ -25,7 +25,7 @@ class TroopsController < ApplicationController
   end
 
   def new
-  unless current_user.role == "Troop Leader"
+  unless current_user.admin_privileges < 50
     redirect_to(:back)
   end
     @troop = Troop.new
