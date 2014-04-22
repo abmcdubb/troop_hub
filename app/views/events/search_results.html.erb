@@ -1,8 +1,7 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Search Results", :left_option => "Events", :right_option => "Events" }%>
+<%=render partial: 'layouts/banner', locals: {:name => "Search Results", :left_option => "Browse events by category and add them to your troop calendar", :right_option => "Search for badge-earning activities" }%>
 <br/>
 <br/>
 <%= render 'skills/skills' %>
 
-  
-<%= link_to 'Back To All Events', events_path %>
-
+<center>
+<%= link_to 'Back To All Events', events_path %></center>
