@@ -5,6 +5,7 @@ gem 'prawn'
 gem 'cancancan', '~> 1.7'
 gem "pundit"
 gem 'pdfkit'
+gem 'aws-s3', github: 'bartoszkopinski/aws-s3'
 gem 'wkhtmltopdf'
 gem 'rmagick', require: false #brew install imagemagick in terminal, if this fails. then rebundle
 gem 'carrierwave'

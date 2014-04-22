@@ -6,8 +6,7 @@
             <li><a href = "/newsletters/new">Create and Send Newsletter</a></li>
             <li><a href = "/users/invitation/new">Invite Members</a>
             <% current_user.troops.each do |troop|%>
-              <li><a href = "/troops/<%=troop.id%>"><%=troop.name%> Home Page</a></li>            
+              <li><a href = "/troops/<%=troop.id%>"><%=troop.name%> Home Page</a></li>  
           </ul>
         </li>
       </ul>
-
