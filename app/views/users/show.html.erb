@@ -29,7 +29,7 @@
                   <p>Troops:</p> <% @user.troops.each do |troop|%>
                     <li><a href = "/troops/<%=troop.id%>"><%=troop.name%></a></li>
                     <%end%>
-                    <%else%>
+                    <%elsif @user.troops == 1%>
                     <p>Troop: <a href = "/troops/<%=@user.troop_ids[0]%>"><%=@user.troops[0].name%></a></p>
                     <%end%>
 
@@ -40,19 +40,37 @@
                       <!-- About company inner items -->
                       <div class="about-company-inner">
                         <!-- Paragraph with icon -->
-                        <span class="company-feature"></b>Badges</span>
-                      
+
+                      <% if @user.role == 'Scout' %>
+                      <span class="company-feature"></b>Badges</span>
                        <ul style = "list-style: none;">
                         <% @user.badges.each do |badge|%>
-                          <li> <img class = "badge-logo" src = "<%=badge.logo%>"/> <%= badge.name %>  </li>
-                          <%end%>
+                          <li> 
+                          <img class = "badge-logo" src = "<%=badge.logo%>"/> <%= badge.name %>  
+                          </li>
+                        <%end%>
+
+                        <% else %>
+                        <% @user.skills.each do |skill|%>
+                            <li> <%= skill.name%>
+                            <% if @user.user_skills.find_by(skill_id: skill.id).skill_description %>
+                             - <span class="lblue"><%= @user.user_skills.find_by(skill_id: skill.id).skill_description %></span>
+                             <% end %>
+                            </li>
+                          <% end %>
+                      <% end %>
+
                         </ul>
-               </div>
-                </div>
+                      </div>
+                    </div>
                   </div>
-                  <%if @user == current_user || @user.admin_privileges < 50 %>
-                      <%= render :partial => 'user_badges/new' %>
-                      <%end%>
+
+                <% if @user.role == 'Scout' %>
+                  <%if @user == current_user || current_user.admin_privileges == 0 %>
+                    <%= render :partial => 'user_badges/new' %>
+                  <%end%>
+                <% end %>
+
                 </div>
               </div>
             </div>
@@ -64,3 +82,12 @@
 </br>
 <%#= link_to 'Home', troops_path %>
  </center>
+ <footer>   
+  <center>
+  <%if @user == current_user %>
+    <%= link_to "Edit Account", edit_user_path %>
+  <% elsif current_user.admin_privileges == 0  %>
+    <%= link_to "Edit Account", edit_user_path %>    
+  <%end%>
+  </center>
+</footer>

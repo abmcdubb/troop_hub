@@ -254,6 +254,7 @@ DEPENDENCIES
   mini_magick
   pdfkit
   pg
+  postmark
   postmark-rails
   prawn
   pry

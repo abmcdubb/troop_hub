@@ -35,10 +35,10 @@ class UsersController < ApplicationController
   # end
 
   def show
+
     @user_badge = UserBadge.new
- 
    intersection = current_user.troop_ids & @user.troop_ids
-   unless !intersection.empty?
+   unless (!intersection.empty?) || (current_user.admin_privileges < 50 && !intersection.empty?) || (current_user.id == @user.id)
     redirect_to(:back)
   end
   
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   def edit
     @skills= Skill.all
     intersection = current_user.troop_ids & @user.troop_ids
-    if (current_user != @user) || (current_user.role != "Troop Leader" && intersection.empty?)
+    if (current_user != @user) || (current_user.admin_privileges < 50 && !intersection.empty?)
       redirect_to(:back)
     end
 
@@ -63,6 +63,9 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+
+
 
 
 

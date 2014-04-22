@@ -13,7 +13,7 @@ get 'badges' => 'badges#index'
 resources :user_badges do
   get :autocomplete_badge_name, :on => :collection
 end
-resources :events, :only => [:new, :create] do
+resources :events, :only => [:new, :create, :advanced_search] do
   get :autocomplete_badge_name, :on => :collection
 end
 
@@ -50,7 +50,7 @@ get 'user_badges' => 'user_badges#index'
 
 #---Routes for Individual Users -----
   get '/users/:id' => 'users#show', :as => :user_show
-  get '/users/edit/:id' => 'users#edit'
+  get '/users/edit/:id' => 'users#edit', :as => :edit_user
   patch '/users/update/:user_id' => 'troop_users#update'
   delete '/users/destroy' => 'troop_users#destroy'
 
@@ -96,6 +96,11 @@ get 'user_badges' => 'user_badges#index'
   get 'skills' => 'skills#index'
   get 'skills/:id/index' => 'skills#category_index'
   get 'skills/:id'  => 'skills#show'
+
+  #-------Troop Blog---------------
+  get '/troops/:id/troop_blog/new' => 'troop_blogs#new',  :as => 'troop_blog_new'
+  post '/troops/:id/troop_blogs' => 'troop_blogs#create', :as => 'troop_blogs'
+  get 'troops/:id/troop_blog' => 'troop_blogs#index', :as => 'troop_blog_index'
 
 
 end
