@@ -1,1 +1,15 @@
 POSTMARK_API_KEY: 2ee003fe-c67b-416f-97e3-8b2371a83014
+AWS_ACCESS_KEY_ID: AKIAJ4VEWYI7UUKM3VUA
+AWS_SECRET_ACCESS_KEY: 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
+
+# heroku config:set AWS_ACCESS_KEY_ID=AKIAJ4VEWYI7UUKM3VUA
+# heroku config:set AWS_SECRET_ACCESS_KEY=mBn7b04+AapvBZ9FBwD3/WP1g9iwjmDevDnD3mm3
+
+# in your .bash_profiles:
+# export AWS_ACCESS_KEY_ID=AKIAJ4VEWYI7UUKM3VUA
+# export AWS_SECRET_ACCESS_KEY=mBn7b04+AapvBZ9FBwD3/WP1g9iwjmDevDnD3mm3
+
+# Then type:
+# bundle
+# source ~/.bash_profile
+# rails s

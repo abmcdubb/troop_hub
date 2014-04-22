@@ -10,6 +10,7 @@ autocomplete :badge, :name
   end
 
   def category_index    
+    binding.pry
     @event = Event.new
     @skills = Skill.order(name: :asc)
     @age_levels = AgeLevel.all
