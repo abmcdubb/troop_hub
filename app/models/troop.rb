@@ -13,6 +13,8 @@ class Troop < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
+  mount_uploader :photo, ProfilePhotoUploader
+
 
   def on_page_photo
     photos.find_by(:on_page => "true")

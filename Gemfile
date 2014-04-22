@@ -8,6 +8,7 @@ gem 'pdfkit'
 gem 'wkhtmltopdf'
 gem 'rmagick', require: false #brew install imagemagick in terminal, if this fails. then rebundle
 gem 'carrierwave'
+gem 'nokogiri'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.rc2'
 # Use SCSS for stylesheets
@@ -32,6 +33,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'geocoder'
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
 # gem 'spring',        group: :development
@@ -47,6 +49,7 @@ gem 'geocoder'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem "pg"
 
 group :test, :development do
   gem "rspec-rails"
@@ -63,7 +66,6 @@ group :test, :development do
 end
 
 group :production do
-  gem "pg"
   gem "google-analytics-rails"
   gem "rails_12factor"
 end

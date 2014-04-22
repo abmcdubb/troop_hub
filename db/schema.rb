@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140421142606) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "age_levels", force: true do |t|
     t.string   "name"
     t.string   "grades"
@@ -48,8 +51,8 @@ ActiveRecord::Schema.define(version: 20140421142606) do
     t.datetime "updated_at"
   end
 
-  add_index "badge_age_levels", ["age_level_id"], name: "index_badge_age_levels_on_age_level_id"
-  add_index "badge_age_levels", ["badge_id"], name: "index_badge_age_levels_on_badge_id"
+  add_index "badge_age_levels", ["age_level_id"], name: "index_badge_age_levels_on_age_level_id", using: :btree
+  add_index "badge_age_levels", ["badge_id"], name: "index_badge_age_levels_on_badge_id", using: :btree
 
   create_table "badges", force: true do |t|
     t.string   "name"
@@ -176,8 +179,8 @@ ActiveRecord::Schema.define(version: 20140421142606) do
     t.datetime "updated_at"
   end
 
-  add_index "user_badges", ["badge_id"], name: "index_user_badges_on_badge_id"
-  add_index "user_badges", ["user_id"], name: "index_user_badges_on_user_id"
+  add_index "user_badges", ["badge_id"], name: "index_user_badges_on_badge_id", using: :btree
+  add_index "user_badges", ["user_id"], name: "index_user_badges_on_user_id", using: :btree
 
   create_table "user_skills", force: true do |t|
     t.integer  "user_id"
@@ -188,7 +191,7 @@ ActiveRecord::Schema.define(version: 20140421142606) do
   end
 
   create_table "users", force: true do |t|
-    t.integer  "admin_privileges",       limit: 255
+    t.integer  "admin_privileges"
     t.string   "role"
     t.string   "name"
     t.string   "phone_number"
@@ -197,12 +200,12 @@ ActiveRecord::Schema.define(version: 20140421142606) do
     t.integer  "dues"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                              default: "", null: false
-    t.string   "encrypted_password",                 default: ""
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -215,13 +218,13 @@ ActiveRecord::Schema.define(version: 20140421142606) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
-    t.integer  "invitations_count",                  default: 0
+    t.integer  "invitations_count",      default: 0
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

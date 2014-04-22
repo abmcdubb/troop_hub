@@ -1,5 +1,9 @@
 class ChangeColumnTypeInUsers < ActiveRecord::Migration
-  def change
-    change_column :users, :admin_privileges, :integer
+  def up
+    change_column :users, :admin_privileges, 'integer USING CAST(admin_privileges AS integer)'
+  end
+
+  def down
+    change_column :users, :admin_privileges, :string
   end
 end

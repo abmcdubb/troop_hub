@@ -36,6 +36,8 @@ troop_event_4 = TroopEvent.create(event_id: 3, troop_id: 2, start_time: DateTime
 
 event_badge_1 = EventBadge.create(event_id: 2, badge_id: 1)
 event_badge_2 = EventBadge.create(event_id: 3, badge_id: 2)
+event_badge_1 = EventBadge.create(event_id: 1, badge_id: 5)
+
 
 adult_1 = User.create(troop_ids: '1', role: 'Parent', name: 'Molly Weasley', email: 'mollyw@myfamilyissopooreventhoughwecandomagic.com', phone_number: '555-555-5555', profile_photo: 'mweasley.jpg', admin_privileges: 0, password: '123456789')
 adult_2 = User.create(troop_ids: '2', role: 'Troop Leader', name: 'Minerva McGonagall', email: 'mcgonagall@imtoughbutfirm.com', phone_number: '212-555-5555', profile_photo: 'mmcgonagall.jpg', admin_privileges: 0, password: '123456789')
@@ -70,7 +72,7 @@ event_3.save
 
 # event_4.age_level_ids << 7
 # event_4.age_level_ids << 1
-# event_4.save
+event_4.save
 
 # event_5.age_level_ids << 2
 # event_5.age_level_ids << 3
@@ -153,7 +155,7 @@ skill8 = Skill.create(name: 'Health & Safety',  category: 'General', badge_relat
 skill23 = Skill.create(name: 'Community Service',  category: 'General', badge_related_skill: true)
 
 # ----STEM Skills ----
-skill9= Skill.create(name: 'Computer Science', category: 'STEM', badge_related_skill: true)
+skill9 = Skill.create(name: 'Computer Science', category: 'STEM', badge_related_skill: true)
 skill10 = Skill.create(name: 'Technology', category: 'STEM', badge_related_skill: true)
 skill11 = Skill.create(name: 'Math', category: 'STEM', badge_related_skill: true)
 skill12 = Skill.create(name: 'Engineering', category: 'STEM', badge_related_skill: true)
