@@ -144,15 +144,15 @@ event_age_level_12 = EventAgeLevel.create(event_id: 3, age_level_id: 5)
 event_age_level_13 = EventAgeLevel.create(event_id: 3, age_level_id: 6)
 
 #----General----
-skill1 = Skill.create(name: 'Sports & Fitness', category: 'General', badge_related_skill: true)
-skill2 = Skill.create(name: 'Drama', category: 'General', badge_related_skill: true)
-skill3 = Skill.create(name: 'Music', category: 'General', badge_related_skill: true)
-skill4 = Skill.create(name: 'Dance', category: 'General', badge_related_skill: true)
-skill5 = Skill.create(name: 'Arts & Crafts', category: 'General', badge_related_skill: true)
-skill6 = Skill.create(name: 'Cooking', category: 'General', badge_related_skill: true)
-skill7 = Skill.create(name: 'Geography & Culture', category: 'General', badge_related_skill: true)
-skill8 = Skill.create(name: 'Health & Safety',  category: 'General', badge_related_skill: true)
-skill23 = Skill.create(name: 'Community Service',  category: 'General', badge_related_skill: true)
+skill1 = Skill.create(name: 'Sports & Fitness', category: 'GENERAL', badge_related_skill: true)
+skill2 = Skill.create(name: 'Drama', category: 'GENERAL', badge_related_skill: true)
+skill3 = Skill.create(name: 'Music', category: 'GENERAL', badge_related_skill: true)
+skill4 = Skill.create(name: 'Dance', category: 'GENERAL', badge_related_skill: true)
+skill5 = Skill.create(name: 'Arts & Crafts', category: 'GENERAL', badge_related_skill: true)
+skill6 = Skill.create(name: 'Cooking', category: 'GENERAL', badge_related_skill: true)
+skill7 = Skill.create(name: 'Geography & Culture', category: 'GENERAL', badge_related_skill: true)
+skill8 = Skill.create(name: 'Health & Safety',  category: 'GENERAL', badge_related_skill: true)
+skill23 = Skill.create(name: 'Community Service',  category: 'GENERAL', badge_related_skill: true)
 
 # ----STEM Skills ----
 skill9 = Skill.create(name: 'Computer Science', category: 'STEM', badge_related_skill: true)
@@ -163,18 +163,18 @@ skill13 = Skill.create(name: 'Science', category: 'STEM', badge_related_skill: t
 skill14 = Skill.create(name: 'Astronomy', category: 'STEM', badge_related_skill: true)
 
 #---Business Smarts
-skill15 = Skill.create(name: 'Financial Literacy', category: 'Business Smarts', badge_related_skill: true)
-skill16 = Skill.create(name: 'Career Exploration', category: 'Business Smarts', badge_related_skill: true)
+skill15 = Skill.create(name: 'Financial Literacy', category: 'BUSINESS SMARTS', badge_related_skill: true)
+skill16 = Skill.create(name: 'Career Exploration', category: 'BUSINESS SMARTS', badge_related_skill: true)
 
 #---Nature & Ecology ----
-skill17 = Skill.create(name: 'Plants & Gardening', category: 'Nature & Ecology', badge_related_skill: true)
-skill18 = Skill.create(name: 'Outdoor Skills', category: 'Nature & Ecology', badge_related_skill: true)
-skill19 = Skill.create(name: 'Animals', category: 'Nature & Ecology', badge_related_skill: true)
-skill20 = Skill.create(name: 'Climate/Earth Science', category: 'Nature & Ecology', badge_related_skill: true)
-skill21 = Skill.create(name: 'Habitat Restoration', category: 'Nature & Ecology', badge_related_skill: true)
+skill17 = Skill.create(name: 'Plants & Gardening', category: 'NATURE & ECOLOGY', badge_related_skill: true)
+skill18 = Skill.create(name: 'Outdoor Skills', category: 'NATURE & ECOLOGY', badge_related_skill: true)
+skill19 = Skill.create(name: 'Animals', category: 'NATURE & ECOLOGY', badge_related_skill: true)
+skill20 = Skill.create(name: 'Climate/Earth Science', category: 'NATURE & ECOLOGY', badge_related_skill: true)
+skill21 = Skill.create(name: 'Habitat Restoration', category: 'NATURE & ECOLOGY', badge_related_skill: true)
 
 #---OTHER----
-skill22 = Skill.create(name: 'Other', badge_related_skill: true)
+skill22 = Skill.create(name: 'OTHER', badge_related_skill: true)
 
 
 adult_skill_1 = UserSkill.create(skill_id: 3, user_id: 1, skill_description: "Violin, Viola, Cello")

@@ -95,7 +95,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.find_by_skill_category(category_name)
-    category_name = category_name.gsub("-and-"," & ").gsub("-"," ")
+    category_name = category_name.downcase.gsub("-and-"," & ").gsub("-"," ")
     Event.joins(:skill).where("skills.category like ?", category_name.capitalize)
   end
 
