@@ -80,14 +80,14 @@ class Event < ActiveRecord::Base
   def self.skills_for_search(skill_id)
     if skill_id.to_i > 0
       skills = Skill.where(id: skill_id)
-    elsif skill_id == "General"
-      skills = Skill.where(category: 'General')
+    elsif skill_id == "GENERAL"
+      skills = Skill.where(category: 'GENERAL')
     elsif skill_id == "STEM"
       skills = Skill.where(category: 'STEM')
-    elsif skill_id == "Business Smarts"
-      skills = Skill.where(category: 'Business Smarts')
-    elsif skill_id == "Nature and Ecology"
-      skills = Skill.where(category: 'Nature and Ecology')
+    elsif skill_id == "BUSINESS SMARTS"
+      skills = Skill.where(category: 'BUSINESS SMARTS')
+    elsif skill_id == "NATURE AND ECOLOGY"
+      skills = Skill.where(category: 'NATURE AND ECOLOGY')
     else
       skills = Skill.all
     end
