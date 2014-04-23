@@ -28,7 +28,7 @@ class TroopsController < ApplicationController
   unless current_user.admin_privileges < 50
     redirect_to(:back)
   end
-    @troop = Troop.new
+    @troop = Troop.new 
     @age_levels = AgeLevel.all
   end
 
@@ -39,7 +39,7 @@ class TroopsController < ApplicationController
 
     respond_to do |format|
       if @troop.save
-        format.html { redirect_to troops_path, notice: 'Troop was successfully created.' }
+        format.html { redirect_to troop_show_path(@troop), notice: 'Troop was successfully created.' }
       else
         @age_levels = AgeLevel.all
         format.html { render action: 'new' }
