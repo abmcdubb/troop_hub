@@ -84,7 +84,11 @@
 </br>
 <%#= link_to 'Home', troops_path %>
  </center>
- <footer>   
+ <footer> 
+  <center>
+ <%= button_to 'Back to Troop', troop_user_path(@troop), method: :get, class: 'btn btn-danger' %>
+ </center>
+ <br> 
   <center>
   <%if @user == current_user %>
     <%= link_to "Edit Account", edit_user_path, class: "btn btn-danger" %>

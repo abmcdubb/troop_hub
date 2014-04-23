@@ -95,17 +95,18 @@
 
                 <div class="col-md-7">
                   <div class="form-group">
-                <% if current_user.role == "Scout"%>
+                <% if @user.role == "Scout"%>
                     <%= render :partial => 'users/registrations/scouts_form' , :locals => {:f => f} %>
                 <%else%>
                     <%= render :partial => 'users/registrations/adults_form' , :locals => {:f => f} %>
                   <%end%>
                 </div><!-- form-group -->
               </div> <!-- col-md-7 -->
+ <div class="col-md-7">
 
-
-<%= f.submit "Update" %>
+<%= f.submit "Update", class: 'btn btn-danger' %>
 <% end %>
+</div>  
             </div> <!-- booking-form -->
             
         </div> <!-- end col-md-8 -->
@@ -114,10 +115,11 @@
               
 
 
-
+<% if current_user == @user %>
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'%></p>
+<% end %>
 
   
            <!--  </div> -->
