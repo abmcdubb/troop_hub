@@ -1,4 +1,4 @@
 <%= form_for(@user_badge) do |f| %>
   <%= f.autocomplete_field :badge, autocomplete_badge_name_user_badges_path, :id_element => '#some_element', 'data-delimiter' => ',', :multiple => true%>
-  <%= f.submit "Add Badges"%>
+  <%= f.submit "Add Badges", class: 'btn btn-danger'%>
 <%end%>

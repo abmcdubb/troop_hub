@@ -12,9 +12,6 @@ class UserBadgesController < ApplicationController
   end
 
   def create
-    # @user_badge = UserBadge.new
-    # @user_badge.user_id = current_user.id
-    # @user_badge.badge_id =
     @badges = params[:user_badge][:badge][0].split(",")
     @badges.each do |b|
     @badge = Badge.find_by_name(b)
@@ -23,7 +20,7 @@ class UserBadgesController < ApplicationController
   end
     respond_to do |format|
       if @user_badge.save
-        format.html { redirect_to "/users/#{current_user.id}", notice: 'Troop was successfully created.' }
+        format.html { redirect_to "/users/#{current_user.id}", notice: 'Badges was successfully added.' }
       else
         format.html { render action: 'new' }
       end

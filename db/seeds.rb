@@ -46,7 +46,7 @@ adult_4 = User.create(troop_ids: '1, 3', role: 'Parent', name: 'Vernon Dursley',
 adult_5 = User.create(troop_ids: '1', role: 'Troop Leader', name: 'Lilly Potter', email: 'lily@tookawandtotheheart.com', phone_number: '555-555-5555', profile_photo: 'lpotter.jpg', admin_privileges: 0, password: '123456789')
 adult_6 = User.create(troop_ids: '2', role: 'Volunteer', name: 'Dolores Umbridge', email: 'dolores@ilovepink.com', phone_number: '212-555-5555', profile_photo: 'dumbridge.jpg', admin_privileges: 0, password: '123456789')
 adult_7 = User.create(troop_ids: '3', role: 'Parent', name: 'Fleur Delacour', email: 'fleur@parlevousfrancais.com', phone_number: '917-555-5555', profile_photo: 'fdelacour.jpg', admin_privileges: 0, password: '123456789')
-adult_8 = User.create(troop_ids: '2, 1', role: 'Volunteer', name: 'Nymphadora Tonks', email: 'nymphadora@greenhairrocks.com', phone_number: '646-555-5555', profile_photo: 'ntonks.jpg', admin_privileges: 0, password: '123456789')
+adult_8 = User.create(troop_ids: '2', role: 'Volunteer', name: 'Nymphadora Tonks', email: 'nymphadora@greenhairrocks.com', phone_number: '646-555-5555', profile_photo: 'ntonks.jpg', admin_privileges: 0, password: '123456789')
 adult_8 = User.create(role: 'Volunteer', name: 'Tom Riddle', email: 'tomriddle@deathtomuggles.com', phone_number: '646-555-5555', profile_photo: 'tomriddle.jpg', password: '123456789')
 
 age_level_1 = AgeLevel.create(name: "Daisy", grades: "K-1")
@@ -152,7 +152,6 @@ skill5 = Skill.create(name: 'Arts & Crafts', category: 'GENERAL', badge_related_
 skill6 = Skill.create(name: 'Cooking', category: 'GENERAL', badge_related_skill: true)
 skill7 = Skill.create(name: 'Geography & Culture', category: 'GENERAL', badge_related_skill: true)
 skill8 = Skill.create(name: 'Health & Safety',  category: 'GENERAL', badge_related_skill: true)
-skill23 = Skill.create(name: 'Community Service',  category: 'GENERAL', badge_related_skill: true)
 
 # ----STEM Skills ----
 skill9 = Skill.create(name: 'Computer Science', category: 'STEM', badge_related_skill: true)
@@ -175,6 +174,7 @@ skill21 = Skill.create(name: 'Habitat Restoration', category: 'NATURE AND ECOLOG
 
 #---OTHER----
 skill22 = Skill.create(name: 'OTHER', badge_related_skill: true)
+skill23 = Skill.create(name: 'Community Service',  category: 'GENERAL', badge_related_skill: true)
 
 
 adult_skill_1 = UserSkill.create(skill_id: 3, user_id: 1, skill_description: "Violin, Viola, Cello")

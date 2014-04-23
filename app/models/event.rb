@@ -86,8 +86,8 @@ class Event < ActiveRecord::Base
       skills = Skill.where(category: 'STEM')
     elsif skill_id == "BUSINESS SMARTS"
       skills = Skill.where(category: 'BUSINESS SMARTS')
-    elsif skill_id == "NATURE AND ECOLOGY"
-      skills = Skill.where(category: 'NATURE AND ECOLOGY')
+    elsif skill_id == "NATURE & ECOLOGY"
+      skills = Skill.where(category: 'NATURE & ECOLOGY')
     else
       skills = Skill.all
     end

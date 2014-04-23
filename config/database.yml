@@ -14,8 +14,6 @@ development:
   database: troop_hub_dev
   host: localhost
   port: 5432
-  username: troop_hub
-  password: troophubpassword
   pool: 10
   timeout: 5000
 
@@ -37,7 +35,5 @@ production:
   database: <%= ENV['DATABASE_NAME'] %>
   host: <%= ENV['DATABASE_HOST'] %>
   port: 5432
-  username: <%= ENV['DATABASE_USER'] %>
-  password: <%= ENV['DATABASE_PASS'] %>
   pool: 10
   timeout: 5000

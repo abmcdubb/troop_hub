@@ -101,7 +101,7 @@
 
                 <div class="col-md-7">
                   <div class="form-group">
-                <% if current_user.role == "Scout"%>
+                <% if user.role == "Scout"%>
                     <%= render :partial => 'scouts_form' , :locals => {:f => f} %>
                 <%else%>
                     <%= render :partial => 'users/registrations/adults_form' , :locals => {:f => f} %>
@@ -110,7 +110,7 @@
               </div> <!-- col-md-7 -->
 
 
-<%= f.submit "Update" %>
+<%= f.submit "Update", class: 'btn btn-danger' %>
 <% end %>
             </div> <!-- booking-form -->
             
