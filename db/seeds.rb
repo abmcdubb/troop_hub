@@ -166,11 +166,11 @@ skill15 = Skill.create(name: 'Financial Literacy', category: 'BUSINESS SMARTS', 
 skill16 = Skill.create(name: 'Career Exploration', category: 'BUSINESS SMARTS', badge_related_skill: true)
 
 #---Nature & Ecology ----
-skill17 = Skill.create(name: 'Plants & Gardening', category: 'NATURE & ECOLOGY', badge_related_skill: true)
-skill18 = Skill.create(name: 'Outdoor Skills', category: 'NATURE & ECOLOGY', badge_related_skill: true)
-skill19 = Skill.create(name: 'Animals', category: 'NATURE & ECOLOGY', badge_related_skill: true)
-skill20 = Skill.create(name: 'Climate/Earth Science', category: 'NATURE & ECOLOGY', badge_related_skill: true)
-skill21 = Skill.create(name: 'Habitat Restoration', category: 'NATURE & ECOLOGY', badge_related_skill: true)
+skill17 = Skill.create(name: 'Plants & Gardening', category: 'NATURE AND ECOLOGY', badge_related_skill: true)
+skill18 = Skill.create(name: 'Outdoor Skills', category: 'NATURE AND ECOLOGY', badge_related_skill: true)
+skill19 = Skill.create(name: 'Animals', category: 'NATURE AND ECOLOGY', badge_related_skill: true)
+skill20 = Skill.create(name: 'Climate/Earth Science', category: 'NATURE AND ECOLOGY', badge_related_skill: true)
+skill21 = Skill.create(name: 'Habitat Restoration', category: 'NATURE AND ECOLOGY', badge_related_skill: true)
 
 #---OTHER----
 skill22 = Skill.create(name: 'OTHER', badge_related_skill: true)

@@ -1,50 +1,48 @@
-<%=render partial: 'layouts/banner', locals: {:name => "Add Troop News", :left_option => "The Social Media Site for Girl Scouts", :right_option => "Add Troop-Related News for Your Troop Page!" }%>
-
 <div align = "justify">
   <center>
   <%=form_for(@newsletter) do |f|%>
   <div class = "formfield"> 
     <%= f.label "Leader Note:" %>
- <%= f.text_area :note_from_leader %></div><br/>
+ <%= f.text_area :note_from_leader, class: "form-control", :rows => 5 %></div><br/>
  <br/>
  <br/>
  <br/>
 <h4>Item 1</h4>
  <%= f.label "News Item Title" %>
-  <%= f.text_field :item1_title %><br/>
+  <%= f.text_field :item1_title, class: "form-control" %><br/>
   <br/>
  <div class = "formfield"> <%= f.label "News Item Details" %>
-  <%= f.text_area :item1_desc %></div><br/>
+  <%= f.text_area :item1_desc, class: "form-control", :rows => 10 %></div><br/>
 <br/>
 <br/>
 <h4>Item 2</h4>
   <%= f.label "News Item Title:" %>
-  <%= f.text_field :item2_title %><br/>
+  <%= f.text_field :item2_title, class: "form-control", :rows => 10 %><br/>
   <br/>
  <div class = "formfield"> <%= f.label "News Item Details:" %>
-  <%= f.text_area :item2_desc %></div><br/>
+  <%= f.text_area :item2_desc, class: "form-control", :rows => 10 %></div><br/>
 <br/>
 <br/>
 <h4>Item 3</h4>
   <%= f.label "News Item Title:" %>
-  <%= f.text_field :item3_title %><br/>
+  <%= f.text_field :item3_title, class: "form-control" %><br/>
   <br/>
   <div class = "formfield"><%= f.label "News Item Details:" %>
-  <%= f.text_area :item3_desc %></div><br/>
+  <%= f.text_area :item3_desc, class: "form-control", :rows => 10  %></div><br/>
 <br/>
 <br/>  
 <br/>
 <br/>
 
   <%= f.label :troop_id %>
-  <%= f.select :troop_id, options_for_select(@user.troops.map{ |s| [s.name, s.id] }) %>
+  <%= f.select :troop_id, options_for_select(@user.troops.map{ |s| [s.name, s.id] }), {}, { :class => 'form-control role-select' }  %>
 
 
 
   <br/>
 
 <br/>
-  <%= f.submit %>
+  <button class="btn btn-danger btn-sm show-submit" type="submit">Send Newsletter</button> 
   <%end%>
 
 
