@@ -37,7 +37,7 @@ class Event < ActiveRecord::Base
 
 
   def self.find_all_by_name(name)
-    where("name='#{name}'")
+    where("name like ?", name)
   end
 
   def self.find_by_search_results_with_too_many_forks(name, skill_id, age_level_ids, badge_ids, season_number)
