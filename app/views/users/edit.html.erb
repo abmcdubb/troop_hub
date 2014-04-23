@@ -102,7 +102,7 @@
                 <div class="col-md-7">
                   <div class="form-group">
                 <% if current_user.role == "Scout"%>
-                    <%= render :partial => 'scouts_form' , :locals => {:f => f} %>
+                    <%= render :partial => 'users/registrations/scouts_form' , :locals => {:f => f} %>
                 <%else%>
                     <%= render :partial => 'users/registrations/adults_form' , :locals => {:f => f} %>
                   <%end%>
