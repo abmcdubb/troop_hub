@@ -19,8 +19,8 @@ end
 
 
 #-------Troop-Specific Routes----------
-get 'user_badges/new' => 'user_badges#new'
-get 'user_badges' => 'user_badges#index'
+# get 'user_badges/new' => 'user_badges#new'
+# get 'user_badges' => 'user_badges#index'
   #get '/troops' => 'troops#index'
   get 'troops/new' => 'troops#new'
   post '/troops' => 'troops#create'
@@ -34,8 +34,8 @@ get 'user_badges' => 'user_badges#index'
   # get 'troops/new' => 'troops#new'
   # post '/troops' => 'troops#create'
 
-  get '/troops/:troop_id/users/new' => 'users#new'
-  post '/troops/:troop_id/users' => 'users#create'
+  # get '/troops/:troop_id/users/new' => 'users/invitations#new'
+  # post '/troops/:troop_id/users' => 'users#create'
   # get '/troops/:troop_id/users/:id' => 'users#show', 
 
   #get 'troops/edit/:id' => 'troops#edit'
