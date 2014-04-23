@@ -43,7 +43,7 @@
 
                       <% if @user.role == 'Scout' %>
                       <span class="company-feature"></b>Badges</span>
-                       <ul class="list-unstyled">s
+                       <ul class="list-unstyled">
                         <% @user.badges.each do |badge|%>
                           <li> 
                           <img class = "badge-logo" src = "<%=badge.logo%>"/> <%= badge.name %>  
@@ -51,6 +51,8 @@
                         <%end%>
 
                         <% else %>
+                        <span class="company-feature"></b>Skills</span>
+                       <ul class="list-unstyled">
                         <% @user.skills.each do |skill|%>
                             <li > <%= skill.name%>
                             <% if @user.user_skills.find_by(skill_id: skill.id).skill_description %>
@@ -85,9 +87,9 @@
  <footer>   
   <center>
   <%if @user == current_user %>
-    <%= button_to "Edit Account", edit_user_registration_path, :class => 'btn btn-danger'  %>
+    <%= link_to "Edit Account", edit_user_path, class: "btn btn-danger" %>
   <% elsif current_user.admin_privileges == 0  %>
-    <%= button_to "Edit Account", edit_user_registration_path, :class => 'btn btn-danger'  %>  
+    <%= link_to "Edit Account", edit_user_path, class: "btn btn-danger" %>    
   <%end%>
   </center>
 </footer>

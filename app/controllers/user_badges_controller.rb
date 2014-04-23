@@ -23,7 +23,7 @@ class UserBadgesController < ApplicationController
   end
     respond_to do |format|
       if @user_badge.save
-        format.html { redirect_to "/users/#{current_user.id}", notice: 'Troop was successfully created.' }
+        format.html { redirect_to "/users/#{current_user.id}", notice: 'Badges was successfully added.' }
       else
         format.html { render action: 'new' }
       end
