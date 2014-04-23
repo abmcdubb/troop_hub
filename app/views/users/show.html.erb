@@ -67,10 +67,10 @@
                     </div>
                   </div>
 
-                <% if @user.role == 'Scout' %>
-                  <%if @user == current_user || current_user.admin_privileges == 0 %>
+                <% if current_user.role == 'Scout' %>
+                  <%#if @user == current_user || current_user.admin_privileges == 0 %>
                     <%= render :partial => 'user_badges/new' %>
-                  <%end%>
+                  <%#end%>
                 <% end %>
 
                 </div>
