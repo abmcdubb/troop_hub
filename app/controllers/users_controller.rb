@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
     @user_badge = UserBadge.new
    intersection = current_user.troop_ids & @user.troop_ids
-   @troop = Troop.find(intersection.first)
+   @troop = Troop.find(intersection.first)  
    unless (!intersection.empty?) || (current_user.admin_privileges < 50 && !intersection.empty?) || (current_user.id == @user.id)
     redirect_to(:back)
   end
