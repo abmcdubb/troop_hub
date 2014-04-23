@@ -3,14 +3,13 @@ class NewslettersController < ApplicationController
 
   def new 
     @newsletter = Newsletter.new
-    @user = current_user
+    if (@user = current_user)
+    else
+      redirect_to ("/")
+    end
     # unless @user.admin_privileges < 50
     #   redirect_to(:back)
     # end
-  end
-
-  def index
-    @newsletters = Newsletter.all
   end
 
   def create
@@ -20,7 +19,7 @@ class NewslettersController < ApplicationController
       if @newsletter.save
         NewsletterMailer.newsletter_email(@newsletter).deliver
 
-        format.html { redirect_to "/troops/#{@newsletter.troop_id}", notice: 'Troop was successfully created.' }
+        format.html { redirect_to "/troops/#{@newsletter.troop_id}", notice: 'Newsletter was successfully created.' }
       else
         format.html { render action: 'new' }
       end

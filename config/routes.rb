@@ -8,7 +8,6 @@ get 'badges' => 'badges#index'
   get 'newsletters/new' => 'newsletters#new'
   post 'newsletters' => 'newsletters#create'
   get 'newsletters/:id' => 'newsletters#show'
-  get 'newsletters' => 'newsletters#index'
 
 resources :user_badges do
   get :autocomplete_badge_name, :on => :collection
