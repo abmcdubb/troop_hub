@@ -47,8 +47,10 @@ class UsersController < ApplicationController
   def edit
     @skills= Skill.all
     intersection = current_user.troop_ids & @user.troop_ids
-    if (current_user != @user) || (current_user.admin_privileges < 50 && intersection.empty?)
-      redirect_to(:back)
+    if intersection.empty?
+      if (current_user != @user) || (current_user.admin_privileges < 50)
+        redirect_to(:back)
+      end
     end
 
   end
