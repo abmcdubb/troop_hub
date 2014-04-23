@@ -30,7 +30,6 @@ class TroopsController < ApplicationController
   end
     @troop = Troop.new 
     @age_levels = AgeLevel.all
-    @age_levels.pop
   end
 
   def create

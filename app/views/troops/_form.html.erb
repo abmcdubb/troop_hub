@@ -6,8 +6,10 @@
     <%= f.text_field :number, class: "form-control" %>
   <label>Troop Type:</label></br>
   <% @age_levels.each do |age_level| %>
-    <%= f.radio_button :age_level_id, age_level.id%>
-    <%= f.label :age_level_id, age_level.name %></br>
+    <%if age_level.id != 7%>
+      <%= f.radio_button :age_level_id, age_level.id%>
+      <%= f.label :age_level_id, age_level.name %></br>
+    <%end%>
   <% end %>
                       <!-- Form inside table wrapper -->
                      
