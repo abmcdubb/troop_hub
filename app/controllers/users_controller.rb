@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  include UsersHelper
+
   before_filter :login_required
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
@@ -37,8 +40,8 @@ class UsersController < ApplicationController
   def show
 
     @user_badge = UserBadge.new
-   intersection = current_user.troop_ids & @user.troop_ids
-   unless (!intersection.empty?) || (current_user.admin_privileges < 50 && !intersection.empty?) || (current_user.id == @user.id)
+    intersection = current_user.troop_ids & @user.troop_ids
+    unless (!intersection.empty?) || (current_user.admin_privileges < 50 && !intersection.empty?) || (current_user.id == @user.id)
     redirect_to(:back)
   end
   
@@ -47,13 +50,36 @@ class UsersController < ApplicationController
   def edit
     @skills= Skill.all
     intersection = current_user.troop_ids & @user.troop_ids
-    if (current_user != @user) || (current_user.admin_privileges < 50 && !intersection.empty?)
+    if (current_user != @user) && (current_user.admin_privileges < 50 && !intersection.empty?)
       redirect_to(:back)
     end
 
   end
 
   def update
+    # if params[:user][:current_password] = @user.password
+      @user.update_attributes(user_params)
+      add_skills_to_adults(@user.id, skills_params[:skill_ids], skills_params[:descriptions]) unless skills_params[:skill_ids].nil?
+      if ! params[:user][:password].empty?
+         @user.update_attributes(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+      end
+
+      if @user.save
+        redirect_to events_path, notice: 'Your profile has been updated.'
+      else
+        @skills= Skill.all
+        intersection = current_user.troop_ids & @user.troop_ids
+        if (current_user != @user) && (current_user.admin_privileges < 50 && !intersection.empty?)
+          redirect_to("/")
+        else
+          render "users/registrations/edit"
+        end
+      end
+    # else
+      # @skills= Skill.all
+      # intersection = current_user.troop_ids & @user.troop_ids
+      # render "users/registrations/edit"
+    # end
   end
 
   def destroy
@@ -64,10 +90,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def user_params
+    params.require(:user).permit(:name, :email, :phone_number) 
+  end
 
-
-
-
+  def skills_params
+    params.require(:user).permit(:skill_ids => [], :descriptions => [])
+  end
 
   #   def set_troop_user
   #   @troop_user = TroopUser.find(params[:user_id])

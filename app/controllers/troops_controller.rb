@@ -30,6 +30,7 @@ class TroopsController < ApplicationController
   end
     @troop = Troop.new
     @age_levels = AgeLevel.all
+    @age_levels.pop
   end
 
   def create
@@ -48,20 +49,19 @@ class TroopsController < ApplicationController
   end
 
   def name_search
-    @troops = Troop.search_by_name(params[:troop])
+    if params[:troop]
+      @troops = Troop.search_by_name(params[:troop])
+    else
+      redirect_to ("/")
+    end
   end
 
   def location_search
-    @troops = Troop.search_by_location(params[:troop])
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    if params[:troop]
+      @troops = Troop.search_by_location(params[:troop])
+    else
+      redirect_to ("/")
+    end
   end
 
   def home
