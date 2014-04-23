@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     @badges=Badge.all
     @age_levels = AgeLevel.all
     @skills = Skill.all
-    @nature_skills = Skill.where(:category => "NATURE & ECOLOGY").order(name: :asc)
+    @nature_skills = Skill.where(:category => "NATURE AND ECOLOGY").order(name: :asc)
     @stem_skills = Skill.where(:category => "STEM").order(name: :asc)
     @business_skills = Skill.where(:category => "BUSINESS SMARTS").order(name: :asc)
     @general_skills = Skill.where(:category => "GENERAL").order(name: :asc)
