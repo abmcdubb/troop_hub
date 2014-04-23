@@ -48,7 +48,7 @@
 
           <!-- Booking form without skills sections-->
           <div class="col-md-5">
-        <%= form_for(:user, url: edit_user_registration_path(:user), html: { method: :patch }) do |f| %>
+        <%= form_for(:user, url: update_user_path(@user), html: { method: :patch }) do |f| %>
                 <!-- Form label -->
                 <label>Full Name</label>
                 <div class="form-group">

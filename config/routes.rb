@@ -8,7 +8,6 @@ get 'badges' => 'badges#index'
   get 'newsletters/new' => 'newsletters#new'
   post 'newsletters' => 'newsletters#create'
   get 'newsletters/:id' => 'newsletters#show'
-  get 'newsletters' => 'newsletters#index'
 
 resources :user_badges do
   get :autocomplete_badge_name, :on => :collection
@@ -22,18 +21,13 @@ end
 #-------Troop-Specific Routes----------
 get 'user_badges/new' => 'user_badges#new'
 get 'user_badges' => 'user_badges#index'
-  get '/troops' => 'troops#index'
+  #get '/troops' => 'troops#index'
   get 'troops/new' => 'troops#new'
   post '/troops' => 'troops#create'
-  get 'troops/edit/:id' => 'troops#edit'
-  # get 'troops/:id' => 'troops#show', as: 'troop'
   get 'troops/search/name' => 'troops#name_search'
   get 'troops/search/location' => 'troops#location_search'
-  #get 'troops/edit/:id' => 'troops#edit'
   get 'troops/:id' => 'troops#show', :as => :troop_show
 
-  patch 'troops/update/:id' => 'troops#update'
-  delete 'troops/destroy' => 'troops#destroy'
   get '/troops/:troop_id/members' => 'troop_users#index', :as => :troop_user
 
   # get '/troops' => 'troops#index'
@@ -46,12 +40,11 @@ get 'user_badges' => 'user_badges#index'
 
   #get 'troops/edit/:id' => 'troops#edit'
   #patch 'troops/update/:id' => 'troops#update'
-  delete 'troops/destroy' => 'troops#destroy'
 
 #---Routes for Individual Users -----
   get '/users/:id' => 'users#show', :as => :user_show
   get '/users/edit/:id' => 'users#edit', :as => :edit_user
-  patch '/users/update/:user_id' => 'troop_users#update'
+  patch '/users/update/:id' => 'users#update', :as => :update_user
   delete '/users/destroy' => 'troop_users#destroy'
 
 
