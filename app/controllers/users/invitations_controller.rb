@@ -25,8 +25,6 @@ prepend_before_filter :authenticate_inviter!, :only => [:new, :create]
 
 
 
-
-
   # PUT /resource/invitation
   def update
     self.resource = accept_resource

@@ -45,7 +45,7 @@
                  <select name="troop_id" class="form-control role-select">
                     <%current_user.troops.each do |troop|%>
                       <option value=<%=troop.id%>><%=troop.name%></option>
-                    <%send%>
+                    <%end%>
                   </select>
 
                 </div>
