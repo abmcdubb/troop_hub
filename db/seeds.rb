@@ -152,7 +152,6 @@ skill5 = Skill.create(name: 'Arts & Crafts', category: 'GENERAL', badge_related_
 skill6 = Skill.create(name: 'Cooking', category: 'GENERAL', badge_related_skill: true)
 skill7 = Skill.create(name: 'Geography & Culture', category: 'GENERAL', badge_related_skill: true)
 skill8 = Skill.create(name: 'Health & Safety',  category: 'GENERAL', badge_related_skill: true)
-skill23 = Skill.create(name: 'Community Service',  category: 'GENERAL', badge_related_skill: true)
 
 # ----STEM Skills ----
 skill9 = Skill.create(name: 'Computer Science', category: 'STEM', badge_related_skill: true)
@@ -175,6 +174,7 @@ skill21 = Skill.create(name: 'Habitat Restoration', category: 'NATURE AND ECOLOG
 
 #---OTHER----
 skill22 = Skill.create(name: 'OTHER', badge_related_skill: true)
+skill23 = Skill.create(name: 'Community Service',  category: 'GENERAL', badge_related_skill: true)
 
 
 adult_skill_1 = UserSkill.create(skill_id: 3, user_id: 1, skill_description: "Violin, Viola, Cello")
