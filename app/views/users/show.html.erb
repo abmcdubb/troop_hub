@@ -43,7 +43,7 @@
 
                       <% if @user.role == 'Scout' %>
                       <span class="company-feature"></b>Badges</span>
-                       <ul class="list-unstyled">s
+                       <ul class="list-unstyled">
                         <% @user.badges.each do |badge|%>
                           <li> 
                           <img class = "badge-logo" src = "<%=badge.logo%>"/> <%= badge.name %>  
