@@ -41,21 +41,22 @@ class Event < ActiveRecord::Base
   end
 
   def self.find_by_search_results_with_too_many_forks(name, skill_id, age_level_ids, badge_ids, season_number)
+   # raise 8
     seasons = Event.seasons_for_search(season_number.to_i)
     skills = Event.skills_for_search(skill_id)
     if (name != "") && seasons.nil? && skills.nil? && age_level_ids.nil? && badge_ids.nil?
       results = Event.find_all_by_name(name.capitalize)
-    elsif age_level_ids && badge_ids && (name != "")
+    elsif age_level_ids && (badge_ids != []) && (name != "")
       results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
-    elsif age_level_ids && badge_ids
+    elsif age_level_ids && (badge_ids != [])
       results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where(season: seasons, skill: skills).uniq 
     elsif age_level_ids && (name != "")
       results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif age_level_ids
       results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where(season: seasons, skill: skills).uniq 
-    elsif badge_ids && (name != "")
+    elsif (badge_ids != []) && (name != "")
       results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badge_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
-    elsif badge_ids
+    elsif (badge_ids != [])
       results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => Badge.where(name: badge_ids)).where(season: seasons, skill: skills).uniq 
     elsif (name != "")
       results = Event.where("name like ?", name).where(season: seasons, skill: skills).uniq
