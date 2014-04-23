@@ -85,9 +85,9 @@
  <footer>   
   <center>
   <%if @user == current_user %>
-    <%= link_to "Edit Account", edit_user_path %>
+    <%= button_to "Edit Account", edit_user_registration_path, :class => 'btn btn-danger'  %>
   <% elsif current_user.admin_privileges == 0  %>
-    <%= link_to "Edit Account", edit_user_path %>    
+    <%= button_to "Edit Account", edit_user_registration_path, :class => 'btn btn-danger'  %>  
   <%end%>
   </center>
 </footer>
