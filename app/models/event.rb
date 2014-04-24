@@ -13,8 +13,6 @@ class Event < ActiveRecord::Base
   validates :name, :presence => true 
   validates :skill_id, :presence => true
   validates :season, :presence => true
-  
-  before_save :check_age_level #if age level changed?
 
 
   def self.find_all_by_name(name)
