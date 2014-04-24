@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 # Troophub
 
 ## Description
 
-Add a short description of your app.
+A networking application for organizing Girl Scout troops, meetings and events, tracking achievements and searching badge-earning activities.
 
 ## Screenshots
 
