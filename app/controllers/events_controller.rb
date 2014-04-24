@@ -43,8 +43,6 @@ class EventsController < ApplicationController
       @event_badge = EventBadge.create({:badge_id => @badge.id, :event_id => @event.id}) if @badge
     end
     @skills = Skill.order(name: :asc)
-    #@troop_event = @event.troop_events.build(params[:troop_event])
-    #there should be a seperate form for new event and new troop event?
     respond_to do |format|
       if @event.save
         format.html { redirect_to events_path, notice: 'Event was successfully created.' }

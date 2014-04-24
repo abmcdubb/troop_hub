@@ -125,7 +125,6 @@ event_16.save
 event_17.save
 
 # event_18.age_level_ids << 7
-event_18.save
 
 
 event_age_level_1 = EventAgeLevel.create(event_id: 1, age_level_id: 1)
