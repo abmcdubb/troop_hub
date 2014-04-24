@@ -16,25 +16,6 @@ class Event < ActiveRecord::Base
   
   before_save :check_age_level #if age level changed?
 
-  def check_age_level
-    # if age_level_ids.include?(7)
-    #   (1...7).each do |i|
-    #     age_level_ids << i
-    #     self.save #-- infinite loop
-    #   end
-    # end
-    # all = true
-    # (1...7).each do |i|
-    #   if not age_level_ids.include?(i)
-    #     all = false
-    #   end
-    # end
-    # if all
-    #   age_level_ids << 7
-    #   self.save #-- infinite loop
-    # end
-  end
-
 
   def self.find_all_by_name(name)
     where("name like ?", name)
@@ -44,17 +25,18 @@ class Event < ActiveRecord::Base
     seasons = Event.seasons_for_search(season_number.to_i)
     skills = Event.skills_for_search(skill_id)
     badges = Event.badges_for_search(badge_ids)
+    ages = Event.ages_for_search(age_level_ids) if age_level_ids
 
     if (name != "") && seasons.nil? && skills.nil? && age_level_ids.nil? && badge_ids.nil?
       results = Event.find_all_by_name(name.capitalize)
     elsif age_level_ids && (badge_ids != []) && (name != "")
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badges).where("name like ?", name).where(season: seasons, skill: skills).uniq
+      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => ages).joins(:event_badges).where(:"event_badges.badge_id" => badges).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif age_level_ids && (badge_ids != [])
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).joins(:event_badges).where(:"event_badges.badge_id" => badges).where(season: seasons, skill: skills).uniq 
+      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => ages).joins(:event_badges).where(:"event_badges.badge_id" => badges).where(season: seasons, skill: skills).uniq 
     elsif age_level_ids && (name != "")
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where("name like ?", name).where(season: seasons, skill: skills).uniq
+      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => ages).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif age_level_ids
-      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => age_level_ids).where(season: seasons, skill: skills).uniq 
+      results = Event.all.joins(:event_age_levels).where(:"event_age_levels.age_level_id" => ages).where(season: seasons, skill: skills).uniq 
     elsif (badge_ids != []) && (name != "")
       results = Event.all.joins(:event_badges).where(:"event_badges.badge_id" => badges).where("name like ?", name).where(season: seasons, skill: skills).uniq
     elsif (badge_ids != [])
@@ -86,6 +68,26 @@ class Event < ActiveRecord::Base
     end
     ids
   end
+
+  def self.ages_for_search(ages)
+    if ages.include?(7.to_s)
+      (1...7).each do |x|
+        ages << x
+      end
+    else
+      all = true
+      (1...7).each do |i|
+        if not ages.include?(i.to_s)
+          all = false
+        end
+      end
+      if all
+        ages << 7
+      end
+    end
+    ages
+  end
+
 
   def self.skills_for_search(skill_id)
     if skill_id.to_i > 0
