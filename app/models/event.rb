@@ -1,3 +1,5 @@
+require 'prime'
+
 class Event < ActiveRecord::Base
 
   has_many :troop_events
@@ -107,6 +109,85 @@ class Event < ActiveRecord::Base
   def self.find_by_skill_category(category_name)
     category_name = category_name.gsub("-and-"," & ").gsub("-"," ")
     Event.joins(:skill).where("skills.category like ?", category_name.upcase)
+  end
+
+
+  def self.header_for_advanced_search_results(search_criteria)
+    header = "Events"
+    if (search_criteria[:name] != "")
+      header += " named #{search_criteria[:name]}"
+    end
+    if (search_criteria[:skill_id].to_i != 0)
+      skill = Skill.find(search_criteria[:skill_id]).name
+      header += " related to #{skill}"
+    elsif (search_criteria[:skill_id] != "Any")
+      header += " related to #{search_criteria[:skill_id]}"
+    else
+      header += " related to Any Category"
+    end
+    if (search_criteria[:age_level_ids])
+      ages = " for"
+      search_criteria[:age_level_ids].each_with_index do |age_level_id, i|
+        if (i == 0)
+          name = AgeLevel.find(age_level_id).name
+          ages+= " #{name.pluralize}"
+        else
+          name = AgeLevel.find(age_level_id).name
+          ages+= " or #{name.pluralize}"
+        end
+      end
+      header += "#{ages}"
+    end
+      header += Event.seasons_for_header(search_criteria[:season])
+    if (search_criteria[:badge_ids] != "")
+      badges = Event.badges_for_search_result_header(search_criteria[:badge_ids])
+      header += " giving #{badges}"
+    end
+    header
+  end
+
+  def self.badges_for_search_result_header(badge_names)#this method and one above should be in controller
+    badge_names_array = badge_names.split(",") #this and next three lines of code is taken from create event controller. This should either be abstraced or ask emma if autocomplete will allow us to save data from this field in array
+    badge_string = ""
+    badge_names_array.each_with_index do |b, i|
+      if (i == (badge_names_array.length - 1) && badge_names_array.length != 1 && badge_names_array.length != 2)
+        badge_string += "or #{b} badges"
+      elsif (badge_names_array.length != 1 && badge_names_array.length != 2)
+        badge_string += "#{b}, "
+      elsif  badge_names_array.length != 2
+        badge_string += "a #{b} badge"
+      elsif i != (badge_names_array.length - 1)
+        badge_string+=b
+      else
+        badge_string += " or #{b} badges"
+      end
+      # if length two no comma?
+    end
+    " badges"
+    badge_string
+  end
+
+  def self.seasons_for_header(number)
+    seasons = ""
+
+    lookup_hash = {1 => 'Any', 2 => 'Spring', 3 => 'Summer', 5 => 'Fall', 7 => 'Winter', 49 => 'January', 77 => 'Febuary', 14 => 'March', 4 => 'April', 22 => 'May', 6 => 'June', 9 => 'July', 33 => 'August', 15 => 'September', 25 => 'October', 55 => 'November', 35 => 'December', 245 => 'New Years', 117 => 'Independence Day'}
+    number = number.to_i
+    factors = Prime.prime_division(number)
+    sum = 0
+    factors.each do |array|
+        sum+=array[1]
+      end
+    
+    if sum == 0
+      seasons+= " during any season"
+    elsif sum == 1
+      seasons+= " during the #{lookup_hash[number]}"
+    elsif sum == 2
+      seasons += " in the month of #{lookup_hash[number]}"
+    else
+      seasons += " on #{lookup_hash[number]}"
+    end
+    seasons
   end
 
 end

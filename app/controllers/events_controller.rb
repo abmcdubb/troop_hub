@@ -98,6 +98,7 @@ class EventsController < ApplicationController
     @event_badges = EventBadge.all
 
     @events = Event.find_all_by_name(params[:event][:name].capitalize).order(name: :asc).paginate(page: params[:page], per_page: 10)
+    @skill_name = "Events names #{params[:event][:name]}"
   end
 
   def advanced_search_results
@@ -107,6 +108,7 @@ class EventsController < ApplicationController
     @badges = Badge.all
     @event_badges = EventBadge.all
     @events = Event.find_by_search_results_with_too_many_forks(params[:event][:name].capitalize, params[:event][:skill_id], params[:event][:age_level_ids], params[:event][:badge_ids].split(","), params[:event][:season]).order(name: :asc).paginate(page: params[:page], per_page: 10)
+    @skill_name = Event.header_for_advanced_search_results(params[:event])
   end
   
 private
