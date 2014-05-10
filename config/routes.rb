@@ -67,6 +67,11 @@ end
   post 'troop_events/new_event' => 'troop_events#create_event'
   post 'troop_events' => 'troop_events#create'
   get 'troop_events/:id' => 'troop_events#show', as: 'troop_event'
+  get 'troop_events/:id/edit' => 'troop_events#edit', as: 'edit_troop_event'
+  patch 'troop_events/:id' => 'troop_events#update'
+  delete 'troop_events/:id' => 'troop_events#destroy'
+
+
 
   post 'photos/:photoable_id/:photoable_type' => 'photos#create'
   delete 'photos/:photoable_id/:page_for_redirect/:photo_id' => 'photos#delete'

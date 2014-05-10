@@ -1,3 +1,5 @@
+<%=render partial: 'layouts/banner', locals: {:name => "Edit Troop Event", :left_option => "Troop Hub: The Social Media Site for Girl Scouts", :right_option => "Add This Even to Your Calendar" }%>
+
       <div class="inner-page padd">
       
         <!-- Single Item Start -->
@@ -13,7 +15,7 @@
                 </div>
                 <div class="col-md-8 col-sm-12">
                   <!-- Heading -->
-                  <h3>Add <%= @event.name %> to your Troop Calendar</h3>
+                  <h3>Edit This Troop Event</h3>
                   <div class="row">
                     <div class="col-md-7 col-sm-12">
                       <!-- Single item details -->
@@ -38,7 +40,7 @@
                             <%end%>
                             <br/><br/>
                             <%= f.label :start_time, "Start Time:" %><font color = "red">*</font><br>
-                            <input id = "event_time"></input>
+                            <input id = "event_time" value = "<%=@troop_event.start_time.strftime("%m-%d-%Y %I:%M%p")%>"></input>
                             <%= f.hidden_field :start_time%>
 
 

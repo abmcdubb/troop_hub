@@ -72,22 +72,50 @@ class TroopEventsController < ApplicationController
     @troop_event = TroopEvent.create(troop_event_params)
     respond_to do |format|
       if @troop_event.save
-        format.html { redirect_to "/troops/#{@troop_event.troop_id}", notice: 'This event has been succesfully added to your calendar.' }
+        format.html { redirect_to "/troops/#{@troop_event.troop_id}/#collapseOne", notice: 'This event has been succesfully added to your calendar.' }
       else
-        @events = Event.all
-        @troops = Troop.all
-        format.html { render action: 'new' }
+      # if params[:event_id]
+      @troop_event.event_id = params[:troop_event][:event_id]
+      @troop_event.troop_id = params[:troop_event][:troop_id]
+      @event = Event.find(@troop_event.event_id)
+      @troops = current_user.troops
+      @events = Event.all
+        format.html { render :new }
       end
     end
   end
 
   def edit
+    if current_user.admin_privileges < 50
+      @event = Event.find(@troop_event.event_id)
+      @troops = current_user.troops
+    else
+      redirect_to('/')
+    end
   end
 
   def update
-  end
+    @troop_event = TroopEvent.find(params[:id])
+    @troop_event.update_attributes(troop_event_params)
+    if @troop_event.save
+        redirect_to "/troops/#{@troop_event.troop_id}/#collapseOne", notice: 'Troop Event Updated.'
+      else
+       @troop_event.event_id = params[:troop_event][:event_id]
+      @troop_event.troop_id = params[:troop_event][:troop_id]
+      @event = Event.find(@troop_event.event_id)
+      @troops = current_user.troops
+      @events = Event.all
+        format.html { render :edit }
+      end
+    end
+  
 
   def destroy
+    @troop_event.destroy
+    redirect_to "/troops/#{@troop_event.troop_id}/#collapseOne", notice: 'Troop Event Deleted.'
+  end
+
+  def confirm
   end
 
 private
