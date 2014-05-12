@@ -3,6 +3,9 @@ class TroopBlog < ActiveRecord::Base
 
   mount_uploader :photo, ProfilePhotoUploader
 
+  validates_presence_of :headline
+  validates_presence_of :body
+
   def self.homepage_news_feed
     order(created_at: :desc).limit(3)
   end

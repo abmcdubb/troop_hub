@@ -17,6 +17,9 @@
                 <div class="col-md-8 col-sm-7">
                   <!-- Heading -->
                   <h3>Add News Article</h3>
+                  <%  @troop_blog.errors.full_messages.each do |msg| %>
+                    <li><font color="red"><%= msg %></font></li>
+                  <% end %>
                   <div class="row">
                     <div class="col-md-7 col-sm-12">
                       <!-- Single item details -->
