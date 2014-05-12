@@ -13,8 +13,8 @@ class Users::RegistrationsController < ::Devise::RegistrationsController
   end
   
 
-def update
-end
+  def update
+  end
 
   def create 
     sanitize_params_by_role 

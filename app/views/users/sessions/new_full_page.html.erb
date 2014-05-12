@@ -1,0 +1,67 @@
+<%=render partial: 'layouts/banner', locals: {:name => "Sign In", :left_option => "Troop Hub: The Social Media Site for Girl Scouts", :right_option => "Sign In!" }%>
+
+<div class="inner-page padd">
+  <!-- Booking Start -->
+  <div class="booking">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Heading -->
+          <h3 >Sign In</h3>
+          <!-- Paragraph -->
+          </div> <!-- col-md-12 -->
+          <!-- Image Slider -->
+          <div class="col-md-4">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie1.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie2.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie3.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie4.jpg") %>" alt="" />
+              </div>
+              <div class="item">
+                <img class="img-responsive" src="<%= asset_path("gs_cookie5.jpg") %>" alt="" />
+              </div>
+    
+            </div> <!-- carousel-inner -->
+
+            <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <span class="fa fa-chevron-left"></span>
+            </a>
+          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="fa fa-chevron-right"></span>
+          </a>
+          </div> <!-- carousel-example-generic -->
+        </div> <!-- col-md-4 -->
+        
+
+        <div class="col-md-8">
+          <!-- Booking form without skills sections-->
+          <div class="col-md-5">
+           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div><%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %></div>
+            <div><%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off" %></div>
+
+            <% if devise_mapping.rememberable? -%>
+              <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+            <% end -%>
+
+            <div class="form-group"><button class="btn btn-danger btn-sm show-submit " type="submit">Sign In</button></div>
+          <% end %>
+          <%= render "users/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
