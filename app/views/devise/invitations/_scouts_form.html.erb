@@ -22,7 +22,7 @@
                   <label class="form_label_font scouts-form">Birthday</label>
                   <div class="form-group">
                   <!-- Form input -->
-                  <%= f.date_field :birthday, :value => Time.now.strftime("%Y-%m-%d"), :class => "scouts-form form-control-update scouts-form"  %>
+                  <%= f.date_field :birthday, :value => Time.new(Time.now.year-8).strftime("%Y-%m-%d"), :class => "scouts-form form-control-update scouts-form"  %>
                   </div>
                   <!-- Form label -->
                   <label class="form_label_font scouts-form">Patches Earned</label>

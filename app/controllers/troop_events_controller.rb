@@ -46,7 +46,7 @@ class TroopEventsController < ApplicationController
     end
   end
 
-#why is this here? how is it different than create
+#why is this here? how is it different than create. Answer: This is for creating event and troop event simultaniously
   def create_event
     @event = Event.create(event_params)
     @troop_event = TroopEvent.create(troop_event_params)
@@ -69,6 +69,7 @@ class TroopEventsController < ApplicationController
   end
 
   def create
+    set_calendar_params(params[:start_time_together])
     @troop_event = TroopEvent.create(troop_event_params)
     respond_to do |format|
       if @troop_event.save
@@ -98,6 +99,12 @@ private
 
   def set_troop_event
     @troop_event = TroopEvent.find(params[:id])
+  end
+
+  def set_calendar_params(start_time)
+    params[:troop_event][:"start_time(1i)"] = start_time.match("\/").post_match.match("\/").post_match
+    params[:troop_event][:"start_time(2i)"] = start_time.match("\/").pre_match
+    params[:troop_event][:"start_time(3i)"] = start_time.match("\/").post_match.match("\/").pre_match
   end
 
   def troop_event_params

@@ -41,6 +41,10 @@ $(document).ready(function() {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
 	});
+
+	$(function() {
+  $("#start_time_together").datepicker();
+});
 		
 });
 /* *************************************** */
