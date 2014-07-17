@@ -62,13 +62,12 @@ class UsersController < ApplicationController
   def update
     # if params[:user][:current_password] = @user.password
       @user.update_attributes(user_params)
-      add_skills_to_adults(@user.id, skills_params[:skill_ids], skills_params[:descriptions]) unless skills_params[:skill_ids].nil?
+      add_comma_seperated_skills_to_adults(@user.id, skills_params[:skill_ids], skills_params[:descriptions]) unless skills_params[:skill_ids].nil?
       if ! params[:user][:password].empty?
          @user.update_attributes(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
       end
-
       if @user.save
-        redirect_to events_path, notice: 'Your profile has been updated.'
+        redirect_to user_path(@user), notice: 'Your profile has been updated.'
       else
         @skills= Skill.all
         intersection = current_user.troop_ids & @user.troop_ids

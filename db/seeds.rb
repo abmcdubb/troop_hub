@@ -183,6 +183,7 @@ adult_skill_4 = UserSkill.create(skill_id: 8, user_id: 2, skill_description: "Bl
 adult_skill_5 = UserSkill.create(skill_id: 6, user_id: 2, skill_description: "Hor D'Oervres")
 adult_skill_6 = UserSkill.create(skill_id: 9, user_id: 2, skill_description: "Creating Programming, Hacking")
 adult_skill_7 = UserSkill.create(skill_id: 5, user_id: 2, skill_description: "Crocheting")
+adult_skill_7_2 = UserSkill.create(skill_id: 5, user_id: 2, skill_description: "Knitting")
 
 adult_skill_8 =  UserSkill.create(skill_id: 11, user_id: 3, skill_description: "Calculus")
 adult_skill_9 =  UserSkill.create(skill_id: 9, user_id: 3, skill_description: "HTML, Node.js")

@@ -29,76 +29,65 @@
               <div class="item">
                 <img class="img-responsive" src="<%= asset_path("gs_cookie5.jpg") %>" alt="" />
               </div>
-    
             </div> <!-- carousel-inner -->
-
             <!-- Controls -->
-          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
               <span class="fa fa-chevron-left"></span>
             </a>
-          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
               <span class="fa fa-chevron-right"></span>
-          </a>
+            </a>
           </div> <!-- carousel-example-generic -->
         </div> <!-- col-md-4 -->
-        
-
         <div class="col-md-8">
-
-
           <!-- Booking form without skills sections-->
           <div class="col-md-5">
-        <%= form_for(:user, url: update_user_path(@user), html: { method: :patch }) do |f| %>
+            <%= form_for(:user, url: update_user_path(@user), html: { method: :patch }) do |f| %>
                 <!-- Form label -->
                 <label>Full Name</label>
                 <div class="form-group">
                   <!-- Form input -->
                   <%= f.text_field :name, autofocus: true, :class => "form-control" %>
                 </div>
-                <!-- Form label -->
-                <label>Email</label>
+                  <!-- Form label -->
+                  <label>Email</label>
                 <div class="form-group">
                   <!-- Form input -->
                   <%= f.email_field :email, autofocus: true, :class => "form-control"  %>
                 </div>
                 <!-- Form label -->
-   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+                <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                <%= f.password_field :password, autocomplete: "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+                <div><%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
-<br/>
-<br/>
-<% if current_user.admin_privileges < 50 %>
-<dl><%= f.label :admin_privileges %>:
-<%= f.select :admin_privileges, User::ADMIN, class: "form-control" %></dl>
-<%end%>
-
+                <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                <%= f.password_field :current_password, autocomplete: "off" %></div>
+                <br/>
+                <br/>
+                <% if current_user.admin_privileges < 50 %>
+                  <dl><%= f.label :admin_privileges %>:
+                  <%= f.select :admin_privileges, User::ADMIN, class: "form-control" %></dl>
+                <%end%>
                 <!-- Form label -->
                 <label>Phone Number</label>
                 <div class="form-group">
                   <!-- Form input -->
                   <%= f.text_field :phone_number, autofocus: true, :class => "form-control"  %>
                 </div>
-
                 <!-- Form label -->
                 <label class="form_label_font">Profile Photo</label>
                 <div class="form-group">
                   <!-- Form input -->
                   <%= f.file_field :profile_photo %><br/>
                 </div>
-
-
-
-                <div class="col-md-7">
-                  <div class="form-group">
                 <% if @user.role == "Scout"%>
+                <div class="col-md-8">
+                  <div class="form-group">
                     <%= render :partial => 'users/registrations/scouts_form' , :locals => {:f => f} %>
                 <%else%>
-                    <%= render :partial => 'users/registrations/adults_form' , :locals => {:f => f} %>
+                    <%= render :partial => 'users/registrations/adults_form' , :locals => {:f => f, :user => @user} %>
                   <%end%>
                 </div><!-- form-group -->
               </div> <!-- col-md-7 -->

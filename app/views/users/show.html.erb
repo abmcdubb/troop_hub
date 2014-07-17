@@ -56,7 +56,9 @@
                         <% @user.skills.each do |skill|%>
                             <li > <%= skill.name%>
                             <% if @user.user_skills.find_by(skill_id: skill.id).skill_description %>
-                             - <span class="lblue"><%= @user.user_skills.find_by(skill_id: skill.id).skill_description %></span>
+                             - <span class="lblue">
+                            <%=UserSkill.all_descriptions_for(@user.id, skill.id)%>
+                             <%#= @user.user_skills.find_by(skill_id: skill.id).skill_description %></span>
                              <% end %>
                             </li>
                           <% end %>

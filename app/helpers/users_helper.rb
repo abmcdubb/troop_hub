@@ -6,6 +6,18 @@ module UsersHelper
     end
   end
 
+  def add_comma_seperated_skills_to_adults(user_id, skill_ids, skill_descriptions)
+    skill_ids.each do |skill_id|
+      if skill_descriptions[skill_id.to_i - 1] != ""
+        skill_descriptions[skill_id.to_i - 1].split(",").each do |skill_description|
+          UserSkill.create(skill_id: skill_id.to_i, user_id: user_id, skill_description: skill_description)
+        end
+      else
+        UserSkill.create(skill_id: skill_id.to_i, user_id: user_id, skill_description: skill_descriptions[skill_id.to_i - 1])
+      end
+    end
+  end
+
   def placeholder(skill_name)
     case skill_name
     when "Music"

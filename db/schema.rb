@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140421142606) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
+  #this should just be an age_level_id in the badge table
   create_table "badge_age_levels", force: true do |t|
     t.integer  "badge_id"
     t.integer  "age_level_id"
