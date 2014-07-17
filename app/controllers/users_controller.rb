@@ -60,8 +60,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    # if params[:user][:current_password] = @user.password
+    #if params[:user][:current_password].to_i == @user.password
       @user.update_attributes(user_params)
+      #raise 9
       add_comma_seperated_skills_to_adults(@user.id, skills_params[:skill_ids], skills_params[:descriptions]) unless skills_params[:skill_ids].nil?
       remove_skills(user_skill_params[:user_skill_ids]) unless user_skill_params.empty?
       if ! params[:user][:password].empty?
@@ -78,11 +79,11 @@ class UsersController < ApplicationController
           render "users/registrations/edit"
         end
       end
-    # else
+   # else
       # @skills= Skill.all
       # intersection = current_user.troop_ids & @user.troop_ids
       # render "users/registrations/edit"
-    # end
+    #end
   end
 
   def destroy
@@ -94,7 +95,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :phone_number) 
+    params.require(:user).permit(:name, :email, :phone_number, :profile_photo) 
   end
 
   def skills_params
