@@ -18,6 +18,12 @@ module UsersHelper
     end
   end
 
+  def remove_skills(user_skill_ids)
+    user_skill_ids.each do |user_skill_id|
+      UserSkill.find(user_skill_id.to_i).destroy
+    end
+  end
+
   def placeholder(skill_name)
     case skill_name
     when "Music"

@@ -63,11 +63,12 @@ class UsersController < ApplicationController
     # if params[:user][:current_password] = @user.password
       @user.update_attributes(user_params)
       add_comma_seperated_skills_to_adults(@user.id, skills_params[:skill_ids], skills_params[:descriptions]) unless skills_params[:skill_ids].nil?
+      remove_skills(user_skill_params[:user_skill_ids]) unless user_skill_params.empty?
       if ! params[:user][:password].empty?
          @user.update_attributes(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
       end
       if @user.save
-        redirect_to user_path(@user), notice: 'Your profile has been updated.'
+        redirect_to user_show_path(@user), notice: 'Your profile has been updated.'
       else
         @skills= Skill.all
         intersection = current_user.troop_ids & @user.troop_ids
@@ -98,6 +99,10 @@ class UsersController < ApplicationController
 
   def skills_params
     params.require(:user).permit(:skill_ids => [], :descriptions => [])
+  end
+
+  def user_skill_params
+    params.require(:user).permit(:user_skill_ids => [])
   end
 
   #   def set_troop_user
