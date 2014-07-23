@@ -58,7 +58,7 @@
                   <%= f.email_field :email, autofocus: true, :class => "form-control"  %>
                 </div>
                 <!-- Form label -->
-                <div><%=label_tag(:'user[password]', "New Password", :class => "form_label_font")%> <i>(leave blank if you don't want to change it)</i><br />
+                <div><%=label_tag(:'user[password]', "New Password (leave blank if you don't want to change it)", :class => "form_label_font")%> <i></i><br />
                 <%= f.password_field :password, autocomplete: "off" %></div>
 
                 <div><%=label_tag(:'user[password_confirmation]', "Confirm New Password", :class => "form_label_font")%>
@@ -82,7 +82,8 @@
                   <!-- Form input -->
                   <%= f.file_field :profile_photo %><br/>
                 </div>
-                <label class="form_label_font"><%= f.label :current_password %> <i>(we need current password to confirm all changes)</i></label><br />
+                <%=label_tag(:'user[current_password]', "Current Password (we need current password to confirm all changes)", :class => "form_label_font alert-danger")%><br />
+                <!-- make this label bigger or bolder or something -->
                 <div class="form-group">
                 <%= f.password_field :current_password, autocomplete: "off" %>
                 </div><br><br>
