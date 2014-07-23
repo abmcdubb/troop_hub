@@ -64,7 +64,8 @@ class UsersController < ApplicationController
       add_comma_seperated_skills_to_adults(@user.id, skills_params[:skill_ids], skills_params[:descriptions]) unless skills_params[:skill_ids].nil?
       remove_skills(user_skill_params[:user_skill_ids]) unless user_skill_params.empty?
       if ! params[:user][:password].empty?
-         @user.update_attributes(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+        @user.update_attributes(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+        sign_in(@user, :bypass => true)
       end
       if @user.save
         redirect_to user_show_path(@user), notice: 'Your profile has been updated.'
